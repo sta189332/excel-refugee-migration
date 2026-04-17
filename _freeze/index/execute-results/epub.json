@@ -1,0 +1,21 @@
+{
+  "hash": "ee29d7eddf1f563b95233ac255b87be6",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"The Excel Refugee Migration\"\nsubtitle: \"Stop Babysitting Spreadsheets. Start Commanding Data\"\nauthor: \"Author Name\"\ndescription: \"A story-driven practical guide for corporate professionals moving from manual spreadsheet work into faster, repeatable workflows in R.\"\nkeywords:\n  - Excel\n  - R\n  - business analysis\n  - reporting automation\n  - data cleaning\n  - productivity\n---\n\n# Dedication {.unnumbered}\n\nFor the people who kept the reporting cycle alive long after the workbook should have died.\n\n# About This Book {.unnumbered}\n\nThis book is written for professionals who never planned to become technical people and still ended up carrying technical work.\n\nYou might work in finance. Or HR. Or operations. Or reporting. Or business analysis. The title on your email signature is less important than the shape of your week. Files arrive. Formats drift. Lookups break. A dashboard needs updating before a meeting. Someone upstream changes a column name and half your morning disappears.\n\nYou know the work. You know the pressure. You know the strange fatigue of doing something familiar over and over and still not trusting the process.\n\nThis book was built for that reader.\n\nNot the aspiring software engineer.\n\nNot the hobbyist coder.\n\nThe working professional who is smart, capable, overloaded, and tired of babysitting spreadsheets.\n\n## How to Read This Book {.unnumbered}\n\nYou do not need to read this like a programming manual.\n\nRead it like a migration plan.\n\nEach chapter moves from a familiar business pain point toward a more stable way of working. The story matters because burnout is part of the problem. The code matters because relief has to become operational.\n\nExpect three things as you move through the book:\n\n1.  Recognition. You will see your current work life on the page.\n2.  Translation. Familiar Excel logic will be mapped into R in plain language.\n3.  Transfer. You will leave each chapter with something you can use at work.\n\n## What You Will Need {.unnumbered}\n\nYou need:\n\n-   a laptop with R and RStudio installed\n-   a few CSV or Excel files from work, with sensitive information removed if needed\n-   the willingness to stop treating manual repetition as normal\n\n## A Note on the Tone of This Book {.unnumbered}\n\nThis is a practical book with a human voice. It is not written to impress programmers. It is written to help professionals save time, reduce friction, and recover mental space.\n\n## Optional Setup Check {.unnumbered}\n\nThe code blocks throughout the book are designed to be executable. This quick check gives the project a working starting point.\n\n\n::: {.cell}\n\n```{.r .cell-code}\nversion$version.string\n```\n\n::: {.cell-output .cell-output-stdout}\n\n```\n[1] \"R version 4.5.2 (2025-10-31 ucrt)\"\n```\n\n\n:::\n:::\n\n\n## Book Roadmap {.unnumbered}\n\nThe structure follows a professional transition arc:\n\n-   first, you recognize the spreadsheet ceiling\n-   then, you see why R fits this kind of work\n-   then, you build confidence through small wins\n-   then, you translate familiar Excel logic into repeatable workflows\n-   finally, you start thinking like an R-powered strategist rather than a spreadsheet maintainer\n\n## Publishing Note {.unnumbered}\n\nThis Quarto project is set up for HTML, PDF, and EPUB output. The same manuscript can become a book website, a print-ready interior, and a Kindle-friendly ebook with one project structure.\n",
+    "supporting": [
+      "index_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {
+      "knitr": [
+        "{\"type\":\"list\",\"attributes\":{},\"value\":[]}"
+      ]
+    },
+    "preserve": null,
+    "postProcess": false
+  }
+}

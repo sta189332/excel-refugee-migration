@@ -1,0 +1,22 @@
+---
+title: "Appendix B: The ChatGPT Prompt Library for R"
+appendix: true
+---
+
+## Formula Translation Prompt
+
+> I use Excel for business reporting. Translate this formula into R using tidyverse syntax. Explain each part in plain language and show a small example.
+
+## Join Logic Prompt
+
+> I have two tables. One contains employee master data and one contains payroll records. Show me how to merge them in R using employee_id as the key. Also tell me how to check for unmatched rows.
+
+## Summary Prompt
+
+> Translate this pivot table goal into R: total revenue by region and month, sorted descending by revenue.
+
+## Validation Prompt
+
+> I wrote this R code to replace an Excel report. Tell me how to verify row counts, totals, missing joins, and output quality before I send the report.
+
+Placeholder for expanded prompt library.

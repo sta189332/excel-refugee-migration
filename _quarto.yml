@@ -1,0 +1,93 @@
+project:
+  type: book
+  output-dir: _book
+
+book:
+  title: "The Excel Refugee Migration"
+  subtitle: "Stop Babysitting Spreadsheets. Start Commanding Data"
+  author: "James Daniel"
+  description: "A story-driven practical guide for corporate professionals moving from manual spreadsheet work into faster, repeatable workflows in R."
+  date: today
+  search: true
+  page-navigation: true
+  reader-mode: true
+  downloads: [pdf, epub]
+
+  chapters:
+    - index.qmd
+    - introduction.qmd
+    - part: "Main"
+      chapters:
+        - chapter-01-spreadsheet-ceiling.qmd
+        - chapter-02-why-r-not-python.qmd
+        - chapter-03-first-60-minutes.qmd
+        - chapter-04-excel-to-r.qmd
+        - chapter-05-chatgpt-copilot.qmd
+        - chapter-06-clean-data.qmd
+        - chapter-07-dplyr-pivots.qmd
+        - chapter-08-ggplot.qmd
+        - chapter-09-first-project.qmd
+        - chapter-10-migration-plan.qmd
+
+  appendices:
+    - appendix-a-cheatsheet.qmd
+    - appendix-b-prompts.qmd
+    - appendix-c-packages.qmd
+    - appendix-d-glossary.qmd
+    - author-note.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+    toc-depth: 3
+    number-sections: true
+    code-copy: true
+    code-overflow: wrap
+    fig-cap-location: bottom
+    callout-appearance: simple
+
+  pdf:
+    documentclass: scrbook
+    papersize: trade
+    fontsize: 12pt
+    geometry:
+      - top=1in
+      - bottom=1in
+      - left=0.9in
+      - right=0.9in
+    colorlinks: true
+    toc: true
+    toc-depth: 3
+    number-sections: true
+    fig-cap-location: bottom
+    include-in-header:
+      text: |
+        \usepackage{microtype}
+        \usepackage{fvextra}
+        \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,commandchars=\\\{\}}
+
+  epub:
+    toc: true
+    toc-depth: 3
+    number-sections: true
+    css: styles.css
+
+execute:
+  echo: true
+  warning: false
+  message: false
+  freeze: auto
+
+editor: visual
+
+lang: en
+
+crossref:
+  chapters: true
+  fig-title: "Figure"
+  tbl-title: "Table"
+  lst-title: "Listing"

@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.25">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="A story-driven practical guide for corporate professionals moving from manual spreadsheet work into faster, repeatable workflows in R.">
+
+<title>1&nbsp; When Being the Excel Hero Starts Costing You Your Future – The Excel Refugee Migration</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./chapter-02-why-r-not-python.html" rel="next">
+<link href="./introduction.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-ef4d8e9faa04af36b84e1866e7343808.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter-01-spreadsheet-ceiling.html">Main</a></li><li class="breadcrumb-item"><a href="./chapter-01-spreadsheet-ceiling.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">When Being the Excel Hero Starts Costing You Your Future</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">The Excel Refugee Migration</a> 
+        <div class="sidebar-tools-main">
+    <div class="dropdown">
+      <a href="" title="Download" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Download"><i class="bi bi-download"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="./The-Excel-Refugee-Migration.pdf">
+              <i class="bi bi-file-pdf pe-1"></i>
+            Download PDF
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="./The-Excel-Refugee-Migration.epub">
+              <i class="bi bi-journal pe-1"></i>
+            Download ePub
+            </a>
+          </li>
+      </ul>
+    </div>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The Excel Refugee Migration</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./introduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction: The Day My Spreadsheet Died</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Main</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-01-spreadsheet-ceiling.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">When Being the Excel Hero Starts Costing You Your Future</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-02-why-r-not-python.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Why Not Python? The Honest Answer Nobody Gives You</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-03-first-60-minutes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">R Without the Fear: Your First 60 Minutes (And It Won’t Hurt)</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-04-excel-to-r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Fluent in Both Languages: Translating Your Excel Brain to R</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-05-chatgpt-copilot.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Your AI Co-Pilot: Using ChatGPT as Your Personal R Translator</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-06-clean-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Clean Data, Clean Mind: The R Workflow That Eliminates Manual Hell</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-07-dplyr-pivots.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Pivot Tables Are Dead. Long Live dplyr.</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-08-ggplot.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Untitled</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-09-first-project.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Your First Real Project: A Full Analysis From Raw File to Boardroom Slide</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-10-migration-plan.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">The R-Powered Strategist: Your 30-Day Migration Plan and What Comes Next</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-a-cheatsheet.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Appendix A: The Master Excel-to-R Cheat Sheet</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-b-prompts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Appendix B: The ChatGPT Prompt Library for R</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-c-packages.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Appendix C: Recommended R Packages by Use Case</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-d-glossary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Appendix D: Glossary, Excel Terms and Their R Equivalents</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./author-note.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Author’s Note</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#the-skill-that-made-you-valuable-is-starting-to-trap-you" id="toc-the-skill-that-made-you-valuable-is-starting-to-trap-you" class="nav-link active" data-scroll-target="#the-skill-that-made-you-valuable-is-starting-to-trap-you"><span class="header-section-number">1.1</span> The skill that made you valuable is starting to trap you</a></li>
+  <li><a href="#the-report-is-done-and-you-are-still-behind" id="toc-the-report-is-done-and-you-are-still-behind" class="nav-link" data-scroll-target="#the-report-is-done-and-you-are-still-behind"><span class="header-section-number">1.2</span> The report is done, and you are still behind</a></li>
+  <li><a href="#you-are-spending-analyst-energy-on-janitorial-work" id="toc-you-are-spending-analyst-energy-on-janitorial-work" class="nav-link" data-scroll-target="#you-are-spending-analyst-energy-on-janitorial-work"><span class="header-section-number">1.3</span> You are spending analyst energy on janitorial work</a></li>
+  <li><a href="#manual-excellence-has-a-career-ceiling" id="toc-manual-excellence-has-a-career-ceiling" class="nav-link" data-scroll-target="#manual-excellence-has-a-career-ceiling"><span class="header-section-number">1.4</span> Manual excellence has a career ceiling</a></li>
+  <li><a href="#this-is-not-a-discipline-problem.-it-is-a-tool-workflow-mismatch" id="toc-this-is-not-a-discipline-problem.-it-is-a-tool-workflow-mismatch" class="nav-link" data-scroll-target="#this-is-not-a-discipline-problem.-it-is-a-tool-workflow-mismatch"><span class="header-section-number">1.5</span> This is not a discipline problem. It is a tool-workflow mismatch</a></li>
+  <li><a href="#the-next-move-is-not-becoming-technical.-it-is-becoming-harder-to-waste" id="toc-the-next-move-is-not-becoming-technical.-it-is-becoming-harder-to-waste" class="nav-link" data-scroll-target="#the-next-move-is-not-becoming-technical.-it-is-becoming-harder-to-waste"><span class="header-section-number">1.6</span> The next move is not becoming technical. It is becoming harder to waste</a></li>
+  <li><a href="#optional-workflow-snapshot" id="toc-optional-workflow-snapshot" class="nav-link" data-scroll-target="#optional-workflow-snapshot"><span class="header-section-number">1.7</span> Optional Workflow Snapshot</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter-01-spreadsheet-ceiling.html">Main</a></li><li class="breadcrumb-item"><a href="./chapter-01-spreadsheet-ceiling.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">When Being the Excel Hero Starts Costing You Your Future</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">When Being the Excel Hero Starts Costing You Your Future</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="callout callout-style-simple callout-note callout-titled" title="Chapter Opening Story">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Chapter Opening Story
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>By 6:12 p.m., the report is finally stable enough to send.</p>
+<p>Stable enough is not the same as finished. You know that. It only means the formulas are holding, the totals match what they matched twenty minutes ago, and the workbook has stopped doing that thing where it freezes just long enough to make you wonder whether the last half hour is about to disappear.</p>
+<p>The office is thinner now. Or the house is quieter. Either way, the day has narrowed to the screen.</p>
+<p>One export from finance. One file from HR. One manually cleaned sheet from operations because the source system still does not agree with itself. Three versions of the same workbook. One of them is called <code>final</code>. Another is called <code>final_v2</code>. The third is called <code>final_v2_USE_THIS</code>. That last one feels less like a filename and more like a warning passed between survivors.</p>
+<p>Then the message lands.</p>
+<p>Could you update the cut before tomorrow morning?<br>
+Same numbers. New cut. By region, tenure band, and cost center.<br>
+Also, can you exclude contractors this time?<br>
+And use the latest HR extract. The previous file may have a few issues.</p>
+<p>You do not panic.</p>
+<p>That is part of the problem.</p>
+<p>You already know what must happen next. Reopen the workbook. Check the new source file. Compare headers. Fix the date field. Extend the lookup. Watch the formulas. Refresh the pivot. Recheck the totals. Rebuild the chart. Save a new version because no sane person edits the last version without an escape route.</p>
+<p>You do not need instructions for this. Your body already knows the sequence.</p>
+<p>That is what makes the exhaustion harder to name.</p>
+<p>You are not failing inside this system. You are carrying it.</p>
+<p>People trust you because you make the spreadsheet behave when it should have collapsed three reporting cycles ago. You know where the workbook lies. You know which tab is brittle. You know which field arrives dirty every month. You know how to rebuild a broken chain under pressure while sounding calm on Teams.</p>
+<p>From the outside, this looks like mastery.</p>
+<p>Inside the work, it feels more like being conscripted by your own competence.</p>
+<p>You were supposed to become more strategic as your career advanced. Instead, you became the person who can rescue the workbook no one else wants to touch. The one who can still get the numbers out. The one who makes the reporting cycle look smoother than it is. The one who turns recurring instability into something presentable.</p>
+<p>The report goes out. The meeting happens. The file gets praised for being clear.</p>
+<p>And yet something in you knows you are falling behind while appearing reliable.</p>
+<p>Because the work that makes you useful is not always the work that moves you forward.</p>
+<p>And the longer you keep proving you can make this fragile thing hold together, the more the fragile thing starts defining your role.</p>
+<p>That is when the realization gets sharp enough to stay with you.</p>
+<p>You are no longer using Excel as a tool.</p>
+<p>You are protecting a system that should have stopped depending on you this much a long time ago.</p>
+</div>
+</div>
+<section id="the-skill-that-made-you-valuable-is-starting-to-trap-you" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="the-skill-that-made-you-valuable-is-starting-to-trap-you"><span class="header-section-number">1.1</span> The skill that made you valuable is starting to trap you</h2>
+<p>This is how the problem usually hides.</p>
+<p>Not in incompetence. In competence so consistent that other people begin building their assumptions around it.</p>
+<p>You know the workbook. So it comes to you.</p>
+<p>You know how the business rules changed last quarter. So the reconciliation lands on your desk.</p>
+<p>You know why the totals do not match across systems. So everyone waits for you to “take a look.”</p>
+<p>At first, this can look like career security. You are dependable. Trusted. Central. People mention your name when something important needs fixing.</p>
+<p>Then the pattern matures.</p>
+<p>You stop being the person who generates insight and become the person who keeps the machine from embarrassing everyone.</p>
+<p>That is not the same thing.</p>
+<p>A lot of spreadsheet-driven work rewards rescue more visibly than redesign. Teams praise the person who saves the deadline, not always the person who questions why the deadline keeps getting saved the same painful way. So if you are highly capable, you often get promoted into maintenance without anyone calling it that.</p>
+<p>You inherit undocumented logic. You inherit fragile dependencies. You inherit files that nobody wants to standardize because “it still works.” You inherit the strange burden of looking productive while your best hours disappear into invisible labor.</p>
+<p>The trap is not that you became too good at Excel.</p>
+<p>The trap is that your Excel fluency made it easier for the organization to delay building a workflow that scales.</p>
+</section>
+<section id="the-report-is-done-and-you-are-still-behind" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="the-report-is-done-and-you-are-still-behind"><span class="header-section-number">1.2</span> The report is done, and you are still behind</h2>
+<p>This is the part many professionals feel but do not articulate.</p>
+<p>The report leaves your inbox, yet you do not feel finished. You feel drained and oddly late, as if the work stole more from you than the calendar shows.</p>
+<p>That is because the visible output hides the real effort.</p>
+<p>Nobody sees the twenty-minute detour caused by one broken lookup chain.</p>
+<p>Nobody sees the duplicate records you stripped out before anyone else touched the file.</p>
+<p>Nobody sees the manual cleaning loop that begins every week with the same false promise: maybe this time the export will come in clean.</p>
+<p>Nobody sees how much of your attention gets spent on defensive work.</p>
+<p>Check the headers.</p>
+<p>Check the row count.</p>
+<p>Check the formulas.</p>
+<p>Check the old version.</p>
+<p>Check the pivot source.</p>
+<p>Check the chart labels.</p>
+<p>Check again.</p>
+<p>This is where spreadsheet culture quietly degrades analytical work. Not because spreadsheets are useless. They are not. They are often brilliant for quick inspection, flexible thinking, and small-scale problem solving. The trouble begins when a recurring, high-stakes process stays trapped inside habits designed for one-off convenience.</p>
+<p>Then the work starts consuming the very intelligence it was supposed to support.</p>
+<p>Instead of asking what changed in the numbers, you are asking whether the workbook can survive one more edit.</p>
+<p>Instead of seeing patterns, you are extending formulas.</p>
+<p>Instead of thinking ahead, you are preserving continuity.</p>
+<p>That is not just inefficient. It is insulting to the level of judgment your role is supposed to require.</p>
+<div class="callout callout-style-simple callout-tip callout-titled" title="Cheat Sheet Box">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Cheat Sheet Box
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Signs you are no longer doing analysis so much as protecting a process</strong></p>
+<ul>
+<li>the workbook has multiple versions labeled <code>final</code></li>
+<li>you save backup copies before making routine edits</li>
+<li>one upstream formatting change can ruin your morning</li>
+<li>you spend more time preparing data than interpreting it</li>
+<li>key reporting logic lives in memory, not in a repeatable system</li>
+<li>people rely on you because you know the workaround, not because the workflow is sound</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="you-are-spending-analyst-energy-on-janitorial-work" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="you-are-spending-analyst-energy-on-janitorial-work"><span class="header-section-number">1.3</span> You are spending analyst energy on janitorial work</h2>
+<p>This is where frustration hardens into anger.</p>
+<p>Not loud anger. Professional anger. The kind that comes from realizing how much of your capability is being burned on tasks that should have been made lighter months or years ago.</p>
+<p>Manual cleaning loops.</p>
+<p>Broken formulas.</p>
+<p>Version confusion.</p>
+<p>Workbook fragility.</p>
+<p>Refresh rituals that feel almost ceremonial.</p>
+<p>Copy. Paste. Compare. Rename. Recheck. Adjust. Save.</p>
+<p>Each action is small enough to sound harmless in isolation. Together, they form a pattern that eats strategic attention.</p>
+<p>And strategic attention is expensive.</p>
+<p>A finance professional should not have to spend their sharpest hour tracing why one lookup returned stale values from last month.</p>
+<p>An HR analyst should not lose a morning because two employee extracts disagree on the shape of a date field.</p>
+<p>An operations lead should not be the last line of defense against dashboard drift caused by recurring manual inputs.</p>
+<p>A business analyst should not have to choose between meeting a deadline and understanding what the data is trying to say.</p>
+<p>Yet this is what manual spreadsheet culture does. It trains smart people to spend premium judgment on low-leverage work. It makes the heroic workaround feel normal. It blurs the line between productive effort and preventable waste.</p>
+<p>There is a hidden insult in that arrangement.</p>
+<p>You can be highly effective inside it and still watch your real professional range go underused.</p>
+<div class="callout callout-style-simple callout-note callout-titled" title="PhD Insight Made Simple">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>PhD Insight Made Simple
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A fragile workflow creates cognitive drag.</p>
+<p>Even when the process feels familiar, your brain is constantly paying a tax. Which file is current. Which tab is safe to touch. Whether the formulas extended correctly. Whether the pivot refreshed. Whether the totals still reconcile. That low-level monitoring drains attention before you get to the part of the job that requires interpretation, judgment, and explanation.</p>
+<p>Repeatable workflows matter because they move the burden from memory to process. They do not make you less thoughtful. They let your thinking go where it is worth more.</p>
+</div>
+</div>
+</section>
+<section id="manual-excellence-has-a-career-ceiling" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="manual-excellence-has-a-career-ceiling"><span class="header-section-number">1.4</span> Manual excellence has a career ceiling</h2>
+<p>There is a harder truth beneath the workflow problem.</p>
+<p>The market is changing.</p>
+<p>Not in some dramatic, slogan-heavy way. In ordinary roles. Quietly. Unevenly. But clearly enough to matter.</p>
+<p>Teams now expect more from people who work with data. Not necessarily more coding bravado. More repeatability. More scale. More process discipline. More ability to move from raw file to reliable output without rebuilding the same logic by hand every week.</p>
+<p>This shift is visible in finance, HR, operations, reporting, planning, and business analysis. The people becoming more valuable are not simply the ones who work long hours inside brittle files. They are the ones who can reduce friction, shorten the reporting cycle, document logic, handle larger data cleanly, and make their work reproducible.</p>
+<p>That has implications for you.</p>
+<p>If your working style still depends on remembering hidden steps, manually correcting recurring problems, and rescuing workbook logic under time pressure, you are not only carrying an inefficient process. You are practicing a form of work that is becoming less defensible.</p>
+<p>Not worthless. Less defensible.</p>
+<p>Because once somebody else can do in twelve minutes what takes you two hours of careful spreadsheet handling, your experience does not disappear, but its market expression changes.</p>
+<p>This is what creates that quiet career fear so many capable professionals cannot quite name.</p>
+<p>You are working hard.</p>
+<p>You are being useful.</p>
+<p>And still there is a chance that people with more scalable workflows are becoming more future-proof than you are.</p>
+<p>Not because they are smarter.</p>
+<p>Because their process lets their intelligence travel further.</p>
+<div class="callout callout-style-simple callout-warning callout-titled" title="Visual Breakout">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Visual Breakout
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Create a two-panel visual.</p>
+<p>In the first panel, show a competent analyst surrounded by exports, workbook versions, lookup chains, and manual checks. Label the flow: <em>rescues the report</em>.</p>
+<p>In the second panel, show the same analyst working through a clean pipeline: import, clean, join, summarize, visualize, export. Label the flow: <em>builds a repeatable system</em>.</p>
+<p>The contrast should be uncomfortable on purpose.</p>
+</div>
+</div>
+</section>
+<section id="this-is-not-a-discipline-problem.-it-is-a-tool-workflow-mismatch" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="this-is-not-a-discipline-problem.-it-is-a-tool-workflow-mismatch"><span class="header-section-number">1.5</span> This is not a discipline problem. It is a tool-workflow mismatch</h2>
+<p>This is where shame should end.</p>
+<p>A lot of high-performing professionals respond to spreadsheet strain by blaming themselves. They tell themselves they need to be more organized, more careful, more systematic, more disciplined about file names, more patient with the process, more resilient under pressure.</p>
+<p>That story sounds responsible.</p>
+<p>It is also incomplete.</p>
+<p>The problem is not that you have failed to behave well enough inside the workflow.</p>
+<p>The problem is that the workflow has outgrown the tool and begun leaning too hard on your personal effort to stay upright.</p>
+<p>Excel can still be excellent for fast inspection, ad hoc analysis, light modeling, and small-team flexibility. That is not in dispute. The breakdown begins when the process becomes recurring, multi-source, high-volume, high-stakes, and dependent on perfect repetition.</p>
+<p>At that point, the issue is no longer personal neatness.</p>
+<p>It is structural fit.</p>
+<p>Once you see that, the emotional temperature changes. You stop asking, “Why am I so tired if I know how to do this?” and start asking a better question: “Why is this workflow still asking so much of me to produce something this routine?”</p>
+<p>That question opens the door to relief.</p>
+<p>Because it means the solution is not to work harder inside the same cage.</p>
+<p>It is to step into a workflow that respects the scale and repetition of the job you already do.</p>
+</section>
+<section id="the-next-move-is-not-becoming-technical.-it-is-becoming-harder-to-waste" class="level2" data-number="1.6">
+<h2 data-number="1.6" class="anchored" data-anchor-id="the-next-move-is-not-becoming-technical.-it-is-becoming-harder-to-waste"><span class="header-section-number">1.6</span> The next move is not becoming technical. It is becoming harder to waste</h2>
+<p>That distinction matters.</p>
+<p>You do not need a personality transplant.</p>
+<p>You do not need to become the kind of person who posts setup screenshots, memorizes jargon for fun, or performs technical identity in public.</p>
+<p>You need leverage.</p>
+<p>You need a way of working that stops treating every recurring report as a fresh emergency.</p>
+<p>You need the confidence of opening a file without bracing for damage.</p>
+<p>You need logic that can be rerun, checked, adapted, and trusted.</p>
+<p>You need your effort back for work that looks like thinking.</p>
+<p>That is why this chapter matters before any serious technical explanation begins. Because the move away from spreadsheet dependence is not just a tool preference. It is a professional correction. A refusal to keep spending strategic potential on manual maintenance.</p>
+<p>Once that becomes clear, the next question is no longer whether change is necessary.</p>
+<p>It becomes more specific.</p>
+<p>If Excel has become too fragile for this level of work, what is the next tool that still feels intuitive to someone who thinks like an analyst?</p>
+<p>That is where the door opens.</p>
+<p>And once you see that door, the old way starts feeling smaller than it did yesterday.</p>
+</section>
+<section id="optional-workflow-snapshot" class="level2" data-number="1.7">
+<h2 data-number="1.7" class="anchored" data-anchor-id="optional-workflow-snapshot"><span class="header-section-number">1.7</span> Optional Workflow Snapshot</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tibble)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>workflow_steps <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">tribble</span>(</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>step, <span class="sc">~</span>manual, <span class="sc">~</span>common_failure,</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Choose latest source file"</span>, <span class="cn">TRUE</span>, <span class="st">"Wrong version selected"</span>,</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Standardize field names"</span>, <span class="cn">TRUE</span>, <span class="st">"Headers do not match"</span>,</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Extend lookup formulas"</span>, <span class="cn">TRUE</span>, <span class="st">"Formula range stops early"</span>,</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Refresh summary logic"</span>, <span class="cn">TRUE</span>, <span class="st">"Pivot points to stale range"</span>,</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Rebuild leadership chart"</span>, <span class="cn">TRUE</span>, <span class="st">"Labels or totals are outdated"</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>workflow_steps</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="callout callout-style-simple callout-important callout-titled" title="Monday Morning Application">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Monday Morning Application
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Take one recurring report from the last seven days and audit it without mercy.</p>
+<p>Write down:</p>
+<ol type="1">
+<li>how many source files feed into it</li>
+<li>how many steps depend on copy-paste, fill-down, or manual cleaning</li>
+<li>where the process relies on your memory instead of written logic</li>
+<li>what would fail first if somebody else had to run it tomorrow</li>
+<li>how much time went to preparing the data versus interpreting it</li>
+</ol>
+<p>Then answer one harder question.</p>
+<p>Did this workflow showcase your value, or mostly consume it?</p>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./introduction.html" class="pagination-link" aria-label="Introduction: The Day My Spreadsheet Died">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Introduction: The Day My Spreadsheet Died</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./chapter-02-why-r-not-python.html" class="pagination-link" aria-label="Why Not Python? The Honest Answer Nobody Gives You">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Why Not Python? The Honest Answer Nobody Gives You</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

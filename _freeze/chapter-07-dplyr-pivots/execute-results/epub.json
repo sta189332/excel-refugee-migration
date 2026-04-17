@@ -1,0 +1,21 @@
+{
+  "hash": "c6b91c80a29e890d70dc618fa0e3cdc4",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Pivot Tables Are Dead. Long Live dplyr.\"\n---\n\n::: {.callout-note appearance=\"simple\" title=\"Chapter Opening Story\"}\nPlaceholder for a reporting task involving repeated pivot rebuilds.\n:::\n\n## What Pivot Tables Get Right\n\nPlaceholder starter prose.\n\n## Where Pivot Tables Run Out of Road\n\nPlaceholder starter prose.\n\n## Grouped Summaries That Stay Consistent\n\nPlaceholder starter prose.\n\n## From One-Off Report to Reusable Workflow\n\nPlaceholder starter prose.\n\n\n::: {.cell}\n\n```{.r .cell-code}\nlibrary(dplyr)\n\nsales |>\n  group_by(region, month) |>\n  summarise(\n    revenue = sum(revenue, na.rm = TRUE),\n    orders = n(),\n    .groups = \"drop\"\n  )\n```\n:::\n\n\n::: {.callout-tip appearance=\"simple\" title=\"Cheat Sheet Box\"}\nPlaceholder comparison: pivot fields vs `dplyr` verbs.\n:::\n\n::: {.callout-note appearance=\"simple\" title=\"PhD Insight Made Simple\"}\nPlaceholder for grouped aggregation.\n:::\n\n::: {.callout-warning appearance=\"simple\" title=\"Visual Breakout\"}\nPlaceholder visual: Pivot Table vs `group_by()` and `summarise()`.\n:::\n\n::: {.callout-important appearance=\"simple\" title=\"Monday Morning Application\"}\nRecreate one recurring pivot summary in R.\n:::\n",
+    "supporting": [
+      "chapter-07-dplyr-pivots_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {
+      "knitr": [
+        "{\"type\":\"list\",\"attributes\":{},\"value\":[]}"
+      ]
+    },
+    "preserve": null,
+    "postProcess": false
+  }
+}

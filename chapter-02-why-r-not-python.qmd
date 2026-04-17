@@ -1,0 +1,123 @@
+---
+title: "Why Not Python? The Honest Answer Nobody Gives You"
+---
+
+::: {.callout-note appearance="simple" title="Chapter Opening Story"}
+You may already have tried to solve this problem the respectable way.
+
+You opened a few Python tutorials. Watched someone build something elegant in a terminal window. Tried to follow along. Made it halfway through variables, loops, environments, maybe notebooks, maybe package installs, before a quiet resistance set in.
+
+Not because you are incapable.
+
+Because the route felt strangely far away from the kind of work you do.
+
+You were not trying to build software. You were trying to clean a payroll extract without losing your afternoon. You were trying to merge sales actuals with forecast data. You were trying to update a report people needed in two hours. The distance between your business problem and the learning path being offered felt wider than it should have been.
+
+That distance matters.
+
+A lot of professionals decide they are “not technical” at exactly that point, when the truth is simpler. They met a tool through the wrong door.
+:::
+
+## The Wrong First Tool for the Wrong Kind of Fear
+
+Fear around programming is often misdiagnosed.
+
+People assume the problem is discipline, intelligence, or confidence. Often it is none of those. Often the problem is mismatch. The learner needs speed, relevance, and visible business payoff. The learning path offers abstractions first and usefulness later.
+
+That is a hard bargain for busy professionals.
+
+When your days are already crowded, you do not want to study a language in the abstract. You want to reduce friction in work you already do. The right entry point matters because early wins shape whether the transition feels possible.
+
+## Why R Feels Closer to Spreadsheet Logic
+
+R makes sense to many Excel-heavy professionals because it meets them near the shape of their existing thinking.
+
+You already think in tables.
+
+You already think in rows, columns, filters, summaries, categories, exceptions, and business rules.
+
+You already understand the logic of joining related information, even if you have been doing it through `VLOOKUP`, `INDEX` and `MATCH`, or `XLOOKUP`.
+
+R is not identical to Excel. It should not be. But for many analysts, it feels closer to the work itself. It is built around data workflows. Import the file. Clean the names. Filter the rows. Group the values. Join the tables. Build the chart. Export the result.
+
+That progression feels legible.
+
+## Business Workflows Need Fast Wins
+
+In a corporate setting, usefulness wins.
+
+Not elegance. Not purity. Usefulness.
+
+A good first tool should help you solve recognizable problems quickly. That is where R often becomes compelling. You can move from raw CSV to grouped summary in a short stretch of code. You can clean one messy export and feel the difference immediately. You can replace a brittle manual sequence with something stable enough to trust.
+
+That speed changes the emotional experience of learning.
+
+You stop feeling like an outsider visiting somebody else’s technical world. You start feeling like a professional extending your existing capabilities.
+
+## You Are Not Becoming a Developer
+
+This matters enough to say clearly.
+
+You do not need to adopt a developer identity to benefit from R.
+
+You can remain what you already are: a finance professional, an HR analyst, an operations lead, a reporting specialist, a business analyst.
+
+What changes is not your professional worth. What changes is the leverage behind your work.
+
+::: {.callout-tip appearance="simple" title="Cheat Sheet Box"}
+**Excel mindset vs R workflow mindset**
+
+| Excel habit                | R equivalent mindset                |
+|----------------------------|-------------------------------------|
+| Fix cell by cell           | Transform column by column          |
+| Search workbook manually   | Filter and inspect programmatically |
+| Lookup through formulas    | Join related tables                 |
+| Refresh pivot by hand      | Recompute summary through code      |
+| Save new version each week | Re-run the same script              |
+:::
+
+::: {.callout-note appearance="simple" title="PhD Insight Made Simple"}
+Tool fit matters in adult learning. When a tool maps closely to the problems a learner already solves, cognitive friction drops. Less effort is spent translating the task into the tool. More effort goes straight into useful output. That is one reason some analysts find R easier to adopt than more general-purpose languages.
+:::
+
+::: {.callout-warning appearance="simple" title="Visual Breakout"}
+Create a three-column comparison.
+
+Column 1: Excel, labeled familiar but fragile.\
+Column 2: Python, labeled powerful but broader than needed for many first-time analysts.\
+Column 3: R, labeled analyst-friendly bridge.
+
+Use rows for learning friction, speed to first result, fit for reporting, and comfort with table-based work.
+:::
+
+::: {.callout-important appearance="simple" title="Monday Morning Application"}
+Write down one workflow you want to speed up in the next two weeks.
+
+Then answer two questions:
+
+1.  Does this workflow mostly involve tables, cleaning, merging, summarizing, or charting?
+2.  Would a repeatable script solve more of the pain than a better spreadsheet?
+
+If the answer to both is yes, you are already describing an R-shaped problem.
+:::
+
+## First Taste of the Workflow
+
+```{r}
+#| label: ch2-first-taste
+#| eval: false
+
+library(readr)
+library(dplyr)
+
+sales <- read_csv("data/sales_export.csv")
+
+sales |>
+  filter(region == "West") |>
+  group_by(product_category) |>
+  summarise(
+    revenue = sum(revenue, na.rm = TRUE),
+    orders = n(),
+    .groups = "drop"
+  )
+```

@@ -1,0 +1,15 @@
+{
+  "hash": "d0b3ce2ee55a091f246dff81262599d0",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Clean Data, Clean Mind: The R Workflow That Eliminates Manual Hell\"\n---\n\n::: {.callout-note appearance=\"simple\" title=\"Chapter Opening Story\"}\nPlaceholder for a dirty-file scene from HR, finance, or operations.\n:::\n\n## Why Dirty Data Creates Dirty Thinking\n\nPlaceholder starter prose.\n\n## The Repeatable Cleaning Sequence\n\nPlaceholder starter prose.\n\n## Duplicates, Blanks, Dates, and Strange Text\n\nPlaceholder starter prose.\n\n## Saving the Clean Version Without Starting Over Every Week\n\nPlaceholder starter prose.\n\n\n::: {.cell}\n\n```{.r .cell-code}\nlibrary(readr)\nlibrary(dplyr)\nlibrary(stringr)\nlibrary(janitor)\n\nraw_data <- read_csv(\"data/raw_export.csv\")\n\nclean_data <- raw_data |>\n  janitor::clean_names() |>\n  mutate(across(where(is.character), str_trim)) |>\n  distinct()\n```\n:::\n\n\n::: {.callout-note appearance=\"simple\" title=\"PhD Insight Made Simple\"}\nPlaceholder for tidy data principles.\n:::\n\n::: {.callout-warning appearance=\"simple\" title=\"Visual Breakout\"}\nPlaceholder visual: dirty file to clean table.\n:::\n\n::: {.callout-important appearance=\"simple\" title=\"Monday Morning Application\"}\nClean one messy exported file from work.\n:::\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

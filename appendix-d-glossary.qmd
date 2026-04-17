@@ -1,0 +1,17 @@
+---
+title: "Appendix D: Glossary, Excel Terms and Their R Equivalents"
+appendix: true
+---
+
+## Glossary
+
+| Term | Meaning |
+|------------------------------------|------------------------------------|
+| data frame | A table-like structure used in R for rows and columns of data |
+| join | A way to combine two tables using a shared key |
+| tidy data | A clean data structure where each row is one observation and each column is one variable |
+| script | A saved sequence of instructions you can run again |
+| reproducibility | Getting the same result from the same process |
+| vectorized operation | Applying a rule to a whole column at once rather than cell by cell |
+
+Placeholder for expanded glossary.

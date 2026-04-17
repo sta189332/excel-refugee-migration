@@ -1,0 +1,40 @@
+---
+title: "Appendix C: Recommended R Packages by Use Case"
+appendix: true
+---
+
+## Data Import
+
+-   `readr`
+-   `readxl`
+-   `vroom`
+
+## Data Cleaning
+
+-   `dplyr`
+-   `janitor`
+-   `stringr`
+-   `lubridate`
+
+## Data Transformation
+
+-   `tidyr`
+-   `purrr`
+
+## Visualization
+
+-   `ggplot2`
+-   `scales`
+
+## Reporting
+
+-   `quarto`
+-   `rmarkdown`
+-   `gt`
+
+## File Paths and Project Hygiene
+
+-   `here`
+-   `fs`
+
+Placeholder for fuller package notes and usage examples.

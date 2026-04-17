@@ -1,0 +1,21 @@
+{
+  "hash": "e4c3582b89a9ce637efdb5210516e8ea",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Charts That Actually Impress: ggplot2 vs. Excel's Chart Wizard\"\n---\n\n::: {.callout-note appearance=\"simple\" title=\"Chapter Opening Story\"}\nPlaceholder for a before-and-after chart scene where the visual quality changes the conversation.\n:::\n\n## Why So Many Spreadsheet Charts Look Unfinished\n\nPlaceholder starter prose.\n\n## What Makes a Leadership-Ready Chart\n\nPlaceholder starter prose.\n\n## Your First Good Plot in ggplot2\n\nPlaceholder starter prose.\n\n## From Pretty Enough to Decision-Ready\n\nPlaceholder starter prose.\n\n\n::: {.cell}\n\n```{.r .cell-code}\nlibrary(ggplot2)\n\nggplot(sales_summary, aes(x = month, y = revenue)) +\n  geom_line() +\n  labs(\n    title = \"Monthly Revenue Trend\",\n    x = NULL,\n    y = \"Revenue\"\n  )\n```\n:::\n\n\n::: {.callout-note appearance=\"simple\" title=\"PhD Insight Made Simple\"}\nPlaceholder for visual encoding in plain language.\n:::\n\n::: {.callout-warning appearance=\"simple\" title=\"Visual Breakout\"}\nPlaceholder visual: Excel default chart vs refined ggplot2 output.\n:::\n\n::: {.callout-important appearance=\"simple\" title=\"Monday Morning Application\"}\nBuild one weekly chart for a real stakeholder.\n:::\n---\ntitle: \"Untitled\"\nformat: html\neditor: visual\n---\n",
+    "supporting": [
+      "chapter-08-ggplot_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {
+      "knitr": [
+        "{\"type\":\"list\",\"attributes\":{},\"value\":[]}"
+      ]
+    },
+    "preserve": null,
+    "postProcess": false
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "hash": "4292416bbbf487435ee2ca111366f919",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Your AI Co-Pilot: Using ChatGPT as Your Personal R Translator\"\n---\n\n::: {.callout-note appearance=\"simple\" title=\"Chapter Opening Story\"}\nPlaceholder for a scene where the reader gets unstuck by asking for translation instead of memorizing syntax.\n:::\n\n## Why Translation Beats Memorization\n\nPlaceholder starter prose.\n\n## Turning Excel Formulas Into R Code\n\nPlaceholder starter prose.\n\n## Turning VLOOKUP Thinking Into Joins\n\nPlaceholder starter prose.\n\n## Turning Pivot Table Thinking Into Summaries\n\nPlaceholder starter prose.\n\n## Prompting ChatGPT Without Getting Lost\n\nPlaceholder starter prose.\n\n## How to Verify Outputs Before Sending Anything Upstream\n\nPlaceholder starter prose.\n\n::: {.callout-tip appearance=\"simple\" title=\"Cheat Sheet Box\"}\nPrompt template placeholder.\n:::\n\n::: {.callout-note appearance=\"simple\" title=\"PhD Insight Made Simple\"}\nPlaceholder for human-in-the-loop verification.\n:::\n\n::: {.callout-warning appearance=\"simple\" title=\"Visual Breakout\"}\nPlaceholder visual: Excel problem -\\> prompt -\\> R draft -\\> verification -\\> output.\n:::\n\n::: {.callout-important appearance=\"simple\" title=\"Monday Morning Application\"}\nPaste one live Excel formula into ChatGPT and ask for an R translation.\n:::\n\n\n::: {.cell}\n\n```{.r .cell-code}\n# Example verification workflow placeholder\nresult_rows <- 1250\nexpected_rows <- 1250\n\nidentical(result_rows, expected_rows)\n```\n:::\n\n",
+    "supporting": [
+      "chapter-05-chatgpt-copilot_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {
+      "knitr": [
+        "{\"type\":\"list\",\"attributes\":{},\"value\":[]}"
+      ]
+    },
+    "preserve": null,
+    "postProcess": false
+  }
+}

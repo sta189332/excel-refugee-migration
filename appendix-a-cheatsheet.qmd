@@ -1,0 +1,21 @@
+---
+title: "Appendix A: The Master Excel-to-R Cheat Sheet"
+appendix: true
+---
+
+## Core Translation Map
+
+| Excel term | R equivalent | Plain-language use |
+|------------------------|------------------------|------------------------|
+| Worksheet table | data frame | Structured tabular data |
+| Filter | `filter()` | Keep only rows you need |
+| Sort | `arrange()` | Reorder rows |
+| VLOOKUP/XLOOKUP | `left_join()` | Pull matching columns from another table |
+| Pivot table | `group_by()` + `summarise()` | Build grouped summaries |
+| IF | `if_else()` or `case_when()` | Apply conditional logic |
+| Text cleanup | `stringr` | Clean messy text |
+| Save file | `write_csv()` | Export clean output |
+
+## Common Patterns
+
+Placeholder for expanded cheat sheet tables and workflow snippets.
