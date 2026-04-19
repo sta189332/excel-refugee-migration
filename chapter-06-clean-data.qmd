@@ -1,0 +1,600 @@
+---
+title: "Clean Data, Clean Mind: The R Workflow That Eliminates Manual Hell"
+---
+
+::: {.callout-note appearance="simple" title="Chapter Opening Story"}
+At 8:12 on a Monday morning, somebody sends the file nobody wants.
+
+The subject line says something reassuring like **Updated Payroll Extract**. The attachment says something else entirely: `final_final_USE_THIS.xlsx`.
+
+You open it anyway.
+
+Blank rows in the middle of the sheet. Duplicated employee IDs. Department names written three different ways. Dates split across formats like they came from different centuries. One column full of invisible spaces. Another full of missing values nobody bothered to mention. A few cells contain actual numbers. A few contain numbers stored as text. One tab looks recent. One looks inherited. One looks cursed.
+
+The meeting is at ten.
+
+So you begin the old ritual.
+
+Delete the blank rows.
+
+Scroll for duplicates.
+
+Trim the text with a formula.
+
+Copy. Paste values.
+
+Try to standardize the dates.
+
+Find one field called `Human Resources`, another called `HR`, and a third called `human resources ` with a trailing space quiet enough to ruin your summary later.
+
+You fix what you can see.
+
+That is the phrase people live inside for years.
+
+What you can see.
+
+The real exhaustion starts there. Not because the task is intellectually deep. Because it is small, repetitive, fragile work that keeps interrupting the part of your brain that should be reserved for judgment. You were not hired to spend your cleanest morning cleaning somebody else’s mess with one eye on the clock and one eye on a workbook that keeps pretending to be stable.
+
+And still, if the report has to go out, you do it.
+
+That is why this chapter matters.
+
+Not because dirty data is dramatic. Because it is ordinary. Too ordinary. It shows up in finance, in HR, in operations, in reporting, in business analysis, in any role where exported files arrive with just enough disorder to cost you an hour before the real work begins.
+
+You know this file.
+
+Maybe not this exact file.
+
+But this species of file.
+
+The one that makes you regret the week before the week has properly started.
+:::
+
+## Dirty Data Does Not Stay in the Spreadsheet
+
+A lot of professionals talk about bad data as if it were a technical nuisance.
+
+It is not.
+
+It is a trust problem.
+
+A department name spelled three different ways does not stay a text issue. It becomes a bad headcount summary. A missing date does not stay a blank cell. It becomes a broken time trend. A duplicated employee ID does not stay a mild annoyance. It becomes a payroll reconciliation problem, a false total, a leadership question, a quiet loss of confidence in the numbers you are about to present.
+
+This is why dirty data feels heavier than it looks.
+
+It contaminates thought.
+
+When the input is unstable, your mind shifts into defensive mode. You stop asking what the pattern means and start asking whether the table can be trusted. You stop moving toward interpretation and get dragged backward into repair. The analysis becomes cautious before it becomes useful.
+
+That cost is rarely visible in a final report.
+
+Leadership sees the finished table, the cleaned chart, the polished slide.
+
+They do not see the hour you lost because one region was written as `West`, `WEST`, and `West `.
+
+They do not see the extra check you ran because the row count felt suspicious.
+
+They do not see the quiet decision fatigue created by hundreds of tiny corrections that never should have depended on your attention in the first place.
+
+This is the part worth naming clearly.
+
+Bad data does not only waste time.
+
+It downgrades the level of work you are able to do.
+
+You can spend a whole morning being productive and still never get to the part of the job that makes you strategically valuable.
+
+That is what manual cleaning steals.
+
+## The Calm Sequence That Replaces Panic
+
+The first real upgrade in R is not a clever function.
+
+It is a sequence.
+
+A repeatable order of operations that replaces the old improvisation.
+
+When people stay trapped in spreadsheet cleaning too long, they start treating each ugly file as a fresh emergency. That creates chaos even before the cleaning begins. You jump from blanks to dates to duplicates to categories to formatting and back again, fixing whatever looks most offensive in the moment.
+
+R rewards a different temperament.
+
+You do not need more urgency.
+
+You need a stable sequence.
+
+A good cleaning workflow usually moves like this:
+
+1. import the file
+2. inspect the structure
+3. standardize the column names
+4. clean text fields
+5. fix dates
+6. handle missing values intentionally
+7. remove duplicates
+8. validate key counts or totals
+9. save the clean output
+
+Not because sequence is elegant for its own sake.
+
+Because sequence lowers noise.
+
+It helps you stop reacting and start controlling the file.
+
+Here is the kind of setup that changes the emotional tone immediately:
+
+```{r}
+#| label: ch6-load-packages
+#| eval: false
+
+library(readr)
+library(readxl)
+library(dplyr)
+library(stringr)
+library(lubridate)
+library(tidyr)
+```
+
+Now imagine the dirty file arrives in two forms. Payroll comes as Excel. A separate region mapping file comes as CSV.
+
+```{r}
+#| label: ch6-import-files
+#| eval: false
+
+payroll_raw <- read_excel("data/payroll_extract.xlsx")
+region_lookup <- read_csv("data/region_lookup.csv")
+```
+
+Then inspect before touching anything:
+
+```{r}
+#| label: ch6-inspect-raw
+#| eval: false
+
+glimpse(payroll_raw)
+glimpse(region_lookup)
+```
+
+That small pause matters.
+
+Inspection is where you stop treating the file like an enemy and start treating it like evidence. What are the columns. Which fields are character. Which fields look numeric but probably are not. Which dates arrived as text. Which names will cause pain later if you do not standardize them now.
+
+Then you begin the actual cleaning.
+
+```{r}
+#| label: ch6-standardize-names
+#| eval: false
+
+payroll_clean <- payroll_raw |>
+  rename_with(~ str_to_lower(.x)) |>
+  rename_with(~ str_replace_all(.x, "\\s+", "_"))
+```
+
+That pair of `rename_with()` calls does something spreadsheet cleaning rarely does well. It makes the structure calm. Columns stop shouting in mixed case. Spaces stop breaking code later. The file starts feeling less like a trap.
+
+This is the first moment of relief.
+
+Not because the data is clean yet.
+
+Because the workflow is.
+
+::: {.callout-note appearance="simple" title="PhD Insight"}
+Dirty data creates cognitive drag long before it creates a visible reporting error.
+
+When structure is inconsistent, your brain keeps spending attention on local repairs. Which column name is correct. Whether the text field hides trailing spaces. Whether the date was parsed properly. That low-level vigilance reduces the mental capacity available for interpretation and decision support.
+
+A repeatable cleaning sequence shifts the work from improvisation to process. That is why clean workflows feel calmer. They reduce the number of decisions future-you has to make all over again.
+:::
+
+## Stop Fixing Rows One by One
+
+This is where R starts feeling like power instead of promise.
+
+In Excel, cleaning often becomes physical. You drag, copy, trim, delete, replace, filter, undo, sort, check, and repeat. The whole process depends on visual attention and manual gestures.
+
+R moves the work up one level.
+
+You stop cleaning row by row and start applying rules to columns and structures.
+
+Take text cleanup. Spreadsheet exports are full of invisible spaces, inconsistent capitalization, and categories that differ just enough to break grouping later.
+
+You can clean those fields like this:
+
+```{r}
+#| label: ch6-clean-text
+#| eval: false
+
+payroll_clean <- payroll_clean |>
+  mutate(
+    employee_id = str_trim(employee_id),
+    department = str_trim(department),
+    department = str_to_title(department),
+    location = str_trim(location)
+  )
+```
+
+That single block replaces a whole family of spreadsheet habits.
+
+No helper columns.
+
+No fill-down formulas.
+
+No copy-paste-values ritual.
+
+No second workbook because you were afraid to break the first one.
+
+Now take missing values. This is where professionals often make rushed decisions because missingness feels untidy and personal. Blank values embarrass people. They want the file to stop looking incomplete.
+
+But not every missing value deserves the same treatment.
+
+Some values should stay missing until someone upstream fixes the source.
+
+Some should be replaced with a neutral label like `"Unknown"`.
+
+Some can safely become zero.
+
+The point is not to “remove all blanks.” The point is to decide what a blank means in business terms.
+
+```{r}
+#| label: ch6-handle-missing
+#| eval: false
+
+payroll_clean <- payroll_clean |>
+  mutate(
+    department = replace_na(department, "Unknown"),
+    bonus_amount = replace_na(bonus_amount, 0),
+    manager_name = replace_na(manager_name, "Unassigned")
+  )
+```
+
+That is not cosmetic cleaning. It is interpretation.
+
+You are deciding what absence means before the absence quietly poisons the report.
+
+## Duplicates Are Never Just Duplicates
+
+This is one of the places where spreadsheet culture teaches the wrong instincts.
+
+People see duplicate rows and think, “Remove duplicates.”
+
+Sometimes yes.
+
+Sometimes no.
+
+A duplicate can mean repeated export lines, amended records, a flawed join, or legitimate repeated transactions that only look suspicious because the file lacks enough context. The act of removing duplicates is not the smart part. The smart part is defining what counts as duplication for this task.
+
+In HR or payroll work, a duplicated `employee_id` might signal a serious issue if the file is supposed to contain one current row per employee. In finance, repeated invoice lines might be perfectly valid if they represent different transactions.
+
+That is why `distinct()` matters. It forces you to be explicit.
+
+```{r}
+#| label: ch6-remove-duplicates
+#| eval: false
+
+payroll_clean <- payroll_clean |>
+  distinct(employee_id, pay_period, .keep_all = TRUE)
+```
+
+That says: for this report, the combination of `employee_id` and `pay_period` should be unique. Keep one row and drop the rest.
+
+You are not merely cleaning.
+
+You are stating the reporting logic clearly enough that the file cannot pretend ignorance.
+
+And that is a professional move.
+
+Not a cosmetic one.
+
+## Dates Are Where Fragile Workflows Go to Humiliate People
+
+Few things make a corporate file feel more insulting than dates in three formats.
+
+A payroll export arrives with `04/01/2026`.
+
+A manual adjustment tab uses `1-Apr-26`.
+
+A lookup sheet stores dates as text.
+
+One field reads like month-day-year. Another reads like day-month-year. A third is technically numeric but only if you know what century the system thinks it is in.
+
+This is the kind of mess that turns spreadsheet users into reluctant historians.
+
+R will not make bad dates beautiful, but it will let you be explicit about what you are parsing.
+
+Suppose your date field arrives in month-day-year format:
+
+```{r}
+#| label: ch6-fix-dates
+#| eval: false
+
+payroll_clean <- payroll_clean |>
+  mutate(pay_date = mdy(pay_date))
+```
+
+If another field arrives as a character string but should become a monthly reporting field:
+
+```{r}
+#| label: ch6-standardize-period
+#| eval: false
+
+payroll_clean <- payroll_clean |>
+  mutate(report_month = floor_date(mdy(pay_date), unit = "month"))
+```
+
+Now the file stops behaving like a collection of visual date guesses and starts behaving like a dataset that can support trends, grouping, and validation.
+
+This matters because broken dates do not only break charts.
+
+They break stories.
+
+Once the timeline is wrong, every pattern you show leadership becomes harder to trust.
+
+## Categories Break Quietly
+
+Not every data problem announces itself with an error.
+
+Some of the most expensive ones arrive looking almost correct.
+
+`Human Resources`  
+`HR`  
+`Human resources`  
+`Human Resources `
+
+A human reader treats these as the same idea. A grouped summary does not.
+
+That is why category cleanup deserves more respect than it usually gets. It is not formatting. It is classification discipline.
+
+A simple standardization step can save a report from false fragmentation:
+
+```{r}
+#| label: ch6-standardize-categories
+#| eval: false
+
+payroll_clean <- payroll_clean |>
+  mutate(
+    department = str_trim(department),
+    department = str_to_title(department),
+    department = case_when(
+      department %in% c("Hr", "Human Resources") ~ "Human Resources",
+      department %in% c("Fin", "Finance") ~ "Finance",
+      TRUE ~ department
+    )
+  )
+```
+
+This is where you begin to feel the difference between cleaning for appearance and cleaning for truth.
+
+A report grouped on dirty categories will still render.
+
+It will simply tell the wrong story politely.
+
+::: {.callout-tip appearance="simple" title="Cheat Sheet Box"}
+**The Repeatable Cleaning Sequence**
+
+- import the raw file
+- inspect with `glimpse()`
+- standardize column names early
+- trim and normalize text fields
+- convert dates explicitly
+- handle missing values by business meaning
+- remove duplicates with a defined key
+- validate row counts or totals
+- save a clean output with `write_csv()`
+
+When the sequence stays stable, future files stop feeling personal.
+:::
+
+## One Pipeline Beats Fifty Tiny Fixes
+
+Once you have the pieces, the real breakthrough is putting them together.
+
+Here is what a realistic first-pass cleaning pipeline might look like for a payroll export that arrives messy on Monday morning:
+
+```{r}
+#| label: ch6-full-cleaning-pipeline
+#| eval: false
+
+payroll_clean <- read_excel("data/payroll_extract.xlsx") |>
+  rename_with(~ str_to_lower(.x)) |>
+  rename_with(~ str_replace_all(.x, "\\s+", "_")) |>
+  mutate(
+    employee_id = str_trim(employee_id),
+    department = str_trim(department),
+    department = str_to_title(department),
+    location = str_trim(location),
+    pay_date = mdy(pay_date),
+    department = replace_na(department, "Unknown"),
+    bonus_amount = replace_na(bonus_amount, 0)
+  ) |>
+  distinct(employee_id, pay_period, .keep_all = TRUE)
+```
+
+Then validate a couple of fundamentals before you trust it:
+
+```{r}
+#| label: ch6-validate-cleaning
+#| eval: false
+
+glimpse(payroll_clean)
+
+payroll_clean |>
+  count(department, sort = TRUE)
+
+payroll_clean |>
+  summarise(
+    employees = n(),
+    missing_dates = sum(is.na(pay_date)),
+    total_bonus = sum(bonus_amount, na.rm = TRUE)
+  )
+```
+
+Now you are no longer “cleaning the file.”
+
+You are building a repeatable process that transforms the file from unstable input into trustworthy working data.
+
+That is a different kind of confidence.
+
+## Future-You Is the Real Stakeholder
+
+This is the emotional center of the chapter.
+
+A lot of people think the win is getting the file clean once.
+
+It is not.
+
+A one-time clean file is nice. A reusable cleaning script is freedom.
+
+Because the real question is not whether you can rescue this week’s export.
+
+You can.
+
+The real question is whether next week’s version of the same mess should still be able to steal the same hour from you.
+
+That is where most spreadsheet workflows fail the person doing the work. They reward immediate survival and punish future-you. Every manual fix gets buried in habit. Every workaround gets stored in memory instead of process. Every repeated rescue silently votes for the next repeated rescue.
+
+R gives you a chance to stop voting that way.
+
+When you save the cleaning logic as a script, you are not just documenting the work.
+
+You are refusing to do the same avoidable labor twice.
+
+Save the result:
+
+```{r}
+#| label: ch6-save-clean-output
+#| eval: false
+
+write_csv(payroll_clean, "outputs/payroll_clean.csv")
+```
+
+Save the script.
+
+Keep the sequence.
+
+Name the file like it belongs to an adult workflow.
+
+Future-you should not have to reverse-engineer what present-you did under pressure.
+
+That is what makes scripts more than code.
+
+They are receipts for thought.
+
+They prove the cleaning happened in a form you can trust, rerun, improve, and hand over.
+
+## The Version That Saves Hours Every Week
+
+This is where the promise of the book becomes visible.
+
+You do not save hours every week because one file happened to be cleaner.
+
+You save hours every week because the cleaning logic stops living in your fingers and starts living in the workflow.
+
+That shift has consequences.
+
+Your Monday becomes lighter.
+
+Your reports become easier to trust.
+
+Your summaries stop breaking for stupid reasons.
+
+You spend less time proving the file deserves attention and more time deciding what the numbers mean.
+
+That is the professional leap hidden inside data cleaning.
+
+The clean dataset is not the final prize.
+
+The clean mind is.
+
+The calm that comes from knowing the next ugly export does not get to own your morning the way the last one did.
+
+::: {.callout-warning appearance="simple" title="Visual Breakout"}
+Create a visual called **From Dirty Export to Trusted Dataset**.
+
+Use two panels.
+
+**Left Panel: Spreadsheet Cleaning Ritual**
+- open messy file
+- delete blank rows manually
+- trim text with formulas
+- fix dates cell by cell
+- remove duplicates by sight
+- save another version
+
+**Right Panel: R Cleaning Workflow**
+- import
+- inspect
+- standardize names
+- clean text
+- convert dates
+- handle missing values
+- remove duplicates
+- validate
+- export clean data
+
+The visual should communicate one thing clearly: the right workflow does not merely clean the file. It stabilizes the person doing the work.
+:::
+
+## Optional Workflow Snapshot
+
+```{r}
+#| label: ch6-cleaning-snapshot
+#| eval: false
+
+library(tibble)
+
+cleaning_steps <- tibble::tribble(
+  ~step, ~purpose, ~common_failure_if_skipped,
+  "Import", "Bring raw files into R", "Wrong file assumptions persist",
+  "Inspect", "See structure and data types", "Problems stay hidden",
+  "Standardize Names", "Make columns predictable", "Code breaks later",
+  "Clean Text", "Remove spaces and normalize categories", "False groups appear",
+  "Fix Dates", "Create reliable time fields", "Trends become misleading",
+  "Handle Missing Values", "Decide what blanks mean", "Summaries become unstable",
+  "Remove Duplicates", "Control repeated records", "Totals inflate silently",
+  "Validate", "Check counts and totals", "Errors travel downstream",
+  "Save Clean Output", "Create reusable result", "Same cleaning starts again next week"
+)
+
+cleaning_steps
+```
+
+## Now The Numbers Deserve To Be Summarized
+
+Once the data is trustworthy, something changes in the room.
+
+You stop defending the file.
+
+You start using it.
+
+That is when the real analyst work begins. Grouping. Summarizing. Comparing. Explaining. Building something cleaner than a Pivot Table that somebody is afraid to refresh.
+
+Dirty data keeps you stuck at the level of rescue.
+
+Clean data returns you to the level of thought.
+
+And that is exactly where this book needs to go next.
+
+Because once you stop fixing the spreadsheet twice, one question becomes irresistible.
+
+If the data is finally clean, why are you still rebuilding summaries the old way?
+
+::: {.callout-important appearance="simple" title="Monday Morning Application"}
+Choose one dirty export from your real work this week.
+
+Then do this in order:
+
+1. import it into R with `read_excel()` or `read_csv()`
+2. inspect it with `glimpse()`
+3. standardize the column names
+4. trim text fields and normalize categories
+5. convert one date field explicitly
+6. handle missing values on purpose
+7. remove duplicates using a defined key
+8. validate one count or total
+9. save the cleaned result with `write_csv()`
+
+Do not aim for elegance.
+
+Aim for repeatability.
+
+If the same file arrived again next Monday, would your script know what to do before your stress did?
+:::
