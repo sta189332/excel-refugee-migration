@@ -1,0 +1,537 @@
+---
+title: "Your First Real Project: A Full Analysis From Raw File to Boardroom Slide"
+---
+
+## The Request That Used to Ruin Your Morning
+
+At 8:11 on a Tuesday, the message arrives with the usual confidence of people who are not the ones who will have to build the answer.
+
+Need a clean regional performance slide for the executive review by 10:00.
+
+Actual sales are attached. Targets should be in the finance sheet. Product mapping is in the shared folder. The region names may need a quick tidy. Please send something leadership-ready.
+
+That phrase always lands with suspicious calm.
+
+Leadership-ready.
+
+As if the work between raw exports and a credible slide is mostly formatting. As if the answer is already sitting inside the files, waiting for someone to combine the right tabs, stretch the right formula, and survive the right amount of spreadsheet turbulence before breakfast.
+
+You know the older version of this morning.
+
+Three files arrive. None of them agree on naming. One region appears as `West`, another as `WEST`, another as `West `. Product codes are short in one file and descriptive in another. Dates are text in one export and actual dates in the other. You start copying tabs into a workbook, building helper columns, stacking `VLOOKUP`s, checking row counts, repairing categories, saving backup versions, and hoping the spreadsheet does not punish you for being tired.
+
+By 9:27, the work is already noisier than the question.
+
+That used to be the story.
+
+This time, the pressure is still real. The files are still messy. The deadline is still unreasonable in the way corporate deadlines often are.
+
+But the workflow is finally calmer than the request.
+
+You know the question before you touch the files. You know the cleaning sequence. You know where the joins happen, where the summary lives, and what kind of chart can carry the message without forcing you to narrate the whole thing by hand.
+
+That is what makes this chapter matter.
+
+Not because the request is glamorous.
+
+Because it is ordinary.
+
+This is the kind of reporting job that used to quietly ruin your morning.
+
+Now it becomes the first project that proves something back to you.
+
+## The Question Before The Spreadsheet
+
+Good analysis does not begin with opening Excel.
+
+It begins with knowing what decision the work is supposed to support.
+
+That sounds obvious until you remember how many analysts have been trained to start with the files, not the question. The files arrive, so the work begins. Tabs open. Filters move. Copy-paste rituals start. Hours disappear. Then somewhere in the middle of the mess, the business question reappears and asks why it had to wait so long.
+
+Do not start there.
+
+For this project, the question is clear:
+
+**Which regions are underperforming against target, and which product lines are driving the gap?**
+
+That single sentence does real work.
+
+It tells you what needs to be merged. It tells you what level the summary has to reach. It tells you which categories matter and which columns are background noise. It tells you what the slide should help the room see.
+
+Without that question, you are cleaning on instinct.
+
+With it, you are building toward a decision.
+
+That is the first sign the reader is no longer behaving like a spreadsheet survivor. You are no longer opening files and hoping the logic reveals itself eventually. You are choosing the logic before the file gets to pull you around by the wrist.
+
+::: {.callout-note appearance="simple" title="PhD Insight"}
+A decision question is not a nice extra. It is what determines the level of aggregation, the necessary joins, and the form of the final output.
+
+When analysts skip that step, they often build technically busy workflows that answer the wrong question cleanly. A sharp question reduces wasted motion and improves the odds that the final chart will matter to the person who asked for it.
+:::
+
+## The Files Arrive And The Mess Begins
+
+For this project, three files show up.
+
+A CSV of sales actuals exported from the reporting system.
+
+An Excel sheet containing monthly regional targets.
+
+A CSV lookup file mapping product codes to product lines.
+
+Each file is useful.
+
+None of them is ready.
+
+The actuals file has inconsistent region names, unnecessary columns, and a date field stored as text. The target sheet uses spaces in the column names and spells one region differently from the actuals file. The product lookup has duplicate product codes where there should only be one record per code.
+
+This is the point where Excel used to start making promises it could not keep.
+
+You could get through it, yes. But you would do it through vigilance. Through memory. Through quiet suspicion. Through the strange professional habit of trusting nothing fully until the slide is already half built.
+
+Now the mess still matters, but it no longer owns the whole atmosphere.
+
+You know what it is.
+
+It is raw material.
+
+That is a different emotional position to work from.
+
+## When The Mess Finally Becomes A Model
+
+Start with the packages that will carry the project from beginning to end.
+
+```{r}
+#| label: ch9-load-packages
+#| eval: false
+
+library(readr)
+library(readxl)
+library(dplyr)
+library(stringr)
+library(lubridate)
+library(tidyr)
+library(janitor)
+library(ggplot2)
+library(scales)
+library(forcats)
+library(here)
+```
+
+Now bring the files in.
+
+```{r}
+#| label: ch9-import-files
+#| eval: false
+
+sales_actuals <- read_csv(here("data", "sales_actuals.csv"))
+sales_targets <- read_excel(here("data", "sales_targets.xlsx"))
+product_lookup <- read_csv(here("data", "product_lookup.csv"))
+```
+
+Before touching anything, inspect the structure.
+
+```{r}
+#| label: ch9-inspect-files
+#| eval: false
+
+glimpse(sales_actuals)
+glimpse(sales_targets)
+glimpse(product_lookup)
+```
+
+That pause matters more than impatient people like to admit.
+
+This is where you stop guessing. Which columns arrived as character. Which date fields need parsing. Which names will break a join later. Which columns are clutter. Which duplicate records deserve attention before they quietly multiply the wrong totals.
+
+Now clean the actuals file.
+
+```{r}
+#| label: ch9-clean-actuals
+#| eval: false
+
+sales_actuals_clean <- sales_actuals |>
+  clean_names() |>
+  mutate(
+    region = str_trim(region),
+    region = str_to_title(region),
+    region = case_when(
+      region %in% c("West", "West ") ~ "West",
+      region %in% c("East", "East ") ~ "East",
+      region %in% c("South-East", "Southeast") ~ "Southeast",
+      TRUE ~ region
+    ),
+    product_code = str_trim(product_code),
+    sale_month = floor_date(mdy(sale_date), unit = "month"),
+    sales_value = replace_na(sales_value, 0)
+  ) |>
+  select(sale_month, region, product_code, sales_value)
+```
+
+Clean the target sheet too.
+
+```{r}
+#| label: ch9-clean-targets
+#| eval: false
+
+sales_targets_clean <- sales_targets |>
+  clean_names() |>
+  mutate(
+    region = str_trim(region),
+    region = str_to_title(region),
+    region = case_when(
+      region %in% c("South-East", "Southeast") ~ "Southeast",
+      TRUE ~ region
+    ),
+    sale_month = floor_date(mdy(month), unit = "month"),
+    target_value = replace_na(target_value, 0)
+  ) |>
+  select(sale_month, region, target_value)
+```
+
+Then clean the lookup file.
+
+```{r}
+#| label: ch9-clean-lookup
+#| eval: false
+
+product_lookup_clean <- product_lookup |>
+  clean_names() |>
+  mutate(
+    product_code = str_trim(product_code),
+    product_line = str_trim(product_line),
+    product_line = str_to_title(product_line)
+  ) |>
+  distinct(product_code, .keep_all = TRUE)
+```
+
+This is the stage that used to feel like invisible punishment.
+
+Now it feels like control.
+
+Not because cleaning suddenly became thrilling. Because the work is now visible, repeatable, and calm enough to trust.
+
+## Clean, Merge, Summarize
+
+This is the heart of the whole project.
+
+And it is also the place where the difference between Excel survival and R workflow becomes impossible to ignore.
+
+In Excel, this part used to depend on improvised glue. Helper columns, copied tabs, hidden assumptions, formulas dragged down farther than seemed strictly reasonable. One mismatch in a key field, one duplicated code, one trailing space, and the chain started wobbling.
+
+Now the relationships are explicit.
+
+First, join product line names into the actuals table.
+
+```{r}
+#| label: ch9-join-product-lookup
+#| eval: false
+
+sales_enriched <- sales_actuals_clean |>
+  left_join(product_lookup_clean, by = "product_code")
+```
+
+Next, aggregate actuals to the same level as the target table.
+
+```{r}
+#| label: ch9-summarise-actuals
+#| eval: false
+
+actuals_by_region_month <- sales_enriched |>
+  group_by(sale_month, region) |>
+  summarise(
+    actual_value = sum(sales_value, na.rm = TRUE),
+    .groups = "drop"
+  )
+```
+
+Now join actuals to targets and calculate the gap.
+
+```{r}
+#| label: ch9-join-targets
+#| eval: false
+
+performance_vs_target <- actuals_by_region_month |>
+  left_join(sales_targets_clean, by = c("sale_month", "region")) |>
+  mutate(
+    target_value = replace_na(target_value, 0),
+    variance = actual_value - target_value,
+    variance_pct = if_else(target_value == 0, NA_real_, actual_value / target_value - 1)
+  )
+```
+
+Validate before trusting the table.
+
+```{r}
+#| label: ch9-validate-table
+#| eval: false
+
+glimpse(performance_vs_target)
+
+performance_vs_target |>
+  summarise(
+    rows = n(),
+    total_actual = sum(actual_value, na.rm = TRUE),
+    total_target = sum(target_value, na.rm = TRUE),
+    missing_targets = sum(is.na(variance_pct))
+  )
+```
+
+That validation step matters because calm does not mean careless. The workflow is cleaner now, but you still owe the work a professional check. That is part of what makes the process feel safer. Trust is not assumed. It is earned in visible steps.
+
+Now summarize the regional picture.
+
+```{r}
+#| label: ch9-rank-regions
+#| eval: false
+
+regional_gap <- performance_vs_target |>
+  group_by(region) |>
+  summarise(
+    total_actual = sum(actual_value, na.rm = TRUE),
+    total_target = sum(target_value, na.rm = TRUE),
+    total_variance = sum(variance, na.rm = TRUE),
+    average_variance_pct = mean(variance_pct, na.rm = TRUE),
+    .groups = "drop"
+  ) |>
+  arrange(total_variance)
+```
+
+Then identify which product lines dominate in the weaker regions.
+
+```{r}
+#| label: ch9-product-line-summary
+#| eval: false
+
+product_line_summary <- sales_enriched |>
+  group_by(region, product_line) |>
+  summarise(
+    total_actual = sum(sales_value, na.rm = TRUE),
+    .groups = "drop"
+  ) |>
+  group_by(region) |>
+  mutate(
+    share_of_region = total_actual / sum(total_actual, na.rm = TRUE)
+  ) |>
+  ungroup() |>
+  arrange(region, desc(total_actual))
+```
+
+This is where the project starts feeling less like a lesson and more like work you would trust.
+
+The messy files are no longer pulling the whole process sideways.
+
+The joins are readable.
+
+The summary is stable.
+
+The question is finally being answered at the speed of thought instead of the speed of spreadsheet repair.
+
+::: {.callout-tip appearance="simple" title="Cheat Sheet Box"}
+**The Full Workflow, In Order**
+
+- define the business question
+- import every relevant source file
+- inspect the structure before fixing anything
+- standardize names, text, dates, and categories
+- handle missing values intentionally
+- join files visibly with `left_join()`
+- validate row counts and totals
+- summarize at the decision level
+- rank the important findings
+- turn the main message into a chart
+- export the summary and the visual
+
+That is not a classroom sequence. That is working sequence.
+:::
+
+## Build The Slide They Remember
+
+Analysis is not finished when the summary table exists.
+
+It is finished when the insight can survive a room.
+
+That means turning the central message into a visual that does not need to be rescued by your voice every ten seconds. The chart should carry the point clearly enough that the room understands where to look before anyone asks for the next slide.
+
+For this project, the strongest visual is a variance chart by region. Leadership does not need a gallery of possibilities. They need to see quickly which regions are missing target and by how much.
+
+Prepare the chart data.
+
+```{r}
+#| label: ch9-prepare-chart-data
+#| eval: false
+
+regional_gap_plot <- regional_gap |>
+  mutate(region = fct_reorder(region, total_variance))
+```
+
+Now build the chart.
+
+```{r}
+#| label: ch9-build-variance-chart
+#| eval: false
+
+ggplot(regional_gap_plot, aes(x = region, y = total_variance)) +
+  geom_col(fill = "steelblue") +
+  labs(
+    title = "Southeast And North Show The Largest Revenue Gaps Against Target",
+    subtitle = "Cumulative variance between actual sales and target by region",
+    x = NULL,
+    y = "Variance"
+  ) +
+  scale_y_continuous(labels = label_dollar()) +
+  theme_minimal(base_size = 12) +
+  theme(
+    panel.grid.minor = element_blank(),
+    legend.position = "none"
+  )
+```
+
+That chart is doing more than existing.
+
+It is pointing.
+
+It tells the room where the problem lives. It respects the question that started the project. It lowers the amount of explanation you need to add verbally. That is what makes a slide memorable. Not visual drama. Compression. The feeling that the answer is finally visible enough to trust at a glance.
+
+Now export it.
+
+```{r}
+#| label: ch9-save-chart
+#| eval: false
+
+ggsave(
+  filename = here("outputs", "regional_gap_chart.png"),
+  width = 8,
+  height = 5,
+  dpi = 300
+)
+```
+
+And save the summary table too.
+
+```{r}
+#| label: ch9-save-summary
+#| eval: false
+
+write_csv(regional_gap, here("outputs", "regional_gap_summary.csv"))
+```
+
+This is the part that used to come apart in the old workflow. The numbers might have survived, but the handoff into presentation was always a little too dependent on patience, formatting stamina, and the hope that the workbook would behave one more time.
+
+Now the handoff feels clean.
+
+That is not aesthetics.
+
+That is credibility.
+
+## What This Project Proves About You
+
+This is the identity section, but it only works if it stays grounded in what you actually did.
+
+You did not learn an abstract concept and congratulate yourself for effort.
+
+You took multiple messy files, cleaned them, standardized them, joined them, validated them, summarized them, and turned the answer into a leadership-ready output.
+
+That is a real professional act.
+
+It proves you are no longer dependent on spreadsheet improvisation for work of this kind. It proves you can move from raw exports to trusted insight without needing the whole morning to dissolve into helper columns and formula chains. It proves you can build a workflow that does not rely on memory as heavily as the old one did.
+
+That changes more than the task.
+
+It changes your relationship to the task.
+
+You stop looking like the person who somehow survived another reporting cycle.
+
+You start looking like the person who can design a reporting process others can trust.
+
+That is not self-help language.
+
+That is what capability feels like when it stops needing to apologize for itself.
+
+::: {.callout-warning appearance="simple" title="Visual Breakout"}
+Create a visual called **From Fragile Request To Credible Output**.
+
+Use six connected panels:
+
+1. Executive Request  
+2. Raw Actuals File  
+3. Target Sheet  
+4. Product Lookup Table  
+5. Clean And Merge Workflow  
+6. Boardroom-Ready Variance Slide
+
+The visual should show one thing clearly: the final slide is only calm because the workflow underneath it is.
+:::
+
+## This Was Not A Practice Exercise
+
+There is a point in a learning journey where the work stops feeling like rehearsal.
+
+This chapter is that point.
+
+A real question.
+
+A real mess.
+
+A real workflow.
+
+A real output.
+
+Nothing about that combination belongs to tutorial land anymore. This is not a sandbox. This is the shape of actual reporting work, handled with a level of calm that would have been difficult to imagine a few chapters ago.
+
+That is why this chapter matters so much in the arc of the book.
+
+It is proof that your earlier skills were not isolated tricks. Cleaning mattered because this project needed clean files. Grouped summaries mattered because the decision question demanded aggregation. Chart design mattered because the answer needed to travel into a room full of tired attention.
+
+Now the pieces have held together in one coherent sequence.
+
+That is a threshold.
+
+And once you cross it, you do not look at the next messy request the same way.
+
+::: {.callout-note appearance="simple" title="PhD Insight"}
+A full workflow produces more than an answer. It produces methodological trust.
+
+When cleaning, joining, summarizing, and visualizing all live in one readable sequence, the analysis becomes easier to audit, easier to reuse, and easier to defend. That reduces dependence on memory and increases the credibility of both the output and the person who built it.
+:::
+
+## The Threshold Into Chapter 10
+
+You do not leave this project with abstract confidence.
+
+You leave it with evidence.
+
+Evidence that you can define the question before the spreadsheets start shouting.
+
+Evidence that messy files can be turned into something coherent without emotional chaos.
+
+Evidence that a repeatable workflow can carry real business work, not just small exercises designed to flatter the software.
+
+That matters because Chapter 10 is not about one more technique.
+
+It is about the person you are becoming once these workflows stop feeling exceptional and start feeling normal.
+
+That is the real shift now.
+
+You are not merely someone who has learned a few R functions.
+
+You are becoming someone who works differently.
+
+::: {.callout-important appearance="simple" title="Monday Morning Application"}
+Recreate one real request from your own work.
+
+1. write the business question first
+2. identify the source files involved
+3. import them with `read_csv()` or `read_excel()`
+4. standardize the names, dates, categories, and missing values
+5. join the files visibly with `left_join()`
+6. validate the merged result
+7. summarize at the level the decision requires
+8. build one chart that carries the message
+9. export both the chart and the summary
+
+Then answer one question in writing.
+
+Did this feel like practice, or did it feel like work you would trust in front of someone senior?
+:::

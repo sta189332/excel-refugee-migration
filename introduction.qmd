@@ -1,0 +1,177 @@
+---
+number-sections: false
+---
+
+# Introduction: The Day My Spreadsheet Died {.unnumbered}
+
+::: {.callout-note appearance="simple" title="Chapter Opening Story"}
+You know the report before you open it.
+
+Not the numbers. The ritual.
+
+The workbook lives in a folder called something like `Weekly Reporting Final`, inside another folder called `Final Reports`, beside three other versions with names you no longer trust: `v2`, `final_updated`, `use_this_one`. Every Monday morning, before the first meeting, before the inbox fully wakes up, you open the same file and begin the same sequence.
+
+By now your hands move ahead of your thoughts.
+
+Open the export from finance. Copy the latest transaction rows. Paste values into the raw data tab. Wait for the screen to pause. Switch to the lookup sheet. Check whether last week’s formulas still extend far enough. They usually do not. Drag them down another few thousand rows. Watch the formula bar fill with nested logic you once understood perfectly and now read more by instinct than by comprehension.
+
+A cup of coffee sits beside the keyboard, gone cold long enough to lose its smell.
+
+There are eight tabs open. Maybe ten.
+
+HR headcount on one screen. Payroll extract on another. Sales snapshot in a separate workbook because the original file slows to a crawl if everything stays open at once. Somewhere in the background, email notifications continue arriving, small flashes of demand at the edge of your concentration.
+
+You ignore them.
+
+First, fix the dates.
+
+For reasons nobody ever explains, one file exports dates as text and another as serial numbers. You correct them the way you always do. Quick formula. Copy down. Paste as values. Remove the helper column. Repeat.
+
+Then the duplicates.
+
+There are always duplicates.
+
+Sometimes because the system exported amended records twice. Sometimes because someone upstream merged two extracts manually before sending them over. Sometimes because no one really knows where the clean source lives anymore.
+
+The work is not difficult. That is what makes the exhaustion harder to explain.
+
+You are not confused.
+
+You are tired.
+
+There is a difference.
+
+You know every hidden column in this workbook. You know which tab must never be touched because one broken reference can ripple through the entire file. You know the brittle chain of `VLOOKUP`s holding together data that was never meant to live in a spreadsheet in the first place.
+
+And still every week feels like starting over.
+
+This is the part no one sees.
+
+From the outside, the finished report looks polished. Leadership sees a clean summary, a few directional comments, a chart that seems straightforward enough. It looks controlled. It might even look easy.
+
+They do not see the invisible hour spent tracing a broken formula through six tabs because someone inserted a column upstream.
+
+They do not see the backup copy you save before making changes.
+
+They do not see the strange little dread that arrives when the screen freezes for a second too long.
+
+Late in the cycle, often in silence, the thought arrives with exhausted clarity.
+
+This is not work anymore.
+
+This is maintenance.
+:::
+
+## Why This Book Exists
+
+This book exists for professionals who have quietly become the infrastructure.
+
+The finance analyst who spends Monday mornings stitching together exports from three systems.
+
+The HR reporting lead cleaning employee records and headcount tables every week.
+
+The operations manager rebuilding the same dashboard by hand because the source files never arrive in the same format twice.
+
+The business analyst merging sales, forecast, and actuals data through formula chains that feel one edit away from collapse.
+
+If that is you, the first thing to understand is simple.
+
+You are not bad at your job.
+
+In many cases, the opposite is true.
+
+You have become exceptionally good at forcing inadequate tools to behave like systems. You know how to rescue broken workbooks. You know how to trace weird row mismatches. You know when a pivot table is lying. You know the difference between a clean export and a file that will cost you an hour before you even begin.
+
+That competence is real.
+
+The fatigue is real too.
+
+Excel is not the villain here. It is one of the most useful business tools ever made. It gives smart professionals a fast way to inspect, organize, calculate, and communicate. The problem starts later, when a flexible analysis tool becomes the permanent operating system for recurring, large-scale workflows.
+
+A quick fix hardens into a routine.
+
+A one-off workbook becomes a weekly reporting dependency.
+
+A helper column becomes a logic chain nobody wants to touch.
+
+A file built for convenience becomes a fragile process people are afraid to change.
+
+And because the work still gets done, people assume the process still works.
+
+It does not really work.
+
+It survives.
+
+There is a cost to that survival. High-quality attention gets spent on low-value repetition. Your judgment gets crowded out by maintenance. Instead of thinking about what the data means, you spend your best hours preserving the machinery around it.
+
+That is why this book exists.
+
+Not to turn you into someone else.
+
+Not to push you into programmer culture.
+
+Not to tell you that everything you know is wrong.
+
+This book exists to help you keep what is strongest in the way you already think, then move that intelligence into a workflow that scales better.
+
+You do not need a new personality.
+
+You need a better system.
+
+## What This Book Will Help You Do
+
+By the end of this book, you will be able to take work that currently eats hours every week and turn it into processes you trust.
+
+You will know how to import real business files into R and inspect them without panic. You will know how to clean messy exports without fixing cells one by one. You will know how to merge large datasets without relying on brittle lookups. You will know how to automate recurring reporting logic so the process becomes repeatable instead of fragile.
+
+The emphasis here is speed to result.
+
+This is not a theory-first book. It is built around Monday morning work. A payroll reconciliation. A sales performance extract. A headcount merge. A weekly KPI pack. A chart for leadership that needs updated numbers before 10 a.m.
+
+Each chapter is designed to move from a recognizable business problem toward a usable outcome.
+
+That matters because many professionals do not need more information. They need relief that becomes practical fast.
+
+R is introduced here as the natural next step for people who already think in tables, business rules, summaries, exceptions, and reporting logic. You already have the instincts this work requires. You already know how to reason with data. What changes is the environment in which that reasoning happens.
+
+Instead of dragging formulas across thousands of rows, you will learn to work at the column level.
+
+Instead of rebuilding the same logic every week, you will learn to run repeatable workflows.
+
+Instead of holding a process together with memory and vigilance, you will learn to give the process structure.
+
+The emotional payoff is straightforward.
+
+You save hours every week.
+
+The professional payoff runs deeper than that. Less fatigue. Fewer silent errors. More confidence in your outputs. More room to think. More trust in the work you hand over. More credibility when the conversation shifts from “Can you pull the numbers?” to “What do you see here?”
+
+That is the real movement of this book.
+
+From spreadsheet survival to analytical control.
+
+::: {.callout-note appearance="simple" title="PhD Insight Made Simple"}
+Manual spreadsheet workflows create hidden cognitive load.
+
+Every repeated copy-paste, formula drag, format correction, and reconciliation step consumes decision energy. Even when the task feels familiar, your brain is still making small operational judgments. Which file is current. Did the formulas extend. Was the pivot refreshed. Did the row count change. That constant checking creates decision fatigue, even when the work looks routine from the outside.
+
+Repeatable workflows reduce that burden by shifting effort from memory to system. Once a process is scripted and reusable, the workflow carries the logic for you. You stop rebuilding the same path every week and start using your attention where it matters most: review, interpretation, and judgment.
+:::
+
+::: {.callout-important appearance="simple" title="Monday Morning Application"}
+Choose one report or spreadsheet workflow you repeat most often at work.
+
+Write down the answers to these five questions:
+
+1. What is the name or purpose of the report?
+2. How long does it take from raw file to final output?
+3. Which steps are manual each time?
+4. What breaks most often: formulas, formats, lookups, merges, or refresh logic?
+5. Which parts do you copy, paste, or rebuild every week?
+
+Do not optimize anything yet.
+
+Do not try to solve it on the spot.
+
+Just map the workflow honestly. This becomes your baseline, and later it becomes your proof that the old way was costing more than it seemed.
+:::

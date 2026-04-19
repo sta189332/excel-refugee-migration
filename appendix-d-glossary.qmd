@@ -1,17 +1,303 @@
 ---
-title: "Appendix D: Glossary, Excel Terms and Their R Equivalents"
+title: "Appendix D — Glossary: Excel Terms, R Terms, and Workflow Language"
 appendix: true
 ---
 
-## Glossary
+This glossary is built for one kind of reader.
 
-| Term | Meaning |
-|------------------------------------|------------------------------------|
-| data frame | A table-like structure used in R for rows and columns of data |
-| join | A way to combine two tables using a shared key |
-| tidy data | A clean data structure where each row is one observation and each column is one variable |
-| script | A saved sequence of instructions you can run again |
-| reproducibility | Getting the same result from the same process |
-| vectorized operation | Applying a rule to a whole column at once rather than cell by cell |
+You are smart. You are busy. You already know how to do serious work. The problem is not intelligence. The problem is that new language can slow down useful movement, especially when the work is urgent and the terms arrive faster than confidence.
 
-Placeholder for expanded glossary.
+So this appendix does not behave like a technical dictionary.
+
+It behaves like a bridge.
+
+Use it when a term interrupts your rhythm. Use it when a chapter introduces language that sounds new but the underlying idea is already familiar. Use it when you know the business task perfectly well and only need the vocabulary to stop getting in the way.
+
+The goal is not to make you sound more technical.
+
+The goal is to keep you moving.
+
+::: {.callout-tip appearance="simple" title="Cheat Sheet Box"}
+A good way to use this glossary is simple.
+
+- find the term that slowed you down
+- read the plain-language meaning first
+- check the Excel mental model next
+- then look at why the term matters in real work
+
+That order usually clears the fog quickly.
+:::
+
+## D.1 Glossary
+
+### Core Workflow Language
+
+| Term | Plain-Language Meaning | Where It Shows Up in This Book | Closest Excel Equivalent or Mental Model | Why It Matters in Real Work |
+|---|---|---|---|---|
+| script | A saved file containing the steps of your work in a form you can rerun. | Chapters 3, 6, 9, and 10 | A workbook process written down instead of remembered | A script turns repeated effort into repeatable logic. |
+| workflow | The full sequence of how work moves from raw file to usable output. | Across the entire book | Your usual reporting routine, but made explicit | If the workflow is clean, the work gets calmer and faster. |
+| reproducibility | Being able to run the same process again and get the same result from the same inputs. | Chapters 6, 9, 10, and appendices | A version of “refreshable” that does not depend on manual clicks | This is what stops next week’s report from becoming a fresh rescue job. |
+| project | A self-contained workspace with files, scripts, and outputs kept together. | Chapters 3 and 10, Appendix C | A dedicated workbook folder, but with stronger structure | Projects keep work from scattering across random folders and desktops. |
+| working directory | The folder R thinks you are currently operating inside. | Early setup discussions and Appendix C | The current folder context behind an open workbook | If this is wrong, file paths break and the workflow starts lying to you. |
+| relative path | A file path written from the project root instead of a hard-coded machine location. | Chapters 9 and 10, Appendix C | “Find it inside this project” instead of “find it on my specific laptop” | Relative paths make projects portable and safer over time. |
+| environment | The active workspace where your objects currently live while you work. | Chapter 5 and Appendix B | The set of loaded tables, but inside the IDE rather than a workbook | The environment is part of what makes in-session AI help useful. |
+| object | Anything stored in R, such as a table, plot, model, or function. | Chapters 3 through 10 | A named thing you can reuse, similar to a saved range or result | Thinking in objects helps you stop relying on hidden workbook state. |
+| data frame | A table-shaped object in R with rows and columns. | Across all analytical chapters | A worksheet table | Most of your real work in this book happens inside data frames. |
+| tibble | A modern, cleaner kind of data frame that prints more sensibly in R. | Chapters 3, 5, 6, 7, and 8 | Still a table, but less noisy when displayed | It makes large tables easier to inspect without flooding the screen. |
+| column | A variable stored vertically in a table. | Everywhere | A spreadsheet column | Columns are where most cleaning, calculation, and grouping logic happens. |
+| row | One record in a table. | Everywhere | A spreadsheet row | Row counts help you detect joins gone wrong and duplicates you did not expect. |
+| variable | A field inside your data, such as region, salary, month, or status. | Chapters 4 through 9 | A column you think with | Clear variables make business questions easier to express in code. |
+| key | A field used to connect two tables, such as employee ID or product code. | Chapters 4, 5, 7, and 9 | The lookup value in `VLOOKUP` or `XLOOKUP` | If the key is dirty or mismatched, the join will fail quietly. |
+| join | The act of combining tables using a shared key. | Chapters 4, 5, 7, and 9 | A lookup relationship made explicit | Joins are the grown-up version of workbook lookups. |
+| grouped summary | A table where data has been aggregated by one or more categories. | Chapters 7, 8, and 9 | A Pivot Table result | This is how recurring summaries become reusable rather than rebuilt. |
+| pipeline | A chain of steps connected in order, usually with `|>`. | Chapters 3 through 10 | A sequence of workbook actions, but written instead of performed manually | Pipelines make the logic readable from top to bottom. |
+| validation | Checking whether the output deserves trust. | Chapters 5, 6, 7, 9, and Appendix B | Double-checking totals, row counts, or filters before sending the file | Validation separates assisted work from careless work. |
+| export | Saving a result out of R into a file for others to use. | Chapters 6 through 10 and Appendix C | Save As, but done deliberately from the workflow | Exports are where the work leaves your system and starts being judged. |
+| deliverable | The file, chart, report, or slide someone else will receive. | Chapters 8, 9, 10, and Appendix C | The thing you send to leadership or another team | A workflow is only useful if the deliverable lands cleanly. |
+| function | A reusable command that performs a task when you call it. | Chapters 3 through 10 and Appendix C | A named formula pattern you can use again, but much more flexible | Functions stop you from rebuilding common logic every time the same task returns. |
+| package | A bundle of R tools designed for a specific job, such as importing, cleaning, or plotting. | Throughout the book and Appendix C | A set of built-in features grouped by purpose | Knowing the right package reduces wandering and speeds up real work. |
+| argument | An instruction you pass into a function to tell it exactly how to behave. | Chapters 3, 5, 6, and 8 | The options inside a formula or tool dialog box | Arguments are what make one function adaptable across many business situations. |
+| console | The place where R runs commands immediately and shows results or errors. | Early setup chapters and Chapter 5 | The closest mental model is Formula Bar plus output window, though less visual | It is where quick tests, diagnostics, and one-off checks often happen. |
+| chunk | A block of code inside a Quarto document. | Quarto project structure, Chapters 8 through 10 | A section of repeatable logic embedded in the report itself | Chunks let the analysis and the report live in one place. |
+| render | The act of turning a Quarto file into a finished document or report. | Quarto workflow and Appendix C | Generating the finished output from the workbook, but in a much more stable way | Rendering is how code, charts, and prose become something shareable. |
+
+### Excel-To-R Translation Language
+
+| Term | Plain-Language Meaning | Where It Shows Up in This Book | Closest Excel Equivalent or Mental Model | Why It Matters in Real Work |
+|---|---|---|---|---|
+| VLOOKUP | An Excel lookup that searches one table using a key and returns a value from another column. | Chapters 1, 4, 5, Appendix A | Lookup logic tied to a workbook | It is familiar, but brittle when files get larger and messier. |
+| XLOOKUP | A newer Excel lookup that is more flexible than `VLOOKUP`. | Chapters 4 and Appendix A | More forgiving lookup logic in Excel | It still keeps the logic inside the spreadsheet interface rather than a reusable workflow. |
+| `left_join()` | A `dplyr` function that brings columns from one table into another by matching keys. | Chapters 4, 5, 7, 9, Appendices A and B | The R mental model behind `VLOOKUP` and `XLOOKUP` | It makes relationships between tables visible, readable, and easier to verify. |
+| Pivot Table | Excel’s grouped summary tool for aggregating and rearranging data quickly. | Chapters 1, 7, Appendix A | Drag-and-drop summary interface | Useful, but exhausting when the same summary must be rebuilt every week. |
+| `group_by()` | A `dplyr` function that tells R which categories to summarize by. | Chapters 7 and 9 | Dragging a field into Pivot Table rows | It declares the grouping logic directly. |
+| `summarise()` | A `dplyr` function that calculates totals, averages, counts, and other summaries for groups. | Chapters 7 and 9 | The values area of a Pivot Table, but written explicitly | It turns grouped questions into reusable reporting code. |
+| helper column | An extra spreadsheet column created to support another formula or transformation. | Chapters 4 and 5 | A common Excel coping mechanism | In R, many helper-column tasks collapse into cleaner `mutate()` logic. |
+| `mutate()` | A `dplyr` function for creating or modifying columns. | Chapters 4, 5, 6, 7, and 9 | Writing a new formula column | It is one of the core tools for replacing copied formulas with readable logic. |
+| filter | The general act of keeping only the rows you want. | Throughout the book | Spreadsheet filter dropdown behavior | Filtering is a business decision, not just a visual view state. |
+| `filter()` | A `dplyr` function for keeping rows that meet a condition. | Chapters 4, 5, 6, and Appendix A | Spreadsheet filtering, but written and repeatable | It prevents the “which rows did I hide last time” problem. |
+| sort | The general act of ordering rows. | Chapters 7 and 8, Appendix A | Sort ascending or descending in Excel | Order affects meaning, especially in summaries and charts. |
+| `arrange()` | A `dplyr` function for ordering rows by one or more columns. | Chapters 7, 8, and 9 | Sort buttons, but preserved in logic | It keeps important ranking decisions from being lost on refresh. |
+| missing value | A value that is absent, unknown, not recorded, or not available. | Chapters 5, 6, 9, Appendices A and B | A blank cell, though not every blank means the same thing | Missingness is often a business issue, not just a formatting issue. |
+| `NA` | The R marker for a missing value. | Chapters 5, 6, and Appendix B | The R version of a blank or absent entry | If you ignore `NA`, summaries and joins can mislead you fast. |
+| duplicate | A repeated record or repeated key that may or may not be an error. | Chapters 6 and 9, Appendices A and C | Duplicate rows in Excel | Duplicates must be defined by business logic, not visual irritation. |
+| distinct | The general idea of keeping unique rows based on a chosen key. | Chapter 6 and Appendix A | Remove Duplicates in Excel | In R, you decide what counts as unique and preserve that rule visibly. |
+| `distinct()` | The `dplyr` function that keeps unique rows or keys. | Chapter 6, Chapter 9, Appendix A | The scripted version of Remove Duplicates | It turns deduplication into a repeatable step instead of a one-time click. |
+| wide data | Data spread across many columns, often one column per period or category. | Chapters 4, 7, and Appendix A | The shape many spreadsheets naturally take | Familiar to humans, often awkward for analysis. |
+| long data | Data arranged so one variable sits in one column and repeated categories become rows. | Chapters 4, 7, and Appendix A | Less familiar visually, more useful analytically | Long data usually makes grouping, plotting, and filtering easier. |
+| `pivot_longer()` | A `tidyr` function that turns wide spreadsheet-style columns into a longer analysis-friendly table. | Appendix C and implied across reshaping logic | Turning many month columns into one month field plus one value field | It is how awkward spreadsheet shape becomes usable analytical shape. |
+| `pivot_wider()` | A `tidyr` function that spreads long data back into wider form. | Appendix C | Rebuilding a compact summary table for final presentation | Useful at the end of a workflow, not usually at the beginning. |
+
+### Cleaning Language
+
+| Term | Plain-Language Meaning | Where It Shows Up in This Book | Closest Excel Equivalent or Mental Model | Why It Matters in Real Work |
+|---|---|---|---|---|
+| clean names | Standardizing column names so they are easy to use in code. | Chapter 6 and Appendix C | Renaming headers so they stop causing trouble | Ugly headers are a small problem that repeats in big ways. |
+| trim whitespace | Removing hidden spaces at the beginning or end of text. | Chapters 5 and 6, Appendix A | `TRIM()` in Excel | Tiny spaces can break joins, categories, and summaries. |
+| parse date | Converting text that looks like a date into a real date value R understands. | Chapters 6 and 9, Appendix A | Fixing date cells until Excel stops complaining | Date parsing is where time-based analysis either stabilizes or quietly fails. |
+| standardize category | Making messy labels consistent, such as turning `HR`, `Human Resources`, and `human resources ` into one value. | Chapters 6 and 9 | Manual cleanup plus helper columns | Category drift fractures summaries and charts if left unchecked. |
+| deduplicate | Removing repeated rows using a defined business rule. | Chapters 6 and 9 | Remove Duplicates, but with a real key | It matters because not all repeated rows are errors. |
+| inspect structure | Looking at the table to understand columns, types, and shape before acting on it. | Chapters 3, 6, and 9 | Scanning a workbook before touching formulas | Inspection prevents false confidence. |
+| row count | The number of rows in a table. | Chapters 5, 6, 7, and 9 | Counting how many records are present | Row counts are one of the fastest sanity checks in real work. |
+| missing-value check | A deliberate review of which important fields are `NA` or blank after a step in the workflow. | Chapters 5, 6, 9, and Appendix B | Filtering blanks to see what failed | This catches broken joins and weak assumptions before they travel downstream. |
+| `clean_names()` | A `janitor` function that makes column names consistent and code-friendly. | Chapters 6 and 9, Appendix C | Cleaning messy headers once so they stop creating little problems everywhere | It is often the first calm move after import. |
+| `str_trim()` | A `stringr` function that removes leading and trailing spaces from text. | Chapters 5, 6, and 9, Appendices A and C | `TRIM()` in Excel, but applied cleanly across a column | It is one of the fastest ways to stop text fields from sabotaging joins and categories. |
+| `replace_na()` | A function used to replace missing values with a chosen fallback. | Chapters 6 and 9, Appendices A and C | Filling blanks, but done deliberately | This is useful only after you decide what the missing value means. |
+| `mdy()` / `dmy()` / `ymd()` | `lubridate` functions for converting text into real dates based on format order. | Chapters 6 and 9, Appendix A, Appendix C | Fixing imported date text by recognizing the actual pattern | These functions stop date handling from becoming guesswork. |
+
+### Visualization And Charting Language
+
+| Term | Plain-Language Meaning | Where It Shows Up in This Book | Closest Excel Equivalent or Mental Model | Why It Matters in Real Work |
+|---|---|---|---|---|
+| aesthetic mapping | The rule connecting data columns to visual features such as x-position, y-position, or color. | Chapter 8 | Assigning fields to chart roles | It is how the chart learns what should be seen. |
+| geometry | The type of visual mark used in a plot, such as bars or lines. | Chapter 8 | Choosing a chart type | The wrong geometry weakens the message fast. |
+| factor reordering | Changing the display order of categories so they appear in meaningful rank rather than alphabetical order. | Chapters 7 and 8 | Sorting categories before building the chart | This is what makes ranked visuals feel prepared instead of careless. |
+| direct labeling | Making the chart say clearly what matters, often through titles, subtitles, or labels that reduce the need for a legend. | Chapter 8 | Writing a more useful chart title or labeling the important series directly | Good labeling saves the chart from needing verbal rescue. |
+| legend | A chart guide explaining colors or symbols. | Chapter 8 | The chart legend in Excel | Useful sometimes, unnecessary more often than people admit. |
+| scale | The formatting logic for how axis values are displayed. | Chapter 8 and Appendix C | Axis number formatting | This is how dollars look like dollars and percentages look like percentages. |
+| theme | The visual styling framework of a `ggplot2` chart. | Chapter 8 | Chart formatting choices, but cleaner and more controlled | Themes reduce clutter and make the chart easier to trust. |
+| facet | A way of splitting one chart into several small panels by category. | Chapter 8 | The closest mental model is multiple small pivot charts laid out neatly | Facets help when one chart is trying to hold too many comparisons. |
+| exported PNG | A saved image file of a chart, usually used in slides, documents, or email. | Chapters 8 and 9 | Copying a chart into PowerPoint, but done properly | A chart that is badly exported can undermine otherwise strong work. |
+| `ggplot()` | The function that starts a plot in `ggplot2`. | Chapter 8, Appendix C | Insert chart, but with a much clearer logic structure | It is the entry point for most deliberate business visuals in this book. |
+| `geom_col()` | A `ggplot2` layer used for bar charts based on already summarized values. | Chapters 8 and 9 | A bar chart built from a prepared summary table | It is one of the most useful chart layers for leadership-ready comparisons. |
+| `geom_line()` | A `ggplot2` layer used for trends over time. | Chapter 8 | A line chart in Excel | Best when the business question is movement, not rank. |
+| `labs()` | A function used to set titles, subtitles, and axis labels. | Chapter 8 and Chapter 9 | Editing the chart title and labels | This is where the chart stops being vague and starts saying something useful. |
+| `theme_minimal()` | A clean `ggplot2` theme often used in the book’s business visuals. | Chapter 8 and Appendix C | A stripped-down chart style with less clutter | It helps charts look calm instead of noisy. |
+| `ggsave()` | The function used to export a plot to a file such as PNG. | Chapters 8, 9, 10, and Appendix C | Save chart as image, but controlled from the workflow | A good plot still needs a professional export. |
+
+### Reporting And Delivery Language
+
+| Term | Plain-Language Meaning | Where It Shows Up in This Book | Closest Excel Equivalent or Mental Model | Why It Matters in Real Work |
+|---|---|---|---|---|
+| CSV | A plain text file used to store tabular data. | Chapters 6, 9, 10, and Appendix C | A spreadsheet export without workbook features | CSV is simple, portable, and useful for clean downstream workflows. |
+| Excel export | Saving a result from R into an `.xlsx` file so others can receive it in a familiar format. | Chapters 9 and 10, Appendix C | Sending the workbook the team expects | The workflow can be in R even if the handoff stays in Excel. |
+| Quarto | A reporting and publishing layer that turns code, prose, tables, and charts into structured documents. | Throughout the book project and Appendix C | A much more stable version of copy-pasting analysis into a report | Quarto is how workflow and presentation stop living in separate worlds. |
+| rendered report | The final document Quarto produces after combining code, results, and writing. | Book project structure and Appendix C | The finished report or deck-ready document | Rendering is where the workflow becomes something shareable. |
+| boardroom slide | A chart or summary prepared for a senior audience who need a clear message quickly. | Chapters 8 and 9 | The slide that makes or weakens the room | A weak slide can damage a strong analysis. |
+| stakeholder format | The delivery format the audience expects, such as Excel, PNG, PDF, or slide-ready material. | Chapters 9 and 10, Appendix C | “What the manager wants sent” | Good workflows respect this without surrendering the engine underneath. |
+| `write_csv()` | The function used to save a clean table as a CSV file. | Chapters 6, 9, 10, Appendix C | Exporting a clean table for reuse | It keeps the output light, portable, and easy to reload. |
+| `write.xlsx()` | A function from `openxlsx` used to save one or more tables back to Excel. | Chapters 9 and 10, Appendix C | Delivering a workbook to the business | This is how R-powered work can still land in familiar stakeholder format. |
+| output | A file, table, chart, or report created by your workflow. | Throughout the book | The result you are trying to hand over | Clear outputs reduce confusion about what the workflow has actually produced. |
+| archive | A place to store older source files or earlier project outputs without cluttering the active workflow. | Chapter 10 and Appendix C | An orderly version of keeping old file versions, not just piling them in a folder | Archiving protects the project from version chaos. |
+
+### In-Session AI Workflow Language
+
+| Term | Plain-Language Meaning | Where It Shows Up in This Book | Closest Excel Equivalent or Mental Model | Why It Matters in Real Work |
+|---|---|---|---|---|
+| prompt | The instruction you give the assistant. | Chapter 5, Appendix B | The question you ask when stuck, but made explicit | Better prompts reduce friction and improve the usefulness of help. |
+| highlighted-code workflow | Selecting code or a prompt inside the IDE and sending it directly to the assistant. | Chapter 5 and Appendix B | There is no real Excel equivalent; it is closer to asking for help inside the workbook itself | This keeps the question close to the actual work. |
+| session-aware context | Help that is informed by what is already loaded in your current R session. | Chapter 5 and Appendix B | The closest mental model is having the assistant “see” the active tables and packages | This is why in-session help feels less repetitive than browser chat. |
+| in-session assistant | An AI helper that lives inside the IDE instead of in a separate browser tab. | Chapter 5 and Appendix B | None, because this is part of the upgrade | The real gain is lower friction at the point of work. |
+| `ellmer` | The R package used here to connect Gemini to your R workflow. | Chapter 5, Appendix B, Appendix C | The connection layer behind the assistant | Without it, the in-session workflow does not start. |
+| `chattr` | The R package used here to bring the conversation into RStudio or Positron. | Chapter 5, Appendix B, Appendix C | The chat interface inside the IDE | This is what helps the assistant stay near the code. |
+| `.Renviron` | A file where environment variables such as API keys can be stored safely outside scripts. | Chapter 5 and Appendix C | A hidden settings file rather than a visible workbook cell | It keeps credentials out of code and reduces avoidable risk. |
+| API key | A secret credential allowing your software to connect to a service such as Gemini. | Chapter 5, Appendix B, Appendix C | A password-like token for software access | If handled badly, it turns a good workflow into a security mistake. |
+| verification | The act of checking whether the assistant’s output is correct enough to trust. | Chapter 5, Chapter 9, Appendix B | Double-checking before sending the file | AI can help fast. It does not remove your responsibility. |
+| human-in-the-loop | A workflow where the assistant helps, but a person still judges, verifies, and decides. | Chapter 5 and Appendix B | The professional remains accountable | This is what keeps AI assistance useful without turning it reckless. |
+| Open Chat shortcut | The keyboard shortcut used to open the in-session chat pane. | Chapter 5 and Appendix B | None, because this is an IDE-native habit rather than a spreadsheet habit | Speed matters when the question arises in the middle of work. |
+| Send Prompt shortcut | The keyboard shortcut used to send highlighted code or a written prompt directly from the editor. | Chapter 5 and Appendix B | Again, no true Excel equivalent | This is part of what makes the workflow lower-friction than browser chat. |
+
+### Nuance Notes For Terms That Deserve More Than One Line
+
+#### `left_join()`
+
+This term deserves extra attention because it marks one of the biggest identity shifts in the book.
+
+Spreadsheet users often think of joins as lookups because that is how they experience them in Excel. In R, a join is more direct. It is not “search over there and pull something back.” It is “connect these tables because they share a relationship.”
+
+That change in language matters because it changes how you think. You stop asking where the formula goes. You start asking which fields define the relationship and how to verify it afterward.
+
+#### reproducibility
+
+This word can sound more academic than it needs to.
+
+In the context of this book, it means something plain: if the same ugly file arrives next week, you should not have to rebuild the logic from memory. The work should know how to happen again.
+
+That is what readers are really buying back.
+
+Time. Calm. Reliability.
+
+#### Quarto
+
+This term can intimidate people because it sounds like a publishing tool first.
+
+In practical terms, it is a way to keep your code, tables, charts, and writing in one place so the final report is not held together by copy-paste stamina. If you think of it as the report layer sitting on top of your R workflow, it usually becomes easier to place.
+
+#### session-aware context
+
+This phrase sounds more advanced than it feels in practice.
+
+It simply means the assistant is helping from inside the IDE, where your active objects, packages, and code already exist. You are not rebuilding the whole scenario in a browser tab. You are asking for help closer to the work itself.
+
+That is why the workflow feels faster.
+
+#### stakeholder format
+
+This term matters because it keeps the book grounded.
+
+Not every good workflow ends in a Quarto report. Sometimes the right answer still has to be sent as Excel, PNG, or slide-ready material because that is what the audience expects. Stakeholder format reminds you that delivery culture and analytical engine are not the same thing.
+
+::: {.callout-note appearance="simple" title="PhD Insight"}
+Vocabulary becomes less threatening when the reader can connect each term to a workflow consequence.
+
+A term like `left_join()` feels technical in isolation. It feels practical once the reader sees that it replaces workbook lookup fragility with a visible relationship between tables. Language anxiety usually weakens when the term is tied to a real piece of work.
+:::
+
+### Extended Glossary Entries You May Need Next
+
+These entries go one step beyond the book’s core vocabulary. They belong here because readers often meet them shortly after the first successful migration and should not have to leave the workflow just to decode them.
+
+#### function
+
+**Plain-Language Meaning**  
+A reusable block of logic that you can call by name instead of rewriting the same steps again.
+
+**Closest Excel Mental Model**  
+A custom formula pattern you wish Excel let you define once and reuse cleanly.
+
+**Why It Matters In Real Work**  
+Functions are what stop repeated cleaning or reporting steps from staying trapped inside copied pipelines forever.
+
+**Where It Appears In The Book**  
+Implied in Chapters 9 and 10, and especially relevant after the first live project.
+
+#### render
+
+**Plain-Language Meaning**  
+To generate the finished version of a Quarto report from the source file.
+
+**Closest Excel Mental Model**  
+Refreshing the workbook and then exporting the final polished version, but with code, tables, and charts all updated together.
+
+**Why It Matters In Real Work**  
+Rendering is what makes repeated reporting less fragmented. One command updates the report instead of several manual steps.
+
+**Where It Appears In The Book**  
+Quarto workflow references across the book and Appendix C.
+
+#### package stack
+
+**Plain-Language Meaning**  
+A small set of packages that work together to solve one kind of business problem.
+
+**Closest Excel Mental Model**  
+The handful of functions or tools you rely on for a recurring report.
+
+**Why It Matters In Real Work**  
+Thinking in stacks reduces package overload. You stop hunting randomly and start reaching for combinations that already make sense together.
+
+**Where It Appears In The Book**  
+Appendix C most directly, but implied throughout the workflow chapters.
+
+#### factor
+
+**Plain-Language Meaning**  
+A categorical variable in R, often used when the order of categories matters.
+
+**Closest Excel Mental Model**  
+A labeled category column, but with stronger control over display order.
+
+**Why It Matters In Real Work**  
+Factors become especially important when charts need to rank categories in business order instead of alphabetically.
+
+**Where It Appears In The Book**  
+Chapters 7 and 8, Appendix C.
+
+#### archive folder
+
+**Plain-Language Meaning**  
+A deliberate place to store old source files or past outputs without polluting the active project.
+
+**Closest Excel Mental Model**  
+An orderly historical folder, not a pile of renamed “final” workbooks.
+
+**Why It Matters In Real Work**  
+A proper archive prevents clutter from becoming mistaken for version control.
+
+**Where It Appears In The Book**  
+Chapter 10 and Appendix C.
+
+#### prompt block
+
+**Plain-Language Meaning**  
+A short written instruction, often inside the script itself, that can be highlighted and sent to the in-session assistant.
+
+**Closest Excel Mental Model**  
+There is no good spreadsheet equivalent. It is closer to writing the business rule right above the work and asking for help from there.
+
+**Why It Matters In Real Work**  
+Prompt blocks reduce friction because the question stays attached to the code instead of wandering into another application.
+
+**Where It Appears In The Book**  
+Chapter 5 and Appendix B.
+
+::: {.callout-warning appearance="simple" title="Quick Warning"}
+Do not let glossary expansion drift into jargon collecting.
+
+A term belongs here if it repeatedly slows down useful work or blocks understanding in the book. It does not belong here just because it exists in the wider R ecosystem.
+:::
+
+### Last Working Rule
+
+If a term sounds technical but solves a problem you already recognize, it is usually less foreign than it first appears.
+
+That is the bridge this appendix is trying to build.

@@ -1,21 +1,414 @@
 ---
-title: "Appendix A: The Master Excel-to-R Cheat Sheet"
+title: "The Master Excel-to-R Cheat Sheet"
 appendix: true
 ---
 
-## Core Translation Map
+You do not need to memorize everything in R.
 
-| Excel term | R equivalent | Plain-language use |
-|------------------------|------------------------|------------------------|
-| Worksheet table | data frame | Structured tabular data |
-| Filter | `filter()` | Keep only rows you need |
-| Sort | `arrange()` | Reorder rows |
-| VLOOKUP/XLOOKUP | `left_join()` | Pull matching columns from another table |
-| Pivot table | `group_by()` + `summarise()` | Build grouped summaries |
-| IF | `if_else()` or `case_when()` | Apply conditional logic |
-| Text cleanup | `stringr` | Clean messy text |
-| Save file | `write_csv()` | Export clean output |
+You need a reliable bridge.
 
-## Common Patterns
+That is what this appendix is for. Keep it open during reporting work. Print it. Mark it up. Return to it when Excel habits are faster than confidence and the deadline is loud enough to make old workflows look tempting again.
 
-Placeholder for expanded cheat sheet tables and workflow snippets.
+The point here is not conceptual elegance.
+
+The point is speed.
+
+Use this appendix when the file is messy, the request is urgent, and your brain needs a clean translation path before 9:00 AM.
+
+::: {.callout-tip appearance="simple" title="Cheat Sheet Box"}
+The fastest way to use this appendix is simple.
+
+1. identify the Excel task you are about to do
+2. find the matching row in the translation map
+3. copy the R pattern, not the fear
+4. save the script, even if the output still goes back to Excel
+:::
+
+```{r}
+#| label: app-a-load-packages
+#| eval: false
+
+library(readr)
+library(readxl)
+library(dplyr)
+library(stringr)
+library(lubridate)
+library(tidyr)
+library(janitor)
+library(openxlsx)
+```
+
+## A.1 Core Translation Map
+
+The table below is the working dictionary.
+
+Do not treat it like theory. Treat it like operational translation. The question is not “What is the R equivalent in an abstract sense?” The question is “What do I do instead of the thing I keep doing manually in Excel?”
+
+| Excel Task | Common Excel Method | R Equivalent | Why the R Version Wins | Example Workflow |
+|---|---|---|---|---|
+| Add a total | `SUM(range)` | `summarise(total = sum(value, na.rm = TRUE))` | The logic is visible, reusable, and easy to rerun on new data without touching cells again. | Total monthly sales across all regions after importing `sales_actuals.csv`. |
+| Average a field | `AVERAGE(range)` | `summarise(avg_value = mean(value, na.rm = TRUE))` | Handles missing values explicitly and keeps the calculation tied to the dataset instead of a fragile range. | Average payroll by department after cleaning blanks. |
+| Count records meeting a condition | `COUNTIF(range, criteria)` | `filter(condition) |> summarise(n = n())` | The condition is readable and easy to adjust when the rule changes. | Count employees marked `"Active"` in an HR extract. |
+| Sum by one condition | `SUMIF(range, criteria, sum_range)` | `filter(condition) |> summarise(total = sum(value, na.rm = TRUE))` | Separates filtering from calculation, which makes the business rule much easier to inspect. | Sum sales for the West region only. |
+| Sum by multiple conditions | `SUMIFS()` | `filter(cond1, cond2, cond3) |> summarise(total = sum(value, na.rm = TRUE))` | Multiple rules stay readable instead of getting buried inside formula punctuation. | Sum March revenue for `Region == "West"` and `Product_Line == "Core"`. |
+| One-condition logic | `IF(test, yes, no)` | `mutate(flag = if_else(test, yes, no))` | Applies the rule across a whole column at once and makes it easier to audit later. | Flag overdue invoices as `"Overdue"` or `"Current"`. |
+| Multi-condition logic | nested `IF()` | `mutate(group = case_when(...))` | Complex classification stops looking like a formula accident and starts looking like declared business logic. | Classify employees as `Core Staff`, `Flexible Staff`, or `Contractors`. |
+| Hide errors | `IFERROR(formula, value)` | `coalesce()`, `replace_na()`, or guarded logic with `if_else()` | Makes the missing or failing case explicit instead of hiding it behind a silent rescue formula. | Replace missing target values with zero before variance calculations. |
+| Trim spaces | `TRIM(cell)` | `mutate(field = str_trim(field))` | Cleans the whole column at once, including fields imported from ugly exports. | Remove trailing spaces from `region`, `department`, or `employee_id`. |
+| Join text together | `CONCATENATE()` or `&` | `mutate(full_name = str_c(first_name, last_name, sep = " "))` | Cleaner syntax, easier to reuse, and better for large tables. | Build a full employee name for reporting output. |
+| Pull left, right, or middle text | `LEFT()`, `RIGHT()`, `MID()` | `str_sub()` | String extraction becomes readable and consistent across long columns. | Pull a cost-center prefix from an account code. |
+| Find text inside text | `FIND()` or `SEARCH()` | `str_detect()`, `str_locate()` | Easier for pattern checks and more scalable when the logic must be reused later. | Detect whether a product description contains `"Premium"`. |
+| Format text or dates | `TEXT(value, format)` | `format()` or `str_c()` with cleaned fields | Keeps formatting separate from the raw value so the underlying data stays usable. | Format a report month as `"Jan 2026"` for a slide label. |
+| Remove duplicates | Data tab → Remove Duplicates | `distinct(key, .keep_all = TRUE)` | You define what counts as duplication and keep the rule in the workflow. | Keep one row per `employee_id` and `pay_period`. |
+| Sort data | Sort buttons | `arrange(field)` or `arrange(desc(field))` | Sorting becomes part of the logic, not an interface state that gets lost next week. | Rank regions from highest to lowest revenue. |
+| Filter rows | Drop-down filter | `filter(condition)` | The filter rule becomes readable and repeatable instead of hidden in the workbook view. | Keep only `"Active"` employees or only `"West"` sales. |
+| Conditional classification | helper columns plus `IF` chains | `mutate()` plus `case_when()` | Lets you create professional classification logic without dragging formulas down forever. | Group cost centers into strategic clusters. |
+| Lookup one table into another | `VLOOKUP()` | `left_join()` | Joins are easier to audit, more stable across changing column order, and far less brittle than lookups. | Bring payroll values into a headcount file by `employee_id`. |
+| Lookup with flexible column position | `XLOOKUP()` | `left_join()` plus `select()` | The relationship is based on keys, not where the source column happens to sit. | Match target values to actuals by region and month. |
+| Flexible two-way match | `INDEX()` plus `MATCH()` | `left_join()`, `filter()`, or grouped summaries depending on the real task | Usually reveals that the underlying problem is relational, not cell-based. | Pull product-line names into sales actuals using `product_code`. |
+| Summarize large tables | Pivot Table | `group_by()` plus `summarise()` | Summary logic becomes visible, rerunnable, and much easier to verify. | Headcount by department or revenue by region and month. |
+| Split text into separate fields | Text to Columns | `separate()` | The split rule becomes reusable instead of being performed once and forgotten. | Split `"Region - Department"` into two columns. |
+| Pattern-based fill | Flash Fill | `mutate()` with `str_*()` functions | You stop relying on Excel’s guess and start declaring the logic directly. | Extract initials, clean codes, or standardize labels. |
+| Fix ugly dates | manual formatting, helper columns, trial and error | `mdy()`, `dmy()`, `ymd()`, `floor_date()` | Date parsing becomes explicit, which reduces false trends and silent errors. | Convert `04/01/2026` or `1-Apr-26` into real dates. |
+| Handle missing values | blank cells, manual fill, ad hoc replacements | `replace_na()` or `coalesce()` | Makes the treatment of blanks visible and consistent. | Replace missing bonus values with zero and missing managers with `"Unassigned"`. |
+| Detect duplicates | manual scan, conditional formatting | `count(key) |> filter(n > 1)` | Finds repeated records quickly and helps you decide whether they are errors or legitimate repeats. | Check whether `employee_id` appears more than once in a supposedly unique file. |
+| Export cleaned output | Save As, copy into new workbook | `write_csv()` or `write.xlsx()` | The cleaned result becomes reproducible and easier to hand over without workbook archaeology. | Save a cleaned payroll file for finance or export a board-ready summary workbook. |
+
+### Quick Syntax Shelf
+
+Use these as first-response patterns when the task is obvious and the deadline is not interested in your emotions.
+
+```{r}
+#| label: app-a-quick-syntax-shelf
+#| eval: false
+
+# Import a CSV
+sales <- read_csv("inputs/sales_actuals.csv")
+
+# Import an Excel sheet
+targets <- read_excel("inputs/sales_targets.xlsx")
+
+# Clean names
+sales <- sales |> clean_names()
+
+# Trim ugly text
+sales <- sales |> mutate(region = str_trim(region))
+
+# Replace missing values
+sales <- sales |> mutate(sales_value = replace_na(sales_value, 0))
+
+# Join reference data
+sales_enriched <- sales |> left_join(targets, by = c("region", "month"))
+
+# Summarise
+summary_tbl <- sales_enriched |>
+  group_by(region) |>
+  summarise(total_sales = sum(sales_value, na.rm = TRUE), .groups = "drop")
+
+# Remove duplicates
+unique_tbl <- sales_enriched |> distinct(employee_id, pay_period, .keep_all = TRUE)
+
+# Export CSV
+write_csv(summary_tbl, "outputs/summary_tbl.csv")
+
+# Export Excel workbook
+write.xlsx(summary_tbl, "outputs/summary_tbl.xlsx")
+```
+
+::: {.callout-warning appearance="simple" title="Quick Warning"}
+The old trap is not that Excel tasks are impossible.
+
+The old trap is that the same task gets solved from scratch every week with no memory except your own.
+
+If the rule can be written once, it should not be rebuilt by hand forever.
+:::
+
+## A.2 Common Patterns
+
+These are not polished case studies. They are repeatable field recipes. Use them when you already know the shape of the request and need a clean route from messy file to stable output.
+
+### Monthly Sales Reporting Pattern
+
+**Situation**  
+You receive actual sales as a CSV, targets in Excel, and a product or region lookup table from another team. Leadership wants a monthly view by region with one clear summary and one chart.
+
+**What Usually Happens In Excel**  
+You copy each file into one workbook, repair labels, build lookups, refresh a pivot, fix the sort order, and wonder whether the totals still match the original export.
+
+**Cleaner R Workflow**  
+Import each file. Standardize names. Clean region labels. Parse the month field. Join target and lookup data. Summarize by region and month. Export the summary and the chart.
+
+**Recommended Core Functions**  
+`read_csv()`, `read_excel()`, `clean_names()`, `str_trim()`, `left_join()`, `group_by()`, `summarise()`, `write_csv()`
+
+**Reusable Snippet Placeholder**
+
+```{r}
+#| label: app-a-monthly-sales-pattern
+#| eval: false
+
+# Placeholder: Import actuals CSV
+# Placeholder: Import target Excel sheet
+# Placeholder: Clean names in both tables
+# Placeholder: Standardize region labels and parse month
+# Placeholder: Join actuals to targets
+# Placeholder: Group by month and region
+# Placeholder: Summarise actuals, targets, and variance
+# Placeholder: Export summary table for reporting
+```
+
+### HR Headcount Reconciliation Pattern
+
+**Situation**  
+You receive one headcount extract from HR and another staffing file from payroll or workforce planning. The task is to reconcile counts by department and identify mismatches or missing categories.
+
+**What Usually Happens In Excel**  
+You sort by employee ID, highlight duplicates, repair names manually, use a lookup to pull fields across, then spend too long checking whether the mismatches are real or workbook-induced.
+
+**Cleaner R Workflow**  
+Import both tables. Clean names. Trim IDs and department labels. Remove duplicate rows by a defined key. Join staffing attributes into the headcount table. Group by department. Compare counts.
+
+**Recommended Core Functions**  
+`read_csv()`, `clean_names()`, `str_trim()`, `distinct()`, `left_join()`, `group_by()`, `summarise()`
+
+**Reusable Snippet Placeholder**
+
+```{r}
+#| label: app-a-hr-headcount-pattern
+#| eval: false
+
+# Placeholder: Import HR headcount extract
+# Placeholder: Import payroll or workforce reference file
+# Placeholder: Clean names and trim employee IDs
+# Placeholder: Remove duplicate employee records
+# Placeholder: Join staffing attributes
+# Placeholder: Group by department
+# Placeholder: Compare headcount totals and flag mismatches
+# Placeholder: Export reconciliation summary
+```
+
+### Budget vs Actual Workflow
+
+**Situation**  
+Finance needs a monthly budget-versus-actual view by cost center, with variance and variance percentage.
+
+**What Usually Happens In Excel**  
+You open budget and actual files side by side, line up cost centers, repair formatting differences, use `SUMIFS`, then build a variance column and hope the formulas all extended correctly.
+
+**Cleaner R Workflow**  
+Import both files. Clean names. Standardize cost-center labels and month fields. Join budget to actuals. Calculate variance and variance percentage. Rank the largest overruns. Export for leadership review.
+
+**Recommended Core Functions**  
+`read_excel()`, `read_csv()`, `clean_names()`, `mutate()`, `left_join()`, `group_by()`, `summarise()`, `arrange()`
+
+**Reusable Snippet Placeholder**
+
+```{r}
+#| label: app-a-budget-vs-actual-pattern
+#| eval: false
+
+# Placeholder: Import budget workbook
+# Placeholder: Import actuals export
+# Placeholder: Standardize cost-center names and month format
+# Placeholder: Join budget and actuals
+# Placeholder: Calculate variance and variance_pct
+# Placeholder: Group at the required reporting level
+# Placeholder: Rank cost centers by overrun
+# Placeholder: Export final summary for finance pack
+```
+
+### Weekly KPI Reporting Pattern
+
+**Situation**  
+A recurring weekly KPI file arrives from operations or reporting. The same columns need cleaning every time, and the same summary gets rebuilt every week.
+
+**What Usually Happens In Excel**  
+You delete empty rows, trim labels, fix dates, rebuild a pivot table, copy the result into another workbook or PowerPoint slide, and repeat next week.
+
+**Cleaner R Workflow**  
+Treat the KPI file as a standing pipeline. Import, clean names, trim text, handle missing values, summarize by site or region, export the table, save the plot.
+
+**Recommended Core Functions**  
+`read_csv()`, `clean_names()`, `str_trim()`, `replace_na()`, `group_by()`, `summarise()`, `write_csv()`
+
+**Reusable Snippet Placeholder**
+
+```{r}
+#| label: app-a-weekly-kpi-pattern
+#| eval: false
+
+# Placeholder: Import weekly KPI export
+# Placeholder: Clean names and trim region or site labels
+# Placeholder: Replace missing metric values
+# Placeholder: Remove duplicate records if needed
+# Placeholder: Group by reporting unit
+# Placeholder: Summarise total KPI values
+# Placeholder: Export reusable summary table
+# Placeholder: Save chart for weekly deck
+```
+
+### Department Summary Pipeline
+
+**Situation**  
+You need one clean departmental summary for headcount, spend, attrition, or workload, often by month or quarter.
+
+**What Usually Happens In Excel**  
+You filter a large table, build a pivot, manually rename the values area, adjust sorting, and copy the output into a slide where the formatting never quite holds.
+
+**Cleaner R Workflow**  
+Import the cleaned source file, standardize department values, group by department and time period, calculate the needed totals or counts, sort, and export.
+
+**Recommended Core Functions**  
+`read_csv()`, `mutate()`, `str_trim()`, `group_by()`, `summarise()`, `arrange()`
+
+**Reusable Snippet Placeholder**
+
+```{r}
+#| label: app-a-department-summary-pattern
+#| eval: false
+
+# Placeholder: Import clean source file
+# Placeholder: Standardize department names
+# Placeholder: Parse reporting month or quarter
+# Placeholder: Group by department and period
+# Placeholder: Summarise counts, totals, or rates
+# Placeholder: Arrange output in business order
+# Placeholder: Export for meeting pack
+```
+
+### Payroll Cleanup Workflow
+
+**Situation**  
+Payroll sends an export with duplicate employee IDs, ugly department values, missing manager names, and dates that arrive half as text and half as actual dates.
+
+**What Usually Happens In Excel**  
+You delete rows, use helper columns, patch categories, repair dates manually, then save a “clean” version that no one can fully explain next week.
+
+**Cleaner R Workflow**  
+Import the export. Clean names. Trim and standardize key fields. Replace missing values intentionally. Convert dates explicitly. Remove duplicates using employee and pay period as a rule. Save the clean file.
+
+**Recommended Core Functions**  
+`read_excel()`, `clean_names()`, `str_trim()`, `replace_na()`, `mdy()` or `dmy()`, `distinct()`, `write_csv()`, `write.xlsx()`
+
+**Reusable Snippet Placeholder**
+
+```{r}
+#| label: app-a-payroll-cleanup-pattern
+#| eval: false
+
+# Placeholder: Import payroll extract
+# Placeholder: Clean names and trim identifiers
+# Placeholder: Standardize department and location text
+# Placeholder: Replace missing manager or bonus fields
+# Placeholder: Parse pay date and pay period
+# Placeholder: Remove duplicate employee-pay-period rows
+# Placeholder: Export clean payroll file to CSV and Excel
+```
+
+### Executive Slide Preparation Pattern
+
+**Situation**  
+The summary is complete, but it still needs to become something a senior audience can read quickly.
+
+**What Usually Happens In Excel**  
+You build a chart, fight the default formatting, resize it for PowerPoint, and then explain verbally what the chart should have shown more clearly.
+
+**Cleaner R Workflow**  
+Start from the trusted summary table. Order the categories. Build one clear chart. Use a title that states the message. Export at slide-ready resolution.
+
+**Recommended Core Functions**  
+`ggplot()`, `geom_col()`, `labs()`, `theme_minimal()`, `ggsave()`
+
+**Reusable Snippet Placeholder**
+
+```{r}
+#| label: app-a-executive-slide-pattern
+#| eval: false
+
+# Placeholder: Import or use final summary table
+# Placeholder: Reorder categories for ranking clarity
+# Placeholder: Build chart with ggplot2
+# Placeholder: Add informative title and axis labels
+# Placeholder: Remove clutter and unnecessary legend
+# Placeholder: Export slide-ready PNG
+```
+
+## A.3 Fast Decision Table
+
+Use this when the old workflow starts whispering that the spreadsheet route will be “quicker this one time.”
+
+| If you usually do this in Excel… | Stop doing this | Start doing this in R |
+|---|---|---|
+| copy formulas down a whole column manually | trusting the drag handle to carry the rule safely | use `mutate()` so the rule is applied once, visibly, across the full column |
+| rebuild the same pivot table every week | treating a recurring summary like a fresh event | write the grouped summary once with `group_by()` and `summarise()` |
+| fix dates by hand until they “look right” | relying on cell formatting to hide date confusion | parse the dates explicitly with `mdy()`, `dmy()`, or `ymd()` |
+| remove duplicates by clicking through the Data tab | dropping rows without a reusable definition of duplication | use `distinct()` with the actual business key |
+| keep saving `final_v2_USE_THIS.xlsx` | confusing versioning with workflow memory | save the script and export a fresh output from the same logic |
+| clean the same CSV every Monday | spending judgment on repeated repair | build one cleaning pipeline and rerun it on the new file |
+| use `VLOOKUP()` because it is familiar | tying the logic to column position and workbook layout | use `left_join()` so the relationship stays key-based and readable |
+| rely on hidden helper columns | letting important logic disappear into workbook archaeology | keep the transformations in a script where you can read them |
+| sort the output manually after every refresh | letting order live in the interface instead of the workflow | use `arrange()` so the order survives every rerun |
+| copy a chart into PowerPoint and fix it there | repairing a weak visual downstream | build the chart clearly in R and export it once with `ggsave()` |
+| use Flash Fill because the pattern is obvious to you | trusting Excel’s guess without preserving the rule | write the rule with `str_*()` functions or `mutate()` |
+| keep Excel as the only place the process exists | making your memory the real system | let Excel remain a delivery format while R becomes the engine |
+
+## A.4 Monday Morning Rescue Card
+
+::: {.callout-important appearance="simple" title="Before You Open Excel Again"}
+Ask these six questions first.
+
+- Is this task repeated weekly or monthly?
+- Will someone ask for this same summary again?
+- Are multiple files involved?
+- Are formulas breaking, drifting, or being copied down manually?
+- Is manual cleaning taking more than 20 minutes?
+- Should this be an R workflow instead?
+
+If the answer to three or more is yes, you are probably not looking at a spreadsheet task anymore.
+
+You are looking at a workflow that wants a script.
+:::
+
+### Fast Response Scaffold
+
+Use this when the request is urgent and your brain needs a clean starting point.
+
+```{r}
+#| label: app-a-fast-response-scaffold
+#| eval: false
+
+# Placeholder: Import the raw file or files
+# Placeholder: Clean names immediately
+# Placeholder: Inspect with glimpse()
+# Placeholder: Trim ugly text fields
+# Placeholder: Handle missing values intentionally
+# Placeholder: Join the reference or lookup table
+# Placeholder: Summarise at the decision level
+# Placeholder: Export the clean output
+# Placeholder: Save the script before moving on
+```
+
+### Export Decision Shelf
+
+Use the output format that matches the audience, not the habit.
+
+```{r}
+#| label: app-a-export-decision-shelf
+#| eval: false
+
+# CSV for clean downstream use
+write_csv(final_summary, "outputs/final_summary.csv")
+
+# Excel when the audience still expects a workbook
+write.xlsx(final_summary, "outputs/final_summary.xlsx")
+```
+
+### Last Quiet Reminder
+
+The old workflow feels fast because you already know how to survive it.
+
+That is not the same as it being the best route.
+
+This appendix exists for the moment when habit starts impersonating necessity.
+
+Use the map. Save the hour. Keep the logic.

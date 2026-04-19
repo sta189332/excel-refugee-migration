@@ -1,0 +1,165 @@
+---
+number-sections: false
+keywords:
+  - Excel
+  - R
+  - business analysis
+  - reporting automation
+  - data cleaning
+  - productivity
+---
+
+# The Excel Refugee Migration {.unnumbered}
+
+## Dedication {.unnumbered}
+
+For the people who kept the reporting cycle alive long after the workbook should have died.
+
+## About This Book {.unnumbered}
+
+This book is for professionals who never planned to become technical people and still ended up carrying technical work anyway.
+
+You might work in finance. Or HR. Or operations. Or reporting. Or business analysis. The exact title on your email signature matters less than the shape of your week. Files arrive. Formats drift. Lookups break. A dashboard needs updating before a meeting. Someone upstream changes a column name and half your morning disappears.
+
+You know the work.
+
+You know the pressure.
+
+You know the strange fatigue of doing something familiar over and over and still not trusting the process.
+
+This book was built for that reader.
+
+Not the aspiring software engineer.
+
+Not the person who wants to learn programming as a hobby.
+
+The working professional who is smart, capable, overloaded, and tired of babysitting spreadsheets.
+
+## Who This Book Is For {.unnumbered}
+
+This book is written for people whose work depends on data but whose jobs were never designed to turn them into full-time technical specialists.
+
+You are likely a fit for this book if you:
+
+- work daily in Excel
+- handle recurring reports, reconciliations, merges, or dashboards
+- spend too much time cleaning exports and fixing broken workbook logic
+- feel comfortable with business reasoning but not with programmer culture
+- want results fast, not months of technical theory
+- need something useful for Monday morning, not “someday”
+
+You do not need a developer identity to benefit from this book.
+
+You need a better workflow.
+
+## What This Book Is Trying to Solve {.unnumbered}
+
+At a certain point, spreadsheet work stops feeling like analysis and starts feeling like maintenance.
+
+That shift is easy to miss because the reports still go out. The numbers still get checked. The file still opens, eventually. From the outside, the process looks functional.
+
+Inside the work, it feels different.
+
+You save backup copies before touching formulas. You keep old versions nearby in case something breaks. You refresh the same logic every week and still do not fully trust it. Hours disappear into cleaning, checking, copying, pasting, and rebuilding things that should already be stable.
+
+The problem is not that you are disorganized.
+
+The problem is not that you are bad with data.
+
+The problem is that your work has outgrown the shape of the tool.
+
+This book is a response to that moment.
+
+## How to Read This Book {.unnumbered}
+
+Do not read this like a programming manual.
+
+Read it like a migration plan.
+
+Each chapter moves from a familiar business pain point toward a more stable way of working. The story matters because burnout is part of the problem. The code matters because relief has to become operational.
+
+You will get the most from this book if you use it in three passes.
+
+First, read for recognition. Let the book name the patterns you have been carrying.
+
+Second, read for translation. Pay attention to how familiar Excel habits become R workflows.
+
+Third, read for transfer. Use the chapter exercises and code examples on a real reporting task from your own work.
+
+You do not need to master everything at once.
+
+You need one working win, then another.
+
+## What You Will Need {.unnumbered}
+
+You do not need a computer science background.
+
+You do not need to become a programmer.
+
+You do need a few practical things:
+
+- a laptop with R and RStudio installed
+- a few sample CSV or Excel files from work, with sensitive information removed if needed
+- the willingness to stop treating manual repetition as normal
+- enough honesty to map where your time is really going
+
+That is enough to begin.
+
+## What You Will Learn to Do {.unnumbered}
+
+By the end of this book, you should be able to:
+
+- import real business data into R without panic
+- clean messy datasets with confidence
+- merge large files without relying on brittle lookup formulas
+- replace repetitive spreadsheet labor with reusable workflows
+- create grouped summaries and charts more efficiently
+- use ChatGPT as a translator between Excel logic and R code
+- save hours every week by reducing manual reporting work
+
+The focus throughout is practical usefulness.
+
+This is not a book about becoming technically impressive.
+
+It is a book about becoming operationally dangerous in the best possible way.
+
+## What Makes This Book Different {.unnumbered}
+
+Many technical books start too far from the problem.
+
+They begin with syntax, abstract concepts, or a culture of expertise that assumes the reader wants to become part of that world. This book starts somewhere else.
+
+It starts where corporate professionals usually live.
+
+Late files. Dirty exports. Conflicting versions. Hidden columns. Broken formulas. Reports that need to be right before someone more senior walks into a room.
+
+The transition into R is framed here as a professional upgrade, not a personality transplant.
+
+You are not abandoning your existing strengths.
+
+You are extending them into a workflow that scales better.
+
+## Book Roadmap {.unnumbered}
+
+The structure follows a professional transition arc.
+
+- First, you recognize the spreadsheet ceiling and name the real problem.
+- Then, you see why R is often a better fit for this kind of work than people expect.
+- Then, you build confidence through small practical wins.
+- Then, you learn to translate familiar Excel thinking into repeatable R logic.
+- Then, you begin using automation, joins, summaries, and charts in ways that save real time.
+- Finally, you move from spreadsheet survivor to R-powered strategist.
+
+This is not a straight line toward technical purity.
+
+It is a useful line toward control.
+
+## Optional Setup Check {.unnumbered}
+
+The code blocks throughout the book are meant to be executable. This quick check confirms that your R session is working.
+
+```{r}
+#| label: setup-check
+#| eval: true
+
+version$version.string

@@ -1,22 +1,919 @@
 ---
-title: "Appendix B: The ChatGPT Prompt Library for R"
+title: "The In-Session AI Prompt Library for R"
 appendix: true
 ---
 
-## Formula Translation Prompt
+This appendix is built for one kind of moment.
 
-> I use Excel for business reporting. Translate this formula into R using tidyverse syntax. Explain each part in plain language and show a small example.
+You are already inside RStudio. The file is open. The deadline is close enough to change your posture. You do not want another browser tab, another copy-paste ritual, or another round of rebuilding context by hand just to ask for help.
 
-## Join Logic Prompt
+You want the prompt to stay close to the work.
 
-> I have two tables. One contains employee master data and one contains payroll records. Show me how to merge them in R using employee_id as the key. Also tell me how to check for unmatched rows.
+That is the real point of this appendix.
 
-## Summary Prompt
+Not generic AI enthusiasm. Not a list of clever one-liners. A working prompt library for Gemini inside RStudio through `ellmer` and `chattr`, built for professionals who want lower friction at the point of work.
 
-> Translate this pivot table goal into R: total revenue by region and month, sorted descending by revenue.
+Use it when the code is selected, the comments are written, and the question needs to be asked without leaving the IDE.
 
-## Validation Prompt
+::: {.callout-tip appearance="simple" title="Cheat Sheet Box"}
+The core workflow stays simple.
 
-> I wrote this R code to replace an Excel report. Tell me how to verify row counts, totals, missing joins, and output quality before I send the report.
+- **Ctrl + Shift + C** opens chat
+- **Ctrl + Shift + S** sends the selected prompt or highlighted code
+- keep the code in the editor
+- keep the conversation near the problem
+- verify the result before trusting the output
+:::
 
-Placeholder for expanded prompt library.
+```{r}
+#| label: app-b-basic-setup
+#| eval: false
+
+library(ellmer)
+library(chattr)
+library(dplyr)
+library(readr)
+
+my_chat <- chat_google_gemini(model = "gemini-2.5-flash-lite")
+chattr_use(my_chat)
+```
+
+## B.1 Formula Translation Prompt
+
+This section exists for the moment when a spreadsheet rule is clear in your head but not yet clear in R.
+
+The mistake most people make here is asking for syntax too early. They paste the formula, say “convert this,” and hope the model guesses the business meaning correctly.
+
+That is not a strong prompt.
+
+A strong prompt begins with the rule.
+
+Name the table. Name the column. State what the logic is trying to do. Ask for tidyverse code, a plain-language explanation, and a quick way to verify the result.
+
+### Nested IF To `case_when()`
+
+**Use This When**  
+You have a long nested `IF()` formula that classifies records into categories such as employment type, invoice status, performance band, branch risk level, or customer segment.
+
+**Prompt**
+
+```text
+I am moving a recurring Excel workflow into R inside RStudio.
+
+My table is called `employees`.
+
+I need to create a new column called `status_group` based on the column `employment_status`.
+
+Business rule:
+- If `employment_status` is "Full Time", label it "Core Staff"
+- If it is "Part Time", label it "Flexible Staff"
+- If it is "Contract", label it "Contractors"
+- Otherwise label it "Other"
+
+Write tidyverse code using `mutate()` and `case_when()`.
+
+Explain each line in plain language.
+
+Then show me one quick way to verify the output by counting how many records fall into each new group.
+```
+
+**Why This Prompt Works**  
+It starts with the table, the column, and the business rule before asking for code. It reduces ambiguity and tells the model what the result should mean, not just what syntax to imitate.
+
+**What A Good Result Should Include**
+
+- a `mutate()` step
+- a readable `case_when()` block
+- a short explanation in plain language
+- a verification pattern such as `count(status_group)`
+
+### Basic Formula Logic To `mutate()`
+
+**Use This When**  
+You have an Excel formula that calculates a derived value, such as margin, overtime cost, days overdue, or budget variance.
+
+**Prompt**
+
+```text
+I am translating an Excel calculation into R.
+
+My table is called `finance_data`.
+
+I need a new column called `variance` calculated as `actual_spend - budget_spend`.
+
+Write tidyverse code using `mutate()`.
+
+Then show me how to create a second column called `variance_pct` as the percentage difference from budget.
+
+Please explain the code in plain business language and include one quick validation check for totals.
+```
+
+**Why This Prompt Works**  
+It asks for the arithmetic rule directly and requests the second metric explicitly. The model does not have to infer the business meaning from a formula fragment alone.
+
+**What A Good Result Should Include**
+
+- one `mutate()` step or two clean steps
+- explicit handling of division in `variance_pct`
+- plain-language explanation
+- a quick validation check such as `summarise(total_variance = sum(variance, na.rm = TRUE))`
+
+### Text Classification Rule Prompt
+
+**Use This When**  
+You need to classify text values into reporting groups, such as mapping free-text department labels to official categories.
+
+**Prompt**
+
+```text
+I have a table called `hr_records` and a text column called `department_raw`.
+
+I want a new cleaned column called `department_clean`.
+
+Business rule:
+- Treat "HR", "Human Resources", and "Human resources " as "Human Resources"
+- Treat "Fin" and "Finance" as "Finance"
+- Keep other values as they are after trimming spaces
+
+Write tidyverse code using `mutate()`, `str_trim()`, and `case_when()`.
+
+Explain the code and then show me how to count the final department values for review.
+```
+
+**Why This Prompt Works**  
+It gives the assistant the messy inputs and the canonical outputs. That is what a real classification problem needs.
+
+**What A Good Result Should Include**
+
+- `str_trim()` before classification
+- `case_when()` with explicit groups
+- a review step such as `count(department_clean, sort = TRUE)`
+
+### Status Grouping Prompt
+
+**Use This When**  
+You need to convert operational statuses into reporting groups that leadership can actually read.
+
+**Prompt**
+
+```text
+I need to simplify raw workflow statuses into a reporting group in R.
+
+The table is `operations_cases`.
+
+The source column is `raw_status`.
+
+Create a new column called `reporting_status` using these rules:
+- "Completed" and "Closed" become "Resolved"
+- "Open" and "Pending" become "In Progress"
+- "Cancelled" becomes "Dropped"
+- Anything else becomes "Other"
+
+Use tidyverse code and explain the logic.
+
+Show me one quick summary table to verify the new categories.
+```
+
+**Why This Prompt Works**  
+It is business-facing and explicit. It asks for the reporting translation, not for “some code.”
+
+**What A Good Result Should Include**
+
+- a `case_when()` block
+- a grouped verification summary such as `count(reporting_status)`
+
+### Date Correction Prompt
+
+**Use This When**  
+Dates are arriving in ugly or inconsistent text format and you need a reliable reporting month or date field.
+
+**Prompt**
+
+```text
+I have a table called `sales_actuals` with a date column called `sale_date`.
+
+The values look like month-day-year text, for example `04/01/2026`.
+
+Write tidyverse code that converts `sale_date` into a real date using `lubridate`, then creates a new column called `sale_month` for the first day of that month.
+
+Explain each step and show me how to verify how many dates failed to parse.
+```
+
+**Why This Prompt Works**  
+It tells the model the input shape, the parsing expectation, and the final reporting field needed.
+
+**What A Good Result Should Include**
+
+- `mdy()` or another appropriate parser
+- a monthly field such as `floor_date()`
+- a validation step checking `is.na()` counts
+
+### Helper-Column Logic Made Readable
+
+**Use This When**  
+A workbook relies on several helper columns to build one result, and you want the same logic expressed more clearly in R.
+
+**Prompt**
+
+```text
+I have an Excel workflow with helper-column logic that does three things:
+1. trims an ID field
+2. classifies a status
+3. calculates a variance value
+
+I want the same logic rewritten in one readable tidyverse pipeline.
+
+Use a table called `project_data` with columns `employee_id`, `status`, `actual_value`, and `target_value`.
+
+Write the code using `mutate()`, `str_trim()`, and `case_when()`.
+
+Explain the steps in plain language and tell me one quick way to validate the final output.
+```
+
+**Why This Prompt Works**  
+It tells the assistant the helper columns are not random. They are sequence logic that should be brought together into one readable pipeline.
+
+**What A Good Result Should Include**
+
+- one clear `mutate()` block or a short readable pipeline
+- trimmed text, classification logic, and calculation logic
+- a verification idea such as checking counts or totals
+
+## B.2 Join Logic Prompt
+
+This section is for the moment when you know a lookup is happening, but you want the relationship expressed in a way that is stable, visible, and easy to check.
+
+Do not start with the words “convert my VLOOKUP.”
+
+Start with the tables, the shared key, the fields you want to bring across, and what you need to verify after the join.
+
+### One-To-One Join Prompt
+
+**Use This When**  
+Each record in one table should match exactly one record in another table, such as employee ID to payroll detail or product code to product line.
+
+**Prompt**
+
+```text
+I am joining two tables in R.
+
+Table 1 is `headcount` and contains `employee_id`, `department`, and `location`.
+
+Table 2 is `payroll` and contains `employee_id`, `salary`, and `pay_grade`.
+
+I want to bring salary and pay grade into the headcount table using `employee_id`.
+
+Write tidyverse code using `left_join()`.
+
+Then show me how to verify:
+1. the row count did not change unexpectedly
+2. which employee IDs did not find a payroll match
+```
+
+**What To Verify After The Join**
+
+- original row count versus joined row count
+- any unexpected missing values in joined fields
+- whether the key truly behaves like a one-to-one relationship
+
+**Common Failure Signal**
+
+The joined table has more rows than the original, or too many `NA` values appear in the imported columns.
+
+### One-To-Many Join Prompt
+
+**Use This When**  
+One table contains a unique master record, and the other contains repeated transactions or repeated lines for each key.
+
+**Prompt**
+
+```text
+I have a one-to-many join problem in R.
+
+Table 1 is `employees` with one row per employee.
+
+Table 2 is `training_records` with multiple rows per employee because each employee can attend more than one training.
+
+I want to join the training records into the employee table, but I need help understanding how the row count will change and how to avoid misreading the result.
+
+Write tidyverse code and explain what a one-to-many join means in business terms.
+
+Then show me how to count how many training records each employee has after the join.
+```
+
+**What To Verify After The Join**
+
+- whether row expansion is expected
+- whether repeated rows reflect real repeated transactions or accidental duplication
+- whether a post-join grouped count makes sense
+
+**Common Failure Signal**
+
+The analyst treats the expanded row count like an error when it is actually a property of the relationship, or misses real accidental duplicates because no post-join count was run.
+
+### Mismatched Key Names Prompt
+
+**Use This When**  
+The same identifier exists in both tables but under different column names.
+
+**Prompt**
+
+```text
+I need to join two tables in R, but the key names do not match.
+
+Table 1 is `sales_actuals` with the column `product_code`.
+
+Table 2 is `product_lookup` with the column `prod_code`.
+
+I want to bring `product_line` into the sales table.
+
+Write tidyverse code using `left_join()` and the correct key mapping.
+
+Then show me one quick way to check whether any product codes failed to match.
+```
+
+**What To Verify After The Join**
+
+- unmatched rows in the new joined fields
+- whether the mapped key names are correct
+- whether trimming or standardization is needed before the join
+
+**Common Failure Signal**
+
+The join runs without error, but the imported column is mostly missing because the key mapping was correct in syntax and wrong in data hygiene.
+
+### Missing Join Matches Prompt
+
+**Use This When**  
+Some records will not find a match, and you need help identifying them instead of pretending the join worked cleanly.
+
+**Prompt**
+
+```text
+I have already joined two tables in R, but some matches are missing.
+
+The joined table is called `sales_enriched`.
+
+The column I expected to populate is `product_line`, but some rows are `NA`.
+
+Show me tidyverse code to isolate the unmatched rows and help me diagnose whether the issue is missing lookup values, trailing spaces, or a key mismatch.
+```
+
+**What To Verify After The Join**
+
+- the number of unmatched rows
+- the specific keys that failed
+- whether the failure is data-quality related or structure related
+
+**Common Failure Signal**
+
+You accept the `NA` values without checking the business impact, and the missing categories later distort the summary.
+
+### Post-Join Checking Prompt
+
+**Use This When**  
+The join ran, but the result feels suspicious and you want a structured verification prompt, not blind trust.
+
+**Prompt**
+
+```text
+I joined two tables in R and need a professional validation checklist in code.
+
+The original table is `actuals_by_region_month`.
+
+The joined table is `performance_vs_target`.
+
+Please write tidyverse checks for:
+1. row count before and after the join
+2. missing target values after the join
+3. a quick grouped summary to see whether totals still look reasonable
+
+Explain why each check matters.
+```
+
+**What To Verify After The Join**
+
+- row count stability
+- missing joined fields
+- total-level reasonableness
+
+**Common Failure Signal**
+
+The join “works,” but the analyst has no evidence that it worked responsibly.
+
+::: {.callout-note appearance="simple" title="PhD Insight"}
+Most join errors are not syntax errors.
+
+They are relationship errors, key hygiene errors, or trust errors. The code can run perfectly while the business logic fails quietly. That is why good join prompts ask not only for the join itself, but also for the verification pattern that follows it.
+:::
+
+## B.3 Summary Prompt
+
+This section is for the old pivot-table habit.
+
+The point is not to ask the assistant for “a summary.” The point is to state the business grouping clearly enough that the assistant can draft a summary pipeline you can reuse next week without rebuilding it.
+
+### Totals By Region Prompt
+
+**Use This When**  
+You need a leadership summary of total sales, spend, headcount, or volume by region.
+
+**Prompt**
+
+```text
+I want the R equivalent of a recurring regional summary.
+
+My table is called `sales_actuals`.
+
+I need total revenue by `region`.
+
+Write tidyverse code using `group_by()` and `summarise()`.
+
+Also sort the result from highest to lowest revenue and explain each line in plain language.
+```
+
+**Desired Output Shape**
+
+One row per region, one total value column, sorted from highest to lowest.
+
+**Quick Validation Check**
+
+Compare the summed total in the summary table to the total revenue in the original table.
+
+### Averages By Department Prompt
+
+**Use This When**  
+You need the average of a metric such as salary, cycle time, resolution time, or unit cost by department.
+
+**Prompt**
+
+```text
+I need a grouped average in R.
+
+My table is called `hr_metrics`.
+
+I want average salary by `department`.
+
+Write tidyverse code using `group_by()` and `summarise()`.
+
+Please include `na.rm = TRUE`, sort the result from highest to lowest, and show me one quick way to check how many records were used in each department.
+```
+
+**Desired Output Shape**
+
+One row per department, with an average column and often a count column.
+
+**Quick Validation Check**
+
+Include a grouped count so the average is not read without knowing how many records it came from.
+
+### Counts By Status Prompt
+
+**Use This When**  
+You need headcount or case counts by status group, issue type, employee category, or workflow stage.
+
+**Prompt**
+
+```text
+I need a status summary in R.
+
+My table is called `operations_cases`.
+
+I want a count of records by `reporting_status`.
+
+Write tidyverse code using `group_by()` and `summarise()` with `n()`.
+
+Sort the result from highest to lowest count and explain the result in plain language.
+```
+
+**Desired Output Shape**
+
+One row per status group with a count column.
+
+**Quick Validation Check**
+
+The grouped counts should add up to the total number of rows in the source table.
+
+### Grouped Monthly Summary Prompt
+
+**Use This When**  
+You need a recurring summary by both month and another business grouping, such as region or department.
+
+**Prompt**
+
+```text
+I need a monthly grouped summary in R.
+
+My table is called `performance_vs_target`.
+
+I want total actual value by `sale_month` and `region`.
+
+Write tidyverse code using `group_by()` and `summarise()`.
+
+Then arrange the result by month and region, and explain what the final output will look like.
+```
+
+**Desired Output Shape**
+
+One row per month-region combination, with a clear summary metric.
+
+**Quick Validation Check**
+
+Check that the monthly totals sum back to the grand total in the source file.
+
+### Multiple Summary Metrics Prompt
+
+**Use This When**  
+You need more than one value in the summary output, such as total revenue, average transaction size, and row count.
+
+**Prompt**
+
+```text
+I need a reusable grouped summary in R with multiple metrics.
+
+My table is called `sales_actuals`.
+
+Group by `region`.
+
+Create these output columns:
+- `total_revenue` as the sum of `revenue`
+- `average_order_value` as the mean of `revenue`
+- `orders` as the record count
+
+Use tidyverse code, sort by `total_revenue`, and explain how to verify the result.
+```
+
+**Desired Output Shape**
+
+One row per group with several clearly named metric columns.
+
+**Quick Validation Check**
+
+Check whether `orders` matches the number of underlying records per region and whether `total_revenue` sums to the grand total.
+
+::: {.callout-tip appearance="simple" title="Cheat Sheet Box"}
+Summary prompts work best when you specify four things.
+
+- the table name
+- the grouping columns
+- the metric columns
+- the final shape you want back
+
+That is the difference between “help me summarize this” and a prompt that produces something you can rerun.
+:::
+
+## B.4 Validation Prompt
+
+This section keeps the workflow professional.
+
+The assistant is useful. It is not accountable. The prompt library should lower friction, not lower standards. Use these prompts when the code ran but you still need to know whether the result deserves trust.
+
+### Row-Count Check After A Join
+
+**Use This When**  
+A join completed successfully, but you need to confirm whether the number of rows still makes sense.
+
+**Prompt**
+
+```text
+I joined two tables in R and want to verify whether the row count changed appropriately.
+
+The original table is `headcount`.
+
+The joined table is `headcount_payroll`.
+
+Write tidyverse code to compare row counts before and after the join and explain what kinds of row-count changes are normal versus suspicious.
+```
+
+**What You Are Checking**
+
+Whether the join preserved the original row count when expected, or expanded it for a reason you understand.
+
+**Why This Prevents Careless Work**
+
+Because a join that changes row count silently can distort every downstream summary.
+
+### Missing-Value Check Prompt
+
+**Use This When**  
+A joined or transformed field may have introduced `NA` values that were not present before.
+
+**Prompt**
+
+```text
+I need to check whether my R workflow introduced missing values in an important field.
+
+The table is `performance_vs_target`.
+
+I want to inspect missing values in `target_value` and `variance_pct`.
+
+Write tidyverse code to count missing values and isolate the rows where they occur.
+
+Then explain what the likely causes could be.
+```
+
+**What You Are Checking**
+
+Whether missing values reflect real missing data, failed joins, or bad transformations.
+
+**Why This Prevents Careless Work**
+
+Because missing values often look harmless until they erase categories or distort a summary.
+
+### Total Comparison Prompt
+
+**Use This When**  
+You need to confirm that the total in a grouped summary still matches the total in the source table.
+
+**Prompt**
+
+```text
+I created a grouped summary in R and need to verify that the total still matches the source data.
+
+The source table is `sales_actuals`.
+
+The grouped table is `revenue_by_region`.
+
+Write tidyverse code to compare the source total revenue to the grouped total revenue and explain what a mismatch would mean.
+```
+
+**What You Are Checking**
+
+Whether aggregation preserved the total correctly.
+
+**Why This Prevents Careless Work**
+
+Because grouped tables can look clean and still be wrong if rows were lost, duplicated, or filtered unintentionally.
+
+### Spot-Check Prompt
+
+**Use This When**  
+The output looks plausible, but you want a few record-level checks before trusting the whole thing.
+
+**Prompt**
+
+```text
+I want to spot-check my R output against the original data.
+
+The source table is `sales_enriched`.
+
+The summary table is `product_line_summary`.
+
+Show me a tidyverse way to inspect a few rows for one region and compare them to the grouped result.
+
+Explain why spot-checking is still useful even when the code looks correct.
+```
+
+**What You Are Checking**
+
+Whether the grouped result aligns with recognizable underlying rows.
+
+**Why This Prevents Careless Work**
+
+Because one or two well-chosen checks often catch problems that totals alone miss.
+
+### Suspicious Result Prompt
+
+**Use This When**  
+The output looks wrong, but you cannot immediately explain why.
+
+**Prompt**
+
+```text
+My R summary ran without an error, but the result looks suspicious.
+
+The table is `regional_gap`.
+
+The region totals seem too large.
+
+Please help me diagnose possible causes using tidyverse checks for:
+- duplicate rows
+- join expansion
+- missing filters
+- incorrect grouping level
+
+Explain each diagnostic step in plain language.
+```
+
+**What You Are Checking**
+
+Whether the issue is structural rather than syntactic.
+
+**Why This Prevents Careless Work**
+
+Because suspicious results often come from logic problems that need diagnosis, not from typos that throw errors.
+
+### Comment-And-Highlight Diagnosis Prompt
+
+**Use This When**  
+You want to keep the prompt attached to the code itself and ask for help inside the IDE without rebuilding context in a chat box.
+
+**Prompt**
+
+Use a comment directly above the code:
+
+```{r}
+#| label: app-b-comment-diagnosis
+#| eval: false
+
+# Check whether this join can duplicate rows and explain how to verify it
+headcount_payroll <- headcount |>
+  left_join(payroll, by = "employee_id")
+```
+
+Highlight both lines, then use **Ctrl + Shift + S**.
+
+**What You Are Checking**
+
+Whether the highlighted code block contains a logic risk and how to validate it immediately.
+
+**Why This Prevents Careless Work**
+
+Because it keeps the prompt, the code, and the verification step together in the same workspace.
+
+## B.5 The Two Shortcuts That Make This Workflow Fast
+
+The real upgrade is not “having AI.”
+
+The real upgrade is reducing friction at the point of work.
+
+That is why the two shortcuts matter so much.
+
+### Ctrl + Shift + C Opens Chat
+
+Use this when you need the chat pane open and ready inside RStudio or Positron.
+
+This is the opening move.
+
+You stay inside the IDE. You do not shift into browser mode. You do not rebuild the whole scenario in another tab. You keep the conversation where the work is already happening.
+
+### Ctrl + Shift + S Sends The Selected Prompt Or Highlighted Code
+
+Use this when the question already exists in the script.
+
+That question may be:
+
+- a block of code
+- a comment plus code
+- a drafted plain-English prompt
+- a small workflow fragment you want explained, fixed, or translated
+
+This is the momentum key.
+
+Highlight the prompt.  
+Or highlight the code and the comment above it.  
+Send it.  
+Stay in the editor.
+
+That is what makes the workflow fast enough to survive real deadlines.
+
+```{r}
+#| label: app-b-shortcut-workflow
+#| eval: false
+
+# Translate this business rule into tidyverse code and include verification steps
+# If region is West or South, mark it as Priority Region. Otherwise mark it as Standard Region.
+sales_actuals <- sales_actuals |>
+  mutate(priority_group = case_when(
+    region %in% c("West", "South") ~ "Priority Region",
+    TRUE ~ "Standard Region"
+  ))
+```
+
+Highlight the comment and the code. Then use **Ctrl + Shift + S**.
+
+That is the workflow in its best form. The question does not leave the IDE. The assistant does not sit somewhere else waiting to be briefed. The help arrives near the object, the code, and the context.
+
+::: {.callout-warning appearance="simple" title="Quick Warning"}
+If you keep opening a browser tab every time the code becomes specific, the friction returns.
+
+You lose the Environment context.  
+You start copy-pasting too much.  
+You explain the same tables again.  
+You burn time describing what the IDE already knows.
+
+That is the old trap in cleaner clothes.
+:::
+
+## B.6 Future Prompt Library Expansions
+
+This section is intentionally structured for growth. It is not filler. It is a place to expand the in-session workflow as your use of R gets sharper and the tasks get more ambitious.
+
+### Error Diagnosis Prompt
+
+**Use This When**  
+[Placeholder for a scenario where the code throws an error you need help interpreting quickly inside the IDE.]
+
+**Prompt**  
+[Placeholder for an expanded in-session prompt that includes the error message, the code block, and a request for both diagnosis and safer revision.]
+
+**Why This Prompt Works**  
+[Placeholder for tactical explanation about why including the error text, object names, and expected result improves the response.]
+
+**Verification Step**  
+[Placeholder for the trust check you should run after applying the fix.]
+
+### Refactor This Code Prompt
+
+**Use This When**  
+[Placeholder for a scenario where the code works but is too messy, repetitive, or hard to reuse.]
+
+**Prompt**  
+[Placeholder for a prompt asking the assistant to rewrite the pipeline more cleanly without changing the business result.]
+
+**Why This Prompt Works**  
+[Placeholder for a note explaining why asking for readability and reuse is better than asking for “better code” generically.]
+
+**Verification Step**  
+[Placeholder for checking whether the refactored output matches the original totals or row counts.]
+
+### Comment-To-Code Prompt
+
+**Use This When**  
+[Placeholder for a scenario where you know the business rule but do not want to write the code from scratch.]
+
+**Prompt**  
+[Placeholder for a commented instruction block that can be highlighted and sent directly from the script.]
+
+**Why This Prompt Works**  
+[Placeholder for why comments reduce friction and keep the logic attached to the workflow.]
+
+**Verification Step**  
+[Placeholder for how to confirm the generated code did what the comment asked.]
+
+### Explain This Object In My Environment Prompt
+
+**Use This When**  
+[Placeholder for a scenario where a data frame or object already exists, but you want help understanding its structure or likely use.]
+
+**Prompt**  
+[Placeholder for an in-session request asking the assistant to interpret the object’s shape, key fields, and next likely steps.]
+
+**Why This Prompt Works**  
+[Placeholder for why object-aware prompting is stronger than generic explanation.]
+
+**Verification Step**  
+[Placeholder for checking whether the explanation matches `glimpse()` and your actual workflow.]
+
+### Turn This Cleaning Logic Into A Reusable Function Prompt
+
+**Use This When**  
+[Placeholder for a scenario where you are repeating the same cleaning steps across many files.]
+
+**Prompt**  
+[Placeholder for a request to turn an existing pipeline into a function with clear arguments and a predictable output.]
+
+**Why This Prompt Works**  
+[Placeholder for explaining why repetition is the signal that function design may now be worth it.]
+
+**Verification Step**  
+[Placeholder for testing the function on two different but similar files.]
+
+### Build A Plot From This Summary Prompt
+
+**Use This When**  
+[Placeholder for a scenario where the summary table is ready, but the chart still needs to become leadership-readable.]
+
+**Prompt**  
+[Placeholder for a prompt that names the summary table, chart purpose, audience, and desired message.]
+
+**Why This Prompt Works**  
+[Placeholder for why message-first prompting leads to cleaner charts than “make a plot of this.”]
+
+**Verification Step**  
+[Placeholder for checking whether the chart tells the intended story without verbal rescue.]
+
+### Help Me Interpret This Result Prompt
+
+**Use This When**  
+[Placeholder for a scenario where the code worked and the summary exists, but the business meaning is not yet clear enough to present.]
+
+**Prompt**  
+[Placeholder for a prompt asking the assistant to help frame the result in decision-ready language without inventing conclusions.]
+
+**Why This Prompt Works**  
+[Placeholder for why interpretation prompts should stay anchored in the actual summary table and business question.]
+
+**Verification Step**  
+[Placeholder for checking that the explanation stays consistent with the numbers and does not overstate certainty.]
+
+::: {.callout-important appearance="simple" title="Monday Morning Application"}
+Choose one live task in RStudio today and run the full in-session workflow.
+
+1. open chat with **Ctrl + Shift + C**
+2. write the business rule in a comment or prompt block
+3. highlight the prompt or the comment-plus-code block
+4. send it with **Ctrl + Shift + S**
+5. ask for code, explanation, and one verification step
+6. run the verification before trusting the result
+
+If the prompt kept you inside the IDE and got you to a trustworthy answer faster, the workflow is doing what it should.
+:::
+
+### Last Working Rule
+
+Do not ask the assistant for brilliance.
+
+Ask it for lower friction, cleaner translation, and help that stays close to the work.
+
+That is how the in-session workflow becomes valuable enough to keep.
