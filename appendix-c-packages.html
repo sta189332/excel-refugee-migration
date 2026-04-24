@@ -1,0 +1,2275 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.25">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="A story-driven practical guide for corporate professionals moving from manual spreadsheet work into faster, repeatable workflows in R.">
+
+<title>Recommended R Packages by Use Case – The Excel Refugee Migration</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./appendix-d-glossary.html" rel="next">
+<link href="./appendix-b-prompts.html" rel="prev">
+<link href="./images/favicon.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-ef4d8e9faa04af36b84e1866e7343808.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./appendix-a-cheatsheet.html">Appendices</a></li><li class="breadcrumb-item"><a href="./appendix-c-packages.html">Recommended R Packages by Use Case</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">The Excel Refugee Migration</a> 
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://github.com/sta189332/excel-refugee-migration" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+    <a href="https://github.com/sta189332/excel-refugee-migration" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <div class="dropdown">
+      <a href="" title="Download" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Download"><i class="bi bi-download"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="./The-Excel-Refugee-Migration.pdf">
+              <i class="bi bi-file-pdf pe-1"></i>
+            Download PDF
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="./The-Excel-Refugee-Migration.epub">
+              <i class="bi bi-journal pe-1"></i>
+            Download ePub
+            </a>
+          </li>
+      </ul>
+    </div>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The Excel Refugee Migration</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./introduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction: The Day My Spreadsheet Died</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
+ <span class="menu-text">Main</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-01-spreadsheet-ceiling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">When Being the Excel Hero Starts Costing You Your Future</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-02-why-r-not-python.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Python Was Never the Point: Why R Feels Like the Tool You Were Looking For All Along</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-03-first-60-minutes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">R Without the Fear: The First Hour That Finally Feels Useful</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-04-excel-to-r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">You Already Speak Half the Language: Translating Your Excel Brain into R</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-05-chatgpt-copilot.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Your AI Co-Pilot: Using Gemini Inside RStudio as Your Personal R Translator</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-06-clean-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Clean Data, Clean Mind: The R Workflow That Eliminates Manual Hell</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-07-dplyr-pivots.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Pivot Tables Are Dead. Long Live dplyr</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-08-ggplot.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Charts That Actually Impress: ggplot2 vs.&nbsp;Excel’s Chart Wizard</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-09-first-project.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Your First Real Project: A Full Analysis From Raw File to Boardroom Slide</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-10-migration-plan.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">The R-Powered Strategist: Your 30-Day Migration Plan and What Comes Next</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-a-cheatsheet.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The Master Excel-to-R Cheat Sheet</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-b-prompts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The In-Session AI Prompt Library for R</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-c-packages.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Recommended R Packages by Use Case</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-d-glossary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Glossary: Excel Terms, R Terms, and Workflow Language</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
+ <span class="menu-text">Back Matter</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./author-note.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Author’s Note</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#c.1-data-import" id="toc-c.1-data-import" class="nav-link active" data-scroll-target="#c.1-data-import">C.1 Data Import</a>
+  <ul class="collapse">
+  <li><a href="#data-import-use-case-map" id="toc-data-import-use-case-map" class="nav-link" data-scroll-target="#data-import-use-case-map">Data Import Use-Case Map</a></li>
+  <li><a href="#import-workflow-snippets" id="toc-import-workflow-snippets" class="nav-link" data-scroll-target="#import-workflow-snippets">Import Workflow Snippets</a></li>
+  <li><a href="#what-this-package-combination-does-best" id="toc-what-this-package-combination-does-best" class="nav-link" data-scroll-target="#what-this-package-combination-does-best">What This Package Combination Does Best</a></li>
+  <li><a href="#when-to-reach-for-it" id="toc-when-to-reach-for-it" class="nav-link" data-scroll-target="#when-to-reach-for-it">When To Reach For It</a></li>
+  <li><a href="#typical-workflow" id="toc-typical-workflow" class="nav-link" data-scroll-target="#typical-workflow">Typical Workflow</a></li>
+  <li><a href="#watch-out-for" id="toc-watch-out-for" class="nav-link" data-scroll-target="#watch-out-for">Watch Out For</a></li>
+  <li><a href="#example-you-can-adapt" id="toc-example-you-can-adapt" class="nav-link" data-scroll-target="#example-you-can-adapt">Example You Can Adapt</a></li>
+  </ul></li>
+  <li><a href="#c.2-data-cleaning" id="toc-c.2-data-cleaning" class="nav-link" data-scroll-target="#c.2-data-cleaning">C.2 Data Cleaning</a>
+  <ul class="collapse">
+  <li><a href="#data-cleaning-use-case-map" id="toc-data-cleaning-use-case-map" class="nav-link" data-scroll-target="#data-cleaning-use-case-map">Data Cleaning Use-Case Map</a></li>
+  <li><a href="#cleaning-workflow-snippets" id="toc-cleaning-workflow-snippets" class="nav-link" data-scroll-target="#cleaning-workflow-snippets">Cleaning Workflow Snippets</a></li>
+  <li><a href="#what-this-package-combination-does-best-1" id="toc-what-this-package-combination-does-best-1" class="nav-link" data-scroll-target="#what-this-package-combination-does-best-1">What This Package Combination Does Best</a></li>
+  <li><a href="#when-to-reach-for-it-1" id="toc-when-to-reach-for-it-1" class="nav-link" data-scroll-target="#when-to-reach-for-it-1">When To Reach For It</a></li>
+  <li><a href="#typical-workflow-1" id="toc-typical-workflow-1" class="nav-link" data-scroll-target="#typical-workflow-1">Typical Workflow</a></li>
+  <li><a href="#watch-out-for-1" id="toc-watch-out-for-1" class="nav-link" data-scroll-target="#watch-out-for-1">Watch Out For</a></li>
+  <li><a href="#example-you-can-adapt-1" id="toc-example-you-can-adapt-1" class="nav-link" data-scroll-target="#example-you-can-adapt-1">Example You Can Adapt</a></li>
+  </ul></li>
+  <li><a href="#c.3-data-transformation" id="toc-c.3-data-transformation" class="nav-link" data-scroll-target="#c.3-data-transformation">C.3 Data Transformation</a>
+  <ul class="collapse">
+  <li><a href="#data-transformation-use-case-map" id="toc-data-transformation-use-case-map" class="nav-link" data-scroll-target="#data-transformation-use-case-map">Data Transformation Use-Case Map</a></li>
+  <li><a href="#transformation-workflow-snippets" id="toc-transformation-workflow-snippets" class="nav-link" data-scroll-target="#transformation-workflow-snippets">Transformation Workflow Snippets</a></li>
+  <li><a href="#what-this-package-combination-does-best-2" id="toc-what-this-package-combination-does-best-2" class="nav-link" data-scroll-target="#what-this-package-combination-does-best-2">What This Package Combination Does Best</a></li>
+  <li><a href="#when-to-reach-for-it-2" id="toc-when-to-reach-for-it-2" class="nav-link" data-scroll-target="#when-to-reach-for-it-2">When To Reach For It</a></li>
+  <li><a href="#typical-workflow-2" id="toc-typical-workflow-2" class="nav-link" data-scroll-target="#typical-workflow-2">Typical Workflow</a></li>
+  <li><a href="#watch-out-for-2" id="toc-watch-out-for-2" class="nav-link" data-scroll-target="#watch-out-for-2">Watch Out For</a></li>
+  <li><a href="#example-you-can-adapt-2" id="toc-example-you-can-adapt-2" class="nav-link" data-scroll-target="#example-you-can-adapt-2">Example You Can Adapt</a></li>
+  </ul></li>
+  <li><a href="#c.4-visualization" id="toc-c.4-visualization" class="nav-link" data-scroll-target="#c.4-visualization">C.4 Visualization</a>
+  <ul class="collapse">
+  <li><a href="#visualization-use-case-map" id="toc-visualization-use-case-map" class="nav-link" data-scroll-target="#visualization-use-case-map">Visualization Use-Case Map</a></li>
+  <li><a href="#visualization-workflow-snippets" id="toc-visualization-workflow-snippets" class="nav-link" data-scroll-target="#visualization-workflow-snippets">Visualization Workflow Snippets</a></li>
+  <li><a href="#what-this-package-combination-does-best-3" id="toc-what-this-package-combination-does-best-3" class="nav-link" data-scroll-target="#what-this-package-combination-does-best-3">What This Package Combination Does Best</a></li>
+  <li><a href="#when-to-reach-for-it-3" id="toc-when-to-reach-for-it-3" class="nav-link" data-scroll-target="#when-to-reach-for-it-3">When To Reach For It</a></li>
+  <li><a href="#typical-workflow-3" id="toc-typical-workflow-3" class="nav-link" data-scroll-target="#typical-workflow-3">Typical Workflow</a></li>
+  <li><a href="#watch-out-for-3" id="toc-watch-out-for-3" class="nav-link" data-scroll-target="#watch-out-for-3">Watch Out For</a></li>
+  <li><a href="#example-you-can-adapt-3" id="toc-example-you-can-adapt-3" class="nav-link" data-scroll-target="#example-you-can-adapt-3">Example You Can Adapt</a></li>
+  </ul></li>
+  <li><a href="#c.5-reporting" id="toc-c.5-reporting" class="nav-link" data-scroll-target="#c.5-reporting">C.5 Reporting</a>
+  <ul class="collapse">
+  <li><a href="#reporting-use-case-map" id="toc-reporting-use-case-map" class="nav-link" data-scroll-target="#reporting-use-case-map">Reporting Use-Case Map</a></li>
+  <li><a href="#reporting-workflow-snippets" id="toc-reporting-workflow-snippets" class="nav-link" data-scroll-target="#reporting-workflow-snippets">Reporting Workflow Snippets</a></li>
+  <li><a href="#what-this-package-combination-does-best-4" id="toc-what-this-package-combination-does-best-4" class="nav-link" data-scroll-target="#what-this-package-combination-does-best-4">What This Package Combination Does Best</a></li>
+  <li><a href="#when-to-reach-for-it-4" id="toc-when-to-reach-for-it-4" class="nav-link" data-scroll-target="#when-to-reach-for-it-4">When To Reach For It</a></li>
+  <li><a href="#typical-workflow-4" id="toc-typical-workflow-4" class="nav-link" data-scroll-target="#typical-workflow-4">Typical Workflow</a></li>
+  <li><a href="#watch-out-for-4" id="toc-watch-out-for-4" class="nav-link" data-scroll-target="#watch-out-for-4">Watch Out For</a></li>
+  <li><a href="#example-you-can-adapt-4" id="toc-example-you-can-adapt-4" class="nav-link" data-scroll-target="#example-you-can-adapt-4">Example You Can Adapt</a></li>
+  </ul></li>
+  <li><a href="#c.6-file-paths-and-project-hygiene" id="toc-c.6-file-paths-and-project-hygiene" class="nav-link" data-scroll-target="#c.6-file-paths-and-project-hygiene">C.6 File Paths And Project Hygiene</a>
+  <ul class="collapse">
+  <li><a href="#file-paths-and-hygiene-use-case-map" id="toc-file-paths-and-hygiene-use-case-map" class="nav-link" data-scroll-target="#file-paths-and-hygiene-use-case-map">File Paths And Hygiene Use-Case Map</a></li>
+  <li><a href="#hygiene-workflow-snippets" id="toc-hygiene-workflow-snippets" class="nav-link" data-scroll-target="#hygiene-workflow-snippets">Hygiene Workflow Snippets</a></li>
+  <li><a href="#what-this-package-combination-does-best-5" id="toc-what-this-package-combination-does-best-5" class="nav-link" data-scroll-target="#what-this-package-combination-does-best-5">What This Package Combination Does Best</a></li>
+  <li><a href="#when-to-reach-for-it-5" id="toc-when-to-reach-for-it-5" class="nav-link" data-scroll-target="#when-to-reach-for-it-5">When To Reach For It</a></li>
+  <li><a href="#typical-workflow-5" id="toc-typical-workflow-5" class="nav-link" data-scroll-target="#typical-workflow-5">Typical Workflow</a></li>
+  <li><a href="#watch-out-for-5" id="toc-watch-out-for-5" class="nav-link" data-scroll-target="#watch-out-for-5">Watch Out For</a></li>
+  <li><a href="#example-you-can-adapt-5" id="toc-example-you-can-adapt-5" class="nav-link" data-scroll-target="#example-you-can-adapt-5">Example You Can Adapt</a></li>
+  </ul></li>
+  <li><a href="#future-package-additions" id="toc-future-package-additions" class="nav-link" data-scroll-target="#future-package-additions">Future Package Additions</a>
+  <ul class="collapse">
+  <li><a href="#how-to-evaluate-a-future-package-addition" id="toc-how-to-evaluate-a-future-package-addition" class="nav-link" data-scroll-target="#how-to-evaluate-a-future-package-addition">How To Evaluate A Future Package Addition</a></li>
+  <li><a href="#what-this-package-does-best" id="toc-what-this-package-does-best" class="nav-link" data-scroll-target="#what-this-package-does-best">What This Package Does Best</a></li>
+  <li><a href="#when-to-reach-for-it-6" id="toc-when-to-reach-for-it-6" class="nav-link" data-scroll-target="#when-to-reach-for-it-6">When To Reach For It</a></li>
+  <li><a href="#typical-workflow-6" id="toc-typical-workflow-6" class="nav-link" data-scroll-target="#typical-workflow-6">Typical Workflow</a></li>
+  <li><a href="#watch-out-for-6" id="toc-watch-out-for-6" class="nav-link" data-scroll-target="#watch-out-for-6">Watch Out For</a></li>
+  <li><a href="#example-you-can-adapt-6" id="toc-example-you-can-adapt-6" class="nav-link" data-scroll-target="#example-you-can-adapt-6">Example You Can Adapt</a></li>
+  </ul></li>
+  <li><a href="#package-comparison-notes" id="toc-package-comparison-notes" class="nav-link" data-scroll-target="#package-comparison-notes">Package Comparison Notes</a>
+  <ul class="collapse">
+  <li><a href="#how-to-compare-packages-practically" id="toc-how-to-compare-packages-practically" class="nav-link" data-scroll-target="#how-to-compare-packages-practically">How To Compare Packages Practically</a></li>
+  <li><a href="#practical-decision-logic" id="toc-practical-decision-logic" class="nav-link" data-scroll-target="#practical-decision-logic">Practical Decision Logic</a></li>
+  <li><a href="#edge-case-or-limitation" id="toc-edge-case-or-limitation" class="nav-link" data-scroll-target="#edge-case-or-limitation">Edge Case Or Limitation</a></li>
+  </ul></li>
+  <li><a href="#package-combinations-for-specific-use-cases" id="toc-package-combinations-for-specific-use-cases" class="nav-link" data-scroll-target="#package-combinations-for-specific-use-cases">Package Combinations For Specific Use Cases</a>
+  <ul class="collapse">
+  <li><a href="#monthly-sales-reporting-combination" id="toc-monthly-sales-reporting-combination" class="nav-link" data-scroll-target="#monthly-sales-reporting-combination">Monthly Sales Reporting Combination</a></li>
+  <li><a href="#payroll-cleanup-plus-excel-export-combination" id="toc-payroll-cleanup-plus-excel-export-combination" class="nav-link" data-scroll-target="#payroll-cleanup-plus-excel-export-combination">Payroll Cleanup Plus Excel Export Combination</a></li>
+  <li><a href="#weekly-kpi-reporting-combination" id="toc-weekly-kpi-reporting-combination" class="nav-link" data-scroll-target="#weekly-kpi-reporting-combination">Weekly KPI Reporting Combination</a></li>
+  <li><a href="#in-session-ai-workflow-combination" id="toc-in-session-ai-workflow-combination" class="nav-link" data-scroll-target="#in-session-ai-workflow-combination">In-Session AI Workflow Combination</a></li>
+  <li><a href="#last-working-rule" id="toc-last-working-rule" class="nav-link" data-scroll-target="#last-working-rule">Last Working Rule</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/sta189332/excel-refugee-migration/blob/main/appendix-c-packages.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/sta189332/excel-refugee-migration/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./appendix-a-cheatsheet.html">Appendices</a></li><li class="breadcrumb-item"><a href="./appendix-c-packages.html">Recommended R Packages by Use Case</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Recommended R Packages by Use Case</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>This appendix is not a list for curiosity.</p>
+<p>It is a working map for people who are already under pressure and need the right package fast. The purpose is not to expose you to every interesting corner of the R ecosystem. The purpose is to stop the package-guessing cycle before it wastes another morning.</p>
+<p>If a package appears here, it earns its place because it solves a real problem from this book’s world. Dirty exports. Repeated joins. Pivot-table replacements. Leadership charts. Excel handoffs. Folder chaos. In-session AI help that stays inside RStudio.</p>
+<p>That is the standard.</p>
+<div class="callout callout-style-simple callout-tip callout-titled" title="Cheat Sheet Box">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Cheat Sheet Box
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Pick the package by the problem.</p>
+<ul>
+<li><strong>Import problem</strong>: <code>readr</code>, <code>readxl</code>, <code>rio</code>, <code>openxlsx</code></li>
+<li><strong>Cleaning problem</strong>: <code>janitor</code>, <code>stringr</code>, <code>lubridate</code>, <code>tidyr</code>, <code>dplyr</code></li>
+<li><strong>Transformation problem</strong>: <code>dplyr</code>, <code>tidyr</code>, <code>forcats</code></li>
+<li><strong>Visualization problem</strong>: <code>ggplot2</code>, <code>scales</code>, <code>forcats</code></li>
+<li><strong>Reporting problem</strong>: <code>write_csv()</code>, <code>write.xlsx()</code>, <code>ggsave()</code>, Quarto</li>
+<li><strong>Project hygiene problem</strong>: <code>here</code>, <code>fs</code>, <code>usethis</code></li>
+<li><strong>In-session AI problem</strong>: <code>ellmer</code>, <code>chattr</code></li>
+</ul>
+</div>
+</div>
+<section id="c.1-data-import" class="level2">
+<h2 class="anchored" data-anchor-id="c.1-data-import">C.1 Data Import</h2>
+<p>Import is the first pressure point in spreadsheet-heavy work. If the file comes in badly, everything after it gets slower, louder, and less trustworthy. So this section is not about “reading data” in a generic sense. It is about choosing the shortest clean path from the file you received to the table you can actually work with.</p>
+<section id="data-import-use-case-map" class="level3">
+<h3 class="anchored" data-anchor-id="data-import-use-case-map">Data Import Use-Case Map</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Use Case</th>
+<th>Recommended Package</th>
+<th>Core Function(s)</th>
+<th>Best For</th>
+<th>Why It Helps Spreadsheet Refugees</th>
+<th>Typical Workflow</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Import a standard CSV export</td>
+<td><code>readr</code></td>
+<td><code>read_csv()</code></td>
+<td>Reporting exports, operational data pulls, sales actuals, KPI files</td>
+<td>Fast, predictable, widely used, and easier to read than older base import syntax</td>
+<td>Read the CSV, inspect with <code>glimpse()</code>, clean names, start cleaning immediately</td>
+</tr>
+<tr class="even">
+<td>Import an Excel workbook</td>
+<td><code>readxl</code></td>
+<td><code>read_excel()</code></td>
+<td>Finance sheets, HR workbooks, targets, budget files</td>
+<td>Lets you pull in spreadsheet data without opening Excel first, which reduces copy-paste behavior</td>
+<td>Read the workbook or sheet, inspect structure, standardize names, then clean</td>
+</tr>
+<tr class="odd">
+<td>Import mixed file types through one simple interface</td>
+<td><code>rio</code></td>
+<td><code>import()</code></td>
+<td>When the team sends CSV one week and Excel the next</td>
+<td>Removes guesswork when source types vary and you just need the file in R quickly</td>
+<td>Use <code>import()</code> as a fast entry point, then switch into standard cleaning workflow</td>
+</tr>
+<tr class="even">
+<td>Import from a specific sheet</td>
+<td><code>readxl</code></td>
+<td><code>read_excel(sheet = "...")</code></td>
+<td>Multi-sheet finance packs or planning files</td>
+<td>Stops you from pulling the whole workbook in when one tab is the actual source</td>
+<td>Import the exact tab, clean names, confirm the right sheet before analysis</td>
+</tr>
+<tr class="odd">
+<td>Write a clean CSV for downstream use</td>
+<td><code>readr</code></td>
+<td><code>write_csv()</code></td>
+<td>Clean outputs for analysts, systems, and version-safe exports</td>
+<td>Keeps outputs light, transparent, and easy to reload later</td>
+<td>Save cleaned or summarized data after validation</td>
+</tr>
+<tr class="even">
+<td>Write back to Excel for stakeholders</td>
+<td><code>openxlsx</code></td>
+<td><code>write.xlsx()</code></td>
+<td>Managers or teams who still expect <code>.xlsx</code> delivery</td>
+<td>Lets the engine stay in R while the final handoff stays familiar</td>
+<td>Build the workflow in R, export the final summary or cleaned file to Excel</td>
+</tr>
+<tr class="odd">
+<td>Write multiple objects into an Excel workbook</td>
+<td><code>openxlsx</code></td>
+<td><code>write.xlsx(list(...))</code></td>
+<td>Multi-tab deliverables for finance or HR review</td>
+<td>Replaces manual tab-copy routines with a scripted export</td>
+<td>Save several validated tables into one workbook with named sheets</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="import-workflow-snippets" class="level3">
+<h3 class="anchored" data-anchor-id="import-workflow-snippets">Import Workflow Snippets</h3>
+<section id="csv-first-then-structure" class="level4">
+<h4 class="anchored" data-anchor-id="csv-first-then-structure">CSV First, Then Structure</h4>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>sales_actuals <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"inputs/sales_actuals.csv"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_names</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="excel-sheet-with-clean-column-names" class="level4">
+<h4 class="anchored" data-anchor-id="excel-sheet-with-clean-column-names">Excel Sheet With Clean Column Names</h4>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>sales_targets <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"inputs/sales_targets.xlsx"</span>, <span class="at">sheet =</span> <span class="st">"Targets"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_names</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="one-interface-for-mixed-file-types" class="level4">
+<h4 class="anchored" data-anchor-id="one-interface-for-mixed-file-types">One Interface For Mixed File Types</h4>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rio)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>actuals <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="st">"inputs/sales_actuals.csv"</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>targets <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="st">"inputs/sales_targets.xlsx"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="write-clean-output-back-to-excel" class="level4">
+<h4 class="anchored" data-anchor-id="write-clean-output-back-to-excel">Write Clean Output Back To Excel</h4>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(openxlsx)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">write.xlsx</span>(</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list</span>(</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">clean_actuals =</span> sales_actuals,</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">target_summary =</span> sales_targets</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">file =</span> <span class="st">"outputs/monthly_sales_pack.xlsx"</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+</section>
+<section id="what-this-package-combination-does-best" class="level3">
+<h3 class="anchored" data-anchor-id="what-this-package-combination-does-best">What This Package Combination Does Best</h3>
+<p><code>readr</code>, <code>readxl</code>, <code>rio</code>, and <code>openxlsx</code> cover almost the entire import-and-return cycle most spreadsheet refugees live inside.</p>
+<p><code>readr</code> is the first reach when the source is a stable CSV export. It is fast, predictable, and well-behaved in modern analyst workflows. If a system exports monthly actuals, weekly operations files, staffing data, survey responses, or budget snapshots as CSV, <code>read_csv()</code> is usually the right starting move.</p>
+<p><code>readxl</code> matters because real organizations still run on workbooks. Targets arrive in Excel. Finance assumptions live in Excel. HR planning sheets live in Excel. Budget models live in Excel. You need a package that reads those files without turning the whole workflow back into copy-paste theatre. That is what <code>read_excel()</code> does.</p>
+<p><code>rio</code> is the convenience package for mixed-file environments. It is especially useful when the team is inconsistent and the analyst does not want to keep changing import syntax depending on whether the file this week is <code>.csv</code>, <code>.xlsx</code>, or something else. It is not mandatory. It is useful when file-type variety itself has become friction.</p>
+<p><code>openxlsx</code> matters at the other end. Most stakeholders are not waiting for a philosophical conversation about why CSV is purer. They want a file they can open, circulate, annotate, or attach to email. <code>openxlsx</code> lets you keep the analytical engine in R while respecting the delivery culture around you.</p>
+<p>That combination is enough for most business reporting work in this book. You do not need ten import packages competing for attention. You need a small team of packages that covers raw intake, workbook handling, flexible import, and familiar export.</p>
+</section>
+<section id="when-to-reach-for-it" class="level3">
+<h3 class="anchored" data-anchor-id="when-to-reach-for-it">When To Reach For It</h3>
+<p>Use <code>readr</code> when the file is a CSV export and the workflow needs speed, simplicity, and low ceremony.</p>
+<p>Use <code>readxl</code> when the source is a workbook, when you need a specific sheet, or when the file came from a team that still thinks Excel is the natural home of all business logic.</p>
+<p>Use <code>rio</code> when the file type changes unpredictably and you want one mental model for getting data into the session quickly.</p>
+<p>Use <code>openxlsx</code> when the final output must go back to Excel because the stakeholder is expecting tabs, workbook structure, or an <code>.xlsx</code> attachment.</p>
+<p>A good rule is this:</p>
+<ul>
+<li>if the file is the source, choose the package that gets it into R cleanly</li>
+<li>if the file is the deliverable, choose the package that gets it back out professionally</li>
+<li>if the file type keeps changing, reduce mental friction with <code>rio</code></li>
+</ul>
+<p>This keeps the workflow honest. Import packages are not lifestyle choices. They are problem choices.</p>
+</section>
+<section id="typical-workflow" class="level3">
+<h3 class="anchored" data-anchor-id="typical-workflow">Typical Workflow</h3>
+<p>A real import workflow usually looks like this:</p>
+<p>First, bring in the raw actuals from CSV with <code>readr</code>.</p>
+<p>Second, bring in the targets or assumptions workbook with <code>readxl</code>, often from a specific sheet.</p>
+<p>Third, import the lookup file, whether it is CSV or Excel, with either <code>readr</code>, <code>readxl</code>, or <code>rio</code> depending on the source.</p>
+<p>Fourth, inspect all three tables before touching anything. Not because inspection is ceremonial, but because imports lie quietly when column types or sheet choices are wrong.</p>
+<p>Fifth, clean names and confirm the key fields are present before any joining begins.</p>
+<p>Sixth, once the analysis is validated, export the summary table and, if necessary, a multi-sheet workbook for stakeholder delivery using <code>openxlsx</code>.</p>
+<p>That rhythm matters. It keeps import decisions tied to workflow logic instead of file anxiety.</p>
+</section>
+<section id="watch-out-for" class="level3">
+<h3 class="anchored" data-anchor-id="watch-out-for">Watch Out For</h3>
+<p>Reading the wrong sheet is a classic waste of time because the code still runs and the structure can still look plausible. If the workbook has multiple tabs, confirm the tab name or sheet position early.</p>
+<p>Do not trust imported column types blindly. A date column may come in as character. A numeric column may come in as text because somebody upstream inserted one non-numeric value. Inspect before you calculate.</p>
+<p>Do not export a final workbook before you validate the analysis. If the summary table is still unstable, the pretty Excel file only creates a cleaner version of the wrong answer.</p>
+<p>Do not treat <code>rio</code> as an excuse to stop caring about what file you are reading. Convenience is useful. Thought still matters.</p>
+<p>Do not keep reopening Excel just to inspect the source structure. Once the file is in R, inspect it there.</p>
+</section>
+<section id="example-you-can-adapt" class="level3">
+<h3 class="anchored" data-anchor-id="example-you-can-adapt">Example You Can Adapt</h3>
+<p>Here is a full import pattern for a typical monthly sales workflow with one CSV, one Excel sheet, one lookup file, and one final Excel export.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rio)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(openxlsx)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>sales_actuals <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"inputs/sales_actuals.csv"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_names</span>()</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>sales_targets <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"inputs/sales_targets.xlsx"</span>, <span class="at">sheet =</span> <span class="st">"Targets"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_names</span>()</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>product_lookup <span class="ot">&lt;-</span> <span class="fu">import</span>(<span class="st">"inputs/product_lookup.csv"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_names</span>()</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(sales_actuals)</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(sales_targets)</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(product_lookup)</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>monthly_pack <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>  <span class="at">actuals =</span> sales_actuals,</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>  <span class="at">targets =</span> sales_targets,</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>  <span class="at">product_lookup =</span> product_lookup</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a><span class="fu">write.xlsx</span>(monthly_pack, <span class="at">file =</span> <span class="st">"outputs/monthly_sales_import_review.xlsx"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>That pattern is not there to impress anyone. It is there to stop the import stage from becoming the first avoidable failure of the day.</p>
+<div class="callout callout-style-simple callout-warning callout-titled" title="Quick Warning">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Quick Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Do not choose the import package by habit alone.</p>
+<p>If the file will be handed back to a stakeholder, <code>openxlsx</code> matters. If the source is a stable CSV export, <code>readr</code> is usually enough. If the workbook has five tabs and only one should exist in the workflow, <code>readxl</code> earns its place quickly.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="c.2-data-cleaning" class="level2">
+<h2 class="anchored" data-anchor-id="c.2-data-cleaning">C.2 Data Cleaning</h2>
+<p>This is the cleanup command center.</p>
+<p>If Chapter 6 taught the emotional truth that dirty data creates dirty thinking, this section tells you which packages carry the cleanup work without turning it into a guessing game.</p>
+<section id="data-cleaning-use-case-map" class="level3">
+<h3 class="anchored" data-anchor-id="data-cleaning-use-case-map">Data Cleaning Use-Case Map</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Problem</th>
+<th>Recommended Package</th>
+<th>Core Function(s)</th>
+<th>Best For</th>
+<th>Why It Helps Spreadsheet Refugees</th>
+<th>Typical Workflow</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Ugly column names</td>
+<td><code>janitor</code></td>
+<td><code>clean_names()</code></td>
+<td>Files with spaces, mixed case, punctuation, or system-generated column headers</td>
+<td>Removes one of the first avoidable irritations in a workflow and makes later code calmer</td>
+<td>Import file, clean names immediately, then inspect and transform</td>
+</tr>
+<tr class="even">
+<td>Trailing spaces and messy text</td>
+<td><code>stringr</code></td>
+<td><code>str_trim()</code>, <code>str_squish()</code>, <code>str_to_title()</code></td>
+<td>Region names, department labels, product lines, IDs stored as text</td>
+<td>Replaces helper-column cleanup rituals with readable column-level fixes</td>
+<td>Trim, standardize case, then review category counts</td>
+</tr>
+<tr class="odd">
+<td>Date chaos</td>
+<td><code>lubridate</code></td>
+<td><code>mdy()</code>, <code>dmy()</code>, <code>ymd()</code>, <code>floor_date()</code></td>
+<td>Payroll dates, reporting months, imported date text</td>
+<td>Makes date parsing explicit, which reduces silent timeline errors</td>
+<td>Parse raw date, create reporting month, then validate missing parses</td>
+</tr>
+<tr class="even">
+<td>Missing values</td>
+<td><code>tidyr</code> and <code>dplyr</code></td>
+<td><code>replace_na()</code>, <code>coalesce()</code></td>
+<td>Blank categories, missing amounts, incomplete lookup results</td>
+<td>Treats blanks as business logic choices instead of visual annoyances</td>
+<td>Replace or preserve missing values deliberately before summarizing</td>
+</tr>
+<tr class="odd">
+<td>Duplicate rows</td>
+<td><code>dplyr</code></td>
+<td><code>distinct()</code>, <code>count()</code></td>
+<td>Employee-pay-period duplicates, repeated product mappings, messy exports</td>
+<td>Makes duplication a defined rule instead of a manual click</td>
+<td>Count repeated keys, decide the business key, then deduplicate visibly</td>
+</tr>
+<tr class="even">
+<td>Inconsistent categories</td>
+<td><code>dplyr</code> and <code>stringr</code></td>
+<td><code>mutate()</code>, <code>case_when()</code>, <code>str_trim()</code></td>
+<td>HR labels, regional naming, cost center groupings</td>
+<td>Lets you standardize classification logic in one place instead of scattered helper columns</td>
+<td>Trim text, map categories, review grouped output</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cleaning-workflow-snippets" class="level3">
+<h3 class="anchored" data-anchor-id="cleaning-workflow-snippets">Cleaning Workflow Snippets</h3>
+<section id="clean-names-first" class="level4">
+<h4 class="anchored" data-anchor-id="clean-names-first">Clean Names First</h4>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>payroll <span class="ot">&lt;-</span> payroll <span class="sc">|&gt;</span> <span class="fu">clean_names</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="trim-and-standardize-text" class="level4">
+<h4 class="anchored" data-anchor-id="trim-and-standardize-text">Trim And Standardize Text</h4>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>payroll <span class="ot">&lt;-</span> payroll <span class="sc">|&gt;</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">department =</span> <span class="fu">str_trim</span>(department),</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">department =</span> <span class="fu">str_to_title</span>(department),</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">location =</span> <span class="fu">str_trim</span>(location)</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="fix-dates-properly" class="level4">
+<h4 class="anchored" data-anchor-id="fix-dates-properly">Fix Dates Properly</h4>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>sales_actuals <span class="ot">&lt;-</span> sales_actuals <span class="sc">|&gt;</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">sale_date =</span> <span class="fu">mdy</span>(sale_date),</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">sale_month =</span> <span class="fu">floor_date</span>(sale_date, <span class="at">unit =</span> <span class="st">"month"</span>)</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="handle-missing-values-on-purpose" class="level4">
+<h4 class="anchored" data-anchor-id="handle-missing-values-on-purpose">Handle Missing Values On Purpose</h4>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>payroll <span class="ot">&lt;-</span> payroll <span class="sc">|&gt;</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">manager_name =</span> <span class="fu">replace_na</span>(manager_name, <span class="st">"Unassigned"</span>),</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">bonus_amount =</span> <span class="fu">replace_na</span>(bonus_amount, <span class="dv">0</span>)</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="detect-and-remove-duplicates" class="level4">
+<h4 class="anchored" data-anchor-id="detect-and-remove-duplicates">Detect And Remove Duplicates</h4>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>payroll <span class="sc">|&gt;</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(employee_id, pay_period) <span class="sc">|&gt;</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(n <span class="sc">&gt;</span> <span class="dv">1</span>)</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>payroll_clean <span class="ot">&lt;-</span> payroll <span class="sc">|&gt;</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(employee_id, pay_period, <span class="at">.keep_all =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+</section>
+<section id="what-this-package-combination-does-best-1" class="level3">
+<h3 class="anchored" data-anchor-id="what-this-package-combination-does-best-1">What This Package Combination Does Best</h3>
+<p><code>janitor</code>, <code>stringr</code>, <code>lubridate</code>, <code>tidyr</code>, and <code>dplyr</code> work best when they are treated as a stack, not as isolated tricks.</p>
+<p><code>janitor</code> clears the first layer of friction by making column names sane. That sounds small until you have lost ten minutes to a space, a slash, or a system-generated header that turns every later line of code into an irritation.</p>
+<p><code>stringr</code> handles the text problems that spreadsheets quietly normalize. Trailing spaces. Double spaces. Odd capitalization. Labels that are visually similar and operationally different. This is where “West”, “WEST”, and “West” stop pretending they are different regions.</p>
+<p><code>lubridate</code> takes over when dates start humiliating the workflow. Payroll files, targets, monthly KPI packs, and operational exports often arrive with text dates, mixed formats, or reporting periods that need to be derived cleanly. <code>lubridate</code> makes the parsing explicit.</p>
+<p><code>tidyr</code> handles gaps and reshaping problems. Missing values are not just blanks. They are business meaning. <code>replace_na()</code> belongs in the cleaning stack because absence needs to be treated intentionally. <code>separate()</code> and pivot functions matter when the raw file was designed for spreadsheet display rather than analysis.</p>
+<p><code>dplyr</code> is the backbone holding all of it together. It gives the cleaning stack a readable sequence. You are no longer fixing one issue at a time in scattered places. You are building a visible pipeline.</p>
+<p>That combination is why cleaning in R starts feeling calmer than cleaning in Excel. The work is still real. The difference is that the fixes start living in one place.</p>
+</section>
+<section id="when-to-reach-for-it-1" class="level3">
+<h3 class="anchored" data-anchor-id="when-to-reach-for-it-1">When To Reach For It</h3>
+<p>Use this cleaning stack when the source file has any of the following:</p>
+<ul>
+<li>ugly names from a system export</li>
+<li>spaces and category drift in text columns</li>
+<li>dates that arrived as text or mixed formats</li>
+<li>missing values that need business interpretation</li>
+<li>duplicate rows that need a defined key</li>
+<li>categories that will fracture a summary if left untouched</li>
+</ul>
+<p>That covers most of the real files in this book’s world.</p>
+<p>Payroll files need nearly all of it. Staffing extracts usually need names, text cleanup, and duplication checks. Targets and actuals often need name cleanup, date parsing, and category standardization. Monthly KPI packs often need the full sequence because they arrive from several teams, each convinced their naming habits are reasonable.</p>
+<p>If the file makes you suspicious before you even start thinking, the cleaning stack is the right first reach.</p>
+</section>
+<section id="typical-workflow-1" class="level3">
+<h3 class="anchored" data-anchor-id="typical-workflow-1">Typical Workflow</h3>
+<p>A good cleaning sequence usually runs like this.</p>
+<p>Import the file.</p>
+<p>Clean the names immediately. Do not let ugly headers into the rest of the pipeline if you can avoid it.</p>
+<p>Inspect the structure with <code>glimpse()</code>.</p>
+<p>Trim and standardize text fields that will be used for grouping or joining.</p>
+<p>Parse dates into real dates before attempting time-based summaries.</p>
+<p>Handle missing values only after you understand what the blanks mean in business terms.</p>
+<p>Check for duplicates using the right business key, not a vague sense that “these rows look similar.”</p>
+<p>Review category counts before and after standardization if the field will later appear in a grouped summary.</p>
+<p>Export the clean result only after the row count and key totals feel defensible.</p>
+<p>That order matters because it reduces accidental distortion.</p>
+</section>
+<section id="watch-out-for-1" class="level3">
+<h3 class="anchored" data-anchor-id="watch-out-for-1">Watch Out For</h3>
+<p>Do not replace missing values too early. A blank might mean “not yet assigned,” “not applicable,” or “broken join.” If you replace everything with zero or <code>"Unknown"</code> immediately, you can erase useful diagnostic clues before you understand them.</p>
+<p>Do not deduplicate on the wrong key. A duplicate row is not defined by visual resemblance. In payroll, the key might be <code>employee_id</code> plus <code>pay_period</code>. In sales, it might be <code>invoice_id</code> plus <code>product_code</code>. If you deduplicate lazily, you will delete real transactions and feel efficient while doing it.</p>
+<p>Do not standardize categories without checking the grouped result. You may think your mapping cleaned the field, then later discover it collapsed distinct business categories into one label because the code was too aggressive.</p>
+<p>Do not parse dates with the wrong assumption just because the output looks like a date afterward. A wrong parser produces confident nonsense.</p>
+</section>
+<section id="example-you-can-adapt-1" class="level3">
+<h3 class="anchored" data-anchor-id="example-you-can-adapt-1">Example You Can Adapt</h3>
+<p>Here is a full payroll-cleaning recipe with dates, spaces, missing values, duplicates, and export.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(openxlsx)</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>payroll_raw <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"inputs/payroll_extract.xlsx"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_names</span>()</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>payroll_clean <span class="ot">&lt;-</span> payroll_raw <span class="sc">|&gt;</span></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">employee_id =</span> <span class="fu">str_trim</span>(employee_id),</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">department =</span> <span class="fu">str_trim</span>(department),</span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">department =</span> <span class="fu">str_to_title</span>(department),</span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">location =</span> <span class="fu">str_trim</span>(location),</span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">pay_date =</span> <span class="fu">mdy</span>(pay_date),</span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">pay_period =</span> <span class="fu">floor_date</span>(pay_date, <span class="at">unit =</span> <span class="st">"month"</span>),</span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">manager_name =</span> <span class="fu">replace_na</span>(manager_name, <span class="st">"Unassigned"</span>),</span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">bonus_amount =</span> <span class="fu">replace_na</span>(bonus_amount, <span class="dv">0</span>)</span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(employee_id, pay_period, <span class="at">.keep_all =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a>payroll_clean <span class="sc">|&gt;</span></span>
+<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(department, <span class="at">sort =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-29"><a href="#cb11-29" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(payroll_clean, <span class="st">"outputs/payroll_clean.csv"</span>)</span>
+<span id="cb11-30"><a href="#cb11-30" aria-hidden="true" tabindex="-1"></a><span class="fu">write.xlsx</span>(payroll_clean, <span class="st">"outputs/payroll_clean.xlsx"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>This is what a calm cleaning workflow looks like. Nothing mystical. Just a sequence that stops the file from owning the morning.</p>
+<div class="callout callout-style-simple callout-note callout-titled" title="PhD Insight">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>PhD Insight
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Cleaning is not a technical prelude. It is part of the analytical claim.</p>
+<p>When names, dates, categories, and missing values are inconsistent, the later summary is not merely delayed. It is distorted. That is why cleaning packages belong at the center of the workflow, not at the margins.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="c.3-data-transformation" class="level2">
+<h2 class="anchored" data-anchor-id="c.3-data-transformation">C.3 Data Transformation</h2>
+<p>This is the logic engine of the book.</p>
+<p>Transformation is where the work starts feeling less like file rescue and more like analysis. You join tables, create new columns, reshape data, build grouped summaries, and tell the dataset what question it is supposed to answer.</p>
+<section id="data-transformation-use-case-map" class="level3">
+<h3 class="anchored" data-anchor-id="data-transformation-use-case-map">Data Transformation Use-Case Map</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Use Case</th>
+<th>Recommended Package</th>
+<th>Core Function(s)</th>
+<th>Best For</th>
+<th>Why It Helps Spreadsheet Refugees</th>
+<th>Typical Workflow</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Join files by a shared key</td>
+<td><code>dplyr</code></td>
+<td><code>left_join()</code></td>
+<td>Payroll plus headcount, actuals plus targets, product lookup joins</td>
+<td>Replaces brittle lookup formulas with visible table relationships</td>
+<td>Clean keys, join, validate row counts and missing matches</td>
+</tr>
+<tr class="even">
+<td>Build calculated columns</td>
+<td><code>dplyr</code></td>
+<td><code>mutate()</code></td>
+<td>Variance, status flags, group labels, derived metrics</td>
+<td>Replaces copied formulas with reusable logic</td>
+<td>Define the business rule once, apply it to the whole column</td>
+</tr>
+<tr class="odd">
+<td>Group and summarize</td>
+<td><code>dplyr</code></td>
+<td><code>group_by()</code>, <code>summarise()</code>, <code>arrange()</code></td>
+<td>Regional totals, department counts, monthly performance summaries</td>
+<td>Replaces recurring pivot-table rebuilds with readable reporting logic</td>
+<td>Group, summarize, sort, export</td>
+</tr>
+<tr class="even">
+<td>Reshape wide to long</td>
+<td><code>tidyr</code></td>
+<td><code>pivot_longer()</code></td>
+<td>Monthly columns, survey-style files, budget matrices</td>
+<td>Converts spreadsheet-shaped data into analysis-shaped data</td>
+<td>Pivot longer, standardize labels, summarize</td>
+</tr>
+<tr class="odd">
+<td>Reshape long to wide</td>
+<td><code>tidyr</code></td>
+<td><code>pivot_wider()</code></td>
+<td>Final presentation tables, compact outputs, report layout tables</td>
+<td>Useful when stakeholders need a shaped deliverable after analysis</td>
+<td>Analyze in long form, widen only when the final output needs it</td>
+</tr>
+<tr class="even">
+<td>Reorder categories for plots</td>
+<td><code>forcats</code></td>
+<td><code>fct_reorder()</code></td>
+<td>Ranked bar charts and comparison visuals</td>
+<td>Stops charts from following alphabetical habit when business ranking matters</td>
+<td>Summarize first, reorder factors, then plot</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="transformation-workflow-snippets" class="level3">
+<h3 class="anchored" data-anchor-id="transformation-workflow-snippets">Transformation Workflow Snippets</h3>
+<section id="join-actuals-to-targets" class="level4">
+<h4 class="anchored" data-anchor-id="join-actuals-to-targets">Join Actuals To Targets</h4>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>performance_vs_target <span class="ot">&lt;-</span> actuals_by_region_month <span class="sc">|&gt;</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(sales_targets_clean, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"sale_month"</span>, <span class="st">"region"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">variance =</span> actual_value <span class="sc">-</span> target_value</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="build-a-grouped-summary" class="level4">
+<h4 class="anchored" data-anchor-id="build-a-grouped-summary">Build A Grouped Summary</h4>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>regional_gap <span class="ot">&lt;-</span> performance_vs_target <span class="sc">|&gt;</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(region) <span class="sc">|&gt;</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">total_actual =</span> <span class="fu">sum</span>(actual_value, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">total_target =</span> <span class="fu">sum</span>(target_value, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">total_variance =</span> <span class="fu">sum</span>(variance, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">"drop"</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(total_variance)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="pivot-spreadsheet-shaped-data-into-tidy-form" class="level4">
+<h4 class="anchored" data-anchor-id="pivot-spreadsheet-shaped-data-into-tidy-form">Pivot Spreadsheet-Shaped Data Into Tidy Form</h4>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>budget_long <span class="ot">&lt;-</span> budget_wide <span class="sc">|&gt;</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">cols =</span> jan<span class="sc">:</span>dec,</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_to =</span> <span class="st">"month"</span>,</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_to =</span> <span class="st">"budget_value"</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="reorder-categories-for-a-chart" class="level4">
+<h4 class="anchored" data-anchor-id="reorder-categories-for-a-chart">Reorder Categories For A Chart</h4>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(forcats)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>regional_gap_plot <span class="ot">&lt;-</span> regional_gap <span class="sc">|&gt;</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">region =</span> <span class="fu">fct_reorder</span>(region, total_variance))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+</section>
+<section id="what-this-package-combination-does-best-2" class="level3">
+<h3 class="anchored" data-anchor-id="what-this-package-combination-does-best-2">What This Package Combination Does Best</h3>
+<p>Once the file is clean, <code>dplyr</code>, <code>tidyr</code>, and <code>forcats</code> become the core analysis stack because together they cover the three most important jobs in business analysis: relationship, shape, and order.</p>
+<p><code>dplyr</code> handles relationship and calculation. It joins files, builds derived fields, filters rows, groups data, and creates summary tables. It is the package that takes you from spreadsheet gestures to visible logic.</p>
+<p><code>tidyr</code> handles shape. Spreadsheet files are often laid out for human viewing, not for analysis. Month columns stretch across a sheet. Survey answers sit in wide blocks. Budget models treat months like headers. <code>tidyr</code> fixes that by giving you control over long and wide forms when the business question demands it.</p>
+<p><code>forcats</code> handles order. This matters more than people expect. A chart or table that follows alphabetical order when the actual question is ranking, variance, or priority is quietly weakening the analysis. <code>forcats</code> makes the business order explicit.</p>
+<p>That combination is powerful because it stays close to the kinds of problems the book keeps solving. You do not need a package explosion to do serious transformation work. You need a stable stack that covers joins, reshaping, summaries, and presentation order.</p>
+</section>
+<section id="when-to-reach-for-it-2" class="level3">
+<h3 class="anchored" data-anchor-id="when-to-reach-for-it-2">When To Reach For It</h3>
+<p>Use <code>dplyr</code> whenever the task sounds like business logic:</p>
+<ul>
+<li>join actuals to targets</li>
+<li>calculate variance</li>
+<li>filter to active staff</li>
+<li>summarize by region</li>
+<li>rank departments by headcount</li>
+<li>count cases by status</li>
+</ul>
+<p>Use <code>tidyr</code> when the file shape itself is getting in the way. If the months are columns instead of rows, if the same concept is spread across several headers, or if the final output needs to be widened only after the analysis is done, <code>tidyr</code> is the right reach.</p>
+<p>Use <code>forcats</code> when the output will be seen by humans and order matters. If the bar chart should rank from strongest to weakest, if the table should surface the worst variances first, or if the leadership slide should follow business priority instead of alphabetical accident, <code>forcats</code> earns its keep.</p>
+</section>
+<section id="typical-workflow-2" class="level3">
+<h3 class="anchored" data-anchor-id="typical-workflow-2">Typical Workflow</h3>
+<p>A strong transformation sequence usually looks like this:</p>
+<p>Start from a clean file.</p>
+<p>Join the reference table or target table with <code>left_join()</code>.</p>
+<p>Build the calculated fields with <code>mutate()</code>.</p>
+<p>Group and summarize with <code>group_by()</code> and <code>summarise()</code>.</p>
+<p>Reshape only if the business question or final deliverable actually requires it.</p>
+<p>Reorder the important categorical field with <code>fct_reorder()</code> if the output is heading toward a chart or ranked table.</p>
+<p>Then export or visualize.</p>
+<p>This is the point where many spreadsheet users feel the shift most strongly. The output stops being an accumulation of manual actions and starts becoming a readable answer.</p>
+</section>
+<section id="watch-out-for-2" class="level3">
+<h3 class="anchored" data-anchor-id="watch-out-for-2">Watch Out For</h3>
+<p>Do not join before cleaning keys. A perfect <code>left_join()</code> on dirty <code>employee_id</code>, <code>region</code>, or <code>product_code</code> fields still produces a weak result.</p>
+<p>Do not summarize at the wrong level. Many reporting errors are not math errors. They are level errors. Monthly data summarized across quarters. Department data summarized across the entire organization when the decision needed branch-level detail. Get the grouping level right before admiring the output.</p>
+<p>Do not widen too early. Wide tables may feel familiar because they resemble spreadsheets, but long form is usually easier for analysis. Widen only when the final output or stakeholder expectation truly demands it.</p>
+<p>Do not reorder categories after plotting as an afterthought. If order matters to interpretation, handle it in the data object before the visual step.</p>
+</section>
+<section id="example-you-can-adapt-2" class="level3">
+<h3 class="anchored" data-anchor-id="example-you-can-adapt-2">Example You Can Adapt</h3>
+<p>Here is a full budget-versus-actual workflow using joins, variance metrics, grouped summaries, and final ranking.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(forcats)</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>budget <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"inputs/budget.xlsx"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_names</span>()</span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>actuals <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"inputs/actuals.csv"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_names</span>()</span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>budget_actuals <span class="ot">&lt;-</span> actuals <span class="sc">|&gt;</span></span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(budget, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"month"</span>, <span class="st">"cost_center"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">budget_value =</span> <span class="fu">replace_na</span>(budget_value, <span class="dv">0</span>),</span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">variance =</span> actual_value <span class="sc">-</span> budget_value,</span>
+<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">variance_pct =</span> <span class="fu">if_else</span>(budget_value <span class="sc">==</span> <span class="dv">0</span>, <span class="cn">NA_real_</span>, actual_value <span class="sc">/</span> budget_value <span class="sc">-</span> <span class="dv">1</span>)</span>
+<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-22"><a href="#cb16-22" aria-hidden="true" tabindex="-1"></a>cost_center_summary <span class="ot">&lt;-</span> budget_actuals <span class="sc">|&gt;</span></span>
+<span id="cb16-23"><a href="#cb16-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(cost_center) <span class="sc">|&gt;</span></span>
+<span id="cb16-24"><a href="#cb16-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb16-25"><a href="#cb16-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">total_actual =</span> <span class="fu">sum</span>(actual_value, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb16-26"><a href="#cb16-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">total_budget =</span> <span class="fu">sum</span>(budget_value, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb16-27"><a href="#cb16-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">total_variance =</span> <span class="fu">sum</span>(variance, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb16-28"><a href="#cb16-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">"drop"</span></span>
+<span id="cb16-29"><a href="#cb16-29" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb16-30"><a href="#cb16-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(total_variance)) <span class="sc">|&gt;</span></span>
+<span id="cb16-31"><a href="#cb16-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">cost_center =</span> <span class="fu">fct_reorder</span>(cost_center, total_variance))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>That is the logic engine doing its work. Clean file in. Ranked answer out.</p>
+<div class="callout callout-style-simple callout-tip callout-titled" title="Cheat Sheet Box">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Cheat Sheet Box
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A practical package stack for most corporate analysis work looks like this:</p>
+<ul>
+<li><code>dplyr</code> for joins, filters, calculations, and summaries</li>
+<li><code>tidyr</code> for reshaping tables</li>
+<li><code>forcats</code> when the chart order should follow the business story, not the alphabet</li>
+</ul>
+<p>That combination covers more real reporting work than many people expect.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="c.4-visualization" class="level2">
+<h2 class="anchored" data-anchor-id="c.4-visualization">C.4 Visualization</h2>
+<p>This is the visual communication toolkit.</p>
+<p>The chart does not earn trust because it exists. It earns trust because it helps the room see the point quickly. The packages below matter because they turn summary tables into visuals that can survive a slide deck, an inbox, or a leadership review without begging for verbal rescue.</p>
+<section id="visualization-use-case-map" class="level3">
+<h3 class="anchored" data-anchor-id="visualization-use-case-map">Visualization Use-Case Map</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Use Case</th>
+<th>Recommended Package</th>
+<th>Core Function(s)</th>
+<th>Best For</th>
+<th>Why It Helps Spreadsheet Refugees</th>
+<th>Typical Workflow</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Build business charts from summary tables</td>
+<td><code>ggplot2</code></td>
+<td><code>ggplot()</code>, <code>geom_col()</code>, <code>geom_line()</code>, <code>labs()</code>, <code>theme_minimal()</code></td>
+<td>Revenue comparisons, monthly trends, department counts, variance charts</td>
+<td>Replaces default spreadsheet chart behavior with deliberate visual logic</td>
+<td>Start from summary table, build chart, remove clutter, export</td>
+</tr>
+<tr class="even">
+<td>Format currency, percentages, and large numbers</td>
+<td><code>scales</code></td>
+<td><code>label_dollar()</code>, <code>percent_format()</code>, <code>comma()</code></td>
+<td>Finance charts, attrition charts, KPI visuals</td>
+<td>Makes the chart speak business language cleanly</td>
+<td>Add readable scale formatting before export</td>
+</tr>
+<tr class="odd">
+<td>Reorder categories before plotting</td>
+<td><code>forcats</code></td>
+<td><code>fct_reorder()</code></td>
+<td>Ranked bar charts and ordered comparison visuals</td>
+<td>Stops charts from appearing in arbitrary order</td>
+<td>Reorder factor after summarizing, then build the chart</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="visualization-workflow-snippets" class="level3">
+<h3 class="anchored" data-anchor-id="visualization-workflow-snippets">Visualization Workflow Snippets</h3>
+<section id="build-a-ranked-regional-variance-chart" class="level4">
+<h4 class="anchored" data-anchor-id="build-a-ranked-regional-variance-chart">Build A Ranked Regional Variance Chart</h4>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scales)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(forcats)</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>regional_gap_plot <span class="ot">&lt;-</span> regional_gap <span class="sc">|&gt;</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">region =</span> <span class="fu">fct_reorder</span>(region, total_variance))</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(regional_gap_plot, <span class="fu">aes</span>(<span class="at">x =</span> region, <span class="at">y =</span> total_variance)) <span class="sc">+</span></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">"steelblue"</span>) <span class="sc">+</span></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Southeast And North Show The Largest Revenue Gaps"</span>,</span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="cn">NULL</span>,</span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Variance"</span></span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> <span class="fu">label_dollar</span>()) <span class="sc">+</span></span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">12</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="build-a-monthly-trend-chart" class="level4">
+<h4 class="anchored" data-anchor-id="build-a-monthly-trend-chart">Build A Monthly Trend Chart</h4>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(monthly_performance, <span class="fu">aes</span>(<span class="at">x =</span> month, <span class="at">y =</span> revenue, <span class="at">group =</span> <span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Revenue Recovered In Q3 But Flattened By Year End"</span>,</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="cn">NULL</span>,</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Revenue"</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> <span class="fu">label_dollar</span>()) <span class="sc">+</span></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">12</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+</section>
+<section id="what-this-package-combination-does-best-3" class="level3">
+<h3 class="anchored" data-anchor-id="what-this-package-combination-does-best-3">What This Package Combination Does Best</h3>
+<p><code>ggplot2</code>, <code>scales</code>, and <code>forcats</code> are enough for most of the business visuals in this book because the book is not trying to turn readers into gallery curators.</p>
+<p>It is trying to help them build charts that do real work.</p>
+<p><code>ggplot2</code> is the main visual engine. It gives you deliberate control over chart structure rather than default-chart guesswork. <code>scales</code> handles the business language of the chart, which matters more than many people admit. Dollar values should look like money. Rates should look like percentages. Headcount should look like counts, not raw unformatted numbers. <code>forcats</code> gives the chart an order that respects the question instead of alphabetical habit.</p>
+<p>That is enough for most reporting work. Ranked comparisons, monthly trends, attrition views, variance charts, departmental summaries, executive slides. You do not need a crowded package stack to do those well. You need clean summaries, clear labels, proper ordering, and disciplined export.</p>
+</section>
+<section id="when-to-reach-for-it-3" class="level3">
+<h3 class="anchored" data-anchor-id="when-to-reach-for-it-3">When To Reach For It</h3>
+<p>Use this stack when the analysis needs to be seen, not just saved.</p>
+<p>A ranked comparison needs <code>forcats</code> and <code>ggplot2</code>.</p>
+<p>A trend update needs <code>ggplot2</code> and <code>scales</code>.</p>
+<p>An attrition view needs <code>ggplot2</code>, <code>scales</code>, and usually good faceting or grouping logic upstream.</p>
+<p>An executive slide needs all three because the chart must be clear, the numbers must be formatted, and the categories must appear in an order that carries the point without help.</p>
+<p>This stack is for communication, not decoration.</p>
+</section>
+<section id="typical-workflow-3" class="level3">
+<h3 class="anchored" data-anchor-id="typical-workflow-3">Typical Workflow</h3>
+<p>Start with a trusted summary table.</p>
+<p>If the chart is categorical, reorder the main category with <code>fct_reorder()</code> so the ranking tells the story correctly.</p>
+<p>Build the plot with <code>ggplot()</code> and the right geometry.</p>
+<p>Use <code>labs()</code> to state the point clearly, not just the topic.</p>
+<p>Format the axis with <code>scales</code> so the numbers speak business language.</p>
+<p>Apply a clean theme such as <code>theme_minimal()</code>.</p>
+<p>Then export with <code>ggsave()</code> at dimensions that will survive a slide deck or report.</p>
+<p>That is the chart build sequence worth keeping.</p>
+</section>
+<section id="watch-out-for-3" class="level3">
+<h3 class="anchored" data-anchor-id="watch-out-for-3">Watch Out For</h3>
+<p>Do not plot unsorted categories when ranking matters. A chart that leaves the most important bar hidden in alphabetical order is not finished.</p>
+<p>Do not overuse legends. If the chart can be understood without one, remove it.</p>
+<p>Do not use default titles that say nothing. “Revenue by Region” is technically correct and operationally lazy. The title should tell the audience what matters.</p>
+<p>Do not crowd the chart with colors, labels, and ornament because the output feels too plain. Clarity is not emptiness.</p>
+<p>Do not export the chart at arbitrary size. An excellent plot can look weak in a deck if it was saved carelessly.</p>
+</section>
+<section id="example-you-can-adapt-3" class="level3">
+<h3 class="anchored" data-anchor-id="example-you-can-adapt-3">Example You Can Adapt</h3>
+<p>Here is a full chart recipe that starts with a grouped summary and ends with a leadership-ready PNG.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(forcats)</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scales)</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>regional_gap_plot <span class="ot">&lt;-</span> regional_gap <span class="sc">|&gt;</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">region =</span> <span class="fu">fct_reorder</span>(region, total_variance))</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>gap_chart <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(regional_gap_plot, <span class="fu">aes</span>(<span class="at">x =</span> region, <span class="at">y =</span> total_variance)) <span class="sc">+</span></span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">"steelblue"</span>) <span class="sc">+</span></span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Southeast And North Require Immediate Revenue Attention"</span>,</span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Cumulative variance against target by region"</span>,</span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="cn">NULL</span>,</span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Variance"</span></span>
+<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> <span class="fu">label_dollar</span>()) <span class="sc">+</span></span>
+<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">12</span>) <span class="sc">+</span></span>
+<span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb19-20"><a href="#cb19-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb19-21"><a href="#cb19-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">"none"</span></span>
+<span id="cb19-22"><a href="#cb19-22" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb19-23"><a href="#cb19-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-24"><a href="#cb19-24" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(</span>
+<span id="cb19-25"><a href="#cb19-25" aria-hidden="true" tabindex="-1"></a>  <span class="at">filename =</span> <span class="st">"outputs/regional_gap_chart.png"</span>,</span>
+<span id="cb19-26"><a href="#cb19-26" aria-hidden="true" tabindex="-1"></a>  <span class="at">plot =</span> gap_chart,</span>
+<span id="cb19-27"><a href="#cb19-27" aria-hidden="true" tabindex="-1"></a>  <span class="at">width =</span> <span class="dv">8</span>,</span>
+<span id="cb19-28"><a href="#cb19-28" aria-hidden="true" tabindex="-1"></a>  <span class="at">height =</span> <span class="dv">5</span>,</span>
+<span id="cb19-29"><a href="#cb19-29" aria-hidden="true" tabindex="-1"></a>  <span class="at">dpi =</span> <span class="dv">300</span></span>
+<span id="cb19-30"><a href="#cb19-30" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>That is enough for a serious business chart. Not because it is visually noisy. Because it carries the message.</p>
+<div class="callout callout-style-simple callout-warning callout-titled" title="Quick Warning">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Quick Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Do not widen the package stack just because the chart feels important.</p>
+<p>Most business visuals in this book do not need a jungle of specialty visualization packages. If the summary table is strong, <code>ggplot2</code> plus <code>scales</code> plus <code>forcats</code> usually gets you where you need to go.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="c.5-reporting" class="level2">
+<h2 class="anchored" data-anchor-id="c.5-reporting">C.5 Reporting</h2>
+<p>This section is the bridge between analysis and deliverable.</p>
+<p>A lot of professionals still think the “real work” ends once the summary is right. It does not. The output still has to travel. It has to arrive in a form the stakeholder can use without requiring a lecture on why the workflow underneath it is better than the old one.</p>
+<section id="reporting-use-case-map" class="level3">
+<h3 class="anchored" data-anchor-id="reporting-use-case-map">Reporting Use-Case Map</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Use Case</th>
+<th>Recommended Package or Tool</th>
+<th>Core Function(s)</th>
+<th>Best For</th>
+<th>Why It Helps Spreadsheet Refugees</th>
+<th>Typical Workflow</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Save a clean summary table</td>
+<td><code>readr</code></td>
+<td><code>write_csv()</code></td>
+<td>Downstream reporting, reloadable outputs, clean handoffs</td>
+<td>Keeps the final output lightweight and easy to reuse</td>
+<td>Save validated summary after grouping and checks</td>
+</tr>
+<tr class="even">
+<td>Export an Excel deliverable</td>
+<td><code>openxlsx</code></td>
+<td><code>write.xlsx()</code></td>
+<td>Teams or managers who still expect <code>.xlsx</code> handoff</td>
+<td>Lets R power the work while Excel remains the delivery shell</td>
+<td>Build in R, export to Excel at the end</td>
+</tr>
+<tr class="odd">
+<td>Export a chart for a slide deck</td>
+<td><code>ggplot2</code></td>
+<td><code>ggsave()</code></td>
+<td>Leadership slides, reports, email-ready visuals</td>
+<td>Makes the plot portable and presentation-ready</td>
+<td>Save the chart after styling and validation</td>
+</tr>
+<tr class="even">
+<td>Publish a reusable report</td>
+<td>Quarto</td>
+<td>rendering layer</td>
+<td>Book chapters, internal reports, reusable reporting documents</td>
+<td>Gives structure to repeated analysis and presentation work</td>
+<td>Analyze in R, render as document or book output</td>
+</tr>
+<tr class="odd">
+<td>Keep file output paths stable</td>
+<td><code>here</code></td>
+<td><code>here()</code></td>
+<td>Project-safe reporting workflows</td>
+<td>Stops broken-path behavior when moving between machines or folders</td>
+<td>Save tables and plots using project-root relative paths</td>
+</tr>
+<tr class="even">
+<td>Keep in-session AI help close to the workflow</td>
+<td><code>ellmer</code> and <code>chattr</code></td>
+<td><code>chat_google_gemini()</code>, <code>chattr_use()</code></td>
+<td>Translation, explanation, and diagnosis inside the IDE</td>
+<td>Reduces browser friction and keeps the prompt near the code</td>
+<td>Connect Gemini, open chat, send highlighted prompt or code</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="reporting-workflow-snippets" class="level3">
+<h3 class="anchored" data-anchor-id="reporting-workflow-snippets">Reporting Workflow Snippets</h3>
+<section id="save-a-summary-table-as-csv" class="level4">
+<h4 class="anchored" data-anchor-id="save-a-summary-table-as-csv">Save A Summary Table As CSV</h4>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(regional_gap, <span class="st">"outputs/regional_gap_summary.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="save-a-summary-workbook-for-stakeholders" class="level4">
+<h4 class="anchored" data-anchor-id="save-a-summary-workbook-for-stakeholders">Save A Summary Workbook For Stakeholders</h4>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(openxlsx)</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="fu">write.xlsx</span>(</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list</span>(</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">summary =</span> regional_gap,</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">product_lines =</span> product_line_summary</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">file =</span> <span class="st">"outputs/regional_performance_pack.xlsx"</span></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="save-a-plot-for-a-slide-deck" class="level4">
+<h4 class="anchored" data-anchor-id="save-a-plot-for-a-slide-deck">Save A Plot For A Slide Deck</h4>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">filename =</span> <span class="st">"outputs/regional_gap_chart.png"</span>,</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">width =</span> <span class="dv">8</span>,</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">height =</span> <span class="dv">5</span>,</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">dpi =</span> <span class="dv">300</span></span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="keep-ai-help-inside-the-ide" class="level4">
+<h4 class="anchored" data-anchor-id="keep-ai-help-inside-the-ide">Keep AI Help Inside The IDE</h4>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ellmer)</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(chattr)</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>my_chat <span class="ot">&lt;-</span> <span class="fu">chat_google_gemini</span>(<span class="at">model =</span> <span class="st">"gemini-2.5-flash-lite"</span>)</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="fu">chattr_use</span>(my_chat)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+</section>
+<section id="what-this-package-combination-does-best-4" class="level3">
+<h3 class="anchored" data-anchor-id="what-this-package-combination-does-best-4">What This Package Combination Does Best</h3>
+<p>This combination turns analysis into deliverable without forcing the workflow back into spreadsheet improvisation.</p>
+<p><code>write_csv()</code> is for clean machine-readable handoff. Use it when another analyst, another system, or future-you needs a stable output that can be reloaded without workbook clutter.</p>
+<p><code>write.xlsx()</code> is for the social reality of the office. Some stakeholders want a workbook because that is how they review, comment, circulate, or archive what you send. Exporting to Excel at the end is not regression if the analytical engine stayed in R.</p>
+<p><code>ggsave()</code> matters because charts do not become presentation-ready by accident. A good plot needs dimensions, resolution, and a controlled export.</p>
+<p>Quarto matters because repeated reporting is not only about files. It is also about narrative structure. When the workflow grows beyond one summary table and one chart, Quarto becomes the reporting layer that ties logic and communication together.</p>
+<p><code>here()</code> matters because deliverables do not stay credible when they are saved into random folders no one can find later.</p>
+<p><code>ellmer</code> and <code>chattr</code> matter because real delivery work still needs support at the point of friction. If the chart needs one last cleanup or the summary logic feels suspicious, the assistant should sit near the work, not in a separate browser ritual.</p>
+</section>
+<section id="when-to-reach-for-it-4" class="level3">
+<h3 class="anchored" data-anchor-id="when-to-reach-for-it-4">When To Reach For It</h3>
+<p>Keep the deliverable as CSV when the output is mainly for reuse, downstream systems, or another analyst who needs a clean table.</p>
+<p>Send it back to Excel when the stakeholder expects a workbook, when multiple tabs matter, or when the audience is not ready to consume anything else.</p>
+<p>Use Quarto when the work is becoming a repeatable report rather than a one-off export. If the analysis, chart, and narrative need to stay together in one structured artifact, Quarto is the right presentation layer.</p>
+<p>Do not confuse stakeholder preference with workflow truth. The final format can remain familiar while the engine underneath changes completely.</p>
+</section>
+<section id="typical-workflow-4" class="level3">
+<h3 class="anchored" data-anchor-id="typical-workflow-4">Typical Workflow</h3>
+<p>A good reporting sequence looks like this:</p>
+<p>Validate the summary table first.</p>
+<p>Write the clean table to CSV for future reuse.</p>
+<p>Export the stakeholder-facing workbook if Excel delivery is required.</p>
+<p>Build and save the chart at slide-ready resolution.</p>
+<p>If the work needs narrative structure or recurring document output, render it through Quarto.</p>
+<p>Keep all outputs inside a stable project path.</p>
+<p>That sequence respects both the analytical workflow and the political reality of deliverables.</p>
+</section>
+<section id="watch-out-for-4" class="level3">
+<h3 class="anchored" data-anchor-id="watch-out-for-4">Watch Out For</h3>
+<p>Do not export too early. The moment a workbook or chart leaves the workflow, it starts looking official. Make it earn that status first.</p>
+<p>Do not save charts at the wrong dimensions and then blame the deck for making them look weak.</p>
+<p>Do not treat output format and workflow as the same thing. Sending Excel is not the same as doing the work in Excel.</p>
+<p>Do not render Quarto reports before the underlying objects are stable. A polished document can hide unstable logic too well.</p>
+</section>
+<section id="example-you-can-adapt-4" class="level3">
+<h3 class="anchored" data-anchor-id="example-you-can-adapt-4">Example You Can Adapt</h3>
+<p>Here is a full monthly reporting pack with CSV output, Excel workbook, chart export, and a Quarto-ready object flow.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(openxlsx)</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(regional_gap, <span class="fu">here</span>(<span class="st">"outputs"</span>, <span class="st">"regional_gap_summary.csv"</span>))</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a><span class="fu">write.xlsx</span>(</span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list</span>(</span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">regional_summary =</span> regional_gap,</span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">product_line_summary =</span> product_line_summary</span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">file =</span> <span class="fu">here</span>(<span class="st">"outputs"</span>, <span class="st">"monthly_sales_pack.xlsx"</span>)</span>
+<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(</span>
+<span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">filename =</span> <span class="fu">here</span>(<span class="st">"outputs"</span>, <span class="st">"regional_gap_chart.png"</span>),</span>
+<span id="cb24-18"><a href="#cb24-18" aria-hidden="true" tabindex="-1"></a>  <span class="at">plot =</span> gap_chart,</span>
+<span id="cb24-19"><a href="#cb24-19" aria-hidden="true" tabindex="-1"></a>  <span class="at">width =</span> <span class="dv">8</span>,</span>
+<span id="cb24-20"><a href="#cb24-20" aria-hidden="true" tabindex="-1"></a>  <span class="at">height =</span> <span class="dv">5</span>,</span>
+<span id="cb24-21"><a href="#cb24-21" aria-hidden="true" tabindex="-1"></a>  <span class="at">dpi =</span> <span class="dv">300</span></span>
+<span id="cb24-22"><a href="#cb24-22" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb24-23"><a href="#cb24-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-24"><a href="#cb24-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Quarto uses the saved summary tables, charts, and narrative layer</span></span>
+<span id="cb24-25"><a href="#cb24-25" aria-hidden="true" tabindex="-1"></a><span class="co"># to render a reusable monthly report from the same validated workflow.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>This is the bridge between analysis and trust. The output matters because the workflow behind it stayed disciplined.</p>
+<div class="callout callout-style-simple callout-important callout-titled" title="Monday Morning Application">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Monday Morning Application
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Choose one recurring deliverable you sent recently.</p>
+<p>Then ask four questions:</p>
+<ol type="1">
+<li>should the output remain CSV, Excel, or image-based?</li>
+<li>does the chart need <code>ggsave()</code> because it will land in slides?</li>
+<li>should the file path be managed with <code>here()</code>?</li>
+<li>do you need in-session help from <code>ellmer</code> and <code>chattr</code> before the result is trustworthy?</li>
+</ol>
+<p>That is how the reporting layer becomes deliberate instead of improvised.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="c.6-file-paths-and-project-hygiene" class="level2">
+<h2 class="anchored" data-anchor-id="c.6-file-paths-and-project-hygiene">C.6 File Paths And Project Hygiene</h2>
+<p>This is the operational backbone of the book.</p>
+<p>A lot of otherwise competent workflows break for reasons that sound small until they destroy an afternoon. Wrong working directory. Broken absolute paths. API keys sitting in scripts. Output files saved into mysterious folders no one can find later. A “quick project” that becomes unmaintainable by the third reporting cycle because nothing was named or structured clearly from the start.</p>
+<p>Project hygiene is not glamorous.</p>
+<p>It is how work stays repeatable.</p>
+<section id="file-paths-and-hygiene-use-case-map" class="level3">
+<h3 class="anchored" data-anchor-id="file-paths-and-hygiene-use-case-map">File Paths And Hygiene Use-Case Map</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Use Case</th>
+<th>Recommended Package or Practice</th>
+<th>Core Function(s)</th>
+<th>Best For</th>
+<th>Why It Helps Spreadsheet Refugees</th>
+<th>Typical Workflow</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Use safe relative paths</td>
+<td><code>here</code></td>
+<td><code>here()</code></td>
+<td>Projects that move across folders, machines, or collaborators</td>
+<td>Stops the “works on my laptop only” path problem</td>
+<td>Build all imports and exports from the project root</td>
+</tr>
+<tr class="even">
+<td>Create folders programmatically</td>
+<td><code>fs</code></td>
+<td><code>dir_create()</code></td>
+<td>Project setup, output organization, archive structure</td>
+<td>Makes the project feel like infrastructure instead of a pile of files</td>
+<td>Create <code>inputs</code>, <code>outputs</code>, <code>scripts</code>, and <code>archive</code> folders early</td>
+</tr>
+<tr class="odd">
+<td>Edit environment settings safely</td>
+<td><code>usethis</code></td>
+<td><code>edit_r_environ()</code></td>
+<td>API keys, configuration values, safe setup</td>
+<td>Keeps secrets out of scripts and notebooks</td>
+<td>Store keys in <code>.Renviron</code>, restart R, then use the workflow cleanly</td>
+</tr>
+<tr class="even">
+<td>Keep secrets out of code</td>
+<td><code>.Renviron</code> practice</td>
+<td>environment variables</td>
+<td>Gemini keys and other credentials</td>
+<td>Prevents accidental sharing and supports cleaner projects</td>
+<td>Save the key once, call it indirectly through the package</td>
+</tr>
+<tr class="odd">
+<td>Use clear file naming</td>
+<td>naming convention</td>
+<td>no single function</td>
+<td>Recurring reporting cycles and shared team use</td>
+<td>Reduces version chaos and makes outputs easier to trust</td>
+<td>Standardize folder names and output filenames early</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="hygiene-workflow-snippets" class="level3">
+<h3 class="anchored" data-anchor-id="hygiene-workflow-snippets">Hygiene Workflow Snippets</h3>
+<section id="stable-paths-with-here" class="level4">
+<h4 class="anchored" data-anchor-id="stable-paths-with-here">Stable Paths With <code>here()</code></h4>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>sales_actuals <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="fu">here</span>(<span class="st">"inputs"</span>, <span class="st">"sales_actuals.csv"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="project-folders-with-fs" class="level4">
+<h4 class="anchored" data-anchor-id="project-folders-with-fs">Project Folders With <code>fs</code></h4>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(fs)</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="fu">dir_create</span>(<span class="fu">here</span>(<span class="st">"inputs"</span>))</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="fu">dir_create</span>(<span class="fu">here</span>(<span class="st">"outputs"</span>))</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a><span class="fu">dir_create</span>(<span class="fu">here</span>(<span class="st">"scripts"</span>))</span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a><span class="fu">dir_create</span>(<span class="fu">here</span>(<span class="st">"archive"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="safe-environment-setup-with-usethis" class="level4">
+<h4 class="anchored" data-anchor-id="safe-environment-setup-with-usethis">Safe Environment Setup With <code>usethis</code></h4>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(usethis)</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="fu">edit_r_environ</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Inside <code>.Renviron</code>:</p>
+<pre class="text"><code>GOOGLE_API_KEY="your_key_here"</code></pre>
+</section>
+</section>
+<section id="what-this-package-combination-does-best-5" class="level3">
+<h3 class="anchored" data-anchor-id="what-this-package-combination-does-best-5">What This Package Combination Does Best</h3>
+<p><code>here</code>, <code>fs</code>, and <code>usethis</code> protect the workflow from three of the least glamorous and most expensive failures in analytics work: broken paths, file sprawl, and exposed secrets.</p>
+<p><code>here()</code> gives your project a stable center. Files are found relative to the project root, not relative to wherever the working directory happened to be when you clicked something last.</p>
+<p><code>fs</code> gives you a disciplined way to create and maintain structure. If a project needs <code>inputs</code>, <code>outputs</code>, <code>scripts</code>, and <code>archive</code>, create them deliberately. Do not let the project become a desk drawer.</p>
+<p><code>usethis</code> matters because configuration belongs outside the script when it involves credentials. If Gemini is part of the in-session workflow, the key should live in <code>.Renviron</code>, not in code that can be copied, shared, or committed somewhere foolish.</p>
+<p>That combination protects your future self from chaos disguised as speed.</p>
+</section>
+<section id="when-to-reach-for-it-5" class="level3">
+<h3 class="anchored" data-anchor-id="when-to-reach-for-it-5">When To Reach For It</h3>
+<p>Use this hygiene stack at the start of a new reporting project.</p>
+<p>Use it when work needs to move between laptop and office desktop.</p>
+<p>Use it when a recurring workflow has started generating too many “final_v2_use_this” files.</p>
+<p>Use it when you set up Gemini inside RStudio and need the key stored safely instead of dangerously.</p>
+<p>Use it any time the cost of messy file structure is starting to rival the cost of the analysis itself.</p>
+</section>
+<section id="typical-workflow-5" class="level3">
+<h3 class="anchored" data-anchor-id="typical-workflow-5">Typical Workflow</h3>
+<p>Create the project.</p>
+<p>Create the core folders with <code>fs</code>.</p>
+<p>Use <code>here()</code> for every import and export path.</p>
+<p>Store API keys or configuration values in <code>.Renviron</code> with <code>usethis</code>.</p>
+<p>Keep names clear enough that another analyst, or future-you after a tired week, can understand the project at a glance.</p>
+<p>That is project hygiene in practice. It is not abstract reproducibility theater. It is anti-chaos infrastructure.</p>
+</section>
+<section id="watch-out-for-5" class="level3">
+<h3 class="anchored" data-anchor-id="watch-out-for-5">Watch Out For</h3>
+<p>Do not hard-code desktop paths unless you enjoy work that breaks the moment it moves.</p>
+<p>Do not keep keys inside scripts. One accidental share, screen capture, or upload and the cleanup becomes much less pleasant.</p>
+<p>Do not let folder structure emerge accidentally from whatever files happened to be saved first. Disorder compounds.</p>
+<p>Do not use naming conventions that depend entirely on your memory. If “new_final_latest” looks reasonable now, it will not look reasonable next month.</p>
+</section>
+<section id="example-you-can-adapt-5" class="level3">
+<h3 class="anchored" data-anchor-id="example-you-can-adapt-5">Example You Can Adapt</h3>
+<p>Here is a complete starter project structure for recurring monthly or weekly reporting.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(fs)</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>project_name <span class="ot">&lt;-</span> <span class="st">"monthly-sales-report"</span></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a><span class="fu">dir_create</span>(<span class="fu">here</span>(project_name))</span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a><span class="fu">dir_create</span>(<span class="fu">here</span>(project_name, <span class="st">"inputs"</span>))</span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a><span class="fu">dir_create</span>(<span class="fu">here</span>(project_name, <span class="st">"outputs"</span>))</span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a><span class="fu">dir_create</span>(<span class="fu">here</span>(project_name, <span class="st">"scripts"</span>))</span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a><span class="fu">dir_create</span>(<span class="fu">here</span>(project_name, <span class="st">"archive"</span>))</span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a><span class="fu">dir_create</span>(<span class="fu">here</span>(project_name, <span class="st">"plots"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Then inside that project:</p>
+<ul>
+<li>all raw files go to <code>inputs</code></li>
+<li>all saved tables go to <code>outputs</code></li>
+<li>all reusable scripts go to <code>scripts</code></li>
+<li>old source files go to <code>archive</code></li>
+<li>all exported figures go to <code>plots</code></li>
+</ul>
+<p>That is enough to stop the project from collapsing under repetition.</p>
+</section>
+</section>
+<section id="future-package-additions" class="level2">
+<h2 class="anchored" data-anchor-id="future-package-additions">Future Package Additions</h2>
+<p>This section is not filler. It is a controlled expansion rule.</p>
+<p>The book deliberately avoids ecosystem overload, but real workflows evolve. When a new package earns consideration, it should pass a stricter test than “someone recommended it online.”</p>
+<section id="how-to-evaluate-a-future-package-addition" class="level3">
+<h3 class="anchored" data-anchor-id="how-to-evaluate-a-future-package-addition">How To Evaluate A Future Package Addition</h3>
+<p>A future package belongs in this appendix only if it solves a recurring problem better than the current stack, reduces real friction, and stays readable enough for the professional audience of this book.</p>
+<p>A package does <strong>not</strong> qualify just because it is trendy, elegant, or admired by power users.</p>
+<p>It qualifies when it improves Monday morning work.</p>
+</section>
+<section id="what-this-package-does-best" class="level3">
+<h3 class="anchored" data-anchor-id="what-this-package-does-best">What This Package Does Best</h3>
+<p>When evaluating a future addition, start by naming the package’s strongest use honestly. Not everything a package can do. The one thing it does well enough to justify learning overhead.</p>
+<p>For example, if a package excels at reading specialized files, building publication tables, scheduling scripts, or creating dashboards, say that clearly. The package must have a defining job.</p>
+</section>
+<section id="when-to-reach-for-it-6" class="level3">
+<h3 class="anchored" data-anchor-id="when-to-reach-for-it-6">When To Reach For It</h3>
+<p>A future package should come with a use-case boundary. The reader should know the conditions under which the package becomes the right next reach.</p>
+<p>The language here should stay practical:</p>
+<ul>
+<li>reach for it when the workflow repeats often enough</li>
+<li>reach for it when the current stack becomes awkward</li>
+<li>reach for it when stakeholder expectations require a new output form</li>
+<li>do not reach for it just to replace a stable workflow with novelty</li>
+</ul>
+</section>
+<section id="typical-workflow-6" class="level3">
+<h3 class="anchored" data-anchor-id="typical-workflow-6">Typical Workflow</h3>
+<p>Any future package note should describe where it sits in the workflow sequence.</p>
+<p>Does it appear during import, cleaning, transformation, visualization, reporting, or project hygiene.</p>
+<p>Can it sit cleanly beside the current stack.</p>
+<p>Does it simplify the work or create new layers of ceremony.</p>
+<p>That workflow positioning matters more than a feature list.</p>
+</section>
+<section id="watch-out-for-6" class="level3">
+<h3 class="anchored" data-anchor-id="watch-out-for-6">Watch Out For</h3>
+<p>Every future package should come with one blunt warning.</p>
+<p>What does it tempt the reader to do badly.</p>
+<p>Where does it add complexity too early.</p>
+<p>What kind of misuse is most common.</p>
+<p>That warning keeps the appendix honest.</p>
+</section>
+<section id="example-you-can-adapt-6" class="level3">
+<h3 class="anchored" data-anchor-id="example-you-can-adapt-6">Example You Can Adapt</h3>
+<p>A good future package entry should read like a decision memo, not like copied documentation. It should include:</p>
+<ul>
+<li>the problem it solves</li>
+<li>the point in the workflow where it belongs</li>
+<li>the reason it is worth adding</li>
+<li>the condition under which it is not worth adding yet</li>
+</ul>
+<p>That makes the appendix expansion-ready without becoming noisy.</p>
+</section>
+</section>
+<section id="package-comparison-notes" class="level2">
+<h2 class="anchored" data-anchor-id="package-comparison-notes">Package Comparison Notes</h2>
+<p>Some packages solve similar problems. This section exists to stop comparison fatigue from becoming another source of delay.</p>
+<section id="how-to-compare-packages-practically" class="level3">
+<h3 class="anchored" data-anchor-id="how-to-compare-packages-practically">How To Compare Packages Practically</h3>
+<p>A package comparison should never ask “Which package is objectively better?” The useful question is “Which package fits the workflow this book is trying to protect?”</p>
+<p>For example:</p>
+<ul>
+<li><code>readr</code> versus <code>rio</code> is not a contest. <code>readr</code> is the cleaner default when the file type is known. <code>rio</code> is useful when file-type variation itself has become friction.</li>
+<li><code>readxl</code> versus <code>openxlsx</code> is not a contest either. One is for reading workbooks. The other is for writing them professionally.</li>
+<li><code>ggplot2</code> versus “some specialized chart package” is not a contest unless the current visual need exceeds what <code>ggplot2</code> plus <code>scales</code> plus <code>forcats</code> can already handle calmly.</li>
+</ul>
+</section>
+<section id="practical-decision-logic" class="level3">
+<h3 class="anchored" data-anchor-id="practical-decision-logic">Practical Decision Logic</h3>
+<p>Prefer the package that:</p>
+<ul>
+<li>keeps the workflow readable</li>
+<li>reduces repeated effort</li>
+<li>fits the project’s actual level of complexity</li>
+<li>can be understood again six weeks later</li>
+<li>does not require a new stack just to solve one rare problem</li>
+</ul>
+</section>
+<section id="edge-case-or-limitation" class="level3">
+<h3 class="anchored" data-anchor-id="edge-case-or-limitation">Edge Case Or Limitation</h3>
+<p>Sometimes the default package is not enough. That is fine. But the edge case should be real, not fashionable.</p>
+<p>If the file type is exotic, if the reporting layer is growing more sophisticated, or if automation needs to move beyond the current stack, document that clearly. The exception should stay specific.</p>
+</section>
+</section>
+<section id="package-combinations-for-specific-use-cases" class="level2">
+<h2 class="anchored" data-anchor-id="package-combinations-for-specific-use-cases">Package Combinations For Specific Use Cases</h2>
+<p>Packages rarely work alone in live business workflows. They work in combinations. The right combination is often what saves the hour.</p>
+<section id="monthly-sales-reporting-combination" class="level3">
+<h3 class="anchored" data-anchor-id="monthly-sales-reporting-combination">Monthly Sales Reporting Combination</h3>
+<p><strong>Recommended Stack</strong><br>
+<code>readr</code>, <code>readxl</code>, <code>janitor</code>, <code>dplyr</code>, <code>lubridate</code>, <code>ggplot2</code>, <code>scales</code>, <code>openxlsx</code>, <code>here</code></p>
+<p><strong>Why This Stack Works</strong><br>
+CSV actuals come in with <code>readr</code>. Excel targets come in with <code>readxl</code>. <code>janitor</code> standardizes the names. <code>dplyr</code> joins and summarizes. <code>lubridate</code> makes reporting months stable. <code>ggplot2</code> and <code>scales</code> carry the leadership chart. <code>openxlsx</code> sends the final workbook back to the business. <code>here</code> keeps the file structure sane.</p>
+<p><strong>Practical Warning</strong><br>
+If you skip <code>janitor</code> or <code>lubridate</code>, the later join or monthly summary often becomes more fragile than it needs to be.</p>
+</section>
+<section id="payroll-cleanup-plus-excel-export-combination" class="level3">
+<h3 class="anchored" data-anchor-id="payroll-cleanup-plus-excel-export-combination">Payroll Cleanup Plus Excel Export Combination</h3>
+<p><strong>Recommended Stack</strong><br>
+<code>readxl</code>, <code>janitor</code>, <code>stringr</code>, <code>lubridate</code>, <code>tidyr</code>, <code>dplyr</code>, <code>openxlsx</code></p>
+<p><strong>Why This Stack Works</strong><br>
+Payroll files often arrive as workbooks. The names are messy, the dates are ugly, the text fields are inconsistent, and the output still needs to return to Excel. This stack handles the file honestly from intake to handoff.</p>
+<p><strong>Practical Warning</strong><br>
+If you deduplicate before deciding the right business key, this stack will help you delete the wrong rows efficiently.</p>
+</section>
+<section id="weekly-kpi-reporting-combination" class="level3">
+<h3 class="anchored" data-anchor-id="weekly-kpi-reporting-combination">Weekly KPI Reporting Combination</h3>
+<p><strong>Recommended Stack</strong><br>
+<code>readr</code>, <code>janitor</code>, <code>dplyr</code>, <code>ggplot2</code>, <code>scales</code>, <code>here</code>, <code>fs</code></p>
+<p><strong>Why This Stack Works</strong><br>
+Weekly KPI work is mostly about rhythm. Read the file, clean the names, summarize the metrics, chart the result, save the output, and keep the file structure stable enough that next week does not feel like a fresh emergency.</p>
+<p><strong>Practical Warning</strong><br>
+If you do not create the project folders early, the reporting logic may stay clean while the project itself becomes cluttered and unreliable.</p>
+</section>
+<section id="in-session-ai-workflow-combination" class="level3">
+<h3 class="anchored" data-anchor-id="in-session-ai-workflow-combination">In-Session AI Workflow Combination</h3>
+<p><strong>Recommended Stack</strong><br>
+<code>ellmer</code>, <code>chattr</code>, <code>dplyr</code>, <code>readr</code></p>
+<p><strong>Why This Stack Works</strong><br>
+<code>ellmer</code> connects Gemini. <code>chattr</code> keeps the interaction inside RStudio. <code>dplyr</code> and <code>readr</code> are where many of the actual questions arise. This combination lowers friction because the assistant stays close to the code and the code stays close to the problem.</p>
+<p><strong>Practical Warning</strong><br>
+If you use AI without validation, the workflow gets faster and less trustworthy at the same time. That is not an upgrade.</p>
+<div class="callout callout-style-simple callout-note callout-titled" title="PhD Insight">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>PhD Insight
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Package overload is usually a workflow design problem, not a knowledge problem.</p>
+<p>People accumulate packages when the use case is unclear. Once the task is clear, the package list usually gets smaller. That is why this appendix is organized by work problem instead of by CRAN curiosity.</p>
+</div>
+</div>
+</section>
+<section id="last-working-rule" class="level3">
+<h3 class="anchored" data-anchor-id="last-working-rule">Last Working Rule</h3>
+<p>The right package is the one that reduces friction in a real workflow without making the project harder to trust six weeks from now.</p>
+<p>That is the whole standard.</p>
+<p>Use that, and you will rarely need to guess.</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/sta189332\.github\.io\/excel-refugee-migration\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./appendix-b-prompts.html" class="pagination-link" aria-label="The In-Session AI Prompt Library for R">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">The In-Session AI Prompt Library for R</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./appendix-d-glossary.html" class="pagination-link" aria-label="Glossary: Excel Terms, R Terms, and Workflow Language">
+        <span class="nav-page-text">Glossary: Excel Terms, R Terms, and Workflow Language</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/sta189332/excel-refugee-migration/blob/main/appendix-c-packages.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/sta189332/excel-refugee-migration/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>

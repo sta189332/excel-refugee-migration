@@ -1,0 +1,1726 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.25">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="A story-driven practical guide for corporate professionals moving from manual spreadsheet work into faster, repeatable workflows in R.">
+
+<title>Glossary: Excel Terms, R Terms, and Workflow Language – The Excel Refugee Migration</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./author-note.html" rel="next">
+<link href="./appendix-c-packages.html" rel="prev">
+<link href="./images/favicon.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-ef4d8e9faa04af36b84e1866e7343808.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./appendix-a-cheatsheet.html">Appendices</a></li><li class="breadcrumb-item"><a href="./appendix-d-glossary.html">Glossary: Excel Terms, R Terms, and Workflow Language</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">The Excel Refugee Migration</a> 
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://github.com/sta189332/excel-refugee-migration" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+    <a href="https://github.com/sta189332/excel-refugee-migration" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <div class="dropdown">
+      <a href="" title="Download" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Download"><i class="bi bi-download"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="./The-Excel-Refugee-Migration.pdf">
+              <i class="bi bi-file-pdf pe-1"></i>
+            Download PDF
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="./The-Excel-Refugee-Migration.epub">
+              <i class="bi bi-journal pe-1"></i>
+            Download ePub
+            </a>
+          </li>
+      </ul>
+    </div>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The Excel Refugee Migration</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./introduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction: The Day My Spreadsheet Died</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
+ <span class="menu-text">Main</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-01-spreadsheet-ceiling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">When Being the Excel Hero Starts Costing You Your Future</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-02-why-r-not-python.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Python Was Never the Point: Why R Feels Like the Tool You Were Looking For All Along</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-03-first-60-minutes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">R Without the Fear: The First Hour That Finally Feels Useful</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-04-excel-to-r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">You Already Speak Half the Language: Translating Your Excel Brain into R</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-05-chatgpt-copilot.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Your AI Co-Pilot: Using Gemini Inside RStudio as Your Personal R Translator</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-06-clean-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Clean Data, Clean Mind: The R Workflow That Eliminates Manual Hell</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-07-dplyr-pivots.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Pivot Tables Are Dead. Long Live dplyr</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-08-ggplot.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Charts That Actually Impress: ggplot2 vs.&nbsp;Excel’s Chart Wizard</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-09-first-project.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Your First Real Project: A Full Analysis From Raw File to Boardroom Slide</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-10-migration-plan.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">The R-Powered Strategist: Your 30-Day Migration Plan and What Comes Next</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-a-cheatsheet.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The Master Excel-to-R Cheat Sheet</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-b-prompts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The In-Session AI Prompt Library for R</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-c-packages.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Recommended R Packages by Use Case</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-d-glossary.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Glossary: Excel Terms, R Terms, and Workflow Language</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
+ <span class="menu-text">Back Matter</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./author-note.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Author’s Note</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#d.1-glossary" id="toc-d.1-glossary" class="nav-link active" data-scroll-target="#d.1-glossary">D.1 Glossary</a>
+  <ul class="collapse">
+  <li><a href="#core-workflow-language" id="toc-core-workflow-language" class="nav-link" data-scroll-target="#core-workflow-language">Core Workflow Language</a></li>
+  <li><a href="#excel-to-r-translation-language" id="toc-excel-to-r-translation-language" class="nav-link" data-scroll-target="#excel-to-r-translation-language">Excel-To-R Translation Language</a></li>
+  <li><a href="#cleaning-language" id="toc-cleaning-language" class="nav-link" data-scroll-target="#cleaning-language">Cleaning Language</a></li>
+  <li><a href="#visualization-and-charting-language" id="toc-visualization-and-charting-language" class="nav-link" data-scroll-target="#visualization-and-charting-language">Visualization And Charting Language</a></li>
+  <li><a href="#reporting-and-delivery-language" id="toc-reporting-and-delivery-language" class="nav-link" data-scroll-target="#reporting-and-delivery-language">Reporting And Delivery Language</a></li>
+  <li><a href="#in-session-ai-workflow-language" id="toc-in-session-ai-workflow-language" class="nav-link" data-scroll-target="#in-session-ai-workflow-language">In-Session AI Workflow Language</a></li>
+  <li><a href="#nuance-notes-for-terms-that-deserve-more-than-one-line" id="toc-nuance-notes-for-terms-that-deserve-more-than-one-line" class="nav-link" data-scroll-target="#nuance-notes-for-terms-that-deserve-more-than-one-line">Nuance Notes For Terms That Deserve More Than One Line</a></li>
+  <li><a href="#extended-glossary-entries-you-may-need-next" id="toc-extended-glossary-entries-you-may-need-next" class="nav-link" data-scroll-target="#extended-glossary-entries-you-may-need-next">Extended Glossary Entries You May Need Next</a></li>
+  <li><a href="#last-working-rule" id="toc-last-working-rule" class="nav-link" data-scroll-target="#last-working-rule">Last Working Rule</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/sta189332/excel-refugee-migration/blob/main/appendix-d-glossary.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/sta189332/excel-refugee-migration/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./appendix-a-cheatsheet.html">Appendices</a></li><li class="breadcrumb-item"><a href="./appendix-d-glossary.html">Glossary: Excel Terms, R Terms, and Workflow Language</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Glossary: Excel Terms, R Terms, and Workflow Language</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>This glossary is built for one kind of reader.</p>
+<p>You are smart. You are busy. You already know how to do serious work. The problem is not intelligence. The problem is that new language can slow down useful movement, especially when the work is urgent and the terms arrive faster than confidence.</p>
+<p>So this appendix does not behave like a technical dictionary.</p>
+<p>It behaves like a bridge.</p>
+<p>Use it when a term interrupts your rhythm. Use it when a chapter introduces language that sounds new but the underlying idea is already familiar. Use it when you know the business task perfectly well and only need the vocabulary to stop getting in the way.</p>
+<p>The goal is not to make you sound more technical.</p>
+<p>The goal is to keep you moving.</p>
+<div class="callout callout-style-simple callout-tip callout-titled" title="Cheat Sheet Box">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Cheat Sheet Box
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A good way to use this glossary is simple.</p>
+<ul>
+<li>find the term that slowed you down</li>
+<li>read the plain-language meaning first</li>
+<li>check the Excel mental model next</li>
+<li>then look at why the term matters in real work</li>
+</ul>
+<p>That order usually clears the fog quickly.</p>
+</div>
+</div>
+<section id="d.1-glossary" class="level2">
+<h2 class="anchored" data-anchor-id="d.1-glossary">D.1 Glossary</h2>
+<section id="core-workflow-language" class="level3">
+<h3 class="anchored" data-anchor-id="core-workflow-language">Core Workflow Language</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Term</th>
+<th>Plain-Language Meaning</th>
+<th>Where It Shows Up in This Book</th>
+<th>Closest Excel Equivalent or Mental Model</th>
+<th>Why It Matters in Real Work</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>script</td>
+<td>A saved file containing the steps of your work in a form you can rerun.</td>
+<td>Chapters 3, 6, 9, and 10</td>
+<td>A workbook process written down instead of remembered</td>
+<td>A script turns repeated effort into repeatable logic.</td>
+</tr>
+<tr class="even">
+<td>workflow</td>
+<td>The full sequence of how work moves from raw file to usable output.</td>
+<td>Across the entire book</td>
+<td>Your usual reporting routine, but made explicit</td>
+<td>If the workflow is clean, the work gets calmer and faster.</td>
+</tr>
+<tr class="odd">
+<td>reproducibility</td>
+<td>Being able to run the same process again and get the same result from the same inputs.</td>
+<td>Chapters 6, 9, 10, and appendices</td>
+<td>A version of “refreshable” that does not depend on manual clicks</td>
+<td>This is what stops next week’s report from becoming a fresh rescue job.</td>
+</tr>
+<tr class="even">
+<td>project</td>
+<td>A self-contained workspace with files, scripts, and outputs kept together.</td>
+<td>Chapters 3 and 10, Appendix C</td>
+<td>A dedicated workbook folder, but with stronger structure</td>
+<td>Projects keep work from scattering across random folders and desktops.</td>
+</tr>
+<tr class="odd">
+<td>working directory</td>
+<td>The folder R thinks you are currently operating inside.</td>
+<td>Early setup discussions and Appendix C</td>
+<td>The current folder context behind an open workbook</td>
+<td>If this is wrong, file paths break and the workflow starts lying to you.</td>
+</tr>
+<tr class="even">
+<td>relative path</td>
+<td>A file path written from the project root instead of a hard-coded machine location.</td>
+<td>Chapters 9 and 10, Appendix C</td>
+<td>“Find it inside this project” instead of “find it on my specific laptop”</td>
+<td>Relative paths make projects portable and safer over time.</td>
+</tr>
+<tr class="odd">
+<td>environment</td>
+<td>The active workspace where your objects currently live while you work.</td>
+<td>Chapter 5 and Appendix B</td>
+<td>The set of loaded tables, but inside the IDE rather than a workbook</td>
+<td>The environment is part of what makes in-session AI help useful.</td>
+</tr>
+<tr class="even">
+<td>object</td>
+<td>Anything stored in R, such as a table, plot, model, or function.</td>
+<td>Chapters 3 through 10</td>
+<td>A named thing you can reuse, similar to a saved range or result</td>
+<td>Thinking in objects helps you stop relying on hidden workbook state.</td>
+</tr>
+<tr class="odd">
+<td>data frame</td>
+<td>A table-shaped object in R with rows and columns.</td>
+<td>Across all analytical chapters</td>
+<td>A worksheet table</td>
+<td>Most of your real work in this book happens inside data frames.</td>
+</tr>
+<tr class="even">
+<td>tibble</td>
+<td>A modern, cleaner kind of data frame that prints more sensibly in R.</td>
+<td>Chapters 3, 5, 6, 7, and 8</td>
+<td>Still a table, but less noisy when displayed</td>
+<td>It makes large tables easier to inspect without flooding the screen.</td>
+</tr>
+<tr class="odd">
+<td>column</td>
+<td>A variable stored vertically in a table.</td>
+<td>Everywhere</td>
+<td>A spreadsheet column</td>
+<td>Columns are where most cleaning, calculation, and grouping logic happens.</td>
+</tr>
+<tr class="even">
+<td>row</td>
+<td>One record in a table.</td>
+<td>Everywhere</td>
+<td>A spreadsheet row</td>
+<td>Row counts help you detect joins gone wrong and duplicates you did not expect.</td>
+</tr>
+<tr class="odd">
+<td>variable</td>
+<td>A field inside your data, such as region, salary, month, or status.</td>
+<td>Chapters 4 through 9</td>
+<td>A column you think with</td>
+<td>Clear variables make business questions easier to express in code.</td>
+</tr>
+<tr class="even">
+<td>key</td>
+<td>A field used to connect two tables, such as employee ID or product code.</td>
+<td>Chapters 4, 5, 7, and 9</td>
+<td>The lookup value in <code>VLOOKUP</code> or <code>XLOOKUP</code></td>
+<td>If the key is dirty or mismatched, the join will fail quietly.</td>
+</tr>
+<tr class="odd">
+<td>join</td>
+<td>The act of combining tables using a shared key.</td>
+<td>Chapters 4, 5, 7, and 9</td>
+<td>A lookup relationship made explicit</td>
+<td>Joins are the grown-up version of workbook lookups.</td>
+</tr>
+<tr class="even">
+<td>grouped summary</td>
+<td>A table where data has been aggregated by one or more categories.</td>
+<td>Chapters 7, 8, and 9</td>
+<td>A Pivot Table result</td>
+<td>This is how recurring summaries become reusable rather than rebuilt.</td>
+</tr>
+<tr class="odd">
+<td>pipeline</td>
+<td>A chain of steps connected in order, usually with <code>|&gt;</code>.</td>
+<td>Chapters 3 through 10</td>
+<td>A sequence of workbook actions, but written instead of performed manually</td>
+<td>Pipelines make the logic readable from top to bottom.</td>
+</tr>
+<tr class="even">
+<td>validation</td>
+<td>Checking whether the output deserves trust.</td>
+<td>Chapters 5, 6, 7, 9, and Appendix B</td>
+<td>Double-checking totals, row counts, or filters before sending the file</td>
+<td>Validation separates assisted work from careless work.</td>
+</tr>
+<tr class="odd">
+<td>export</td>
+<td>Saving a result out of R into a file for others to use.</td>
+<td>Chapters 6 through 10 and Appendix C</td>
+<td>Save As, but done deliberately from the workflow</td>
+<td>Exports are where the work leaves your system and starts being judged.</td>
+</tr>
+<tr class="even">
+<td>deliverable</td>
+<td>The file, chart, report, or slide someone else will receive.</td>
+<td>Chapters 8, 9, 10, and Appendix C</td>
+<td>The thing you send to leadership or another team</td>
+<td>A workflow is only useful if the deliverable lands cleanly.</td>
+</tr>
+<tr class="odd">
+<td>function</td>
+<td>A reusable command that performs a task when you call it.</td>
+<td>Chapters 3 through 10 and Appendix C</td>
+<td>A named formula pattern you can use again, but much more flexible</td>
+<td>Functions stop you from rebuilding common logic every time the same task returns.</td>
+</tr>
+<tr class="even">
+<td>package</td>
+<td>A bundle of R tools designed for a specific job, such as importing, cleaning, or plotting.</td>
+<td>Throughout the book and Appendix C</td>
+<td>A set of built-in features grouped by purpose</td>
+<td>Knowing the right package reduces wandering and speeds up real work.</td>
+</tr>
+<tr class="odd">
+<td>argument</td>
+<td>An instruction you pass into a function to tell it exactly how to behave.</td>
+<td>Chapters 3, 5, 6, and 8</td>
+<td>The options inside a formula or tool dialog box</td>
+<td>Arguments are what make one function adaptable across many business situations.</td>
+</tr>
+<tr class="even">
+<td>console</td>
+<td>The place where R runs commands immediately and shows results or errors.</td>
+<td>Early setup chapters and Chapter 5</td>
+<td>The closest mental model is Formula Bar plus output window, though less visual</td>
+<td>It is where quick tests, diagnostics, and one-off checks often happen.</td>
+</tr>
+<tr class="odd">
+<td>chunk</td>
+<td>A block of code inside a Quarto document.</td>
+<td>Quarto project structure, Chapters 8 through 10</td>
+<td>A section of repeatable logic embedded in the report itself</td>
+<td>Chunks let the analysis and the report live in one place.</td>
+</tr>
+<tr class="even">
+<td>render</td>
+<td>The act of turning a Quarto file into a finished document or report.</td>
+<td>Quarto workflow and Appendix C</td>
+<td>Generating the finished output from the workbook, but in a much more stable way</td>
+<td>Rendering is how code, charts, and prose become something shareable.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="excel-to-r-translation-language" class="level3">
+<h3 class="anchored" data-anchor-id="excel-to-r-translation-language">Excel-To-R Translation Language</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Term</th>
+<th>Plain-Language Meaning</th>
+<th>Where It Shows Up in This Book</th>
+<th>Closest Excel Equivalent or Mental Model</th>
+<th>Why It Matters in Real Work</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>VLOOKUP</td>
+<td>An Excel lookup that searches one table using a key and returns a value from another column.</td>
+<td>Chapters 1, 4, 5, Appendix A</td>
+<td>Lookup logic tied to a workbook</td>
+<td>It is familiar, but brittle when files get larger and messier.</td>
+</tr>
+<tr class="even">
+<td>XLOOKUP</td>
+<td>A newer Excel lookup that is more flexible than <code>VLOOKUP</code>.</td>
+<td>Chapters 4 and Appendix A</td>
+<td>More forgiving lookup logic in Excel</td>
+<td>It still keeps the logic inside the spreadsheet interface rather than a reusable workflow.</td>
+</tr>
+<tr class="odd">
+<td><code>left_join()</code></td>
+<td>A <code>dplyr</code> function that brings columns from one table into another by matching keys.</td>
+<td>Chapters 4, 5, 7, 9, Appendices A and B</td>
+<td>The R mental model behind <code>VLOOKUP</code> and <code>XLOOKUP</code></td>
+<td>It makes relationships between tables visible, readable, and easier to verify.</td>
+</tr>
+<tr class="even">
+<td>Pivot Table</td>
+<td>Excel’s grouped summary tool for aggregating and rearranging data quickly.</td>
+<td>Chapters 1, 7, Appendix A</td>
+<td>Drag-and-drop summary interface</td>
+<td>Useful, but exhausting when the same summary must be rebuilt every week.</td>
+</tr>
+<tr class="odd">
+<td><code>group_by()</code></td>
+<td>A <code>dplyr</code> function that tells R which categories to summarize by.</td>
+<td>Chapters 7 and 9</td>
+<td>Dragging a field into Pivot Table rows</td>
+<td>It declares the grouping logic directly.</td>
+</tr>
+<tr class="even">
+<td><code>summarise()</code></td>
+<td>A <code>dplyr</code> function that calculates totals, averages, counts, and other summaries for groups.</td>
+<td>Chapters 7 and 9</td>
+<td>The values area of a Pivot Table, but written explicitly</td>
+<td>It turns grouped questions into reusable reporting code.</td>
+</tr>
+<tr class="odd">
+<td>helper column</td>
+<td>An extra spreadsheet column created to support another formula or transformation.</td>
+<td>Chapters 4 and 5</td>
+<td>A common Excel coping mechanism</td>
+<td>In R, many helper-column tasks collapse into cleaner <code>mutate()</code> logic.</td>
+</tr>
+<tr class="even">
+<td><code>mutate()</code></td>
+<td>A <code>dplyr</code> function for creating or modifying columns.</td>
+<td>Chapters 4, 5, 6, 7, and 9</td>
+<td>Writing a new formula column</td>
+<td>It is one of the core tools for replacing copied formulas with readable logic.</td>
+</tr>
+<tr class="odd">
+<td>filter</td>
+<td>The general act of keeping only the rows you want.</td>
+<td>Throughout the book</td>
+<td>Spreadsheet filter dropdown behavior</td>
+<td>Filtering is a business decision, not just a visual view state.</td>
+</tr>
+<tr class="even">
+<td><code>filter()</code></td>
+<td>A <code>dplyr</code> function for keeping rows that meet a condition.</td>
+<td>Chapters 4, 5, 6, and Appendix A</td>
+<td>Spreadsheet filtering, but written and repeatable</td>
+<td>It prevents the “which rows did I hide last time” problem.</td>
+</tr>
+<tr class="odd">
+<td>sort</td>
+<td>The general act of ordering rows.</td>
+<td>Chapters 7 and 8, Appendix A</td>
+<td>Sort ascending or descending in Excel</td>
+<td>Order affects meaning, especially in summaries and charts.</td>
+</tr>
+<tr class="even">
+<td><code>arrange()</code></td>
+<td>A <code>dplyr</code> function for ordering rows by one or more columns.</td>
+<td>Chapters 7, 8, and 9</td>
+<td>Sort buttons, but preserved in logic</td>
+<td>It keeps important ranking decisions from being lost on refresh.</td>
+</tr>
+<tr class="odd">
+<td>missing value</td>
+<td>A value that is absent, unknown, not recorded, or not available.</td>
+<td>Chapters 5, 6, 9, Appendices A and B</td>
+<td>A blank cell, though not every blank means the same thing</td>
+<td>Missingness is often a business issue, not just a formatting issue.</td>
+</tr>
+<tr class="even">
+<td><code>NA</code></td>
+<td>The R marker for a missing value.</td>
+<td>Chapters 5, 6, and Appendix B</td>
+<td>The R version of a blank or absent entry</td>
+<td>If you ignore <code>NA</code>, summaries and joins can mislead you fast.</td>
+</tr>
+<tr class="odd">
+<td>duplicate</td>
+<td>A repeated record or repeated key that may or may not be an error.</td>
+<td>Chapters 6 and 9, Appendices A and C</td>
+<td>Duplicate rows in Excel</td>
+<td>Duplicates must be defined by business logic, not visual irritation.</td>
+</tr>
+<tr class="even">
+<td>distinct</td>
+<td>The general idea of keeping unique rows based on a chosen key.</td>
+<td>Chapter 6 and Appendix A</td>
+<td>Remove Duplicates in Excel</td>
+<td>In R, you decide what counts as unique and preserve that rule visibly.</td>
+</tr>
+<tr class="odd">
+<td><code>distinct()</code></td>
+<td>The <code>dplyr</code> function that keeps unique rows or keys.</td>
+<td>Chapter 6, Chapter 9, Appendix A</td>
+<td>The scripted version of Remove Duplicates</td>
+<td>It turns deduplication into a repeatable step instead of a one-time click.</td>
+</tr>
+<tr class="even">
+<td>wide data</td>
+<td>Data spread across many columns, often one column per period or category.</td>
+<td>Chapters 4, 7, and Appendix A</td>
+<td>The shape many spreadsheets naturally take</td>
+<td>Familiar to humans, often awkward for analysis.</td>
+</tr>
+<tr class="odd">
+<td>long data</td>
+<td>Data arranged so one variable sits in one column and repeated categories become rows.</td>
+<td>Chapters 4, 7, and Appendix A</td>
+<td>Less familiar visually, more useful analytically</td>
+<td>Long data usually makes grouping, plotting, and filtering easier.</td>
+</tr>
+<tr class="even">
+<td><code>pivot_longer()</code></td>
+<td>A <code>tidyr</code> function that turns wide spreadsheet-style columns into a longer analysis-friendly table.</td>
+<td>Appendix C and implied across reshaping logic</td>
+<td>Turning many month columns into one month field plus one value field</td>
+<td>It is how awkward spreadsheet shape becomes usable analytical shape.</td>
+</tr>
+<tr class="odd">
+<td><code>pivot_wider()</code></td>
+<td>A <code>tidyr</code> function that spreads long data back into wider form.</td>
+<td>Appendix C</td>
+<td>Rebuilding a compact summary table for final presentation</td>
+<td>Useful at the end of a workflow, not usually at the beginning.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cleaning-language" class="level3">
+<h3 class="anchored" data-anchor-id="cleaning-language">Cleaning Language</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Term</th>
+<th>Plain-Language Meaning</th>
+<th>Where It Shows Up in This Book</th>
+<th>Closest Excel Equivalent or Mental Model</th>
+<th>Why It Matters in Real Work</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>clean names</td>
+<td>Standardizing column names so they are easy to use in code.</td>
+<td>Chapter 6 and Appendix C</td>
+<td>Renaming headers so they stop causing trouble</td>
+<td>Ugly headers are a small problem that repeats in big ways.</td>
+</tr>
+<tr class="even">
+<td>trim whitespace</td>
+<td>Removing hidden spaces at the beginning or end of text.</td>
+<td>Chapters 5 and 6, Appendix A</td>
+<td><code>TRIM()</code> in Excel</td>
+<td>Tiny spaces can break joins, categories, and summaries.</td>
+</tr>
+<tr class="odd">
+<td>parse date</td>
+<td>Converting text that looks like a date into a real date value R understands.</td>
+<td>Chapters 6 and 9, Appendix A</td>
+<td>Fixing date cells until Excel stops complaining</td>
+<td>Date parsing is where time-based analysis either stabilizes or quietly fails.</td>
+</tr>
+<tr class="even">
+<td>standardize category</td>
+<td>Making messy labels consistent, such as turning <code>HR</code>, <code>Human Resources</code>, and <code>human resources</code> into one value.</td>
+<td>Chapters 6 and 9</td>
+<td>Manual cleanup plus helper columns</td>
+<td>Category drift fractures summaries and charts if left unchecked.</td>
+</tr>
+<tr class="odd">
+<td>deduplicate</td>
+<td>Removing repeated rows using a defined business rule.</td>
+<td>Chapters 6 and 9</td>
+<td>Remove Duplicates, but with a real key</td>
+<td>It matters because not all repeated rows are errors.</td>
+</tr>
+<tr class="even">
+<td>inspect structure</td>
+<td>Looking at the table to understand columns, types, and shape before acting on it.</td>
+<td>Chapters 3, 6, and 9</td>
+<td>Scanning a workbook before touching formulas</td>
+<td>Inspection prevents false confidence.</td>
+</tr>
+<tr class="odd">
+<td>row count</td>
+<td>The number of rows in a table.</td>
+<td>Chapters 5, 6, 7, and 9</td>
+<td>Counting how many records are present</td>
+<td>Row counts are one of the fastest sanity checks in real work.</td>
+</tr>
+<tr class="even">
+<td>missing-value check</td>
+<td>A deliberate review of which important fields are <code>NA</code> or blank after a step in the workflow.</td>
+<td>Chapters 5, 6, 9, and Appendix B</td>
+<td>Filtering blanks to see what failed</td>
+<td>This catches broken joins and weak assumptions before they travel downstream.</td>
+</tr>
+<tr class="odd">
+<td><code>clean_names()</code></td>
+<td>A <code>janitor</code> function that makes column names consistent and code-friendly.</td>
+<td>Chapters 6 and 9, Appendix C</td>
+<td>Cleaning messy headers once so they stop creating little problems everywhere</td>
+<td>It is often the first calm move after import.</td>
+</tr>
+<tr class="even">
+<td><code>str_trim()</code></td>
+<td>A <code>stringr</code> function that removes leading and trailing spaces from text.</td>
+<td>Chapters 5, 6, and 9, Appendices A and C</td>
+<td><code>TRIM()</code> in Excel, but applied cleanly across a column</td>
+<td>It is one of the fastest ways to stop text fields from sabotaging joins and categories.</td>
+</tr>
+<tr class="odd">
+<td><code>replace_na()</code></td>
+<td>A function used to replace missing values with a chosen fallback.</td>
+<td>Chapters 6 and 9, Appendices A and C</td>
+<td>Filling blanks, but done deliberately</td>
+<td>This is useful only after you decide what the missing value means.</td>
+</tr>
+<tr class="even">
+<td><code>mdy()</code> / <code>dmy()</code> / <code>ymd()</code></td>
+<td><code>lubridate</code> functions for converting text into real dates based on format order.</td>
+<td>Chapters 6 and 9, Appendix A, Appendix C</td>
+<td>Fixing imported date text by recognizing the actual pattern</td>
+<td>These functions stop date handling from becoming guesswork.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="visualization-and-charting-language" class="level3">
+<h3 class="anchored" data-anchor-id="visualization-and-charting-language">Visualization And Charting Language</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Term</th>
+<th>Plain-Language Meaning</th>
+<th>Where It Shows Up in This Book</th>
+<th>Closest Excel Equivalent or Mental Model</th>
+<th>Why It Matters in Real Work</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>aesthetic mapping</td>
+<td>The rule connecting data columns to visual features such as x-position, y-position, or color.</td>
+<td>Chapter 8</td>
+<td>Assigning fields to chart roles</td>
+<td>It is how the chart learns what should be seen.</td>
+</tr>
+<tr class="even">
+<td>geometry</td>
+<td>The type of visual mark used in a plot, such as bars or lines.</td>
+<td>Chapter 8</td>
+<td>Choosing a chart type</td>
+<td>The wrong geometry weakens the message fast.</td>
+</tr>
+<tr class="odd">
+<td>factor reordering</td>
+<td>Changing the display order of categories so they appear in meaningful rank rather than alphabetical order.</td>
+<td>Chapters 7 and 8</td>
+<td>Sorting categories before building the chart</td>
+<td>This is what makes ranked visuals feel prepared instead of careless.</td>
+</tr>
+<tr class="even">
+<td>direct labeling</td>
+<td>Making the chart say clearly what matters, often through titles, subtitles, or labels that reduce the need for a legend.</td>
+<td>Chapter 8</td>
+<td>Writing a more useful chart title or labeling the important series directly</td>
+<td>Good labeling saves the chart from needing verbal rescue.</td>
+</tr>
+<tr class="odd">
+<td>legend</td>
+<td>A chart guide explaining colors or symbols.</td>
+<td>Chapter 8</td>
+<td>The chart legend in Excel</td>
+<td>Useful sometimes, unnecessary more often than people admit.</td>
+</tr>
+<tr class="even">
+<td>scale</td>
+<td>The formatting logic for how axis values are displayed.</td>
+<td>Chapter 8 and Appendix C</td>
+<td>Axis number formatting</td>
+<td>This is how dollars look like dollars and percentages look like percentages.</td>
+</tr>
+<tr class="odd">
+<td>theme</td>
+<td>The visual styling framework of a <code>ggplot2</code> chart.</td>
+<td>Chapter 8</td>
+<td>Chart formatting choices, but cleaner and more controlled</td>
+<td>Themes reduce clutter and make the chart easier to trust.</td>
+</tr>
+<tr class="even">
+<td>facet</td>
+<td>A way of splitting one chart into several small panels by category.</td>
+<td>Chapter 8</td>
+<td>The closest mental model is multiple small pivot charts laid out neatly</td>
+<td>Facets help when one chart is trying to hold too many comparisons.</td>
+</tr>
+<tr class="odd">
+<td>exported PNG</td>
+<td>A saved image file of a chart, usually used in slides, documents, or email.</td>
+<td>Chapters 8 and 9</td>
+<td>Copying a chart into PowerPoint, but done properly</td>
+<td>A chart that is badly exported can undermine otherwise strong work.</td>
+</tr>
+<tr class="even">
+<td><code>ggplot()</code></td>
+<td>The function that starts a plot in <code>ggplot2</code>.</td>
+<td>Chapter 8, Appendix C</td>
+<td>Insert chart, but with a much clearer logic structure</td>
+<td>It is the entry point for most deliberate business visuals in this book.</td>
+</tr>
+<tr class="odd">
+<td><code>geom_col()</code></td>
+<td>A <code>ggplot2</code> layer used for bar charts based on already summarized values.</td>
+<td>Chapters 8 and 9</td>
+<td>A bar chart built from a prepared summary table</td>
+<td>It is one of the most useful chart layers for leadership-ready comparisons.</td>
+</tr>
+<tr class="even">
+<td><code>geom_line()</code></td>
+<td>A <code>ggplot2</code> layer used for trends over time.</td>
+<td>Chapter 8</td>
+<td>A line chart in Excel</td>
+<td>Best when the business question is movement, not rank.</td>
+</tr>
+<tr class="odd">
+<td><code>labs()</code></td>
+<td>A function used to set titles, subtitles, and axis labels.</td>
+<td>Chapter 8 and Chapter 9</td>
+<td>Editing the chart title and labels</td>
+<td>This is where the chart stops being vague and starts saying something useful.</td>
+</tr>
+<tr class="even">
+<td><code>theme_minimal()</code></td>
+<td>A clean <code>ggplot2</code> theme often used in the book’s business visuals.</td>
+<td>Chapter 8 and Appendix C</td>
+<td>A stripped-down chart style with less clutter</td>
+<td>It helps charts look calm instead of noisy.</td>
+</tr>
+<tr class="odd">
+<td><code>ggsave()</code></td>
+<td>The function used to export a plot to a file such as PNG.</td>
+<td>Chapters 8, 9, 10, and Appendix C</td>
+<td>Save chart as image, but controlled from the workflow</td>
+<td>A good plot still needs a professional export.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="reporting-and-delivery-language" class="level3">
+<h3 class="anchored" data-anchor-id="reporting-and-delivery-language">Reporting And Delivery Language</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Term</th>
+<th>Plain-Language Meaning</th>
+<th>Where It Shows Up in This Book</th>
+<th>Closest Excel Equivalent or Mental Model</th>
+<th>Why It Matters in Real Work</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>CSV</td>
+<td>A plain text file used to store tabular data.</td>
+<td>Chapters 6, 9, 10, and Appendix C</td>
+<td>A spreadsheet export without workbook features</td>
+<td>CSV is simple, portable, and useful for clean downstream workflows.</td>
+</tr>
+<tr class="even">
+<td>Excel export</td>
+<td>Saving a result from R into an <code>.xlsx</code> file so others can receive it in a familiar format.</td>
+<td>Chapters 9 and 10, Appendix C</td>
+<td>Sending the workbook the team expects</td>
+<td>The workflow can be in R even if the handoff stays in Excel.</td>
+</tr>
+<tr class="odd">
+<td>Quarto</td>
+<td>A reporting and publishing layer that turns code, prose, tables, and charts into structured documents.</td>
+<td>Throughout the book project and Appendix C</td>
+<td>A much more stable version of copy-pasting analysis into a report</td>
+<td>Quarto is how workflow and presentation stop living in separate worlds.</td>
+</tr>
+<tr class="even">
+<td>rendered report</td>
+<td>The final document Quarto produces after combining code, results, and writing.</td>
+<td>Book project structure and Appendix C</td>
+<td>The finished report or deck-ready document</td>
+<td>Rendering is where the workflow becomes something shareable.</td>
+</tr>
+<tr class="odd">
+<td>boardroom slide</td>
+<td>A chart or summary prepared for a senior audience who need a clear message quickly.</td>
+<td>Chapters 8 and 9</td>
+<td>The slide that makes or weakens the room</td>
+<td>A weak slide can damage a strong analysis.</td>
+</tr>
+<tr class="even">
+<td>stakeholder format</td>
+<td>The delivery format the audience expects, such as Excel, PNG, PDF, or slide-ready material.</td>
+<td>Chapters 9 and 10, Appendix C</td>
+<td>“What the manager wants sent”</td>
+<td>Good workflows respect this without surrendering the engine underneath.</td>
+</tr>
+<tr class="odd">
+<td><code>write_csv()</code></td>
+<td>The function used to save a clean table as a CSV file.</td>
+<td>Chapters 6, 9, 10, Appendix C</td>
+<td>Exporting a clean table for reuse</td>
+<td>It keeps the output light, portable, and easy to reload.</td>
+</tr>
+<tr class="even">
+<td><code>write.xlsx()</code></td>
+<td>A function from <code>openxlsx</code> used to save one or more tables back to Excel.</td>
+<td>Chapters 9 and 10, Appendix C</td>
+<td>Delivering a workbook to the business</td>
+<td>This is how R-powered work can still land in familiar stakeholder format.</td>
+</tr>
+<tr class="odd">
+<td>output</td>
+<td>A file, table, chart, or report created by your workflow.</td>
+<td>Throughout the book</td>
+<td>The result you are trying to hand over</td>
+<td>Clear outputs reduce confusion about what the workflow has actually produced.</td>
+</tr>
+<tr class="even">
+<td>archive</td>
+<td>A place to store older source files or earlier project outputs without cluttering the active workflow.</td>
+<td>Chapter 10 and Appendix C</td>
+<td>An orderly version of keeping old file versions, not just piling them in a folder</td>
+<td>Archiving protects the project from version chaos.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="in-session-ai-workflow-language" class="level3">
+<h3 class="anchored" data-anchor-id="in-session-ai-workflow-language">In-Session AI Workflow Language</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Term</th>
+<th>Plain-Language Meaning</th>
+<th>Where It Shows Up in This Book</th>
+<th>Closest Excel Equivalent or Mental Model</th>
+<th>Why It Matters in Real Work</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>prompt</td>
+<td>The instruction you give the assistant.</td>
+<td>Chapter 5, Appendix B</td>
+<td>The question you ask when stuck, but made explicit</td>
+<td>Better prompts reduce friction and improve the usefulness of help.</td>
+</tr>
+<tr class="even">
+<td>highlighted-code workflow</td>
+<td>Selecting code or a prompt inside the IDE and sending it directly to the assistant.</td>
+<td>Chapter 5 and Appendix B</td>
+<td>There is no real Excel equivalent; it is closer to asking for help inside the workbook itself</td>
+<td>This keeps the question close to the actual work.</td>
+</tr>
+<tr class="odd">
+<td>session-aware context</td>
+<td>Help that is informed by what is already loaded in your current R session.</td>
+<td>Chapter 5 and Appendix B</td>
+<td>The closest mental model is having the assistant “see” the active tables and packages</td>
+<td>This is why in-session help feels less repetitive than browser chat.</td>
+</tr>
+<tr class="even">
+<td>in-session assistant</td>
+<td>An AI helper that lives inside the IDE instead of in a separate browser tab.</td>
+<td>Chapter 5 and Appendix B</td>
+<td>None, because this is part of the upgrade</td>
+<td>The real gain is lower friction at the point of work.</td>
+</tr>
+<tr class="odd">
+<td><code>ellmer</code></td>
+<td>The R package used here to connect Gemini to your R workflow.</td>
+<td>Chapter 5, Appendix B, Appendix C</td>
+<td>The connection layer behind the assistant</td>
+<td>Without it, the in-session workflow does not start.</td>
+</tr>
+<tr class="even">
+<td><code>chattr</code></td>
+<td>The R package used here to bring the conversation into RStudio or Positron.</td>
+<td>Chapter 5, Appendix B, Appendix C</td>
+<td>The chat interface inside the IDE</td>
+<td>This is what helps the assistant stay near the code.</td>
+</tr>
+<tr class="odd">
+<td><code>.Renviron</code></td>
+<td>A file where environment variables such as API keys can be stored safely outside scripts.</td>
+<td>Chapter 5 and Appendix C</td>
+<td>A hidden settings file rather than a visible workbook cell</td>
+<td>It keeps credentials out of code and reduces avoidable risk.</td>
+</tr>
+<tr class="even">
+<td>API key</td>
+<td>A secret credential allowing your software to connect to a service such as Gemini.</td>
+<td>Chapter 5, Appendix B, Appendix C</td>
+<td>A password-like token for software access</td>
+<td>If handled badly, it turns a good workflow into a security mistake.</td>
+</tr>
+<tr class="odd">
+<td>verification</td>
+<td>The act of checking whether the assistant’s output is correct enough to trust.</td>
+<td>Chapter 5, Chapter 9, Appendix B</td>
+<td>Double-checking before sending the file</td>
+<td>AI can help fast. It does not remove your responsibility.</td>
+</tr>
+<tr class="even">
+<td>human-in-the-loop</td>
+<td>A workflow where the assistant helps, but a person still judges, verifies, and decides.</td>
+<td>Chapter 5 and Appendix B</td>
+<td>The professional remains accountable</td>
+<td>This is what keeps AI assistance useful without turning it reckless.</td>
+</tr>
+<tr class="odd">
+<td>Open Chat shortcut</td>
+<td>The keyboard shortcut used to open the in-session chat pane.</td>
+<td>Chapter 5 and Appendix B</td>
+<td>None, because this is an IDE-native habit rather than a spreadsheet habit</td>
+<td>Speed matters when the question arises in the middle of work.</td>
+</tr>
+<tr class="even">
+<td>Send Prompt shortcut</td>
+<td>The keyboard shortcut used to send highlighted code or a written prompt directly from the editor.</td>
+<td>Chapter 5 and Appendix B</td>
+<td>Again, no true Excel equivalent</td>
+<td>This is part of what makes the workflow lower-friction than browser chat.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="nuance-notes-for-terms-that-deserve-more-than-one-line" class="level3">
+<h3 class="anchored" data-anchor-id="nuance-notes-for-terms-that-deserve-more-than-one-line">Nuance Notes For Terms That Deserve More Than One Line</h3>
+<section id="left_join" class="level4">
+<h4 class="anchored" data-anchor-id="left_join"><code>left_join()</code></h4>
+<p>This term deserves extra attention because it marks one of the biggest identity shifts in the book.</p>
+<p>Spreadsheet users often think of joins as lookups because that is how they experience them in Excel. In R, a join is more direct. It is not “search over there and pull something back.” It is “connect these tables because they share a relationship.”</p>
+<p>That change in language matters because it changes how you think. You stop asking where the formula goes. You start asking which fields define the relationship and how to verify it afterward.</p>
+</section>
+<section id="reproducibility" class="level4">
+<h4 class="anchored" data-anchor-id="reproducibility">reproducibility</h4>
+<p>This word can sound more academic than it needs to.</p>
+<p>In the context of this book, it means something plain: if the same ugly file arrives next week, you should not have to rebuild the logic from memory. The work should know how to happen again.</p>
+<p>That is what readers are really buying back.</p>
+<p>Time. Calm. Reliability.</p>
+</section>
+<section id="quarto" class="level4">
+<h4 class="anchored" data-anchor-id="quarto">Quarto</h4>
+<p>This term can intimidate people because it sounds like a publishing tool first.</p>
+<p>In practical terms, it is a way to keep your code, tables, charts, and writing in one place so the final report is not held together by copy-paste stamina. If you think of it as the report layer sitting on top of your R workflow, it usually becomes easier to place.</p>
+</section>
+<section id="session-aware-context" class="level4">
+<h4 class="anchored" data-anchor-id="session-aware-context">session-aware context</h4>
+<p>This phrase sounds more advanced than it feels in practice.</p>
+<p>It simply means the assistant is helping from inside the IDE, where your active objects, packages, and code already exist. You are not rebuilding the whole scenario in a browser tab. You are asking for help closer to the work itself.</p>
+<p>That is why the workflow feels faster.</p>
+</section>
+<section id="stakeholder-format" class="level4">
+<h4 class="anchored" data-anchor-id="stakeholder-format">stakeholder format</h4>
+<p>This term matters because it keeps the book grounded.</p>
+<p>Not every good workflow ends in a Quarto report. Sometimes the right answer still has to be sent as Excel, PNG, or slide-ready material because that is what the audience expects. Stakeholder format reminds you that delivery culture and analytical engine are not the same thing.</p>
+<div class="callout callout-style-simple callout-note callout-titled" title="PhD Insight">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>PhD Insight
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Vocabulary becomes less threatening when the reader can connect each term to a workflow consequence.</p>
+<p>A term like <code>left_join()</code> feels technical in isolation. It feels practical once the reader sees that it replaces workbook lookup fragility with a visible relationship between tables. Language anxiety usually weakens when the term is tied to a real piece of work.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="extended-glossary-entries-you-may-need-next" class="level3">
+<h3 class="anchored" data-anchor-id="extended-glossary-entries-you-may-need-next">Extended Glossary Entries You May Need Next</h3>
+<p>These entries go one step beyond the book’s core vocabulary. They belong here because readers often meet them shortly after the first successful migration and should not have to leave the workflow just to decode them.</p>
+<section id="function" class="level4">
+<h4 class="anchored" data-anchor-id="function">function</h4>
+<p><strong>Plain-Language Meaning</strong><br>
+A reusable block of logic that you can call by name instead of rewriting the same steps again.</p>
+<p><strong>Closest Excel Mental Model</strong><br>
+A custom formula pattern you wish Excel let you define once and reuse cleanly.</p>
+<p><strong>Why It Matters In Real Work</strong><br>
+Functions are what stop repeated cleaning or reporting steps from staying trapped inside copied pipelines forever.</p>
+<p><strong>Where It Appears In The Book</strong><br>
+Implied in Chapters 9 and 10, and especially relevant after the first live project.</p>
+</section>
+<section id="render" class="level4">
+<h4 class="anchored" data-anchor-id="render">render</h4>
+<p><strong>Plain-Language Meaning</strong><br>
+To generate the finished version of a Quarto report from the source file.</p>
+<p><strong>Closest Excel Mental Model</strong><br>
+Refreshing the workbook and then exporting the final polished version, but with code, tables, and charts all updated together.</p>
+<p><strong>Why It Matters In Real Work</strong><br>
+Rendering is what makes repeated reporting less fragmented. One command updates the report instead of several manual steps.</p>
+<p><strong>Where It Appears In The Book</strong><br>
+Quarto workflow references across the book and Appendix C.</p>
+</section>
+<section id="package-stack" class="level4">
+<h4 class="anchored" data-anchor-id="package-stack">package stack</h4>
+<p><strong>Plain-Language Meaning</strong><br>
+A small set of packages that work together to solve one kind of business problem.</p>
+<p><strong>Closest Excel Mental Model</strong><br>
+The handful of functions or tools you rely on for a recurring report.</p>
+<p><strong>Why It Matters In Real Work</strong><br>
+Thinking in stacks reduces package overload. You stop hunting randomly and start reaching for combinations that already make sense together.</p>
+<p><strong>Where It Appears In The Book</strong><br>
+Appendix C most directly, but implied throughout the workflow chapters.</p>
+</section>
+<section id="factor" class="level4">
+<h4 class="anchored" data-anchor-id="factor">factor</h4>
+<p><strong>Plain-Language Meaning</strong><br>
+A categorical variable in R, often used when the order of categories matters.</p>
+<p><strong>Closest Excel Mental Model</strong><br>
+A labeled category column, but with stronger control over display order.</p>
+<p><strong>Why It Matters In Real Work</strong><br>
+Factors become especially important when charts need to rank categories in business order instead of alphabetically.</p>
+<p><strong>Where It Appears In The Book</strong><br>
+Chapters 7 and 8, Appendix C.</p>
+</section>
+<section id="archive-folder" class="level4">
+<h4 class="anchored" data-anchor-id="archive-folder">archive folder</h4>
+<p><strong>Plain-Language Meaning</strong><br>
+A deliberate place to store old source files or past outputs without polluting the active project.</p>
+<p><strong>Closest Excel Mental Model</strong><br>
+An orderly historical folder, not a pile of renamed “final” workbooks.</p>
+<p><strong>Why It Matters In Real Work</strong><br>
+A proper archive prevents clutter from becoming mistaken for version control.</p>
+<p><strong>Where It Appears In The Book</strong><br>
+Chapter 10 and Appendix C.</p>
+</section>
+<section id="prompt-block" class="level4">
+<h4 class="anchored" data-anchor-id="prompt-block">prompt block</h4>
+<p><strong>Plain-Language Meaning</strong><br>
+A short written instruction, often inside the script itself, that can be highlighted and sent to the in-session assistant.</p>
+<p><strong>Closest Excel Mental Model</strong><br>
+There is no good spreadsheet equivalent. It is closer to writing the business rule right above the work and asking for help from there.</p>
+<p><strong>Why It Matters In Real Work</strong><br>
+Prompt blocks reduce friction because the question stays attached to the code instead of wandering into another application.</p>
+<p><strong>Where It Appears In The Book</strong><br>
+Chapter 5 and Appendix B.</p>
+<div class="callout callout-style-simple callout-warning callout-titled" title="Quick Warning">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Quick Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Do not let glossary expansion drift into jargon collecting.</p>
+<p>A term belongs here if it repeatedly slows down useful work or blocks understanding in the book. It does not belong here just because it exists in the wider R ecosystem.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="last-working-rule" class="level3">
+<h3 class="anchored" data-anchor-id="last-working-rule">Last Working Rule</h3>
+<p>If a term sounds technical but solves a problem you already recognize, it is usually less foreign than it first appears.</p>
+<p>That is the bridge this appendix is trying to build.</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/sta189332\.github\.io\/excel-refugee-migration\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./appendix-c-packages.html" class="pagination-link" aria-label="Recommended R Packages by Use Case">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Recommended R Packages by Use Case</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./author-note.html" class="pagination-link" aria-label="Author’s Note">
+        <span class="nav-page-text">Author’s Note</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/sta189332/excel-refugee-migration/blob/main/appendix-d-glossary.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/sta189332/excel-refugee-migration/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>

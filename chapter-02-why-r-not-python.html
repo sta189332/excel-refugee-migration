@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.8.25">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="A story-driven practical guide for corporate professionals moving from manual spreadsheet work into faster, repeatable workflows in R.">
+
+<title>2&nbsp; Python Was Never the Point: Why R Feels Like the Tool You Were Looking For All Along – The Excel Refugee Migration</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./chapter-03-first-60-minutes.html" rel="next">
+<link href="./chapter-01-spreadsheet-ceiling.html" rel="prev">
+<link href="./images/favicon.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-ef4d8e9faa04af36b84e1866e7343808.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar floating quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter-01-spreadsheet-ceiling.html">Main</a></li><li class="breadcrumb-item"><a href="./chapter-02-why-r-not-python.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Python Was Never the Point: Why R Feels Like the Tool You Were Looking For All Along</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">The Excel Refugee Migration</a> 
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://github.com/sta189332/excel-refugee-migration" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+    <a href="https://github.com/sta189332/excel-refugee-migration" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <div class="dropdown">
+      <a href="" title="Download" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Download"><i class="bi bi-download"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="./The-Excel-Refugee-Migration.pdf">
+              <i class="bi bi-file-pdf pe-1"></i>
+            Download PDF
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="./The-Excel-Refugee-Migration.epub">
+              <i class="bi bi-journal pe-1"></i>
+            Download ePub
+            </a>
+          </li>
+      </ul>
+    </div>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The Excel Refugee Migration</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./introduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction: The Day My Spreadsheet Died</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Main</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-01-spreadsheet-ceiling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">When Being the Excel Hero Starts Costing You Your Future</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-02-why-r-not-python.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Python Was Never the Point: Why R Feels Like the Tool You Were Looking For All Along</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-03-first-60-minutes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">R Without the Fear: The First Hour That Finally Feels Useful</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-04-excel-to-r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">You Already Speak Half the Language: Translating Your Excel Brain into R</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-05-chatgpt-copilot.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Your AI Co-Pilot: Using Gemini Inside RStudio as Your Personal R Translator</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-06-clean-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Clean Data, Clean Mind: The R Workflow That Eliminates Manual Hell</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-07-dplyr-pivots.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Pivot Tables Are Dead. Long Live dplyr</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-08-ggplot.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Charts That Actually Impress: ggplot2 vs.&nbsp;Excel’s Chart Wizard</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-09-first-project.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Your First Real Project: A Full Analysis From Raw File to Boardroom Slide</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapter-10-migration-plan.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">The R-Powered Strategist: Your 30-Day Migration Plan and What Comes Next</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+ <span class="menu-text">Appendices</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-a-cheatsheet.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The Master Excel-to-R Cheat Sheet</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-b-prompts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The In-Session AI Prompt Library for R</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-c-packages.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Recommended R Packages by Use Case</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./appendix-d-glossary.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Glossary: Excel Terms, R Terms, and Workflow Language</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
+ <span class="menu-text">Back Matter</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./author-note.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Author’s Note</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#you-were-not-bad-at-learning.-you-were-badly-matched" id="toc-you-were-not-bad-at-learning.-you-were-badly-matched" class="nav-link active" data-scroll-target="#you-were-not-bad-at-learning.-you-were-badly-matched"><span class="header-section-number">2.1</span> You Were Not Bad at Learning. You Were Badly Matched</a></li>
+  <li><a href="#what-feels-technical-depends-on-where-you-are-standing" id="toc-what-feels-technical-depends-on-where-you-are-standing" class="nav-link" data-scroll-target="#what-feels-technical-depends-on-where-you-are-standing"><span class="header-section-number">2.2</span> What Feels “Technical” Depends on Where you Are Standing</a></li>
+  <li><a href="#r-feels-less-like-a-new-identity-and-more-like-a-bridge" id="toc-r-feels-less-like-a-new-identity-and-more-like-a-bridge" class="nav-link" data-scroll-target="#r-feels-less-like-a-new-identity-and-more-like-a-bridge"><span class="header-section-number">2.3</span> R Feels Less Like a New Identity and More Like a Bridge</a></li>
+  <li><a href="#the-speed-of-the-first-win-changes-everything" id="toc-the-speed-of-the-first-win-changes-everything" class="nav-link" data-scroll-target="#the-speed-of-the-first-win-changes-everything"><span class="header-section-number">2.4</span> The Speed of the First Win Changes Everything</a></li>
+  <li><a href="#the-real-comparison-is-not-python-versus-r.-it-is-friction-versus-fit" id="toc-the-real-comparison-is-not-python-versus-r.-it-is-friction-versus-fit" class="nav-link" data-scroll-target="#the-real-comparison-is-not-python-versus-r.-it-is-friction-versus-fit"><span class="header-section-number">2.5</span> The Real Comparison Is Not Python Versus R. It Is Friction Versus Fit</a></li>
+  <li><a href="#you-are-not-trying-to-become-a-developer.-you-are-trying-to-stop-wasting-your-best-hours" id="toc-you-are-not-trying-to-become-a-developer.-you-are-trying-to-stop-wasting-your-best-hours" class="nav-link" data-scroll-target="#you-are-not-trying-to-become-a-developer.-you-are-trying-to-stop-wasting-your-best-hours"><span class="header-section-number">2.6</span> You Are Not Trying to Become a Developer. You Are Trying to Stop Wasting Your Best Hours</a></li>
+  <li><a href="#what-the-right-first-tool-should-feel-like" id="toc-what-the-right-first-tool-should-feel-like" class="nav-link" data-scroll-target="#what-the-right-first-tool-should-feel-like"><span class="header-section-number">2.7</span> What The Right First Tool Should Feel Like</a></li>
+  <li><a href="#optional-workflow-snapshot" id="toc-optional-workflow-snapshot" class="nav-link" data-scroll-target="#optional-workflow-snapshot"><span class="header-section-number">2.8</span> Optional Workflow Snapshot</a></li>
+  <li><a href="#you-do-not-need-the-perfect-language.-you-need-the-next-useful-one" id="toc-you-do-not-need-the-perfect-language.-you-need-the-next-useful-one" class="nav-link" data-scroll-target="#you-do-not-need-the-perfect-language.-you-need-the-next-useful-one"><span class="header-section-number">2.9</span> You Do Not Need the Perfect Language. You Need the Next Useful One</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/sta189332/excel-refugee-migration/blob/main/chapter-02-why-r-not-python.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/sta189332/excel-refugee-migration/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter-01-spreadsheet-ceiling.html">Main</a></li><li class="breadcrumb-item"><a href="./chapter-02-why-r-not-python.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Python Was Never the Point: Why R Feels Like the Tool You Were Looking For All Along</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Python Was Never the Point: Why R Feels Like the Tool You Were Looking For All Along</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="callout callout-style-simple callout-note callout-titled" title="Chapter Opening Story">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Chapter Opening Story
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You tried to do this the respectable way.</p>
+<p>One evening, after another day lost inside exports, workbook repairs, and formula chains that felt too fragile to breathe on, you opened a Python tutorial.</p>
+<p>The screen looked clean. Serious. Competent.</p>
+<p>A calm voice began explaining variables. Then data types. Then lists. Then environments. Then packages. Then the difference between one kind of bracket and another kind of bracket, which seemed to matter a great deal to everyone except the problem that sent you there.</p>
+<p>You stayed with it longer than most people would.</p>
+<p>You were not lazy. You were motivated in the exact way overworked professionals become motivated when their current system has started taking too much from them. You did not want a hobby. You wanted relief.</p>
+<p>You were trying to clean a payroll extract without wasting a whole evening.</p>
+<p>You were trying to merge sales actuals with forecast data without babysitting lookups.</p>
+<p>You were trying to stop rebuilding the same report with slightly different cuts every week.</p>
+<p>That was the real assignment.</p>
+<p>Yet the learning path in front of you felt like you had been sent to architecture school because you needed someone to fix a leaking roof.</p>
+<p>You kept going.</p>
+<p>Not because it was clicking. Because you assumed this was the price of entry. Technical people must feel at home here, you thought. Maybe this is where competence starts. Maybe the discomfort means progress.</p>
+<p>Then the resistance arrived.</p>
+<p>Quietly.</p>
+<p>You noticed yourself opening the tutorial less often. You told yourself you were too busy this week. You would return to it next weekend. Then the next. Then after quarter-end. Then after the annual cycle. Then after things calmed down, which in your kind of work is another way of saying never.</p>
+<p>From the outside, it looked like you gave up on learning code.</p>
+<p>That is not what happened.</p>
+<p>You collided with a mismatch and misread it as a personal limit.</p>
+<p>The route felt too far from the work you were trying to do.</p>
+<p>You were not trying to build software. You were trying to reclaim your working life from manual spreadsheet labor.</p>
+<p>That difference matters more than people admit.</p>
+<p>A lot of professionals decide they are not technical at exactly this point, when the truth is more specific and far less damaging.</p>
+<p>They met the wrong tool through the wrong door.</p>
+</div>
+</div>
+<section id="you-were-not-bad-at-learning.-you-were-badly-matched" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="you-were-not-bad-at-learning.-you-were-badly-matched"><span class="header-section-number">2.1</span> You Were Not Bad at Learning. You Were Badly Matched</h2>
+<p>This is the first thing worth correcting.</p>
+<p>When people struggle with a technical tool, the default story becomes personal almost immediately. They assume the problem is discipline. Confidence. Aptitude. Some missing kind of technical personality they were supposed to have but somehow missed on the way into adult life.</p>
+<p>That story is convenient for the wrong people.</p>
+<p>It protects bad learning design. It protects irrelevant teaching sequences. It protects the lazy habit of giving busy professionals generic advice and then blaming them when it fails to fit the shape of their work.</p>
+<p>Most corporate professionals do not need a majestic tour through abstract programming concepts before they can reduce friction in their reporting cycle. They need a useful first win. They need to see their actual work on the page. They need a path that speaks the language of tables, filters, joins, summaries, dates, categories, and deadlines.</p>
+<p>If the route to relief starts by asking you to wander far away from your real problems, resistance is not proof that you are weak.</p>
+<p>It is evidence that relevance has broken down.</p>
+<p>That is what happened for many Excel-heavy professionals who tried to enter technical work through Python first. Not all. Many.</p>
+<p>The issue was not that Python lacks power. It has enormous range.</p>
+<p>The issue was fit.</p>
+<p>A general-purpose language can be brilliant and still feel like too much distance between the reader and the work they are desperate to improve.</p>
+</section>
+<section id="what-feels-technical-depends-on-where-you-are-standing" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="what-feels-technical-depends-on-where-you-are-standing"><span class="header-section-number">2.2</span> What Feels “Technical” Depends on Where you Are Standing</h2>
+<p>Once you see tool choice as a fit question rather than a prestige question, the whole conversation becomes clearer.</p>
+<p>From one angle, Python looks like the default serious option because it shows up in so many conversations about automation, data, machine learning, engineering, and technical careers. That visibility creates pressure. People start assuming the first respectable move out of Excel must pass through Python.</p>
+<p>But your work is not trying to become every kind of technical work.</p>
+<p>Your work has a shape.</p>
+<p>You receive data.</p>
+<p>You inspect it.</p>
+<p>You clean it.</p>
+<p>You reconcile inconsistencies.</p>
+<p>You combine related tables.</p>
+<p>You summarize patterns.</p>
+<p>You prepare outputs for decisions.</p>
+<p>That is not a trivial shape. It is just specific.</p>
+<p>When the work is specific, the right first move is often not the most famous tool. It is the one that fits the contours of the job closely enough to produce relief quickly.</p>
+<p>That is why R lands differently for many analysts.</p>
+<p>Not because it is magically easier for all people in all situations.</p>
+<p>Because for spreadsheet-heavy professionals, it often feels closer to the work itself.</p>
+<p>You are already used to thinking in columns.</p>
+<p>You already reason in terms of filters, groupings, categories, exceptions, and comparisons.</p>
+<p>You already know what it means to match one table to another.</p>
+<p>You already understand what a recurring report wants from you.</p>
+<p>The transition does not begin from zero. It begins from familiarity.</p>
+<p>That matters.</p>
+<p>Because fear drops when the tool starts honoring how you already think.</p>
+<div class="callout callout-style-simple callout-note callout-titled" title="PhD Insight Made Simple">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>PhD Insight Made Simple
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Adult learning improves when the tool matches the problem landscape the learner already knows.</p>
+<p>If a finance professional works mainly with tables, joins, grouped summaries, cleaning steps, and recurring reports, a tool that speaks naturally to those tasks reduces translation effort. Less mental energy is spent figuring out what the tool wants. More energy goes into getting useful work done.</p>
+<p>That is one reason some spreadsheet-heavy professionals feel more immediate traction with R than with a broader general-purpose language.</p>
+</div>
+</div>
+</section>
+<section id="r-feels-less-like-a-new-identity-and-more-like-a-bridge" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="r-feels-less-like-a-new-identity-and-more-like-a-bridge"><span class="header-section-number">2.3</span> R Feels Less Like a New Identity and More Like a Bridge</h2>
+<p>This is where the emotional difference becomes visible.</p>
+<p>A lot of professionals do not fear coding itself as much as they fear the identity shift that seems to come with it. The tutorials, the jargon, the culture around certain tools, the silent assumption that to become technically capable you must also become a different kind of person.</p>
+<p>That assumption does damage.</p>
+<p>You do not need a new personality to work better with data.</p>
+<p>You do not need to start sounding like someone whose weekends are full of package debates and terminal screenshots.</p>
+<p>You need a bridge between what you already know and what your work now demands.</p>
+<p>R often functions as that bridge.</p>
+<p>Import the file.</p>
+<p>Clean the names.</p>
+<p>Fix the dates.</p>
+<p>Filter the rows.</p>
+<p>Join the tables.</p>
+<p>Group the values.</p>
+<p>Build the chart.</p>
+<p>Export the result.</p>
+<p>That flow feels legible to someone who has lived inside Excel long enough to understand both its usefulness and its limits. It does not pretend the work is simple. It simply keeps the work visible.</p>
+<p>That is a different emotional experience from being thrown into a learning path that seems to care more about the language than about your reporting deadline.</p>
+<p>With R, many analysts feel something important early.</p>
+<p>Not mastery.</p>
+<p>Recognition.</p>
+<p>The sense that this tool was built closer to the kind of work they are already doing badly by hand.</p>
+</section>
+<section id="the-speed-of-the-first-win-changes-everything" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="the-speed-of-the-first-win-changes-everything"><span class="header-section-number">2.4</span> The Speed of the First Win Changes Everything</h2>
+<p>Busy professionals do not need abstract reassurance.</p>
+<p>They need a result.</p>
+<p>That is one reason tool choice matters so much. A good first tool lets you solve a real problem before doubt has time to harden into identity.</p>
+<p>You import a CSV cleanly.</p>
+<p>You filter a messy table in seconds.</p>
+<p>You summarize a recurring report without touching a pivot table.</p>
+<p>You join two files without the brittle anxiety of lookup chains.</p>
+<p>Nothing about those wins is theatrical.</p>
+<p>That is precisely why they matter.</p>
+<p>They restore trust.</p>
+<p>The reader who thought technical work belonged to other people suddenly sees their own workflow becoming lighter in real time. The emotional shift is immediate. What felt like a foreign territory starts feeling like a useful extension of the work they already understand.</p>
+<p>That is what many spreadsheet professionals need. Not an initiation. Not a rite of passage. A working result.</p>
+<p>Because once the first useful result arrives, the whole story changes.</p>
+<p>You stop asking, “Am I the kind of person who learns code?”</p>
+<p>You start asking, “What else can I stop doing manually?”</p>
+<p>That is a better question.</p>
+<p>It leads somewhere.</p>
+<div class="callout callout-style-simple callout-tip callout-titled" title="Cheat Sheet Box">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Cheat Sheet Box
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Why R Often Feels Like a Better First Move for Spreadsheet-Heavy Professionals</strong></p>
+<ul>
+<li>it stays close to table-based work</li>
+<li>it makes joins, summaries, and cleaning feel central, not secondary</li>
+<li>it produces visible reporting wins quickly</li>
+<li>it supports repeatable workflows without requiring a developer identity</li>
+<li>it feels more like an analyst extending existing strengths than a beginner starting from scratch</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="the-real-comparison-is-not-python-versus-r.-it-is-friction-versus-fit" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="the-real-comparison-is-not-python-versus-r.-it-is-friction-versus-fit"><span class="header-section-number">2.5</span> The Real Comparison Is Not Python Versus R. It Is Friction Versus Fit</h2>
+<p>This is where the conversation needs to become more honest.</p>
+<p>The wrong question is, “Which language is better?”</p>
+<p>That argument wastes time because it ignores the thing your working life is actually asking.</p>
+<p>The better question is, “Which tool gets me from recurring spreadsheet pain to stable, repeatable business output with the least unnecessary friction?”</p>
+<p>That question respects context.</p>
+<p>It respects the reader whose day is filled with cost-center cuts, payroll extracts, headcount reconciliations, sales summaries, budget variance packs, operational dashboards, and monthly reporting cycles that arrive again before the last one feels fully finished.</p>
+<p>For that person, a broad language with huge reach is not automatically the best first move.</p>
+<p>Sometimes the strongest first move is the one that maps cleanly to the work.</p>
+<p>That is where R has an edge for this particular book, this particular reader, and this particular transition.</p>
+<p>It does not ask you to abandon analytical logic and start from a distant technical worldview.</p>
+<p>It lets you stay close to the grain of the job.</p>
+<p>That is why the case for R here does not require insulting Python.</p>
+<p>Python has its place, its strengths, its communities, and its many legitimate uses.</p>
+<p>But your immediate problem is not theoretical language comparison.</p>
+<p>Your immediate problem is that Monday morning keeps arriving with the same reporting burden, and you need a tool that feels like help, not like detour.</p>
+</section>
+<section id="you-are-not-trying-to-become-a-developer.-you-are-trying-to-stop-wasting-your-best-hours" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="you-are-not-trying-to-become-a-developer.-you-are-trying-to-stop-wasting-your-best-hours"><span class="header-section-number">2.6</span> You Are Not Trying to Become a Developer. You Are Trying to Stop Wasting Your Best Hours</h2>
+<p>This sentence should stay with you because it cleans up a lot of confusion.</p>
+<p>You are not moving toward R because you want a badge.</p>
+<p>You are moving toward R because your current workflow is too expensive in time, trust, and mental energy.</p>
+<p>That is a professional reason.</p>
+<p>A good one.</p>
+<p>You can remain what you already are. A finance professional. An HR analyst. An operations lead. A reporting specialist. A business analyst. The shift is not about identity performance. It is about leverage.</p>
+<p>What changes is not your value as a person.</p>
+<p>What changes is the ratio between your effort and your output.</p>
+<p>You stop rebuilding the same logic under pressure.</p>
+<p>You stop spending premium attention on tasks that should have been made repeatable.</p>
+<p>You stop confusing familiarity with fitness.</p>
+<p>And because the workflow gets lighter, your actual strengths become easier to see. Judgment. Pattern recognition. explanation. Decision support. Commercial sense. Those are the things that should dominate your role. Not workbook triage.</p>
+<div class="callout callout-style-simple callout-warning callout-titled" title="Visual Breakout">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Visual Breakout
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Create a three-column comparison.</p>
+<p>Column 1: <strong>Excel</strong>, labeled <em>familiar but fragile</em><br>
+Column 2: <strong>Python</strong>, labeled <em>broad and powerful, but often farther from the first business win</em><br>
+Column 3: <strong>R</strong>, labeled <em>analyst-friendly bridge</em></p>
+<p>Use comparison rows for:</p>
+<ul>
+<li>distance from spreadsheet logic</li>
+<li>speed to first useful reporting result</li>
+<li>fit for recurring data cleaning and summaries</li>
+<li>emotional friction for the corporate beginner</li>
+<li>likelihood of feeling relevant on Monday morning</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="what-the-right-first-tool-should-feel-like" class="level2" data-number="2.7">
+<h2 data-number="2.7" class="anchored" data-anchor-id="what-the-right-first-tool-should-feel-like"><span class="header-section-number">2.7</span> What The Right First Tool Should Feel Like</h2>
+<p>The right first tool should reduce shame, not intensify it.</p>
+<p>It should make your work feel more legible.</p>
+<p>It should return some control quickly enough that you want to continue.</p>
+<p>It should not require you to become fluent in an entire technical worldview before you can solve a payroll merge, clean a sales extract, or summarize regional performance.</p>
+<p>It should feel like the beginning of momentum.</p>
+<p>That is the real promise underneath this chapter.</p>
+<p>Not that R is perfect. Not that one language solves everything. Not that the future belongs exclusively to one camp or another.</p>
+<p>The promise is smaller and more useful.</p>
+<p>There is a path out of spreadsheet dependence that does not require you to betray the way your mind already works.</p>
+<p>There is a next move that feels less like exile and more like translation.</p>
+<p>And once that becomes believable, the fear around technical work starts losing its authority.</p>
+</section>
+<section id="optional-workflow-snapshot" class="level2" data-number="2.8">
+<h2 data-number="2.8" class="anchored" data-anchor-id="optional-workflow-snapshot"><span class="header-section-number">2.8</span> Optional Workflow Snapshot</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>sales <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/sales_export.csv"</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>sales <span class="sc">|&gt;</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(region <span class="sc">==</span> <span class="st">"West"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(product_category) <span class="sc">|&gt;</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">revenue =</span> <span class="fu">sum</span>(revenue, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">orders =</span> <span class="fu">n</span>(),</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">"drop"</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="you-do-not-need-the-perfect-language.-you-need-the-next-useful-one" class="level2" data-number="2.9">
+<h2 data-number="2.9" class="anchored" data-anchor-id="you-do-not-need-the-perfect-language.-you-need-the-next-useful-one"><span class="header-section-number">2.9</span> You Do Not Need the Perfect Language. You Need the Next Useful One</h2>
+<p>That is enough to move.</p>
+<p>Not perfect certainty. Not permanent allegiance. Not a grand declaration that one tool defines your future forever.</p>
+<p>The next useful tool is enough.</p>
+<p>The one that helps you feel less stuck.</p>
+<p>The one that makes repeated work lighter.</p>
+<p>The one that lets your intelligence show up in better places.</p>
+<p>That is why this chapter does not end in technical swagger. It ends in readiness.</p>
+<p>If Excel has become too fragile for the scale and repetition of your work, and if the first technical door you tried felt too far from your real problems, then the question is no longer whether a better fit exists.</p>
+<p>It does.</p>
+<p>The next question is whether you are ready to experience a first hour with R that feels less like punishment and more like relief.</p>
+<div class="callout callout-style-simple callout-important callout-titled" title="Monday Morning Application">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Monday Morning Application
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Pick one recurring workflow you want to lighten within the next two weeks.</p>
+<p>Then answer these questions in writing:</p>
+<ol type="1">
+<li>does this workflow mostly involve tables, cleaning, joining, summarizing, or charting?</li>
+<li>is the pain coming from repeated manual steps rather than from deep technical complexity?</li>
+<li>would a reusable script reduce more friction than a better workbook?</li>
+<li>are you avoiding technical change because you think the learning path must feel alien?</li>
+<li>what would it mean if the first useful win arrived faster than you expected?</li>
+</ol>
+<p>If your answers point toward recurring table-based work and repeated manual effort, you are not describing a Python-shaped obligation.</p>
+<p>You are describing an R-shaped opening.</p>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/sta189332\.github\.io\/excel-refugee-migration\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./chapter-01-spreadsheet-ceiling.html" class="pagination-link" aria-label="When Being the Excel Hero Starts Costing You Your Future">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">When Being the Excel Hero Starts Costing You Your Future</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./chapter-03-first-60-minutes.html" class="pagination-link" aria-label="R Without the Fear: The First Hour That Finally Feels Useful">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">R Without the Fear: The First Hour That Finally Feels Useful</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/sta189332/excel-refugee-migration/blob/main/chapter-02-why-r-not-python.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/sta189332/excel-refugee-migration/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
