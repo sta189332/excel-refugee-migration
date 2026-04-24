@@ -8,7 +8,7 @@
 
 <meta name="description" content="A story-driven practical guide for corporate professionals moving from manual spreadsheet work into faster, repeatable workflows in R.">
 
-<title>Untitled – The Excel Refugee Migration</title>
+<title>8&nbsp; Charts That Actually Impress: ggplot2 vs.&nbsp;Excel’s Chart Wizard – The Excel Refugee Migration</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -68,6 +68,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="quarto:offset" content="./">
 <link href="./chapter-09-first-project.html" rel="next">
 <link href="./chapter-07-dplyr-pivots.html" rel="prev">
+<link href="./images/favicon.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -120,7 +121,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter-01-spreadsheet-ceiling.html">Main</a></li><li class="breadcrumb-item"><a href="./chapter-08-ggplot.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Untitled</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter-01-spreadsheet-ceiling.html">Main</a></li><li class="breadcrumb-item"><a href="./chapter-08-ggplot.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Charts That Actually Impress: ggplot2 vs.&nbsp;Excel’s Chart Wizard</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -138,7 +139,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="./">The Excel Refugee Migration</a> 
-        <div class="sidebar-tools-main">
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://github.com/YOUR-USERNAME/excel-refugee-migration" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+    <a href="https://github.com/YOUR-USERNAME/excel-refugee-migration" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
     <div class="dropdown">
       <a href="" title="Download" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Download"><i class="bi bi-download"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
@@ -195,31 +198,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-01-spreadsheet-ceiling.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">The Spreadsheet Ceiling: Why Your Excel Skills Became a Prison</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">When Being the Excel Hero Starts Costing You Your Future</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-02-why-r-not-python.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Why Not Python? The Honest Answer Nobody Gives You</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Python Was Never the Point: Why R Feels Like the Tool You Were Looking For All Along</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-03-first-60-minutes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">R Without the Fear: Your First 60 Minutes (And It Won’t Hurt)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">R Without the Fear: The First Hour That Finally Feels Useful</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-04-excel-to-r.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Fluent in Both Languages: Translating Your Excel Brain to R</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">You Already Speak Half the Language: Translating Your Excel Brain into R</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-05-chatgpt-copilot.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Your AI Co-Pilot: Using ChatGPT as Your Personal R Translator</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Your AI Co-Pilot: Using Gemini Inside RStudio as Your Personal R Translator</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -231,13 +234,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-07-dplyr-pivots.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Pivot Tables Are Dead. Long Live dplyr.</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Pivot Tables Are Dead. Long Live dplyr</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-08-ggplot.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Untitled</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Charts That Actually Impress: ggplot2 vs.&nbsp;Excel’s Chart Wizard</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -256,41 +259,58 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
  <span class="menu-text">Appendices</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix-a-cheatsheet.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Appendix A: The Master Excel-to-R Cheat Sheet</span></span></a>
+ <span class="menu-text">The Master Excel-to-R Cheat Sheet</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix-b-prompts.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Appendix B: The ChatGPT Prompt Library for R</span></span></a>
+ <span class="menu-text">The In-Session AI Prompt Library for R</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix-c-packages.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Appendix C: Recommended R Packages by Use Case</span></span></a>
+ <span class="menu-text">Recommended R Packages by Use Case</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix-d-glossary.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Appendix D: Glossary, Excel Terms and Their R Equivalents</span></span></a>
+ <span class="menu-text">Glossary: Excel Terms, R Terms, and Workflow Language</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
+ <span class="menu-text">Back Matter</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./author-note.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Author’s Note</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./author-note.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Author’s Note</span></span></a>
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
   </div>
 </li>
       </ul>
@@ -305,19 +325,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#why-so-many-spreadsheet-charts-look-unfinished" id="toc-why-so-many-spreadsheet-charts-look-unfinished" class="nav-link active" data-scroll-target="#why-so-many-spreadsheet-charts-look-unfinished"><span class="header-section-number">8.1</span> Why So Many Spreadsheet Charts Look Unfinished</a></li>
-  <li><a href="#what-makes-a-leadership-ready-chart" id="toc-what-makes-a-leadership-ready-chart" class="nav-link" data-scroll-target="#what-makes-a-leadership-ready-chart"><span class="header-section-number">8.2</span> What Makes a Leadership-Ready Chart</a></li>
-  <li><a href="#your-first-good-plot-in-ggplot2" id="toc-your-first-good-plot-in-ggplot2" class="nav-link" data-scroll-target="#your-first-good-plot-in-ggplot2"><span class="header-section-number">8.3</span> Your First Good Plot in ggplot2</a></li>
-  <li><a href="#from-pretty-enough-to-decision-ready" id="toc-from-pretty-enough-to-decision-ready" class="nav-link" data-scroll-target="#from-pretty-enough-to-decision-ready"><span class="header-section-number">8.4</span> From Pretty Enough to Decision-Ready</a></li>
+  <li><a href="#why-default-charts-keep-selling-you-short" id="toc-why-default-charts-keep-selling-you-short" class="nav-link active" data-scroll-target="#why-default-charts-keep-selling-you-short"><span class="header-section-number">8.1</span> Why Default Charts Keep Selling You Short</a></li>
+  <li><a href="#the-difference-between-a-chart-and-a-point" id="toc-the-difference-between-a-chart-and-a-point" class="nav-link" data-scroll-target="#the-difference-between-a-chart-and-a-point"><span class="header-section-number">8.2</span> The Difference Between A Chart And A Point</a></li>
+  <li><a href="#the-plot-that-finally-looks-like-you-know-what-you-are-doing" id="toc-the-plot-that-finally-looks-like-you-know-what-you-are-doing" class="nav-link" data-scroll-target="#the-plot-that-finally-looks-like-you-know-what-you-are-doing"><span class="header-section-number">8.3</span> The Plot That Finally Looks Like You Know What You Are Doing</a></li>
+  <li><a href="#stop-decorating.-start-directing-attention" id="toc-stop-decorating.-start-directing-attention" class="nav-link" data-scroll-target="#stop-decorating.-start-directing-attention"><span class="header-section-number">8.4</span> Stop Decorating. Start Directing Attention</a></li>
+  <li><a href="#trends-deserve-more-respect-than-default-line-charts-usually-give-them" id="toc-trends-deserve-more-respect-than-default-line-charts-usually-give-them" class="nav-link" data-scroll-target="#trends-deserve-more-respect-than-default-line-charts-usually-give-them"><span class="header-section-number">8.5</span> Trends Deserve More Respect Than Default Line Charts Usually Give Them</a></li>
+  <li><a href="#when-one-chart-is-not-enough-facets-save-you-from-visual-overcrowding" id="toc-when-one-chart-is-not-enough-facets-save-you-from-visual-overcrowding" class="nav-link" data-scroll-target="#when-one-chart-is-not-enough-facets-save-you-from-visual-overcrowding"><span class="header-section-number">8.6</span> When One Chart Is Not Enough, Facets Save You From Visual Overcrowding</a></li>
+  <li><a href="#the-quiet-power-of-labels-order-and-restraint" id="toc-the-quiet-power-of-labels-order-and-restraint" class="nav-link" data-scroll-target="#the-quiet-power-of-labels-order-and-restraint"><span class="header-section-number">8.7</span> The Quiet Power Of Labels, Order, And Restraint</a></li>
+  <li><a href="#save-the-plot-like-it-matters" id="toc-save-the-plot-like-it-matters" class="nav-link" data-scroll-target="#save-the-plot-like-it-matters"><span class="header-section-number">8.8</span> Save The Plot Like It Matters</a></li>
+  <li><a href="#the-plot-is-not-there-to-prove-you-worked" id="toc-the-plot-is-not-there-to-prove-you-worked" class="nav-link" data-scroll-target="#the-plot-is-not-there-to-prove-you-worked"><span class="header-section-number">8.9</span> The Plot Is Not There To Prove You Worked</a></li>
+  <li><a href="#optional-workflow-snapshot" id="toc-optional-workflow-snapshot" class="nav-link" data-scroll-target="#optional-workflow-snapshot"><span class="header-section-number">8.10</span> Optional Workflow Snapshot</a></li>
+  <li><a href="#the-chart-should-carry-more-of-the-conversation-than-you-do" id="toc-the-chart-should-carry-more-of-the-conversation-than-you-do" class="nav-link" data-scroll-target="#the-chart-should-carry-more-of-the-conversation-than-you-do"><span class="header-section-number">8.11</span> The Chart Should Carry More Of The Conversation Than You Do</a></li>
   </ul>
-</nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/YOUR-USERNAME/excel-refugee-migration/blob/main/chapter-08-ggplot.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/YOUR-USERNAME/excel-refugee-migration/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter-01-spreadsheet-ceiling.html">Main</a></li><li class="breadcrumb-item"><a href="./chapter-08-ggplot.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Untitled</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter-01-spreadsheet-ceiling.html">Main</a></li><li class="breadcrumb-item"><a href="./chapter-08-ggplot.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Charts That Actually Impress: ggplot2 vs.&nbsp;Excel’s Chart Wizard</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Untitled</h1>
+<h1 class="title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Charts That Actually Impress: ggplot2 vs.&nbsp;Excel’s Chart Wizard</span></h1>
 </div>
 
 
@@ -344,48 +371,303 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Placeholder for a before-and-after chart scene where the visual quality changes the conversation.</p>
+<p>The numbers were right.</p>
+<p>That was the worst part.</p>
+<p>You had spent the better part of the morning cleaning the export, checking the totals, rebuilding the grouped summary, and making sure the revenue trend really did show the regional drop everybody had been whispering about since the previous month. By the time the slide deck was due, the analysis itself was solid. Calm, defensible, ready.</p>
+<p>Then you dropped the chart into PowerPoint.</p>
+<p>Default colors. A legend no one needed. Tiny month labels crowding the bottom. Gridlines loud enough to compete with the data. One of the bars was technically the highest, but not high enough for the eye to find first. The title said something vague like <code>Revenue by Region</code>, which was true in the same way a shrug is technically a response.</p>
+<p>The slide was not wrong.</p>
+<p>It was worse than wrong.</p>
+<p>It was unconvincing.</p>
+<p>By the time the meeting started, you already knew what was going to happen. Someone senior would lean forward, narrow their eyes, and ask a question the chart should have answered on its own. You would begin explaining. The explanation would be good. Better than the chart, certainly. But the damage would already be done. The visual had asked for patience instead of earning trust.</p>
+<p>This is a quiet kind of professional embarrassment.</p>
+<p>Not because the chart is disastrous.</p>
+<p>Because the work underneath it deserved better.</p>
+<p>A lot of analysts know this feeling. The summary is strong. The data is clean. The business question is clear enough. Then the chart arrives looking rushed, noisy, and strangely uncommitted, as if the analysis got tired at the last step and decided to stop dressing properly before leaving the house.</p>
+<p>That is where many spreadsheet-built visuals live.</p>
+<p>Not fully broken.</p>
+<p>Not fully persuasive.</p>
+<p>Just finished enough to exist and unfinished enough to weaken the room.</p>
+<p>This chapter is about what happens after you stop accepting that trade.</p>
 </div>
 </div>
-<section id="why-so-many-spreadsheet-charts-look-unfinished" class="level2" data-number="8.1">
-<h2 data-number="8.1" class="anchored" data-anchor-id="why-so-many-spreadsheet-charts-look-unfinished"><span class="header-section-number">8.1</span> Why So Many Spreadsheet Charts Look Unfinished</h2>
-<p>Placeholder starter prose.</p>
+<section id="why-default-charts-keep-selling-you-short" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="why-default-charts-keep-selling-you-short"><span class="header-section-number">8.1</span> Why Default Charts Keep Selling You Short</h2>
+<p>The problem with a lot of spreadsheet charts is not ugliness in the dramatic sense.</p>
+<p>It is ambiguity.</p>
+<p>Too much clutter. Too little hierarchy. Labels competing with bars. Legends explaining what the chart should make obvious. Categories ordered alphabetically when the real story lives in the ranking. Colors chosen because they were default, not because they were useful. Titles that describe the topic without clarifying the point.</p>
+<p>This is how a chart ends up technically present and practically evasive.</p>
+<p>A default chart often asks the audience to do work the analyst should already have done. Find the pattern. Decode the grouping. Figure out which number matters. Guess what the title is trying not to say directly. The visual becomes a polite obstacle between the decision-maker and the insight.</p>
+<p>That is why so many spreadsheet charts look unfinished. Not because the analyst lacks taste. Because the tool encourages speed over intention. It gives you a chart quickly, then quietly lets you stop there.</p>
+<p>And when work is due, stopping there is tempting.</p>
+<p>You tell yourself it is good enough. The labels are there. The bars exist. Anyone intelligent can understand it if they look long enough.</p>
+<p>That is not the standard a leadership-ready chart should be held to.</p>
+<p>A useful chart should reduce effort, not demand more of it.</p>
+<p>If the audience has to be escorted through the picture, the chart is not carrying its share of the work.</p>
 </section>
-<section id="what-makes-a-leadership-ready-chart" class="level2" data-number="8.2">
-<h2 data-number="8.2" class="anchored" data-anchor-id="what-makes-a-leadership-ready-chart"><span class="header-section-number">8.2</span> What Makes a Leadership-Ready Chart</h2>
-<p>Placeholder starter prose.</p>
-</section>
-<section id="your-first-good-plot-in-ggplot2" class="level2" data-number="8.3">
-<h2 data-number="8.3" class="anchored" data-anchor-id="your-first-good-plot-in-ggplot2"><span class="header-section-number">8.3</span> Your First Good Plot in ggplot2</h2>
-<p>Placeholder starter prose.</p>
-</section>
-<section id="from-pretty-enough-to-decision-ready" class="level2" data-number="8.4">
-<h2 data-number="8.4" class="anchored" data-anchor-id="from-pretty-enough-to-decision-ready"><span class="header-section-number">8.4</span> From Pretty Enough to Decision-Ready</h2>
-<p>Placeholder starter prose.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(sales_summary, <span class="fu">aes</span>(<span class="at">x =</span> month, <span class="at">y =</span> revenue)) <span class="sc">+</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Monthly Revenue Trend"</span>,</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="cn">NULL</span>,</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Revenue"</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<div class="callout callout-style-simple callout-note callout-titled" title="PhD Insight Made Simple">
+<section id="the-difference-between-a-chart-and-a-point" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="the-difference-between-a-chart-and-a-point"><span class="header-section-number">8.2</span> The Difference Between A Chart And A Point</h2>
+<p>This is where visual confidence begins.</p>
+<p>A chart is not a decorative afterthought attached to correct numbers. It is an analytical argument made visible.</p>
+<p>That sentence changes things.</p>
+<p>Once you stop thinking of charts as output and start thinking of them as arguments, the design questions become clearer. What is the single thing this chart needs to help the reader see. Which comparison matters most. What ordering makes the message obvious. What can be removed without losing meaning. What title tells the truth of the chart instead of merely naming the topic.</p>
+<p>This is the line between a chart that exists and a chart that earns trust.</p>
+<p>A leadership-ready chart usually does a few things well:</p>
+<p>It makes the main comparison easy to see first.</p>
+<p>It removes distractions that do not help the comparison.</p>
+<p>It uses titles and labels that tell the reader what matters.</p>
+<p>It chooses a chart type that fits the business question instead of whatever happened to be selected last time.</p>
+<p>It looks calm.</p>
+<p>Calm matters more than people think.</p>
+<p>A cluttered chart makes the work look less certain than it is. A clean chart suggests control. Not because the audience is superficial. Because presentation quality influences how quickly credibility arrives.</p>
+<p>This is not about visual perfection.</p>
+<p>It is about respecting the cost of attention in a room where people are scanning for meaning, not admiring your formatting stamina.</p>
+<div class="callout callout-style-simple callout-note callout-titled" title="PhD Insight">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>PhD Insight Made Simple
+<span class="screen-reader-only">Note</span>PhD Insight
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Placeholder for visual encoding in plain language.</p>
+<p>Good charts reduce cognitive load by aligning what the eye notices first with what the analysis wants to emphasize.</p>
+<p>That is why ordering, labeling, color restraint, and chart type matter so much. They are not cosmetic details. They determine whether the reader spends energy decoding the display or understanding the message. A strong chart makes the intended comparison easy before the explanation even begins.</p>
 </div>
 </div>
+</section>
+<section id="the-plot-that-finally-looks-like-you-know-what-you-are-doing" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="the-plot-that-finally-looks-like-you-know-what-you-are-doing"><span class="header-section-number">8.3</span> The Plot That Finally Looks Like You Know What You Are Doing</h2>
+<p>This is where <code>ggplot2</code> starts feeling less like a package and more like a relief.</p>
+<p>Excel often treats charts as something generated after the fact. Pick a range. Click insert. Choose a type. Then begin fixing whatever the default version got wrong. <code>ggplot2</code> works differently. It asks you to declare what should be seen.</p>
+<p>That is the real emotional upgrade.</p>
+<p>You are not decorating spreadsheet output.</p>
+<p>You are mapping data into a visual structure on purpose.</p>
+<p>The basic logic is calmer than people expect:</p>
+<ul>
+<li>data</li>
+<li>mapping</li>
+<li>geometry</li>
+<li>labels</li>
+<li>theme</li>
+</ul>
+<p>Start with a realistic business example. Suppose you have a clean summary file showing revenue by region.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scales)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(forcats)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>revenue_by_region <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/revenue_by_region.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Let us order the regions so the chart respects the ranking instead of alphabetical habit.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>revenue_by_region <span class="ot">&lt;-</span> revenue_by_region <span class="sc">|&gt;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">region =</span> <span class="fu">fct_reorder</span>(region, total_revenue))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Now build the plot.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(revenue_by_region, <span class="fu">aes</span>(<span class="at">x =</span> region, <span class="at">y =</span> total_revenue)) <span class="sc">+</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Regional Revenue, Highest in South and Lowest in North"</span>,</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="cn">NULL</span>,</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Revenue"</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> <span class="fu">label_dollar</span>()) <span class="sc">+</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>That chart is not yet extraordinary.</p>
+<p>It is already better than a lot of spreadsheet defaults.</p>
+<p>The bars are ordered by value. The title states a point, not just a topic. The y-axis is labeled in money terms. The theme is quieter. The reader does not have to fight the chart to understand what matters.</p>
+<p>That is the first good plot.</p>
+<p>And for many readers, it is the first time a chart feels like it belongs to the analysis rather than being stapled to it afterward.</p>
+</section>
+<section id="stop-decorating.-start-directing-attention" class="level2" data-number="8.4">
+<h2 data-number="8.4" class="anchored" data-anchor-id="stop-decorating.-start-directing-attention"><span class="header-section-number">8.4</span> Stop Decorating. Start Directing Attention</h2>
+<p>This is where the chapter moves from relief to control.</p>
+<p>Once the first chart works, the temptation is to stop. Resist it.</p>
+<p>The biggest gains often come from small choices made after the first plot appears. These are the decisions that move a chart from “pretty enough” to “decision-ready.”</p>
+<p>Sort bars by value.</p>
+<p>Remove unnecessary legends.</p>
+<p>Use a title that carries the insight.</p>
+<p>Keep the color disciplined.</p>
+<p>Reduce visual noise.</p>
+<p>Show the reader where to look first.</p>
+<p>Suppose you want the same regional chart to feel more prepared for a leadership slide. Add a stronger title, drop clutter, and tighten the formatting.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(revenue_by_region, <span class="fu">aes</span>(<span class="at">x =</span> region, <span class="at">y =</span> total_revenue)) <span class="sc">+</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">"steelblue"</span>) <span class="sc">+</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"South Leads Regional Revenue While North Continues to Lag"</span>,</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Latest monthly summary from the cleaned revenue pipeline"</span>,</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="cn">NULL</span>,</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Revenue"</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> <span class="fu">label_dollar</span>()) <span class="sc">+</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">12</span>) <span class="sc">+</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">"none"</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Notice what changed.</p>
+<p>The chart did not become “fancier.” It became clearer.</p>
+<p>That distinction matters. Professionals lose a lot of time trying to make charts look impressive when what the audience really needs is legibility. Decorative gradients, aggressive palettes, and crowded embellishments rarely make a chart feel more serious. Usually they make it feel less finished, not more.</p>
+<p>A strong business chart is disciplined enough to stop trying to entertain.</p>
+</section>
+<section id="trends-deserve-more-respect-than-default-line-charts-usually-give-them" class="level2" data-number="8.5">
+<h2 data-number="8.5" class="anchored" data-anchor-id="trends-deserve-more-respect-than-default-line-charts-usually-give-them"><span class="header-section-number">8.5</span> Trends Deserve More Respect Than Default Line Charts Usually Give Them</h2>
+<p>A monthly trend chart is one of the most common outputs in corporate reporting, and one of the most routinely mistreated.</p>
+<p>Excel’s default line chart often arrives with the same problems as its bar charts. Weak titles. Busy gridlines. Overloaded legends. A line that technically moves but does not help the audience understand what changed, when it changed, or why the movement matters.</p>
+<p>Suppose you have monthly performance data across a year.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>monthly_performance <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/monthly_performance.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Build the line chart simply first.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(monthly_performance, <span class="fu">aes</span>(<span class="at">x =</span> month, <span class="at">y =</span> revenue)) <span class="sc">+</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Monthly Revenue Trend"</span>,</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="cn">NULL</span>,</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Revenue"</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> <span class="fu">label_dollar</span>()) <span class="sc">+</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Now improve it so the chart helps the room see the actual story.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(monthly_performance, <span class="fu">aes</span>(<span class="at">x =</span> month, <span class="at">y =</span> revenue, <span class="at">group =</span> <span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Revenue Recovered in Q3 but Flattened Again by Year End"</span>,</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Monthly revenue from January to December"</span>,</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="cn">NULL</span>,</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Revenue"</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> <span class="fu">label_dollar</span>()) <span class="sc">+</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">12</span>) <span class="sc">+</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">"none"</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Again, the core change is not decoration.</p>
+<p>It is intention.</p>
+<p>The line chart becomes useful when it tells the viewer what movement matters and removes everything that competes with that message.</p>
+</section>
+<section id="when-one-chart-is-not-enough-facets-save-you-from-visual-overcrowding" class="level2" data-number="8.6">
+<h2 data-number="8.6" class="anchored" data-anchor-id="when-one-chart-is-not-enough-facets-save-you-from-visual-overcrowding"><span class="header-section-number">8.6</span> When One Chart Is Not Enough, Facets Save You From Visual Overcrowding</h2>
+<p>A lot of messy charts are not messy because the analyst is careless. They are messy because too much has been forced into one panel.</p>
+<p>Several departments. Too many regions. Multiple units. Too many categories competing in one chart. By the time the legend finishes explaining the colors, the audience has already lost interest.</p>
+<p>This is where faceting becomes useful. Instead of forcing every comparison into one crowded image, you give each group its own small panel.</p>
+<p>Suppose you are looking at attrition by unit across months.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>attrition_by_unit <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/attrition_by_unit.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(attrition_by_unit, <span class="fu">aes</span>(<span class="at">x =</span> month, <span class="at">y =</span> attrition_rate, <span class="at">group =</span> <span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">linewidth =</span> <span class="fl">0.9</span>) <span class="sc">+</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> unit) <span class="sc">+</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Attrition Trends Vary Sharply Across Units"</span>,</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Monthly attrition rate by business unit"</span>,</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="cn">NULL</span>,</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Attrition Rate"</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> <span class="fu">percent_format</span>()) <span class="sc">+</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">11</span>) <span class="sc">+</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">"none"</span></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Facets do something spreadsheet tools often struggle to do gracefully.</p>
+<p>They preserve comparison without forcing chaos.</p>
+<p>The audience can scan unit by unit. Patterns stay visible. The chart breathes. That matters when the goal is not to impress with density, but to support a decision without exhausting the reader first.</p>
+<div class="callout callout-style-simple callout-tip callout-titled" title="Cheat Sheet Box">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Cheat Sheet Box
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Match The Chart To The Question</strong></p>
+<ul>
+<li>use a bar chart for comparing categories</li>
+<li>use a line chart for trends over time</li>
+<li>use facets when one chart starts carrying too many comparisons</li>
+<li>sort categories before plotting when ranking matters</li>
+<li>write titles that state the insight, not just the subject</li>
+<li>remove legends when the chart already makes the grouping obvious</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="the-quiet-power-of-labels-order-and-restraint" class="level2" data-number="8.7">
+<h2 data-number="8.7" class="anchored" data-anchor-id="the-quiet-power-of-labels-order-and-restraint"><span class="header-section-number">8.7</span> The Quiet Power Of Labels, Order, And Restraint</h2>
+<p>This is where charts start looking grown-up.</p>
+<p>Not because of advanced features. Because of restraint.</p>
+<p>A lot of charts become weak through accumulation. Too many labels. Too many colors. Too many gridlines. Too many font sizes fighting each other. The analyst keeps adding pieces until the visual feels complete, not noticing the moment when completeness began to hurt comprehension.</p>
+<p>In practice, a few choices carry disproportionate weight:</p>
+<p>Order the categories by what matters, not alphabetically.</p>
+<p>Use direct, informative titles.</p>
+<p>Let subtitles add useful context, not filler.</p>
+<p>Label axes in business language.</p>
+<p>Format numbers for the audience you actually have.</p>
+<p>Resist unnecessary legends.</p>
+<p>Keep the background quiet.</p>
+<p>This is why <code>fct_reorder()</code> and <code>scale_y_continuous()</code> are so useful. They let you tell the chart how to respect the question.</p>
+<p>Here is a headcount example.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>headcount_by_department <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/headcount_by_department.csv"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">department =</span> <span class="fu">fct_reorder</span>(department, headcount))</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(headcount_by_department, <span class="fu">aes</span>(<span class="at">x =</span> department, <span class="at">y =</span> headcount)) <span class="sc">+</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">"steelblue"</span>) <span class="sc">+</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Operations and Sales Carry the Largest Headcount"</span>,</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Current headcount by department"</span>,</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="cn">NULL</span>,</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Employees"</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> comma) <span class="sc">+</span></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">12</span>) <span class="sc">+</span></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">"none"</span></span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>A chart like this does not look “creative.”</p>
+<p>Good.</p>
+<p>It looks prepared.</p>
+<p>That is what many business audiences trust most.</p>
+</section>
+<section id="save-the-plot-like-it-matters" class="level2" data-number="8.8">
+<h2 data-number="8.8" class="anchored" data-anchor-id="save-the-plot-like-it-matters"><span class="header-section-number">8.8</span> Save The Plot Like It Matters</h2>
+<p>A chart often fails before the meeting because it was exported carelessly.</p>
+<p>Too small for the slide. Too blurry in the deck. Wrong aspect ratio. Font sizes collapsing once pasted into PowerPoint. The plot looked fine in the Viewer pane and somehow became less credible the moment it left R.</p>
+<p>That is not a minor technical detail.</p>
+<p>Export settings are part of the professional finish.</p>
+<p>Use <code>ggsave()</code> with deliberate dimensions.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">filename =</span> <span class="st">"outputs/revenue_by_region_plot.png"</span>,</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">width =</span> <span class="dv">8</span>,</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">height =</span> <span class="dv">5</span>,</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">dpi =</span> <span class="dv">300</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>That one habit saves a surprising amount of avoidable embarrassment.</p>
+<p>Charts are judged partly by what they say and partly by whether they arrive looking intentional. A sharp export suggests the analyst thought about the final setting of the work, not just the code that generated it.</p>
 <div class="callout callout-style-simple callout-warning callout-titled" title="Visual Breakout">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -396,9 +678,58 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Placeholder visual: Excel default chart vs refined ggplot2 output.</p>
+<p>Create a visual called <strong>The Same Analysis, Two Different Levels of Credibility</strong>.</p>
+<p><strong>Left Side: Default Spreadsheet Chart</strong> - generic title - unsorted bars - noisy gridlines - unnecessary legend - cramped labels - weak visual hierarchy</p>
+<p><strong>Right Side: ggplot2 Version</strong> - insight-led title - ordered categories - clean theme - formatted axis labels - no unnecessary legend - export ready for a slide deck</p>
+<p>The visual should show that the difference is not cosmetic vanity. It is communication quality.</p>
 </div>
 </div>
+</section>
+<section id="the-plot-is-not-there-to-prove-you-worked" class="level2" data-number="8.9">
+<h2 data-number="8.9" class="anchored" data-anchor-id="the-plot-is-not-there-to-prove-you-worked"><span class="header-section-number">8.9</span> The Plot Is Not There To Prove You Worked</h2>
+<p>A weak chart often reveals a hidden mindset.</p>
+<p>The analyst uses the visual to prove that work happened. Here is the data. Here is the chart. Here is the output. Job done.</p>
+<p>A stronger chart does something else.</p>
+<p>It helps the audience decide what to notice.</p>
+<p>That is a more strategic role.</p>
+<p>When you embrace that role, chart-making becomes less about finishing and more about directing attention responsibly. You stop asking whether the chart exists and start asking whether the message lands quickly enough to survive a meeting room, an inbox, or a slide deck full of competing priorities.</p>
+<p>That is not design theater.</p>
+<p>It is analytical maturity.</p>
+<p>Because once you can clean the data, summarize it, and then present it clearly, you are no longer just producing reports. You are controlling more of how the work gets interpreted.</p>
+<p>That is where credibility compounds.</p>
+</section>
+<section id="optional-workflow-snapshot" class="level2" data-number="8.10">
+<h2 data-number="8.10" class="anchored" data-anchor-id="optional-workflow-snapshot"><span class="header-section-number">8.10</span> Optional Workflow Snapshot</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tibble)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>plot_workflow <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">tribble</span>(</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>step, <span class="sc">~</span>purpose, <span class="sc">~</span>risk_if_skipped,</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">"read_csv()"</span>, <span class="st">"Import the summary data"</span>, <span class="st">"Chart built on stale or wrong file"</span>,</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">"mutate(fct_reorder())"</span>, <span class="st">"Order categories intentionally"</span>, <span class="st">"Bars appear in unhelpful order"</span>,</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">"ggplot()"</span>, <span class="st">"Define the visual structure"</span>, <span class="st">"No clear mapping from data to chart"</span>,</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>  <span class="st">"geom_col() or geom_line()"</span>, <span class="st">"Choose the right geometry"</span>, <span class="st">"Wrong chart type weakens message"</span>,</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>  <span class="st">"labs()"</span>, <span class="st">"State the point clearly"</span>, <span class="st">"Chart exists without a clear message"</span>,</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>  <span class="st">"theme_minimal()"</span>, <span class="st">"Reduce clutter"</span>, <span class="st">"Visual noise competes with insight"</span>,</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>  <span class="st">"scale_y_continuous()"</span>, <span class="st">"Format values for business reading"</span>, <span class="st">"Numbers feel raw or awkward"</span>,</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>  <span class="st">"ggsave()"</span>, <span class="st">"Export with professional quality"</span>, <span class="st">"Chart looks rushed in the final deck"</span></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>plot_workflow</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="the-chart-should-carry-more-of-the-conversation-than-you-do" class="level2" data-number="8.11">
+<h2 data-number="8.11" class="anchored" data-anchor-id="the-chart-should-carry-more-of-the-conversation-than-you-do"><span class="header-section-number">8.11</span> The Chart Should Carry More Of The Conversation Than You Do</h2>
+<p>That is the identity shift hiding inside this chapter.</p>
+<p>You should not have to stand beside every chart and rescue it with explanation.</p>
+<p>The chart should arrive ready to do its share.</p>
+<p>Not all of it. Some decisions still require context, conversation, and judgment. But too many analysts quietly accept visuals that leave the hardest work to their voice because they have been taught that chart quality is secondary to numerical correctness.</p>
+<p>It is not.</p>
+<p>A chart that weakens a correct analysis still weakens the analysis in the room where it matters.</p>
+<p>A chart that sharpens a correct analysis does something better. It helps the work travel.</p>
+<p>And once the work travels well, you begin to feel different in relation to it. Less like the person assembling outputs under pressure. More like the person shaping what senior people are able to see quickly, trust easily, and act on.</p>
+<p>That is not decorative skill.</p>
+<p>That is strategic presence.</p>
 <div class="callout callout-style-simple callout-important callout-titled" title="Monday Morning Application">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -409,7 +740,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Build one weekly chart for a real stakeholder.</p>
+<p>Take one summary you already trust and build two versions of the same chart.</p>
+<ol type="1">
+<li>create the fastest acceptable chart you would normally make</li>
+<li>rebuild it in <code>ggplot2</code></li>
+<li>reorder categories where ranking matters</li>
+<li>rewrite the title so it states the insight</li>
+<li>remove one unnecessary visual element</li>
+<li>format the axis labels for business reading</li>
+<li>export it with <code>ggsave()</code></li>
+</ol>
+<p>Then compare them honestly.</p>
+<p>Which one would you rather place in front of a senior leader without explaining it first?</p>
 </div>
 </div>
 
@@ -490,7 +832,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/YOUR-USERNAME\.github\.io\/excel-refugee-migration\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -819,8 +1161,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./chapter-07-dplyr-pivots.html" class="pagination-link" aria-label="Pivot Tables Are Dead. Long Live dplyr.">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Pivot Tables Are Dead. Long Live dplyr.</span></span>
+      <a href="./chapter-07-dplyr-pivots.html" class="pagination-link" aria-label="Pivot Tables Are Dead. Long Live dplyr">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Pivot Tables Are Dead. Long Live dplyr</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
@@ -834,4 +1176,4 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-</body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/YOUR-USERNAME/excel-refugee-migration/blob/main/chapter-08-ggplot.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/YOUR-USERNAME/excel-refugee-migration/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>

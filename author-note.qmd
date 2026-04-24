@@ -1,6 +1,8 @@
 ---
-title: "Author's Note"
+number-sections: false
 ---
+
+# Author’s Note {.unnumbered}
 
 ## Why This Book Had to Exist
 

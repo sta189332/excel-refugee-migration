@@ -1,7 +1,8 @@
 ---
-title: "Recommended R Packages by Use Case"
-appendix: true
+number-sections: false
 ---
+
+# Recommended R Packages by Use Case {.unnumbered}
 
 This appendix is not a list for curiosity.
 

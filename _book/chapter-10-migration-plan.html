@@ -21,6 +21,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -33,6 +68,7 @@ ul.task-list li input[type="checkbox"] {
 <meta name="quarto:offset" content="./">
 <link href="./appendix-a-cheatsheet.html" rel="next">
 <link href="./chapter-09-first-project.html" rel="prev">
+<link href="./images/favicon.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -103,7 +139,9 @@ ul.task-list li input[type="checkbox"] {
       </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="./">The Excel Refugee Migration</a> 
-        <div class="sidebar-tools-main">
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://github.com/YOUR-USERNAME/excel-refugee-migration" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+    <a href="https://github.com/YOUR-USERNAME/excel-refugee-migration" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
     <div class="dropdown">
       <a href="" title="Download" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Download"><i class="bi bi-download"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
@@ -160,31 +198,31 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-01-spreadsheet-ceiling.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">The Spreadsheet Ceiling: Why Your Excel Skills Became a Prison</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">When Being the Excel Hero Starts Costing You Your Future</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-02-why-r-not-python.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Why Not Python? The Honest Answer Nobody Gives You</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Python Was Never the Point: Why R Feels Like the Tool You Were Looking For All Along</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-03-first-60-minutes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">R Without the Fear: Your First 60 Minutes (And It Won’t Hurt)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">R Without the Fear: The First Hour That Finally Feels Useful</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-04-excel-to-r.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Fluent in Both Languages: Translating Your Excel Brain to R</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">You Already Speak Half the Language: Translating Your Excel Brain into R</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-05-chatgpt-copilot.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Your AI Co-Pilot: Using ChatGPT as Your Personal R Translator</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Your AI Co-Pilot: Using Gemini Inside RStudio as Your Personal R Translator</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -196,13 +234,13 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-07-dplyr-pivots.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Pivot Tables Are Dead. Long Live dplyr.</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Pivot Tables Are Dead. Long Live dplyr</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-08-ggplot.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Untitled</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Charts That Actually Impress: ggplot2 vs.&nbsp;Excel’s Chart Wizard</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -221,41 +259,58 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
  <span class="menu-text">Appendices</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix-a-cheatsheet.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Appendix A: The Master Excel-to-R Cheat Sheet</span></span></a>
+ <span class="menu-text">The Master Excel-to-R Cheat Sheet</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix-b-prompts.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Appendix B: The ChatGPT Prompt Library for R</span></span></a>
+ <span class="menu-text">The In-Session AI Prompt Library for R</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix-c-packages.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Appendix C: Recommended R Packages by Use Case</span></span></a>
+ <span class="menu-text">Recommended R Packages by Use Case</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix-d-glossary.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Appendix D: Glossary, Excel Terms and Their R Equivalents</span></span></a>
+ <span class="menu-text">Glossary: Excel Terms, R Terms, and Workflow Language</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
+ <span class="menu-text">Back Matter</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./author-note.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Author’s Note</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./author-note.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Author’s Note</span></span></a>
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
   </div>
 </li>
       </ul>
@@ -270,13 +325,23 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#the-identity-shift" id="toc-the-identity-shift" class="nav-link active" data-scroll-target="#the-identity-shift"><span class="header-section-number">10.1</span> The Identity Shift</a></li>
-  <li><a href="#your-30-day-migration-plan" id="toc-your-30-day-migration-plan" class="nav-link" data-scroll-target="#your-30-day-migration-plan"><span class="header-section-number">10.2</span> Your 30-Day Migration Plan</a></li>
-  <li><a href="#which-tasks-to-move-first" id="toc-which-tasks-to-move-first" class="nav-link" data-scroll-target="#which-tasks-to-move-first"><span class="header-section-number">10.3</span> Which Tasks to Move First</a></li>
-  <li><a href="#how-to-build-trust-with-stakeholders" id="toc-how-to-build-trust-with-stakeholders" class="nav-link" data-scroll-target="#how-to-build-trust-with-stakeholders"><span class="header-section-number">10.4</span> How to Build Trust With Stakeholders</a></li>
-  <li><a href="#what-comes-next" id="toc-what-comes-next" class="nav-link" data-scroll-target="#what-comes-next"><span class="header-section-number">10.5</span> What Comes Next</a></li>
+  <li><a href="#the-monday-you-work-differently" id="toc-the-monday-you-work-differently" class="nav-link active" data-scroll-target="#the-monday-you-work-differently"><span class="header-section-number">10.1</span> The Monday You Work Differently</a></li>
+  <li><a href="#the-30-day-plan-that-turns-learning-into-habit" id="toc-the-30-day-plan-that-turns-learning-into-habit" class="nav-link" data-scroll-target="#the-30-day-plan-that-turns-learning-into-habit"><span class="header-section-number">10.2</span> The 30-Day Plan That Turns Learning Into Habit</a>
+  <ul class="collapse">
+  <li><a href="#week-1-setup-and-translation" id="toc-week-1-setup-and-translation" class="nav-link" data-scroll-target="#week-1-setup-and-translation"><span class="header-section-number">10.2.1</span> Week 1: Setup And Translation</a></li>
+  <li><a href="#week-2-ai-workflow-and-cleaning" id="toc-week-2-ai-workflow-and-cleaning" class="nav-link" data-scroll-target="#week-2-ai-workflow-and-cleaning"><span class="header-section-number">10.2.2</span> Week 2: AI Workflow And Cleaning</a></li>
+  <li><a href="#week-3-analysis-and-visualization" id="toc-week-3-analysis-and-visualization" class="nav-link" data-scroll-target="#week-3-analysis-and-visualization"><span class="header-section-number">10.2.3</span> Week 3: Analysis And Visualization</a></li>
+  <li><a href="#week-4-one-live-work-project" id="toc-week-4-one-live-work-project" class="nav-link" data-scroll-target="#week-4-one-live-work-project"><span class="header-section-number">10.2.4</span> Week 4: One Live Work Project</a></li>
+  </ul></li>
+  <li><a href="#do-not-announce-the-revolution" id="toc-do-not-announce-the-revolution" class="nav-link" data-scroll-target="#do-not-announce-the-revolution"><span class="header-section-number">10.3</span> Do Not Announce The Revolution</a></li>
+  <li><a href="#the-tool-was-never-the-identity" id="toc-the-tool-was-never-the-identity" class="nav-link" data-scroll-target="#the-tool-was-never-the-identity"><span class="header-section-number">10.4</span> The Tool Was Never The Identity</a></li>
+  <li><a href="#what-comes-after-this-book" id="toc-what-comes-after-this-book" class="nav-link" data-scroll-target="#what-comes-after-this-book"><span class="header-section-number">10.5</span> What Comes After This Book</a></li>
+  <li><a href="#stop-returning-to-the-old-workflow" id="toc-stop-returning-to-the-old-workflow" class="nav-link" data-scroll-target="#stop-returning-to-the-old-workflow"><span class="header-section-number">10.6</span> Stop Returning To The Old Workflow</a></li>
+  <li><a href="#a-simple-reporting-workflow-that-keeps-paying-you-back" id="toc-a-simple-reporting-workflow-that-keeps-paying-you-back" class="nav-link" data-scroll-target="#a-simple-reporting-workflow-that-keeps-paying-you-back"><span class="header-section-number">10.7</span> A Simple Reporting Workflow That Keeps Paying You Back</a></li>
+  <li><a href="#you-were-never-bad-at-data" id="toc-you-were-never-bad-at-data" class="nav-link" data-scroll-target="#you-were-never-bad-at-data"><span class="header-section-number">10.8</span> You Were Never Bad At Data</a></li>
+  <li><a href="#the-last-quiet-upgrade" id="toc-the-last-quiet-upgrade" class="nav-link" data-scroll-target="#the-last-quiet-upgrade"><span class="header-section-number">10.9</span> The Last Quiet Upgrade</a></li>
   </ul>
-</nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/YOUR-USERNAME/excel-refugee-migration/blob/main/chapter-10-migration-plan.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/YOUR-USERNAME/excel-refugee-migration/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -300,38 +365,147 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="callout callout-style-simple callout-note callout-titled" title="Chapter Opening Story">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>Chapter Opening Story
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Placeholder for a scene where the reader looks back at the old workflow with new confidence.</p>
-</div>
-</div>
-<section id="the-identity-shift" class="level2" data-number="10.1">
-<h2 data-number="10.1" class="anchored" data-anchor-id="the-identity-shift"><span class="header-section-number">10.1</span> The Identity Shift</h2>
-<p>Placeholder starter prose.</p>
+<section id="the-monday-you-work-differently" class="level2" data-number="10.1">
+<h2 data-number="10.1" class="anchored" data-anchor-id="the-monday-you-work-differently"><span class="header-section-number">10.1</span> The Monday You Work Differently</h2>
+<p>At 8:04 on a Monday, the file arrives.</p>
+<p>Not a dramatic file. Not a disaster file. Just the usual weekly operations export, attached to a message that sounds harmless if you have never had to build the answer yourself.</p>
+<p>Please send the updated summary before 10.</p>
+<p>Two months ago, that sentence would have changed the texture of the morning. You would have opened the workbook with a small flash of dread. Checked the tabs. Checked the formulas. Checked which version was most recent. Wondered whether the pivot table would survive the refresh. Saved a backup copy before touching anything important. Told yourself to stay calm while already feeling slightly late.</p>
+<p>Now the files arrive and something inside the room stays quiet.</p>
+<p>You open the project folder.</p>
+<p>There is a script.</p>
+<p>There is an <code>inputs</code> folder, an <code>outputs</code> folder, and a sequence you recognize.</p>
+<p>You read the file in. You run the cleaning steps. You join the lookup table. You build the grouped summary. You save the chart. You export the output. You are still working. You are not improvising.</p>
+<p>That difference is bigger than it looks.</p>
+<p>The old workflow made every reporting cycle feel like a test of endurance. The new workflow makes the same cycle feel like a system you can operate with a clear head. The stress has not vanished from corporate life. Deadlines still exist. Stakeholders still send messy files. Last-minute changes still happen because they are apparently part of the atmosphere.</p>
+<p>But the panic has lost its monopoly.</p>
+<p>That is what this final chapter is about.</p>
+<p>Not another technique. Not one more function to memorize. Not one last technical flourish before the book ends.</p>
+<p>This is the chapter where the change becomes operational.</p>
+<p>Because learning R is not the end of the migration.</p>
+<p>Keeping the migration is.</p>
 </section>
-<section id="your-30-day-migration-plan" class="level2" data-number="10.2">
-<h2 data-number="10.2" class="anchored" data-anchor-id="your-30-day-migration-plan"><span class="header-section-number">10.2</span> Your 30-Day Migration Plan</h2>
-<p>Placeholder starter prose.</p>
+<section id="the-30-day-plan-that-turns-learning-into-habit" class="level2" data-number="10.2">
+<h2 data-number="10.2" class="anchored" data-anchor-id="the-30-day-plan-that-turns-learning-into-habit"><span class="header-section-number">10.2</span> The 30-Day Plan That Turns Learning Into Habit</h2>
+<p>A lot of professional change fails for a predictable reason. The insight is real, the enthusiasm is real, the logic is real, then ordinary work returns and the old system pulls harder than people expected.</p>
+<p>That is why this chapter does not end with vague encouragement.</p>
+<p>It ends with a plan.</p>
+<p>Not an aspirational fantasy where you reinvent yourself in a long weekend. A practical four-week migration plan for someone who still has meetings, deadlines, colleagues, and a real job that will keep arriving while the learning is happening.</p>
+<section id="week-1-setup-and-translation" class="level3" data-number="10.2.1">
+<h3 data-number="10.2.1" class="anchored" data-anchor-id="week-1-setup-and-translation"><span class="header-section-number">10.2.1</span> Week 1: Setup And Translation</h3>
+<p>The goal of the first week is not mastery.</p>
+<p>It is proof of entry.</p>
+<p>Install R. Install RStudio. Create a project folder that belongs to one real workflow, not a pile of unrelated experiments. Choose one spreadsheet task you know too well. Something with lookups. Something with repeated merges. Something you have done often enough to resent.</p>
+<p>Then translate it.</p>
+<p>Not the entire reporting pipeline. One task.</p>
+<p>Replace one <code>VLOOKUP</code> with <code>left_join()</code>. Replace one filtering ritual with <code>filter()</code>. Replace one helper-column logic chain with <code>mutate()</code> and a readable classification rule.</p>
+<p>The first week matters because it breaks the emotional fiction that R belongs to some other kind of person. It starts proving that your actual work can enter this environment without turning into a science fair.</p>
+<p>Here is the kind of simple project skeleton that changes the mood immediately:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(fs)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">dir_create</span>(<span class="fu">here</span>(<span class="st">"inputs"</span>))</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">dir_create</span>(<span class="fu">here</span>(<span class="st">"outputs"</span>))</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">dir_create</span>(<span class="fu">here</span>(<span class="st">"scripts"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>That code is ordinary.</p>
+<p>Good.</p>
+<p>Ordinary is what you need. A place for raw files. A place for outputs. A place for logic. Structure is not glamorous. It is what keeps the next file from feeling personal.</p>
 </section>
-<section id="which-tasks-to-move-first" class="level2" data-number="10.3">
-<h2 data-number="10.3" class="anchored" data-anchor-id="which-tasks-to-move-first"><span class="header-section-number">10.3</span> Which Tasks to Move First</h2>
-<p>Placeholder starter prose.</p>
+<section id="week-2-ai-workflow-and-cleaning" class="level3" data-number="10.2.2">
+<h3 data-number="10.2.2" class="anchored" data-anchor-id="week-2-ai-workflow-and-cleaning"><span class="header-section-number">10.2.2</span> Week 2: AI Workflow And Cleaning</h3>
+<p>The second week is where speed starts returning.</p>
+<p>Use your AI assistant well. Not as a substitute for thought. As a translation layer that saves you from getting stuck in syntax anxiety. Feed it the business rule. Let it help draft the code. Verify what comes back. Keep the prompt close to the work.</p>
+<p>This is also the week to build your first repeatable cleaning workflow.</p>
+<p>Take one dirty export that keeps stealing time from you. Standardize the names. Trim the text. Fix the dates. Handle the missing values. Remove duplicates using a defined key. Save the cleaned output. Save the script that produced it.</p>
+<p>The important part is not that the file ends up clean once.</p>
+<p>The important part is that future-you no longer has to remember every fix by hand.</p>
+<p>A first cleaning script can be as straightforward as this:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>weekly_kpi <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="fu">here</span>(<span class="st">"inputs"</span>, <span class="st">"weekly_kpi_export.csv"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_names</span>() <span class="sc">|&gt;</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">region =</span> <span class="fu">str_trim</span>(region),</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">team =</span> <span class="fu">str_trim</span>(team),</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">metric_value =</span> <span class="fu">replace_na</span>(metric_value, <span class="dv">0</span>)</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(report_date, region, team, <span class="at">.keep_all =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(weekly_kpi, <span class="fu">here</span>(<span class="st">"outputs"</span>, <span class="st">"weekly_kpi_clean.csv"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>That is not a monument.</p>
+<p>It is better.</p>
+<p>It is a workflow that can come back tomorrow without pretending it has never met you before.</p>
 </section>
-<section id="how-to-build-trust-with-stakeholders" class="level2" data-number="10.4">
-<h2 data-number="10.4" class="anchored" data-anchor-id="how-to-build-trust-with-stakeholders"><span class="header-section-number">10.4</span> How to Build Trust With Stakeholders</h2>
-<p>Placeholder starter prose.</p>
+<section id="week-3-analysis-and-visualization" class="level3" data-number="10.2.3">
+<h3 data-number="10.2.3" class="anchored" data-anchor-id="week-3-analysis-and-visualization"><span class="header-section-number">10.2.3</span> Week 3: Analysis And Visualization</h3>
+<p>The third week is where the work starts looking more like leadership support and less like file rescue.</p>
+<p>Take one recurring pivot table summary and rewrite it with <code>group_by()</code> and <code>summarise()</code>. Build one chart in <code>ggplot2</code> that does not need to be explained apologetically in a meeting. Export both the summary table and the visual in a form that can travel into slides, email, or a shared folder.</p>
+<p>The point here is not aesthetic self-improvement.</p>
+<p>It is operational clarity.</p>
+<p>Your grouped logic becomes readable. Your visual becomes cleaner. The old reporting ritual loses another piece of territory.</p>
+<p>This is a good week to build a simple repeatable reporting pattern:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scales)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(forcats)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>weekly_summary <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="fu">here</span>(<span class="st">"outputs"</span>, <span class="st">"weekly_kpi_clean.csv"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(region) <span class="sc">|&gt;</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">total_value =</span> <span class="fu">sum</span>(metric_value, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">count_records =</span> <span class="fu">n</span>(),</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">"drop"</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(total_value))</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>weekly_summary_plot <span class="ot">&lt;-</span> weekly_summary <span class="sc">|&gt;</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">region =</span> <span class="fu">fct_reorder</span>(region, total_value)) <span class="sc">|&gt;</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> region, <span class="at">y =</span> total_value)) <span class="sc">+</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">"steelblue"</span>) <span class="sc">+</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"West And South Continue To Lead Weekly KPI Performance"</span>,</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="cn">NULL</span>,</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Total Value"</span></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> comma) <span class="sc">+</span></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">12</span>)</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(</span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>  <span class="at">filename =</span> <span class="fu">here</span>(<span class="st">"outputs"</span>, <span class="st">"weekly_summary_plot.png"</span>),</span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>  <span class="at">plot =</span> weekly_summary_plot,</span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>  <span class="at">width =</span> <span class="dv">8</span>,</span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>  <span class="at">height =</span> <span class="dv">5</span>,</span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>  <span class="at">dpi =</span> <span class="dv">300</span></span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>This is the week when the reader starts noticing a more dangerous question than “Can I do this?”</p>
+<p>The question becomes “Why am I still doing the old workflow at all?”</p>
 </section>
-<section id="what-comes-next" class="level2" data-number="10.5">
-<h2 data-number="10.5" class="anchored" data-anchor-id="what-comes-next"><span class="header-section-number">10.5</span> What Comes Next</h2>
-<p>Placeholder starter prose.</p>
+<section id="week-4-one-live-work-project" class="level3" data-number="10.2.4">
+<h3 data-number="10.2.4" class="anchored" data-anchor-id="week-4-one-live-work-project"><span class="header-section-number">10.2.4</span> Week 4: One Live Work Project</h3>
+<p>Week four is where everything stops being theoretical.</p>
+<p>Choose one real deliverable. A monthly finance summary. A staffing review. A sales performance view. A branch report. A weekly KPI pack. Something with actual consequences and enough visibility to matter.</p>
+<p>Then complete it in R.</p>
+<p>Not necessarily every piece of the final delivery. If the workplace still expects the last mile in Excel or PowerPoint, fine. Let the old format remain the final container for now. The engine underneath is what has changed.</p>
+<p>Import the files.</p>
+<p>Clean them.</p>
+<p>Join them.</p>
+<p>Summarise them.</p>
+<p>Chart them.</p>
+<p>Export them.</p>
+<p>Deliver them.</p>
+<p>This is the week where you prove to yourself that the migration is not a side hobby.</p>
+<p>It is a working system.</p>
 <div class="callout callout-style-simple callout-tip callout-titled" title="Cheat Sheet Box">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -342,35 +516,222 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Placeholder 30-day migration checklist.</p>
+<p><strong>The 30-Day Migration Plan At A Glance</strong></p>
+<ul>
+<li><strong>Week 1:</strong> set up the environment and translate one known Excel task</li>
+<li><strong>Week 2:</strong> build one reusable cleaning workflow and stop fixing duplicates by hand</li>
+<li><strong>Week 3:</strong> replace one recurring pivot-table summary and create one leadership-ready chart</li>
+<li><strong>Week 4:</strong> deliver one live work output from R, even if the final file is still shared as Excel or PowerPoint</li>
+</ul>
+<p>The plan works because it is small enough to survive real life.</p>
 </div>
 </div>
-<div class="callout callout-style-simple callout-note callout-titled" title="PhD Insight Made Simple">
+</section>
+</section>
+<section id="do-not-announce-the-revolution" class="level2" data-number="10.3">
+<h2 data-number="10.3" class="anchored" data-anchor-id="do-not-announce-the-revolution"><span class="header-section-number">10.3</span> Do Not Announce The Revolution</h2>
+<p>A lot of good changes die because they are announced too early.</p>
+<p>You do not need to deliver a speech about leaving spreadsheets behind. You do not need to tell the team you are redesigning the operating system of your work. You do not need to ask for ceremonial permission to become more effective.</p>
+<p>Quiet change travels further.</p>
+<p>This is the Trojan horse strategy.</p>
+<p>Keep the output familiar if needed. Send the Excel file. Export the CSV. Drop the chart into PowerPoint. Give the manager the format they already know how to accept. Let the engine underneath evolve before the culture around you catches up.</p>
+<p>This is not deception.</p>
+<p>It is strategic maturity.</p>
+<p>Organizations often resist process language long before they resist better outcomes. If the deliverable is cleaner, faster, calmer, and more trustworthy, most people do not need a philosophical briefing on how it was produced.</p>
+<p>They need the work.</p>
+<p>That is the smarter route for most corporate professionals. Do not fight the old system theatrically. Outperform it quietly.</p>
+<p>The spreadsheet can remain the envelope for a while.</p>
+<p>It does not have to remain the machinery.</p>
+</section>
+<section id="the-tool-was-never-the-identity" class="level2" data-number="10.4">
+<h2 data-number="10.4" class="anchored" data-anchor-id="the-tool-was-never-the-identity"><span class="header-section-number">10.4</span> The Tool Was Never The Identity</h2>
+<p>This is the shift many readers feel without being able to phrase it cleanly at first.</p>
+<p>For years, the working identity was built around the tool.</p>
+<p>“I do reporting in Excel.”</p>
+<p>“I build finance packs in Excel.”</p>
+<p>“I manage workforce data in Excel.”</p>
+<p>“I keep the KPI tracker alive in Excel.”</p>
+<p>That sentence structure seems harmless until you notice what it does to ambition.</p>
+<p>It makes the tool sound like the profession.</p>
+<p>It turns a container into a category of self.</p>
+<p>A better identity sounds different.</p>
+<p>“I solve reporting problems.”</p>
+<p>“I turn raw files into usable decisions.”</p>
+<p>“I build repeatable workflows.”</p>
+<p>“I make analysis travel cleanly into leadership conversations.”</p>
+<p>That identity is broader, calmer, and harder to trap.</p>
+<p>Because once your identity shifts from software loyalty to problem-solving capability, tool choice becomes strategic instead of tribal. Excel becomes one delivery surface among others. R becomes part of the operating system. The question stops being “What kind of software person am I?” and becomes “What is the cleanest, fastest, most defensible way to solve this problem?”</p>
+<p>That is a professional upgrade.</p>
+<p>And it happens quietly.</p>
+<p>No one may notice at first.</p>
+<p>You will.</p>
+</section>
+<section id="what-comes-after-this-book" class="level2" data-number="10.5">
+<h2 data-number="10.5" class="anchored" data-anchor-id="what-comes-after-this-book"><span class="header-section-number">10.5</span> What Comes After This Book</h2>
+<p>This is where possibility opens, but it needs to open without noise.</p>
+<p>The point is not to overwhelm the reader with a hundred technical futures all at once. The point is to show that the road does not end at cleaning a file and making a chart.</p>
+<p>Once you have a repeatable workflow, several doors become real.</p>
+<p>Quarto reports. So the output becomes less fragmented and more presentation-ready without a pile of manual copying.</p>
+<p>Automated reporting. So a weekly summary can become a scheduled process instead of a recurring act of personal endurance.</p>
+<p>Shiny dashboards. So internal users can interact with live outputs instead of waiting for static summaries.</p>
+<p>Scheduling scripts. So the same job does not need a fresh round of effort every cycle.</p>
+<p><code>tidymodels</code> and forecasting. So the work can move from explanation toward anticipation.</p>
+<p>Internal analytics leadership. So you stop being the person who gets handed the messy file and start becoming the person who shapes how the reporting system should work in the first place.</p>
+<p>Not all at once.</p>
+<p>That is the important part.</p>
+<p>The future does not have to arrive as a technical avalanche. It only has to remain open. The book was never about turning a finance professional or HR analyst into a different species. It was about removing one ceiling and letting the next horizon become visible.</p>
+<div class="callout callout-style-simple callout-note callout-titled" title="PhD Insight">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>PhD Insight Made Simple
+<span class="screen-reader-only">Note</span>PhD Insight
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Placeholder for compounding productivity gains.</p>
+<p>Sustained professional change is more likely when the next horizon feels possible rather than overwhelming.</p>
+<p>People do not persist because the future is infinite. They persist because the next step is clear enough to attempt and meaningful enough to matter. That is why a visible pathway beats vague inspiration.</p>
 </div>
 </div>
-<div class="callout callout-style-simple callout-warning callout-titled" title="Visual Breakout">
+</section>
+<section id="stop-returning-to-the-old-workflow" class="level2" data-number="10.6">
+<h2 data-number="10.6" class="anchored" data-anchor-id="stop-returning-to-the-old-workflow"><span class="header-section-number">10.6</span> Stop Returning To The Old Workflow</h2>
+<p>Relapse does not happen because people are weak.</p>
+<p>It happens because pressure is real.</p>
+<p>A deadline hits. A manager expects the familiar format. A teammate asks for the workbook. The old file is sitting there, already open, already known, already dangerous in a way that at least feels familiar. Under pressure, people return to the tool that lets them feel busy fastest, even if it is the same tool that keeps costing them hours every week.</p>
+<p>That is why this chapter needs commitment devices.</p>
+<p>You need practical anchors strong enough to hold when the next stressful week tries to drag you back.</p>
+<p>A few examples matter more than people think.</p>
+<p>Put R on LinkedIn. Not for applause. For identity reinforcement.</p>
+<p>Save one clean project in a folder you take seriously.</p>
+<p>Share one R-generated output with a trusted colleague.</p>
+<p>Join one R community, even quietly.</p>
+<p>Keep one workflow permanently migrated and refuse to move it back unless something truly breaks.</p>
+<p>Name the new system clearly enough that future-you recognizes it as the standard, not the experiment.</p>
+<p>A commitment device is not dramatic. It is simply something that makes reversal more psychologically expensive than continuation.</p>
+<p>That matters because under deadline pressure, people do not rise to ideals. They fall to defaults.</p>
+<p>Your job is to change the default.</p>
+<p>Here is a simple way to formalize the beginning of a repeatable reporting project:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(fs)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>project_name <span class="ot">&lt;-</span> <span class="st">"weekly-ops-report"</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="fu">dir_create</span>(<span class="fu">here</span>(project_name))</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="fu">dir_create</span>(<span class="fu">here</span>(project_name, <span class="st">"inputs"</span>))</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="fu">dir_create</span>(<span class="fu">here</span>(project_name, <span class="st">"outputs"</span>))</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="fu">dir_create</span>(<span class="fu">here</span>(project_name, <span class="st">"scripts"</span>))</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="fu">dir_create</span>(<span class="fu">here</span>(project_name, <span class="st">"archive"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Now the workflow has a place to live.</p>
+<p>That is not small.</p>
+<p>A system becomes easier to keep when it stops looking like a temporary trick and starts looking like infrastructure.</p>
+<div class="callout callout-style-simple callout-warning callout-titled" title="Friction Warning">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Warning</span>Visual Breakout
+<span class="screen-reader-only">Warning</span>Friction Warning
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Placeholder visual: spreadsheet operator to R-powered strategist.</p>
+<p>The old workflow will try to return under these conditions:</p>
+<ul>
+<li>deadline panic</li>
+<li>team pressure to “just do it the usual way”</li>
+<li>fear that the new process might take ten extra minutes today</li>
+<li>the emotional comfort of a workbook you already know how to survive</li>
+</ul>
+<p>None of these conditions proves the old system is better.</p>
+<p>They only prove it is familiar.</p>
 </div>
 </div>
+</section>
+<section id="a-simple-reporting-workflow-that-keeps-paying-you-back" class="level2" data-number="10.7">
+<h2 data-number="10.7" class="anchored" data-anchor-id="a-simple-reporting-workflow-that-keeps-paying-you-back"><span class="header-section-number">10.7</span> A Simple Reporting Workflow That Keeps Paying You Back</h2>
+<p>By now the reader has seen the pieces many times. What matters here is permanence.</p>
+<p>A repeatable reporting workflow should be boring enough to trust.</p>
+<p>Read the latest clean file.</p>
+<p>Join the lookup table.</p>
+<p>Summarise the metric.</p>
+<p>Save the table.</p>
+<p>Build the chart.</p>
+<p>Save the plot.</p>
+<p>Use the output where the business needs it.</p>
+<p>That skeleton is not flashy. It is what frees you.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>weekly_report <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="fu">here</span>(<span class="st">"inputs"</span>, <span class="st">"weekly_report.csv"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_names</span>()</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>region_lookup <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="fu">here</span>(<span class="st">"inputs"</span>, <span class="st">"region_lookup.csv"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_names</span>()</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>weekly_summary <span class="ot">&lt;-</span> weekly_report <span class="sc">|&gt;</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(region_lookup, <span class="at">by =</span> <span class="st">"region_code"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(region_name) <span class="sc">|&gt;</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">total_value =</span> <span class="fu">sum</span>(metric_value, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">count_records =</span> <span class="fu">n</span>(),</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">"drop"</span></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(total_value))</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(weekly_summary, <span class="fu">here</span>(<span class="st">"outputs"</span>, <span class="st">"weekly_summary.csv"</span>))</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>weekly_plot <span class="ot">&lt;-</span> weekly_summary <span class="sc">|&gt;</span></span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(region_name, total_value), <span class="at">y =</span> total_value)) <span class="sc">+</span></span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">"steelblue"</span>) <span class="sc">+</span></span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Weekly Performance By Region"</span>,</span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="cn">NULL</span>,</span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Total Value"</span></span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">12</span>)</span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(</span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>  <span class="at">filename =</span> <span class="fu">here</span>(<span class="st">"outputs"</span>, <span class="st">"weekly_summary_plot.png"</span>),</span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>  <span class="at">plot =</span> weekly_plot,</span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a>  <span class="at">width =</span> <span class="dv">8</span>,</span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a>  <span class="at">height =</span> <span class="dv">5</span>,</span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a>  <span class="at">dpi =</span> <span class="dv">300</span></span>
+<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>This kind of workflow will not win style awards from people who confuse complexity with seriousness.</p>
+<p>It will do something better.</p>
+<p>It will save you.</p>
+<p>Quietly. Repeatedly. In hours no one else will ever count properly.</p>
+</section>
+<section id="you-were-never-bad-at-data" class="level2" data-number="10.8">
+<h2 data-number="10.8" class="anchored" data-anchor-id="you-were-never-bad-at-data"><span class="header-section-number">10.8</span> You Were Never Bad At Data</h2>
+<p>This is where the book should end.</p>
+<p>Not with a theatrical flourish. Not with a motivational speech pretending the workplace has become easy. It has not. Files will still arrive messy. People will still want things faster than they should. Some teams will still cling to habits that should have been retired years ago.</p>
+<p>But the architecture has changed.</p>
+<p>That is the point.</p>
+<p>The problem was never that you lacked intelligence. Never that you were not “technical enough.” Never that you could not learn serious work. The problem was that you had been doing increasingly complex work inside a system too small, too fragile, and too manual for the scale of what was being asked of you.</p>
+<p>You adapted.</p>
+<p>Of course you did.</p>
+<p>You became vigilant. Fast. Careful. Good at survival.</p>
+<p>Now the work asks for something else.</p>
+<p>Not more panic.</p>
+<p>More structure.</p>
+<p>More repeatability.</p>
+<p>More visible logic.</p>
+<p>More room for judgment to matter.</p>
+<p>That is what this migration has been about from the start.</p>
+<p>Not becoming a different kind of human.</p>
+<p>Becoming harder to trap.</p>
+<p>The Excel refugee is not someone who hated spreadsheets in the abstract. It is someone whose work outgrew the environment and finally found the nerve to admit it. Someone who stopped confusing endurance with suitability. Someone who no longer wants their best professional energy spent holding brittle systems together by hand.</p>
+<p>That someone is not waiting for permission.</p>
+<p>Not anymore.</p>
 <div class="callout callout-style-simple callout-important callout-titled" title="Monday Morning Application">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -381,9 +742,27 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Choose one recurring workflow to migrate this month.</p>
+<p>Before the next reporting cycle begins, do three things.</p>
+<ol type="1">
+<li>choose one workflow that will never go fully back to the old spreadsheet ritual</li>
+<li>create the project folder, script, and output structure for it now</li>
+<li>tell one other person, even casually, that you are building the next version of the work in R</li>
+</ol>
+<p>Then write one sentence and keep it where you can see it.</p>
+<p>I do not rebuild stable logic by hand anymore.</p>
 </div>
 </div>
+</section>
+<section id="the-last-quiet-upgrade" class="level2" data-number="10.9">
+<h2 data-number="10.9" class="anchored" data-anchor-id="the-last-quiet-upgrade"><span class="header-section-number">10.9</span> The Last Quiet Upgrade</h2>
+<p>There is one final shift worth naming.</p>
+<p>You began this book as someone trying to escape spreadsheet chaos.</p>
+<p>You finish it as someone capable of building professional calm.</p>
+<p>That is not the same thing.</p>
+<p>Escape is reactive.</p>
+<p>Calm is constructed.</p>
+<p>And now you know how to construct it.</p>
+<p>That is enough.</p>
 
 
 </section>
@@ -462,7 +841,7 @@ ul.task-list li input[type="checkbox"] {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/YOUR-USERNAME\.github\.io\/excel-refugee-migration\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -796,8 +1175,8 @@ ul.task-list li input[type="checkbox"] {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./appendix-a-cheatsheet.html" class="pagination-link" aria-label="Appendix A: The Master Excel-to-R Cheat Sheet">
-        <span class="nav-page-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Appendix A: The Master Excel-to-R Cheat Sheet</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./appendix-a-cheatsheet.html" class="pagination-link" aria-label="The Master Excel-to-R Cheat Sheet">
+        <span class="nav-page-text">The Master Excel-to-R Cheat Sheet</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -806,4 +1185,4 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-</body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/YOUR-USERNAME/excel-refugee-migration/blob/main/chapter-10-migration-plan.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/YOUR-USERNAME/excel-refugee-migration/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>

@@ -163,3 +163,4 @@ The code blocks throughout the book are meant to be executable. This quick check
 #| eval: true
 
 version$version.string
+```

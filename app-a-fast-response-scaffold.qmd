@@ -1,0 +1,50 @@
+### Fast Response Scaffold
+
+Use this when the request is urgent and your brain needs a clean starting point.
+
+```{r}
+#| label: app-a-fast-response-scaffold
+#| eval: false
+
+library(readr)
+library(readxl)
+library(dplyr)
+library(stringr)
+library(tidyr)
+library(janitor)
+library(openxlsx)
+
+ops_kpi_raw <- read_csv("inputs/weekly_ops_kpi.csv") |>
+  clean_names()
+
+region_lookup <- read_excel("inputs/finance_region_lookup.xlsx", sheet = "Regions") |>
+  clean_names()
+
+glimpse(ops_kpi_raw)
+glimpse(region_lookup)
+
+ops_kpi_clean <- ops_kpi_raw |>
+  mutate(
+    region_code = str_trim(region_code),
+    branch_name = str_to_title(str_trim(branch_name)),
+    kpi_name = str_trim(kpi_name),
+    kpi_value = replace_na(kpi_value, 0)
+  )
+
+regional_kpi_summary <- ops_kpi_clean |>
+  left_join(region_lookup, by = "region_code") |>
+  mutate(region = replace_na(region, "Unmapped")) |>
+  group_by(report_date, region) |>
+  summarise(
+    total_kpi_value = sum(kpi_value, na.rm = TRUE),
+    branches_reported = n_distinct(branch_name),
+    .groups = "drop"
+  ) |>
+  arrange(report_date, region)
+
+write_csv(regional_kpi_summary, "outputs/regional_kpi_summary.csv")
+write.xlsx(regional_kpi_summary, "outputs/regional_kpi_summary.xlsx")
+
+# Save this script before closing the session so the next urgent request
+# starts from a workflow, not from memory.
+```

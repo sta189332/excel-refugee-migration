@@ -53,7 +53,7 @@ You are no longer using Excel as a tool.
 You are protecting a system that should have stopped depending on you this much a long time ago.
 :::
 
-## The skill that made you valuable is starting to trap you
+## The Skill That Made You Valuable is Starting to Trap You
 
 This is how the problem usually hides.
 
@@ -81,7 +81,7 @@ The trap is not that you became too good at Excel.
 
 The trap is that your Excel fluency made it easier for the organization to delay building a workflow that scales.
 
-## The report is done, and you are still behind
+## The Report is Done, and You Are Still Behind
 
 This is the part many professionals feel but do not articulate.
 
@@ -124,7 +124,7 @@ Instead of thinking ahead, you are preserving continuity.
 That is not just inefficient. It is insulting to the level of judgment your role is supposed to require.
 
 ::: {.callout-tip appearance="simple" title="Cheat Sheet Box"}
-**Signs you are no longer doing analysis so much as protecting a process**
+**Signs You Are No Longer Doing Analysis So Much as Protecting a Process**
 
 - the workbook has multiple versions labeled `final`
 - you save backup copies before making routine edits
@@ -134,7 +134,7 @@ That is not just inefficient. It is insulting to the level of judgment your role
 - people rely on you because you know the workaround, not because the workflow is sound
 :::
 
-## You are spending analyst energy on janitorial work
+## You Are Spending Analyst Energy on Janitorial Work
 
 This is where frustration hardens into anger.
 
@@ -178,7 +178,7 @@ Even when the process feels familiar, your brain is constantly paying a tax. Whi
 Repeatable workflows matter because they move the burden from memory to process. They do not make you less thoughtful. They let your thinking go where it is worth more.
 :::
 
-## Manual excellence has a career ceiling
+## Manual Excellence Has a Career Ceiling
 
 There is a harder truth beneath the workflow problem.
 
@@ -220,7 +220,7 @@ In the second panel, show the same analyst working through a clean pipeline: imp
 The contrast should be uncomfortable on purpose.
 :::
 
-## This is not a discipline problem. It is a tool-workflow mismatch
+## This Is Not a Discipline Problem. It Is a Tool-Workflow Mismatch
 
 This is where shame should end.
 
@@ -248,7 +248,7 @@ Because it means the solution is not to work harder inside the same cage.
 
 It is to step into a workflow that respects the scale and repetition of the job you already do.
 
-## The next move is not becoming technical. It is becoming harder to waste
+## The Next Move Is Not Becoming Technical. It Is Becoming Harder to Waste
 
 That distinction matters.
 

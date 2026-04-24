@@ -52,7 +52,7 @@ A lot of professionals decide they are not technical at exactly this point, when
 They met the wrong tool through the wrong door.
 :::
 
-## You were not bad at learning. You were badly matched
+## You Were Not Bad at Learning. You Were Badly Matched
 
 This is the first thing worth correcting.
 
@@ -76,7 +76,7 @@ The issue was fit.
 
 A general-purpose language can be brilliant and still feel like too much distance between the reader and the work they are desperate to improve.
 
-## What feels “technical” depends on where you are standing
+## What Feels “Technical” Depends on Where you Are Standing
 
 Once you see tool choice as a fit question rather than a prestige question, the whole conversation becomes clearer.
 
@@ -132,7 +132,7 @@ If a finance professional works mainly with tables, joins, grouped summaries, cl
 That is one reason some spreadsheet-heavy professionals feel more immediate traction with R than with a broader general-purpose language.
 :::
 
-## R feels less like a new identity and more like a bridge
+## R Feels Less Like a New Identity and More Like a Bridge
 
 This is where the emotional difference becomes visible.
 
@@ -176,7 +176,7 @@ Recognition.
 
 The sense that this tool was built closer to the kind of work they are already doing badly by hand.
 
-## The speed of the first win changes everything
+## The Speed of the First Win Changes Everything
 
 Busy professionals do not need abstract reassurance.
 
@@ -213,7 +213,7 @@ That is a better question.
 It leads somewhere.
 
 ::: {.callout-tip appearance="simple" title="Cheat Sheet Box"}
-**Why R often feels like a better first move for spreadsheet-heavy professionals**
+**Why R Often Feels Like a Better First Move for Spreadsheet-Heavy Professionals**
 
 - it stays close to table-based work
 - it makes joins, summaries, and cleaning feel central, not secondary
@@ -222,7 +222,7 @@ It leads somewhere.
 - it feels more like an analyst extending existing strengths than a beginner starting from scratch
 :::
 
-## The real comparison is not Python versus R. It is friction versus fit
+## The Real Comparison Is Not Python Versus R. It Is Friction Versus Fit
 
 This is where the conversation needs to become more honest.
 
@@ -254,7 +254,7 @@ But your immediate problem is not theoretical language comparison.
 
 Your immediate problem is that Monday morning keeps arriving with the same reporting burden, and you need a tool that feels like help, not like detour.
 
-## You are not trying to become a developer. You are trying to stop wasting your best hours
+## You Are Not Trying to Become a Developer. You Are Trying to Stop Wasting Your Best Hours
 
 This sentence should stay with you because it cleans up a lot of confusion.
 
@@ -296,7 +296,7 @@ Use comparison rows for:
 - likelihood of feeling relevant on Monday morning
 :::
 
-## What the right first tool should feel like
+## What The Right First Tool Should Feel Like
 
 The right first tool should reduce shame, not intensify it.
 
@@ -341,7 +341,7 @@ sales |>
   )
 ```
 
-## You do not need the perfect language. You need the next useful one
+## You Do Not Need the Perfect Language. You Need the Next Useful One
 
 That is enough to move.
 

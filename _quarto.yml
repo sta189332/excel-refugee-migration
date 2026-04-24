@@ -8,10 +8,23 @@ book:
   author: "James Daniel"
   description: "A story-driven practical guide for corporate professionals moving from manual spreadsheet work into faster, repeatable workflows in R."
   date: today
+  favicon: images/favicon.png
+  site-url: "https://sta189332.github.io/excel-refugee-migration/"
+  repo-url: "https://github.com/sta189332/excel-refugee-migration"
+  repo-branch: main
+  repo-actions: [source, issue]
   search: true
   page-navigation: true
   reader-mode: true
   downloads: [pdf, epub]
+  cover-image: images/cover.jpg
+
+  sidebar:
+    search: true
+    collapse-level: 1
+    tools:
+      - icon: github
+        href: "https://github.com/sta189332/excel-refugee-migration"
 
   chapters:
     - index.qmd
@@ -28,13 +41,16 @@ book:
         - chapter-08-ggplot.qmd
         - chapter-09-first-project.qmd
         - chapter-10-migration-plan.qmd
-
-  appendices:
-    - appendix-a-cheatsheet.qmd
-    - appendix-b-prompts.qmd
-    - appendix-c-packages.qmd
-    - appendix-d-glossary.qmd
-    - author-note.qmd
+    - part: "Appendices"
+      chapters:
+        - appendix-a-cheatsheet.qmd
+        - appendix-b-prompts.qmd
+        - appendix-c-packages.qmd
+        - appendix-d-glossary.qmd
+    - part: "Back Matter"
+      chapters:
+        - author-note.qmd
+        - references.qmd
 
 bibliography: references.bib
 

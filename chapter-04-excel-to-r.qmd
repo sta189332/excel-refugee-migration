@@ -74,7 +74,7 @@ You are not abandoning your Excel brain.
 You are finally putting it in a better room.
 :::
 
-## You were never thinking in cells as much as you thought
+## You Were Never Thinking in Cells as Much as You Thought
 
 Spreadsheets train the eye to focus on cells because the interface makes each visible box feel important. But most of the time, that is not how you are truly reasoning.
 
@@ -108,7 +108,7 @@ Because it means the move into R is not a rejection of what you already know.
 
 It is a reorganization of it.
 
-## Stop dragging formulas. Start thinking at the column level
+## Stop Dragging Formulas. Start Thinking at The Column Level
 
 One of the biggest mental shifts is also one of the most useful.
 
@@ -159,7 +159,7 @@ The point is that the logic lives at the right level. You are declaring how the 
 
 That shift is where a lot of spreadsheet fatigue begins to loosen.
 
-## A workbook is often pretending to be a database
+## A Workbook Is Often Pretending to Be a Database
 
 This is another uncomfortable truth that becomes obvious once you start translating your habits.
 
@@ -221,7 +221,7 @@ A join is relational thinking made visible.
 In many business workflows, information is scattered across separate tables because different systems record different parts of the same reality. A join works by using a shared key, such as employee ID, transaction ID, or customer number, to connect those tables. If you already understand why one worksheet needs data from another, you already understand the business logic of a join. R simply expresses it more cleanly.
 :::
 
-## Filters, tabs, and helper columns were always trying to become verbs
+## Filters, Tabs, and Helper Columns Were Always Trying to Become Verbs
 
 There is a reason tidyverse functions feel memorable once you have used them a few times.
 
@@ -279,7 +279,7 @@ Not wrong.
 
 Fragmented.
 
-## The old workflow was not simple. It was familiar
+## The Old Workflow Was Not Simple. It Was Familiar
 
 This distinction matters because familiarity has a way of disguising complexity.
 
@@ -344,7 +344,7 @@ It is also freeing.
 
 Because once the logic becomes explicit, you can improve it.
 
-## The relief is not that R is perfect. It is that the logic becomes readable
+## The Relief Is Not That R Is Perfect. It Is That the Logic Becomes Readable
 
 This is one of the biggest upgrades most professionals feel before they have the vocabulary for it.
 
@@ -414,7 +414,7 @@ translation_map <- tibble::tribble(
 translation_map
 ```
 
-## The next step is not to memorize R. It is to stop translating under pressure
+## The Next Step Is Not to Memorize R. It Is to Stop Translating Under Pressure
 
 If this chapter has done its job, one thing should now feel unmistakable.
 

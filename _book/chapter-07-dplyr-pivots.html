@@ -8,7 +8,7 @@
 
 <meta name="description" content="A story-driven practical guide for corporate professionals moving from manual spreadsheet work into faster, repeatable workflows in R.">
 
-<title>7&nbsp; Pivot Tables Are Dead. Long Live dplyr. – The Excel Refugee Migration</title>
+<title>7&nbsp; Pivot Tables Are Dead. Long Live dplyr – The Excel Refugee Migration</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -68,6 +68,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="quarto:offset" content="./">
 <link href="./chapter-08-ggplot.html" rel="next">
 <link href="./chapter-06-clean-data.html" rel="prev">
+<link href="./images/favicon.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -120,7 +121,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter-01-spreadsheet-ceiling.html">Main</a></li><li class="breadcrumb-item"><a href="./chapter-07-dplyr-pivots.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Pivot Tables Are Dead. Long Live dplyr.</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter-01-spreadsheet-ceiling.html">Main</a></li><li class="breadcrumb-item"><a href="./chapter-07-dplyr-pivots.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Pivot Tables Are Dead. Long Live dplyr</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -138,7 +139,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="./">The Excel Refugee Migration</a> 
-        <div class="sidebar-tools-main">
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://github.com/YOUR-USERNAME/excel-refugee-migration" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+    <a href="https://github.com/YOUR-USERNAME/excel-refugee-migration" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
     <div class="dropdown">
       <a href="" title="Download" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Download"><i class="bi bi-download"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
@@ -195,31 +198,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-01-spreadsheet-ceiling.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">The Spreadsheet Ceiling: Why Your Excel Skills Became a Prison</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">When Being the Excel Hero Starts Costing You Your Future</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-02-why-r-not-python.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Why Not Python? The Honest Answer Nobody Gives You</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Python Was Never the Point: Why R Feels Like the Tool You Were Looking For All Along</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-03-first-60-minutes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">R Without the Fear: Your First 60 Minutes (And It Won’t Hurt)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">R Without the Fear: The First Hour That Finally Feels Useful</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-04-excel-to-r.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Fluent in Both Languages: Translating Your Excel Brain to R</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">You Already Speak Half the Language: Translating Your Excel Brain into R</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-05-chatgpt-copilot.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Your AI Co-Pilot: Using ChatGPT as Your Personal R Translator</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Your AI Co-Pilot: Using Gemini Inside RStudio as Your Personal R Translator</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -231,13 +234,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-07-dplyr-pivots.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Pivot Tables Are Dead. Long Live dplyr.</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Pivot Tables Are Dead. Long Live dplyr</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-08-ggplot.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Untitled</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Charts That Actually Impress: ggplot2 vs.&nbsp;Excel’s Chart Wizard</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -256,41 +259,58 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
  <span class="menu-text">Appendices</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix-a-cheatsheet.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Appendix A: The Master Excel-to-R Cheat Sheet</span></span></a>
+ <span class="menu-text">The Master Excel-to-R Cheat Sheet</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix-b-prompts.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Appendix B: The ChatGPT Prompt Library for R</span></span></a>
+ <span class="menu-text">The In-Session AI Prompt Library for R</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix-c-packages.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Appendix C: Recommended R Packages by Use Case</span></span></a>
+ <span class="menu-text">Recommended R Packages by Use Case</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix-d-glossary.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Appendix D: Glossary, Excel Terms and Their R Equivalents</span></span></a>
+ <span class="menu-text">Glossary: Excel Terms, R Terms, and Workflow Language</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
+ <span class="menu-text">Back Matter</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./author-note.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Author’s Note</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./author-note.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Author’s Note</span></span></a>
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
   </div>
 </li>
       </ul>
@@ -305,19 +325,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#what-pivot-tables-get-right" id="toc-what-pivot-tables-get-right" class="nav-link active" data-scroll-target="#what-pivot-tables-get-right"><span class="header-section-number">7.1</span> What Pivot Tables Get Right</a></li>
-  <li><a href="#where-pivot-tables-run-out-of-road" id="toc-where-pivot-tables-run-out-of-road" class="nav-link" data-scroll-target="#where-pivot-tables-run-out-of-road"><span class="header-section-number">7.2</span> Where Pivot Tables Run Out of Road</a></li>
-  <li><a href="#grouped-summaries-that-stay-consistent" id="toc-grouped-summaries-that-stay-consistent" class="nav-link" data-scroll-target="#grouped-summaries-that-stay-consistent"><span class="header-section-number">7.3</span> Grouped Summaries That Stay Consistent</a></li>
-  <li><a href="#from-one-off-report-to-reusable-workflow" id="toc-from-one-off-report-to-reusable-workflow" class="nav-link" data-scroll-target="#from-one-off-report-to-reusable-workflow"><span class="header-section-number">7.4</span> From One-Off Report to Reusable Workflow</a></li>
+  <li><a href="#the-fastest-good-idea-excel-ever-gave-you" id="toc-the-fastest-good-idea-excel-ever-gave-you" class="nav-link active" data-scroll-target="#the-fastest-good-idea-excel-ever-gave-you"><span class="header-section-number">7.1</span> The Fastest Good Idea Excel Ever Gave You</a></li>
+  <li><a href="#the-drag-and-drop-trap" id="toc-the-drag-and-drop-trap" class="nav-link" data-scroll-target="#the-drag-and-drop-trap"><span class="header-section-number">7.2</span> The Drag-and-Drop Trap</a></li>
+  <li><a href="#when-the-summary-knows-more-than-the-workbook" id="toc-when-the-summary-knows-more-than-the-workbook" class="nav-link" data-scroll-target="#when-the-summary-knows-more-than-the-workbook"><span class="header-section-number">7.3</span> When The Summary Knows More Than The Workbook</a></li>
+  <li><a href="#dplyr-lets-you-state-the-question-directly" id="toc-dplyr-lets-you-state-the-question-directly" class="nav-link" data-scroll-target="#dplyr-lets-you-state-the-question-directly"><span class="header-section-number">7.4</span> dplyr Lets You State The Question Directly</a></li>
+  <li><a href="#group_by-and-summarise-are-not-programming-tricks" id="toc-group_by-and-summarise-are-not-programming-tricks" class="nav-link" data-scroll-target="#group_by-and-summarise-are-not-programming-tricks"><span class="header-section-number">7.5</span> group_by() And summarise() Are Not Programming Tricks</a></li>
+  <li><a href="#stop-rebuilding-the-same-answer" id="toc-stop-rebuilding-the-same-answer" class="nav-link" data-scroll-target="#stop-rebuilding-the-same-answer"><span class="header-section-number">7.6</span> Stop Rebuilding The Same Answer</a></li>
+  <li><a href="#readable-logic-is-a-professional-advantage" id="toc-readable-logic-is-a-professional-advantage" class="nav-link" data-scroll-target="#readable-logic-is-a-professional-advantage"><span class="header-section-number">7.7</span> Readable Logic Is A Professional Advantage</a></li>
+  <li><a href="#one-good-summary-script-is-worth-more-than-ten-familiar-clicks" id="toc-one-good-summary-script-is-worth-more-than-ten-familiar-clicks" class="nav-link" data-scroll-target="#one-good-summary-script-is-worth-more-than-ten-familiar-clicks"><span class="header-section-number">7.8</span> One Good Summary Script Is Worth More Than Ten Familiar Clicks</a></li>
+  <li><a href="#your-summary-workflow-should-outlive-the-current-file" id="toc-your-summary-workflow-should-outlive-the-current-file" class="nav-link" data-scroll-target="#your-summary-workflow-should-outlive-the-current-file"><span class="header-section-number">7.9</span> Your Summary Workflow Should Outlive The Current File</a></li>
+  <li><a href="#optional-workflow-snapshot" id="toc-optional-workflow-snapshot" class="nav-link" data-scroll-target="#optional-workflow-snapshot"><span class="header-section-number">7.10</span> Optional Workflow Snapshot</a></li>
+  <li><a href="#once-the-summary-is-stable-the-next-problem-is-the-visual" id="toc-once-the-summary-is-stable-the-next-problem-is-the-visual" class="nav-link" data-scroll-target="#once-the-summary-is-stable-the-next-problem-is-the-visual"><span class="header-section-number">7.11</span> Once The Summary Is Stable, The Next Problem Is The Visual</a></li>
   </ul>
-</nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/YOUR-USERNAME/excel-refugee-migration/blob/main/chapter-07-dplyr-pivots.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/YOUR-USERNAME/excel-refugee-migration/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter-01-spreadsheet-ceiling.html">Main</a></li><li class="breadcrumb-item"><a href="./chapter-07-dplyr-pivots.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Pivot Tables Are Dead. Long Live dplyr.</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter-01-spreadsheet-ceiling.html">Main</a></li><li class="breadcrumb-item"><a href="./chapter-07-dplyr-pivots.html"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Pivot Tables Are Dead. Long Live dplyr</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Pivot Tables Are Dead. Long Live dplyr.</span></h1>
+<h1 class="title"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Pivot Tables Are Dead. Long Live dplyr</span></h1>
 </div>
 
 
@@ -344,35 +371,229 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Placeholder for a reporting task involving repeated pivot rebuilds.</p>
+<p>By the fourth Monday in a row, the summary feels familiar enough to be insulting.</p>
+<p>Same workbook.</p>
+<p>Same raw export.</p>
+<p>Same pivot table that looked useful the first time and now behaves like a needy appliance with a personality disorder. You refresh it. It does not pick up the full range. You fix the source. Drag the region field back into rows. Move month into columns. Rebuild the values section because the last version lost the aggregation. Change <code>Count of Employee ID</code> to <code>Headcount</code> because no one above you should have to look at Pivot Table language. Sort the departments again. Expand the labels. Collapse the labels. Remove subtotals. Turn grand totals back on because somebody will ask for them in the meeting.</p>
+<p>Then the format breaks.</p>
+<p>Or the labels drift.</p>
+<p>Or the calculated field you used last week does not survive the new extract the way you thought it would.</p>
+<p>The report still gets done. That is not the point.</p>
+<p>The point is that every week the summary behaves like a task you have to reconstruct instead of a question you should already know how to answer.</p>
+<p>You are not asking a new business question.</p>
+<p>You are asking the same one again.</p>
+<p>Headcount by department.<br>
+Revenue by region.<br>
+Payroll by cost center.<br>
+Volumes by site.<br>
+Exceptions by month.</p>
+<p>And still the workbook keeps forcing you back through the interface as if the previous three Mondays never happened.</p>
+<p>This is where pivot table fatigue becomes harder to dismiss.</p>
+<p>Because once you have clean data, the repetition becomes obvious. The file is no longer the main problem. The summary ritual is. The drag. The drop. The refresh. The relabeling. The reformatting. The little manual acts of reconstruction that keep turning one stable question into four unstable clicks and a fresh round of vigilance.</p>
+<p>You begin to see it clearly.</p>
+<p>The problem is not that the data changed.</p>
+<p>The problem is that the workflow keeps making you rebuild the answer.</p>
 </div>
 </div>
-<section id="what-pivot-tables-get-right" class="level2" data-number="7.1">
-<h2 data-number="7.1" class="anchored" data-anchor-id="what-pivot-tables-get-right"><span class="header-section-number">7.1</span> What Pivot Tables Get Right</h2>
-<p>Placeholder starter prose.</p>
+<section id="the-fastest-good-idea-excel-ever-gave-you" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="the-fastest-good-idea-excel-ever-gave-you"><span class="header-section-number">7.1</span> The Fastest Good Idea Excel Ever Gave You</h2>
+<p>Pivot tables earned their place.</p>
+<p>That deserves to be said plainly.</p>
+<p>For a lot of professionals, they were the first time data stopped feeling flat and started feeling interrogable. You could take a large table, drag a few fields, and suddenly see the shape of the business. Sales by region. Headcount by department. Spend by category. Volume by month. What looked like a cluttered export would snap into something readable in a minute or two.</p>
+<p>That was not trivial.</p>
+<p>It was a genuine upgrade in how people learned to reason with data.</p>
+<p>Pivot tables gave spreadsheet users a low-friction way to move from raw rows to grouped meaning. They let people ask better questions without learning a formal language first. For a stage of your development, they were not a crutch. They were a doorway.</p>
+<p>That is why this chapter is not an attack on them.</p>
+<p>The point is not that pivot tables were bad.</p>
+<p>The point is that they were brilliant for a phase of the work and increasingly inadequate for the shape the work has now taken.</p>
+<p>There is a difference between respecting the tool that helped you grow and staying loyal to it after it has started costing you too much.</p>
 </section>
-<section id="where-pivot-tables-run-out-of-road" class="level2" data-number="7.2">
-<h2 data-number="7.2" class="anchored" data-anchor-id="where-pivot-tables-run-out-of-road"><span class="header-section-number">7.2</span> Where Pivot Tables Run Out of Road</h2>
-<p>Placeholder starter prose.</p>
+<section id="the-drag-and-drop-trap" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="the-drag-and-drop-trap"><span class="header-section-number">7.2</span> The Drag-and-Drop Trap</h2>
+<p>The weakness of pivot tables is not obvious when the summary is new.</p>
+<p>It shows up when the summary becomes recurring.</p>
+<p>That is the break point.</p>
+<p>A recurring report should get lighter over time. The business question stays familiar. The logic stabilizes. The workflow should become more efficient with repetition. But pivot-based reporting often does the opposite. The summary may be conceptually identical each week, yet the interface keeps dragging you back into manual reconstruction.</p>
+<p>Refresh the pivot.</p>
+<p>Check the source range.</p>
+<p>Reapply the sort.</p>
+<p>Fix the labels.</p>
+<p>Rebuild the calculated field.</p>
+<p>Undo the default formatting.</p>
+<p>Copy the result into slides.</p>
+<p>Repeat next week.</p>
+<p>None of those steps is individually dramatic. Together, they create a strange professional insult. You are answering a known question through a process that behaves as if the question were brand new every time.</p>
+<p>And because pivot tables live so deeply in the interface, the logic is harder to read than people admit. A workbook may show the final summary, but the reasoning behind it is scattered across field placement, hidden source settings, formatting choices, and memory. Someone else opening the file can see the output without fully seeing the thought.</p>
+<p>That matters.</p>
+<p>Because hard-to-read logic is hard-to-trust logic.</p>
+<p>And hard-to-trust logic forces you back into vigilance instead of analysis.</p>
 </section>
-<section id="grouped-summaries-that-stay-consistent" class="level2" data-number="7.3">
-<h2 data-number="7.3" class="anchored" data-anchor-id="grouped-summaries-that-stay-consistent"><span class="header-section-number">7.3</span> Grouped Summaries That Stay Consistent</h2>
-<p>Placeholder starter prose.</p>
+<section id="when-the-summary-knows-more-than-the-workbook" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="when-the-summary-knows-more-than-the-workbook"><span class="header-section-number">7.3</span> When The Summary Knows More Than The Workbook</h2>
+<p>This is where irritation becomes useful.</p>
+<p>A lot of recurring reports outgrow the environment that still contains them. The business question becomes stable enough to deserve a durable answer, but the workbook keeps responding with temporary behavior.</p>
+<p>Take a weekly revenue summary by region and month. Or a monthly headcount by department and location. Or payroll totals by cost center. These are not mysterious questions. They are not experimental. They are not one-off puzzles requiring artisanal spreadsheet choreography.</p>
+<p>They are stable summary questions.</p>
+<p>Yet the workbook handles them as if the analyst should remain trapped inside the same repetitive movements.</p>
+<p>That is the hidden cost of interface-first summary work. The answer may be right, but it remains awkward to audit, awkward to reuse, and awkward to adapt when the data shape shifts slightly. A new region appears. A department is renamed. A month arrives late. A field moves. The pivot still works, until it does not, and when it does not the failure is often discovered late, after you have already trusted the output enough to format it.</p>
+<p>This is not only inefficient.</p>
+<p>It is a weak bargain between your intelligence and your time.</p>
+<p>You know more than the workflow allows you to express cleanly.</p>
+<p>The summary knows what you mean. The workbook does not know how to remember it with dignity.</p>
+<div class="callout callout-style-simple callout-warning callout-titled" title="Friction Warning">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Friction Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A recurring summary is no longer “quick” if it depends on all of the following every cycle:</p>
+<ul>
+<li>refreshing the pivot manually</li>
+<li>checking whether the source range moved</li>
+<li>reapplying sorts or labels</li>
+<li>recreating calculated fields</li>
+<li>reformatting output before sharing</li>
+<li>copying results into another workbook or slide deck</li>
+</ul>
+<p>That is not speed. That is repetition disguised as convenience.</p>
+</div>
+</div>
 </section>
-<section id="from-one-off-report-to-reusable-workflow" class="level2" data-number="7.4">
-<h2 data-number="7.4" class="anchored" data-anchor-id="from-one-off-report-to-reusable-workflow"><span class="header-section-number">7.4</span> From One-Off Report to Reusable Workflow</h2>
-<p>Placeholder starter prose.</p>
+<section id="dplyr-lets-you-state-the-question-directly" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="dplyr-lets-you-state-the-question-directly"><span class="header-section-number">7.4</span> dplyr Lets You State The Question Directly</h2>
+<p>This is where relief begins.</p>
+<p><code>dplyr</code> does not ask you to drag fields around an interface to discover what you mean. It asks you to say what you mean clearly.</p>
+<p>That difference changes the entire emotional tone of summary work.</p>
+<p>Suppose you want total revenue by region from a clean sales export. Start by bringing the file in and standardizing the structure.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>sales <span class="sc">|&gt;</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(region, month) <span class="sc">|&gt;</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">revenue =</span> <span class="fu">sum</span>(revenue, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">orders =</span> <span class="fu">n</span>(),</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">"drop"</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scales)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>sales <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/sales_clean.csv"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_names</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Now inspect it, quickly.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(sales)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Then ask the question directly.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>revenue_by_region <span class="ot">&lt;-</span> sales <span class="sc">|&gt;</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(region) <span class="sc">|&gt;</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">total_revenue =</span> <span class="fu">sum</span>(revenue, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">orders =</span> <span class="fu">n</span>(),</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">average_order_value =</span> <span class="fu">mean</span>(revenue, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">"drop"</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(total_revenue))</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>revenue_by_region</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>That is the business question, stated in readable form.</p>
+<p>Group by region.</p>
+<p>Summarise the revenue.</p>
+<p>Count the orders.</p>
+<p>Calculate the average order value.</p>
+<p>Sort the result from highest to lowest.</p>
+<p>Nothing is hidden in the interface. Nothing is being implied by where a field was dragged. The logic is visible, rerunnable, and easy to inspect later.</p>
+<p>That is why grouped summaries in R feel calmer. They do not ask you to remember where the answer lives. They show you how the answer is being produced.</p>
+</section>
+<section id="group_by-and-summarise-are-not-programming-tricks" class="level2" data-number="7.5">
+<h2 data-number="7.5" class="anchored" data-anchor-id="group_by-and-summarise-are-not-programming-tricks"><span class="header-section-number">7.5</span> group_by() And summarise() Are Not Programming Tricks</h2>
+<p>This is important for the reader who still feels the old resistance rise whenever code appears.</p>
+<p><code>group_by()</code> and <code>summarise()</code> are not technical rituals for people who want to look clever.</p>
+<p>They are plain business reasoning in a more durable form.</p>
+<p><code>group_by()</code> says: break the data into the groups you care about.</p>
+<p><code>summarise()</code> says: now tell me what you need to know about each group.</p>
+<p>That is all.</p>
+<p>If you have ever built a pivot table, you already understand the thinking. What changes is not the analytical act. What changes is the medium through which the act becomes stable.</p>
+<p>Suppose you need monthly headcount by department.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>headcount <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/headcount_clean.csv"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_names</span>()</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>headcount_summary <span class="ot">&lt;-</span> headcount <span class="sc">|&gt;</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(report_month, department) <span class="sc">|&gt;</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">headcount =</span> <span class="fu">n</span>(),</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">"drop"</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(report_month, department)</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>headcount_summary</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>This is pivot table thinking with its spine exposed.</p>
+<p>You are not dragging a department field into rows and a month field into columns and hoping the result survives refresh. You are saying, in full view, what the grouping is and what the summary is.</p>
+<p>That visibility is where confidence starts returning.</p>
+<div class="callout callout-style-simple callout-note callout-titled" title="PhD Insight">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>PhD Insight
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Grouped summaries are easier to verify because they make aggregation logic explicit.</p>
+<p>In interface-driven tools, the summary can be correct without the reasoning being easy to inspect. In a grouped pipeline, the reasoning is part of the artifact. The grouping variables, the summary functions, and the ordering all live in the code. That makes the workflow easier to audit, easier to explain, and easier to rerun without memory doing half the work.</p>
+</div>
+</div>
+</section>
+<section id="stop-rebuilding-the-same-answer" class="level2" data-number="7.6">
+<h2 data-number="7.6" class="anchored" data-anchor-id="stop-rebuilding-the-same-answer"><span class="header-section-number">7.6</span> Stop Rebuilding The Same Answer</h2>
+<p>This is the real breakthrough of the chapter.</p>
+<p>Not that R can summarize data.</p>
+<p>That R can remember how you summarized it.</p>
+<p>Once the grouped logic is written, the weekly rebuild disappears. Not the thought. The rebuild.</p>
+<p>The updated file arrives.</p>
+<p>You import it.</p>
+<p>You run the pipeline.</p>
+<p>The summary comes back in the same form as last week, because last week’s logic is now a reusable asset rather than a sequence of clicks you have to reconstruct under deadline.</p>
+<p>This is where a one-off report becomes a workflow.</p>
+<p>Imagine an operations file with weekly volumes by site. In a spreadsheet ritual, you would refresh the pivot, rebuild the sort, reapply the labels, and fix the formatting if the shape changed. In R, you write it once:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>operations <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/operations_clean.csv"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_names</span>()</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>site_summary <span class="ot">&lt;-</span> operations <span class="sc">|&gt;</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(site, week) <span class="sc">|&gt;</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">total_volume =</span> <span class="fu">sum</span>(volume, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">average_turnaround =</span> <span class="fu">mean</span>(turnaround_minutes, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">transactions =</span> <span class="fu">n</span>(),</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">"drop"</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(week, <span class="fu">desc</span>(total_volume))</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>site_summary</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Now the summary is not a fragile outcome of remembered interface moves.</p>
+<p>It is a visible expression of the reporting logic.</p>
+<p>That changes the relationship between you and the report. You stop feeling like its caretaker and start acting like its author.</p>
+</section>
+<section id="readable-logic-is-a-professional-advantage" class="level2" data-number="7.7">
+<h2 data-number="7.7" class="anchored" data-anchor-id="readable-logic-is-a-professional-advantage"><span class="header-section-number">7.7</span> Readable Logic Is A Professional Advantage</h2>
+<p>This is the part people often realize late.</p>
+<p>Once summary logic becomes readable, it becomes easier to defend.</p>
+<p>You can show a manager the pipeline and explain the grouping.</p>
+<p>You can check the row counts and totals.</p>
+<p>You can modify the question without rebuilding the whole object.</p>
+<p>You can hand the workflow to another analyst without also handing over a private oral history of how the workbook behaves on bad days.</p>
+<p>Readable logic is not only good for technical cleanliness.</p>
+<p>It changes how your work is perceived.</p>
+<p>You move from “the person who can always make the pivot work” to “the person who can build a reporting process others can trust.”</p>
+<p>That is a better career story.</p>
+<p>And it happens not because <code>dplyr</code> is fashionable, but because stable grouped logic is a more durable professional asset than interface fluency alone.</p>
 <div class="callout callout-style-simple callout-tip callout-titled" title="Cheat Sheet Box">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -383,22 +604,83 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Placeholder comparison: pivot fields vs <code>dplyr</code> verbs.</p>
+<p><strong>Pivot Table Thinking, Translated</strong></p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>What You Used To Do</th>
+<th>What You Were Really Asking</th>
+<th>dplyr Translation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Drag field into Rows</td>
+<td>Group the data by a category</td>
+<td><code>group_by()</code></td>
+</tr>
+<tr class="even">
+<td>Add values to Values area</td>
+<td>Calculate a metric for each group</td>
+<td><code>summarise()</code></td>
+</tr>
+<tr class="odd">
+<td>Sort the pivot manually</td>
+<td>Reorder groups by importance</td>
+<td><code>arrange()</code></td>
+</tr>
+<tr class="even">
+<td>Add a calculated field</td>
+<td>Create a derived metric</td>
+<td><code>mutate()</code></td>
+</tr>
+<tr class="odd">
+<td>Refresh the pivot</td>
+<td>Recompute the grouped result</td>
+<td>Re-run the script</td>
+</tr>
+<tr class="even">
+<td>Copy result to another sheet</td>
+<td>Save or reuse the summary</td>
+<td><code>write_csv()</code></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
-<div class="callout callout-style-simple callout-note callout-titled" title="PhD Insight Made Simple">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+</section>
+<section id="one-good-summary-script-is-worth-more-than-ten-familiar-clicks" class="level2" data-number="7.8">
+<h2 data-number="7.8" class="anchored" data-anchor-id="one-good-summary-script-is-worth-more-than-ten-familiar-clicks"><span class="header-section-number">7.8</span> One Good Summary Script Is Worth More Than Ten Familiar Clicks</h2>
+<p>By the time professionals get this far into the migration, they usually stop asking whether code can do the thing.</p>
+<p>What matters now is whether it can do the thing with less repeated strain.</p>
+<p>That is the right question.</p>
+<p>Because a summary script does more than reproduce a pivot table. It preserves thought. It lets the next run start with yesterday’s logic intact. It gives future-you a calmer morning.</p>
+<p>Save the summary:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(revenue_by_region, <span class="st">"outputs/revenue_by_region.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span>PhD Insight Made Simple
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Placeholder for grouped aggregation.</p>
-</div>
-</div>
+<p>Now the answer is portable.</p>
+<p>It can feed a deck. A dashboard. A monthly review. A board pack. A manager’s email. A chart that actually deserves to exist.</p>
+<p>And the underlying logic stays where you can see it.</p>
+<p>That is how reporting starts feeling less like performance and more like system design.</p>
+</section>
+<section id="your-summary-workflow-should-outlive-the-current-file" class="level2" data-number="7.9">
+<h2 data-number="7.9" class="anchored" data-anchor-id="your-summary-workflow-should-outlive-the-current-file"><span class="header-section-number">7.9</span> Your Summary Workflow Should Outlive The Current File</h2>
+<p>This is where ambition starts showing up.</p>
+<p>The summary should not depend on this week’s workbook, this week’s tab structure, or this week’s manual formatting rescue. It should outlive the file that happened to trigger it.</p>
+<p>That is what grouped logic gives you.</p>
+<p>A question that can survive new data.</p>
+<p>A process that does not panic when the next extract arrives.</p>
+<p>A workflow that gets stronger with repetition instead of more exhausting.</p>
+<p>When people say they want to become more strategic with data, this is often what they mean without realizing it. They do not merely want prettier tools. They want their effort to compound. They want the next report to inherit the intelligence of the last one.</p>
+<p>That is what starts happening here.</p>
+<p>The answer stops being rebuilt by hand.</p>
+<p>It starts being rerun by design.</p>
 <div class="callout callout-style-simple callout-warning callout-titled" title="Visual Breakout">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -409,9 +691,41 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Placeholder visual: Pivot Table vs <code>group_by()</code> and <code>summarise()</code>.</p>
+<p>Create a visual called <strong>The Same Summary, Two Different Lives</strong>.</p>
+<p><strong>Left Side: Pivot Table Ritual</strong> - refresh - drag fields - fix labels - rebuild sort - recalculate - copy into slides - repeat next week</p>
+<p><strong>Right Side: dplyr Summary Workflow</strong> - read clean data - group - summarise - arrange - save output - rerun next week</p>
+<p>The visual should show that one side depends on remembering the interface. The other depends on preserving the logic.</p>
 </div>
 </div>
+</section>
+<section id="optional-workflow-snapshot" class="level2" data-number="7.10">
+<h2 data-number="7.10" class="anchored" data-anchor-id="optional-workflow-snapshot"><span class="header-section-number">7.10</span> Optional Workflow Snapshot</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tibble)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>summary_workflow <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">tribble</span>(</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>step, <span class="sc">~</span>purpose, <span class="sc">~</span>risk_if_manual,</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">"read_csv()"</span>, <span class="st">"Import the latest clean file"</span>, <span class="st">"Wrong file version or stale pivot source"</span>,</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">"clean_names()"</span>, <span class="st">"Standardize columns"</span>, <span class="st">"Field mismatch or inconsistent labels"</span>,</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">"group_by()"</span>, <span class="st">"Declare the grouping logic"</span>, <span class="st">"Groups hidden inside interface settings"</span>,</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="st">"summarise()"</span>, <span class="st">"Calculate stable metrics"</span>, <span class="st">"Inconsistent aggregation choices"</span>,</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  <span class="st">"arrange()"</span>, <span class="st">"Order the output clearly"</span>, <span class="st">"Manual sorts lost on refresh"</span>,</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>  <span class="st">"write_csv()"</span>, <span class="st">"Save reusable output"</span>, <span class="st">"Results trapped in workbook ritual"</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>summary_workflow</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="once-the-summary-is-stable-the-next-problem-is-the-visual" class="level2" data-number="7.11">
+<h2 data-number="7.11" class="anchored" data-anchor-id="once-the-summary-is-stable-the-next-problem-is-the-visual"><span class="header-section-number">7.11</span> Once The Summary Is Stable, The Next Problem Is The Visual</h2>
+<p>This is the handoff point.</p>
+<p>Once the data is clean and the summary logic is stable, the next bottleneck stops being the spreadsheet. It becomes the presentation.</p>
+<p>How do you turn grouped output into a chart that does not look improvised.</p>
+<p>How do you move from a stable table to a visual someone higher up can read in five seconds without asking what they are looking at.</p>
+<p>That is not a formatting problem.</p>
+<p>It is the next stage of control.</p>
+<p>Because once you stop rebuilding the same summary every week, one new possibility appears immediately.</p>
+<p>You can start designing what the answer should look like.</p>
 <div class="callout callout-style-simple callout-important callout-titled" title="Monday Morning Application">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -422,7 +736,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Recreate one recurring pivot summary in R.</p>
+<p>Choose one recurring pivot table you rebuilt recently.</p>
+<p>Then replace it with a grouped summary script.</p>
+<ol type="1">
+<li>import the clean file with <code>read_csv()</code></li>
+<li>standardize names with <code>clean_names()</code></li>
+<li>identify the real grouping variables</li>
+<li>write the grouped logic with <code>group_by()</code></li>
+<li>calculate the needed metrics with <code>summarise()</code></li>
+<li>sort the result with <code>arrange()</code></li>
+<li>save the output with <code>write_csv()</code></li>
+</ol>
+<p>Then ask yourself one question.</p>
+<p>If this exact summary came back next Monday, would you rather rebuild it through the interface, or rerun logic you can already read?</p>
 </div>
 </div>
 
@@ -503,7 +829,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/YOUR-USERNAME\.github\.io\/excel-refugee-migration\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -837,8 +1163,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./chapter-08-ggplot.html" class="pagination-link" aria-label="Untitled">
-        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Untitled</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./chapter-08-ggplot.html" class="pagination-link" aria-label="Charts That Actually Impress: ggplot2 vs. Excel's Chart Wizard">
+        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Charts That Actually Impress: ggplot2 vs.&nbsp;Excel’s Chart Wizard</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -847,4 +1173,4 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-</body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/YOUR-USERNAME/excel-refugee-migration/blob/main/chapter-07-dplyr-pivots.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/YOUR-USERNAME/excel-refugee-migration/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>

@@ -8,7 +8,7 @@
 
 <meta name="description" content="A story-driven practical guide for corporate professionals moving from manual spreadsheet work into faster, repeatable workflows in R.">
 
-<title>Appendix A — Appendix A: The Master Excel-to-R Cheat Sheet – The Excel Refugee Migration</title>
+<title>The Master Excel-to-R Cheat Sheet – The Excel Refugee Migration</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -33,6 +68,7 @@ ul.task-list li input[type="checkbox"] {
 <meta name="quarto:offset" content="./">
 <link href="./appendix-b-prompts.html" rel="next">
 <link href="./chapter-10-migration-plan.html" rel="prev">
+<link href="./images/favicon.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -85,7 +121,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./appendix-a-cheatsheet.html">Appendices</a></li><li class="breadcrumb-item"><a href="./appendix-a-cheatsheet.html"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Appendix A: The Master Excel-to-R Cheat Sheet</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./appendix-a-cheatsheet.html">Appendices</a></li><li class="breadcrumb-item"><a href="./appendix-a-cheatsheet.html">The Master Excel-to-R Cheat Sheet</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -103,7 +139,9 @@ ul.task-list li input[type="checkbox"] {
       </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="./">The Excel Refugee Migration</a> 
-        <div class="sidebar-tools-main">
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://github.com/YOUR-USERNAME/excel-refugee-migration" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+    <a href="https://github.com/YOUR-USERNAME/excel-refugee-migration" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
     <div class="dropdown">
       <a href="" title="Download" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Download"><i class="bi bi-download"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
@@ -150,41 +188,41 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
  <span class="menu-text">Main</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-01-spreadsheet-ceiling.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">The Spreadsheet Ceiling: Why Your Excel Skills Became a Prison</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">When Being the Excel Hero Starts Costing You Your Future</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-02-why-r-not-python.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Why Not Python? The Honest Answer Nobody Gives You</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Python Was Never the Point: Why R Feels Like the Tool You Were Looking For All Along</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-03-first-60-minutes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">R Without the Fear: Your First 60 Minutes (And It Won’t Hurt)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">R Without the Fear: The First Hour That Finally Feels Useful</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-04-excel-to-r.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Fluent in Both Languages: Translating Your Excel Brain to R</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">You Already Speak Half the Language: Translating Your Excel Brain into R</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-05-chatgpt-copilot.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Your AI Co-Pilot: Using ChatGPT as Your Personal R Translator</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Your AI Co-Pilot: Using Gemini Inside RStudio as Your Personal R Translator</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -196,13 +234,13 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-07-dplyr-pivots.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Pivot Tables Are Dead. Long Live dplyr.</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Pivot Tables Are Dead. Long Live dplyr</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-08-ggplot.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Untitled</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Charts That Actually Impress: ggplot2 vs.&nbsp;Excel’s Chart Wizard</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -231,31 +269,48 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix-a-cheatsheet.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Appendix A: The Master Excel-to-R Cheat Sheet</span></span></a>
+ <span class="menu-text">The Master Excel-to-R Cheat Sheet</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix-b-prompts.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Appendix B: The ChatGPT Prompt Library for R</span></span></a>
+ <span class="menu-text">The In-Session AI Prompt Library for R</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix-c-packages.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Appendix C: Recommended R Packages by Use Case</span></span></a>
+ <span class="menu-text">Recommended R Packages by Use Case</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix-d-glossary.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Appendix D: Glossary, Excel Terms and Their R Equivalents</span></span></a>
+ <span class="menu-text">Glossary: Excel Terms, R Terms, and Workflow Language</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
+ <span class="menu-text">Back Matter</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./author-note.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Author’s Note</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./author-note.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Author’s Note</span></span></a>
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
   </div>
 </li>
       </ul>
@@ -270,17 +325,36 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#core-translation-map" id="toc-core-translation-map" class="nav-link active" data-scroll-target="#core-translation-map"><span class="header-section-number">A.1</span> Core Translation Map</a></li>
-  <li><a href="#common-patterns" id="toc-common-patterns" class="nav-link" data-scroll-target="#common-patterns"><span class="header-section-number">A.2</span> Common Patterns</a></li>
+  <li><a href="#a.1-core-translation-map" id="toc-a.1-core-translation-map" class="nav-link active" data-scroll-target="#a.1-core-translation-map">A.1 Core Translation Map</a>
+  <ul class="collapse">
+  <li><a href="#quick-syntax-shelf" id="toc-quick-syntax-shelf" class="nav-link" data-scroll-target="#quick-syntax-shelf">Quick Syntax Shelf</a></li>
+  </ul></li>
+  <li><a href="#a.2-common-patterns" id="toc-a.2-common-patterns" class="nav-link" data-scroll-target="#a.2-common-patterns">A.2 Common Patterns</a>
+  <ul class="collapse">
+  <li><a href="#monthly-sales-reporting-pattern" id="toc-monthly-sales-reporting-pattern" class="nav-link" data-scroll-target="#monthly-sales-reporting-pattern">Monthly Sales Reporting Pattern</a></li>
+  <li><a href="#hr-headcount-reconciliation-pattern" id="toc-hr-headcount-reconciliation-pattern" class="nav-link" data-scroll-target="#hr-headcount-reconciliation-pattern">HR Headcount Reconciliation Pattern</a></li>
+  <li><a href="#budget-vs-actual-workflow" id="toc-budget-vs-actual-workflow" class="nav-link" data-scroll-target="#budget-vs-actual-workflow">Budget vs Actual Workflow</a></li>
+  <li><a href="#weekly-kpi-reporting-pattern" id="toc-weekly-kpi-reporting-pattern" class="nav-link" data-scroll-target="#weekly-kpi-reporting-pattern">Weekly KPI Reporting Pattern</a></li>
+  <li><a href="#department-summary-pipeline" id="toc-department-summary-pipeline" class="nav-link" data-scroll-target="#department-summary-pipeline">Department Summary Pipeline</a></li>
+  <li><a href="#payroll-cleanup-workflow" id="toc-payroll-cleanup-workflow" class="nav-link" data-scroll-target="#payroll-cleanup-workflow">Payroll Cleanup Workflow</a></li>
+  <li><a href="#executive-slide-preparation-pattern" id="toc-executive-slide-preparation-pattern" class="nav-link" data-scroll-target="#executive-slide-preparation-pattern">Executive Slide Preparation Pattern</a></li>
+  </ul></li>
+  <li><a href="#a.3-fast-decision-table" id="toc-a.3-fast-decision-table" class="nav-link" data-scroll-target="#a.3-fast-decision-table">A.3 Fast Decision Table</a></li>
+  <li><a href="#a.4-monday-morning-rescue-card" id="toc-a.4-monday-morning-rescue-card" class="nav-link" data-scroll-target="#a.4-monday-morning-rescue-card">A.4 Monday Morning Rescue Card</a>
+  <ul class="collapse">
+  <li><a href="#fast-response-scaffold" id="toc-fast-response-scaffold" class="nav-link" data-scroll-target="#fast-response-scaffold">Fast Response Scaffold</a></li>
+  <li><a href="#export-decision-shelf" id="toc-export-decision-shelf" class="nav-link" data-scroll-target="#export-decision-shelf">Export Decision Shelf</a></li>
+  <li><a href="#last-quiet-reminder" id="toc-last-quiet-reminder" class="nav-link" data-scroll-target="#last-quiet-reminder">Last Quiet Reminder</a></li>
+  </ul></li>
   </ul>
-</nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/YOUR-USERNAME/excel-refugee-migration/blob/main/appendix-a-cheatsheet.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/YOUR-USERNAME/excel-refugee-migration/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./appendix-a-cheatsheet.html">Appendices</a></li><li class="breadcrumb-item"><a href="./appendix-a-cheatsheet.html"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Appendix A: The Master Excel-to-R Cheat Sheet</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./appendix-a-cheatsheet.html">Appendices</a></li><li class="breadcrumb-item"><a href="./appendix-a-cheatsheet.html">The Master Excel-to-R Cheat Sheet</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Appendix A — Appendix A: The Master Excel-to-R Cheat Sheet</h1>
+<h1 class="title">The Master Excel-to-R Cheat Sheet</h1>
 </div>
 
 
@@ -297,8 +371,663 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="core-translation-map" class="level2" data-number="A.1">
-<h2 data-number="A.1" class="anchored" data-anchor-id="core-translation-map"><span class="header-section-number">A.1</span> Core Translation Map</h2>
+<p>You do not need to memorize everything in R.</p>
+<p>You need a reliable bridge.</p>
+<p>That is what this appendix is for. Keep it open during reporting work. Print it. Mark it up. Return to it when Excel habits are faster than confidence and the deadline is loud enough to make old workflows look tempting again.</p>
+<p>The point here is not conceptual elegance.</p>
+<p>The point is speed.</p>
+<p>Use this appendix when the file is messy, the request is urgent, and your brain needs a clean translation path before 9:00 AM.</p>
+<div class="callout callout-style-simple callout-tip callout-titled" title="Cheat Sheet Box">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Cheat Sheet Box
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The fastest way to use this appendix is simple.</p>
+<ol type="1">
+<li>identify the Excel task you are about to do</li>
+<li>find the matching row in the translation map</li>
+<li>copy the R pattern, not the fear</li>
+<li>save the script, even if the output still goes back to Excel</li>
+</ol>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(openxlsx)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<section id="a.1-core-translation-map" class="level2">
+<h2 class="anchored" data-anchor-id="a.1-core-translation-map">A.1 Core Translation Map</h2>
+<p>The table below is the working dictionary.</p>
+<p>Do not treat it like theory. Treat it like operational translation. The question is not “What is the R equivalent in an abstract sense?” The question is “What do I do instead of the thing I keep doing manually in Excel?”</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Excel Task</th>
+<th>Common Excel Method</th>
+<th>R Equivalent</th>
+<th>Why the R Version Wins</th>
+<th>Example Workflow</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Add a total</td>
+<td><code>SUM(range)</code></td>
+<td><code>summarise(total = sum(value, na.rm = TRUE))</code></td>
+<td>The logic is visible, reusable, and easy to rerun on new data without touching cells again.</td>
+<td>Total monthly sales across all regions after importing <code>sales_actuals.csv</code>.</td>
+</tr>
+<tr class="even">
+<td>Average a field</td>
+<td><code>AVERAGE(range)</code></td>
+<td><code>summarise(avg_value = mean(value, na.rm = TRUE))</code></td>
+<td>Handles missing values explicitly and keeps the calculation tied to the dataset instead of a fragile range.</td>
+<td>Average payroll by department after cleaning blanks.</td>
+</tr>
+<tr class="odd">
+<td>Count records meeting a condition</td>
+<td><code>COUNTIF(range, criteria)</code></td>
+<td><code>filter(condition) |&gt; summarise(n = n())</code></td>
+<td>The condition is readable and easy to adjust when the rule changes.</td>
+<td>Count employees marked <code>"Active"</code> in an HR extract.</td>
+</tr>
+<tr class="even">
+<td>Sum by one condition</td>
+<td><code>SUMIF(range, criteria, sum_range)</code></td>
+<td><code>filter(condition) |&gt; summarise(total = sum(value, na.rm = TRUE))</code></td>
+<td>Separates filtering from calculation, which makes the business rule much easier to inspect.</td>
+<td>Sum sales for the West region only.</td>
+</tr>
+<tr class="odd">
+<td>Sum by multiple conditions</td>
+<td><code>SUMIFS()</code></td>
+<td><code>filter(cond1, cond2, cond3) |&gt; summarise(total = sum(value, na.rm = TRUE))</code></td>
+<td>Multiple rules stay readable instead of getting buried inside formula punctuation.</td>
+<td>Sum March revenue for <code>Region == "West"</code> and <code>Product_Line == "Core"</code>.</td>
+</tr>
+<tr class="even">
+<td>One-condition logic</td>
+<td><code>IF(test, yes, no)</code></td>
+<td><code>mutate(flag = if_else(test, yes, no))</code></td>
+<td>Applies the rule across a whole column at once and makes it easier to audit later.</td>
+<td>Flag overdue invoices as <code>"Overdue"</code> or <code>"Current"</code>.</td>
+</tr>
+<tr class="odd">
+<td>Multi-condition logic</td>
+<td>nested <code>IF()</code></td>
+<td><code>mutate(group = case_when(...))</code></td>
+<td>Complex classification stops looking like a formula accident and starts looking like declared business logic.</td>
+<td>Classify employees as <code>Core Staff</code>, <code>Flexible Staff</code>, or <code>Contractors</code>.</td>
+</tr>
+<tr class="even">
+<td>Hide errors</td>
+<td><code>IFERROR(formula, value)</code></td>
+<td><code>coalesce()</code>, <code>replace_na()</code>, or guarded logic with <code>if_else()</code></td>
+<td>Makes the missing or failing case explicit instead of hiding it behind a silent rescue formula.</td>
+<td>Replace missing target values with zero before variance calculations.</td>
+</tr>
+<tr class="odd">
+<td>Trim spaces</td>
+<td><code>TRIM(cell)</code></td>
+<td><code>mutate(field = str_trim(field))</code></td>
+<td>Cleans the whole column at once, including fields imported from ugly exports.</td>
+<td>Remove trailing spaces from <code>region</code>, <code>department</code>, or <code>employee_id</code>.</td>
+</tr>
+<tr class="even">
+<td>Join text together</td>
+<td><code>CONCATENATE()</code> or <code>&amp;</code></td>
+<td><code>mutate(full_name = str_c(first_name, last_name, sep = " "))</code></td>
+<td>Cleaner syntax, easier to reuse, and better for large tables.</td>
+<td>Build a full employee name for reporting output.</td>
+</tr>
+<tr class="odd">
+<td>Pull left, right, or middle text</td>
+<td><code>LEFT()</code>, <code>RIGHT()</code>, <code>MID()</code></td>
+<td><code>str_sub()</code></td>
+<td>String extraction becomes readable and consistent across long columns.</td>
+<td>Pull a cost-center prefix from an account code.</td>
+</tr>
+<tr class="even">
+<td>Find text inside text</td>
+<td><code>FIND()</code> or <code>SEARCH()</code></td>
+<td><code>str_detect()</code>, <code>str_locate()</code></td>
+<td>Easier for pattern checks and more scalable when the logic must be reused later.</td>
+<td>Detect whether a product description contains <code>"Premium"</code>.</td>
+</tr>
+<tr class="odd">
+<td>Format text or dates</td>
+<td><code>TEXT(value, format)</code></td>
+<td><code>format()</code> or <code>str_c()</code> with cleaned fields</td>
+<td>Keeps formatting separate from the raw value so the underlying data stays usable.</td>
+<td>Format a report month as <code>"Jan 2026"</code> for a slide label.</td>
+</tr>
+<tr class="even">
+<td>Remove duplicates</td>
+<td>Data tab → Remove Duplicates</td>
+<td><code>distinct(key, .keep_all = TRUE)</code></td>
+<td>You define what counts as duplication and keep the rule in the workflow.</td>
+<td>Keep one row per <code>employee_id</code> and <code>pay_period</code>.</td>
+</tr>
+<tr class="odd">
+<td>Sort data</td>
+<td>Sort buttons</td>
+<td><code>arrange(field)</code> or <code>arrange(desc(field))</code></td>
+<td>Sorting becomes part of the logic, not an interface state that gets lost next week.</td>
+<td>Rank regions from highest to lowest revenue.</td>
+</tr>
+<tr class="even">
+<td>Filter rows</td>
+<td>Drop-down filter</td>
+<td><code>filter(condition)</code></td>
+<td>The filter rule becomes readable and repeatable instead of hidden in the workbook view.</td>
+<td>Keep only <code>"Active"</code> employees or only <code>"West"</code> sales.</td>
+</tr>
+<tr class="odd">
+<td>Conditional classification</td>
+<td>helper columns plus <code>IF</code> chains</td>
+<td><code>mutate()</code> plus <code>case_when()</code></td>
+<td>Lets you create professional classification logic without dragging formulas down forever.</td>
+<td>Group cost centers into strategic clusters.</td>
+</tr>
+<tr class="even">
+<td>Lookup one table into another</td>
+<td><code>VLOOKUP()</code></td>
+<td><code>left_join()</code></td>
+<td>Joins are easier to audit, more stable across changing column order, and far less brittle than lookups.</td>
+<td>Bring payroll values into a headcount file by <code>employee_id</code>.</td>
+</tr>
+<tr class="odd">
+<td>Lookup with flexible column position</td>
+<td><code>XLOOKUP()</code></td>
+<td><code>left_join()</code> plus <code>select()</code></td>
+<td>The relationship is based on keys, not where the source column happens to sit.</td>
+<td>Match target values to actuals by region and month.</td>
+</tr>
+<tr class="even">
+<td>Flexible two-way match</td>
+<td><code>INDEX()</code> plus <code>MATCH()</code></td>
+<td><code>left_join()</code>, <code>filter()</code>, or grouped summaries depending on the real task</td>
+<td>Usually reveals that the underlying problem is relational, not cell-based.</td>
+<td>Pull product-line names into sales actuals using <code>product_code</code>.</td>
+</tr>
+<tr class="odd">
+<td>Summarize large tables</td>
+<td>Pivot Table</td>
+<td><code>group_by()</code> plus <code>summarise()</code></td>
+<td>Summary logic becomes visible, rerunnable, and much easier to verify.</td>
+<td>Headcount by department or revenue by region and month.</td>
+</tr>
+<tr class="even">
+<td>Split text into separate fields</td>
+<td>Text to Columns</td>
+<td><code>separate()</code></td>
+<td>The split rule becomes reusable instead of being performed once and forgotten.</td>
+<td>Split <code>"Region - Department"</code> into two columns.</td>
+</tr>
+<tr class="odd">
+<td>Pattern-based fill</td>
+<td>Flash Fill</td>
+<td><code>mutate()</code> with <code>str_*()</code> functions</td>
+<td>You stop relying on Excel’s guess and start declaring the logic directly.</td>
+<td>Extract initials, clean codes, or standardize labels.</td>
+</tr>
+<tr class="even">
+<td>Fix ugly dates</td>
+<td>manual formatting, helper columns, trial and error</td>
+<td><code>mdy()</code>, <code>dmy()</code>, <code>ymd()</code>, <code>floor_date()</code></td>
+<td>Date parsing becomes explicit, which reduces false trends and silent errors.</td>
+<td>Convert <code>04/01/2026</code> or <code>1-Apr-26</code> into real dates.</td>
+</tr>
+<tr class="odd">
+<td>Handle missing values</td>
+<td>blank cells, manual fill, ad hoc replacements</td>
+<td><code>replace_na()</code> or <code>coalesce()</code></td>
+<td>Makes the treatment of blanks visible and consistent.</td>
+<td>Replace missing bonus values with zero and missing managers with <code>"Unassigned"</code>.</td>
+</tr>
+<tr class="even">
+<td>Detect duplicates</td>
+<td>manual scan, conditional formatting</td>
+<td><code>count(key) |&gt; filter(n &gt; 1)</code></td>
+<td>Finds repeated records quickly and helps you decide whether they are errors or legitimate repeats.</td>
+<td>Check whether <code>employee_id</code> appears more than once in a supposedly unique file.</td>
+</tr>
+<tr class="odd">
+<td>Export cleaned output</td>
+<td>Save As, copy into new workbook</td>
+<td><code>write_csv()</code> or <code>write.xlsx()</code></td>
+<td>The cleaned result becomes reproducible and easier to hand over without workbook archaeology.</td>
+<td>Save a cleaned payroll file for finance or export a board-ready summary workbook.</td>
+</tr>
+</tbody>
+</table>
+<section id="quick-syntax-shelf" class="level3">
+<h3 class="anchored" data-anchor-id="quick-syntax-shelf">Quick Syntax Shelf</h3>
+<p>Use these as first-response patterns when the task is obvious and the deadline is not interested in your emotions.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import a CSV</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>sales <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"inputs/sales_actuals.csv"</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Import an Excel sheet</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>targets <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"inputs/sales_targets.xlsx"</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Clean names</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>sales <span class="ot">&lt;-</span> sales <span class="sc">|&gt;</span> <span class="fu">clean_names</span>()</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Trim ugly text</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>sales <span class="ot">&lt;-</span> sales <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">region =</span> <span class="fu">str_trim</span>(region))</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Replace missing values</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>sales <span class="ot">&lt;-</span> sales <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">sales_value =</span> <span class="fu">replace_na</span>(sales_value, <span class="dv">0</span>))</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Join reference data</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>sales_enriched <span class="ot">&lt;-</span> sales <span class="sc">|&gt;</span> <span class="fu">left_join</span>(targets, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"region"</span>, <span class="st">"month"</span>))</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Summarise</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>summary_tbl <span class="ot">&lt;-</span> sales_enriched <span class="sc">|&gt;</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(region) <span class="sc">|&gt;</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">total_sales =</span> <span class="fu">sum</span>(sales_value, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">.groups =</span> <span class="st">"drop"</span>)</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove duplicates</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>unique_tbl <span class="ot">&lt;-</span> sales_enriched <span class="sc">|&gt;</span> <span class="fu">distinct</span>(employee_id, pay_period, <span class="at">.keep_all =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Export CSV</span></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(summary_tbl, <span class="st">"outputs/summary_tbl.csv"</span>)</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Export Excel workbook</span></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a><span class="fu">write.xlsx</span>(summary_tbl, <span class="st">"outputs/summary_tbl.xlsx"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="callout callout-style-simple callout-warning callout-titled" title="Quick Warning">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Quick Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The old trap is not that Excel tasks are impossible.</p>
+<p>The old trap is that the same task gets solved from scratch every week with no memory except your own.</p>
+<p>If the rule can be written once, it should not be rebuilt by hand forever.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="a.2-common-patterns" class="level2">
+<h2 class="anchored" data-anchor-id="a.2-common-patterns">A.2 Common Patterns</h2>
+<p>These are not polished case studies. They are repeatable field recipes. Use them when you already know the shape of the request and need a clean route from messy file to stable output.</p>
+<section id="monthly-sales-reporting-pattern" class="level3">
+<h3 class="anchored" data-anchor-id="monthly-sales-reporting-pattern">Monthly Sales Reporting Pattern</h3>
+<p><strong>Situation</strong><br>
+You receive actual sales as a CSV, targets in Excel, and a product or region lookup table from another team. Leadership wants a monthly view by region with one clear summary and one chart.</p>
+<p><strong>What Usually Happens In Excel</strong><br>
+You copy each file into one workbook, repair labels, build lookups, refresh a pivot, fix the sort order, and wonder whether the totals still match the original export.</p>
+<p><strong>Cleaner R Workflow</strong><br>
+Import each file. Standardize names. Clean region labels. Parse the month field. Join target and lookup data. Summarize by region and month. Export the summary and the chart.</p>
+<p><strong>Recommended Core Functions</strong><br>
+<code>read_csv()</code>, <code>read_excel()</code>, <code>clean_names()</code>, <code>str_trim()</code>, <code>left_join()</code>, <code>group_by()</code>, <code>summarise()</code>, <code>write_csv()</code></p>
+<p>Use this when the question is simple but the file chain is not. The real value here is not the formula replacement. It is that actuals, targets, and lookup logic all get pulled into one readable sequence.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>sales_actuals <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"inputs/sales_actuals.csv"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_names</span>() <span class="sc">|&gt;</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">region =</span> <span class="fu">str_trim</span>(region),</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">region =</span> <span class="fu">str_to_title</span>(region),</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">sale_month =</span> <span class="fu">floor_date</span>(<span class="fu">mdy</span>(sale_date), <span class="at">unit =</span> <span class="st">"month"</span>),</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">sales_value =</span> <span class="fu">replace_na</span>(sales_value, <span class="dv">0</span>)</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>sales_targets <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"inputs/sales_targets.xlsx"</span>, <span class="at">sheet =</span> <span class="st">"Targets"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_names</span>() <span class="sc">|&gt;</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">region =</span> <span class="fu">str_trim</span>(region),</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">region =</span> <span class="fu">str_to_title</span>(region),</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">sale_month =</span> <span class="fu">floor_date</span>(<span class="fu">mdy</span>(month), <span class="at">unit =</span> <span class="st">"month"</span>),</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">target_value =</span> <span class="fu">replace_na</span>(target_value, <span class="dv">0</span>)</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>product_lookup <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"inputs/product_lookup.csv"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_names</span>() <span class="sc">|&gt;</span></span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">product_code =</span> <span class="fu">str_trim</span>(product_code)) <span class="sc">|&gt;</span></span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(product_code, <span class="at">.keep_all =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>monthly_sales_summary <span class="ot">&lt;-</span> sales_actuals <span class="sc">|&gt;</span></span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(product_lookup, <span class="at">by =</span> <span class="st">"product_code"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(sale_month, region) <span class="sc">|&gt;</span></span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">actual_sales =</span> <span class="fu">sum</span>(sales_value, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">"drop"</span></span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(</span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>    sales_targets <span class="sc">|&gt;</span></span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a>      <span class="fu">group_by</span>(sale_month, region) <span class="sc">|&gt;</span></span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a>      <span class="fu">summarise</span>(<span class="at">target_sales =</span> <span class="fu">sum</span>(target_value, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">.groups =</span> <span class="st">"drop"</span>),</span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a>    <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"sale_month"</span>, <span class="st">"region"</span>)</span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb3-45"><a href="#cb3-45" aria-hidden="true" tabindex="-1"></a>    <span class="at">target_sales =</span> <span class="fu">replace_na</span>(target_sales, <span class="dv">0</span>),</span>
+<span id="cb3-46"><a href="#cb3-46" aria-hidden="true" tabindex="-1"></a>    <span class="at">variance =</span> actual_sales <span class="sc">-</span> target_sales</span>
+<span id="cb3-47"><a href="#cb3-47" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb3-48"><a href="#cb3-48" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(sale_month, region)</span>
+<span id="cb3-49"><a href="#cb3-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-50"><a href="#cb3-50" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(monthly_sales_summary, <span class="st">"outputs/monthly_sales_summary.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="hr-headcount-reconciliation-pattern" class="level3">
+<h3 class="anchored" data-anchor-id="hr-headcount-reconciliation-pattern">HR Headcount Reconciliation Pattern</h3>
+<p><strong>Situation</strong><br>
+You receive one headcount extract from HR and another staffing file from payroll or workforce planning. The task is to reconcile counts by department and identify mismatches or missing categories.</p>
+<p><strong>What Usually Happens In Excel</strong><br>
+You sort by employee ID, highlight duplicates, repair names manually, use a lookup to pull fields across, then spend too long checking whether the mismatches are real or workbook-induced.</p>
+<p><strong>Cleaner R Workflow</strong><br>
+Import both tables. Clean names. Trim IDs and department labels. Remove duplicate rows by a defined key. Join staffing attributes into the headcount table. Group by department. Compare counts.</p>
+<p><strong>Recommended Core Functions</strong><br>
+<code>read_csv()</code>, <code>clean_names()</code>, <code>str_trim()</code>, <code>distinct()</code>, <code>left_join()</code>, <code>group_by()</code>, <code>summarise()</code></p>
+<p>This workflow is less about clever code than about calming suspicion. You need one table that tells you what HR says, what payroll says, and where the counts drift apart.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>headcount_hr <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"inputs/hr_headcount.csv"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_names</span>() <span class="sc">|&gt;</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">employee_id =</span> <span class="fu">str_trim</span>(employee_id),</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">department =</span> <span class="fu">str_to_title</span>(<span class="fu">str_trim</span>(department))</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(employee_id, <span class="at">.keep_all =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>staffing_reference <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"inputs/payroll_staffing_reference.csv"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_names</span>() <span class="sc">|&gt;</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">employee_id =</span> <span class="fu">str_trim</span>(employee_id),</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">payroll_department =</span> <span class="fu">str_to_title</span>(<span class="fu">str_trim</span>(payroll_department))</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(employee_id, <span class="at">.keep_all =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>headcount_reconciliation <span class="ot">&lt;-</span> headcount_hr <span class="sc">|&gt;</span></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(staffing_reference, <span class="at">by =</span> <span class="st">"employee_id"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">department_match =</span> <span class="fu">if_else</span>(department <span class="sc">==</span> payroll_department, <span class="st">"Match"</span>, <span class="st">"Mismatch"</span>)</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>department_reconciliation_summary <span class="ot">&lt;-</span> headcount_reconciliation <span class="sc">|&gt;</span></span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(department) <span class="sc">|&gt;</span></span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">hr_count =</span> <span class="fu">n</span>(),</span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>    <span class="at">payroll_count =</span> <span class="fu">sum</span>(<span class="sc">!</span><span class="fu">is.na</span>(payroll_department)),</span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>    <span class="at">mismatches =</span> <span class="fu">sum</span>(department_match <span class="sc">==</span> <span class="st">"Mismatch"</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">"drop"</span></span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(mismatches), department)</span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(department_reconciliation_summary, <span class="st">"outputs/headcount_reconciliation_summary.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="budget-vs-actual-workflow" class="level3">
+<h3 class="anchored" data-anchor-id="budget-vs-actual-workflow">Budget vs Actual Workflow</h3>
+<p><strong>Situation</strong><br>
+Finance needs a monthly budget-versus-actual view by cost center, with variance and variance percentage.</p>
+<p><strong>What Usually Happens In Excel</strong><br>
+You open budget and actual files side by side, line up cost centers, repair formatting differences, use <code>SUMIFS</code>, then build a variance column and hope the formulas all extended correctly.</p>
+<p><strong>Cleaner R Workflow</strong><br>
+Import both files. Clean names. Standardize cost-center labels and month fields. Join budget to actuals. Calculate variance and variance percentage. Rank the largest overruns. Export for leadership review.</p>
+<p><strong>Recommended Core Functions</strong><br>
+<code>read_excel()</code>, <code>read_csv()</code>, <code>clean_names()</code>, <code>mutate()</code>, <code>left_join()</code>, <code>group_by()</code>, <code>summarise()</code>, <code>arrange()</code></p>
+<p>This is one of the most common “looks simple, eats a morning” workflows in corporate finance. The gain comes from making cost center logic, month alignment, and variance math visible all at once.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>budget <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"inputs/budget.xlsx"</span>, <span class="at">sheet =</span> <span class="st">"Budget"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_names</span>() <span class="sc">|&gt;</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">cost_center =</span> <span class="fu">str_to_upper</span>(<span class="fu">str_trim</span>(cost_center)),</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">report_month =</span> <span class="fu">floor_date</span>(<span class="fu">mdy</span>(month), <span class="at">unit =</span> <span class="st">"month"</span>),</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">budget_value =</span> <span class="fu">replace_na</span>(budget_value, <span class="dv">0</span>)</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>actuals <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"inputs/actuals.csv"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_names</span>() <span class="sc">|&gt;</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">cost_center =</span> <span class="fu">str_to_upper</span>(<span class="fu">str_trim</span>(cost_center)),</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">report_month =</span> <span class="fu">floor_date</span>(<span class="fu">mdy</span>(transaction_date), <span class="at">unit =</span> <span class="st">"month"</span>),</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">actual_value =</span> <span class="fu">replace_na</span>(actual_value, <span class="dv">0</span>)</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>budget_vs_actual <span class="ot">&lt;-</span> actuals <span class="sc">|&gt;</span></span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(report_month, cost_center) <span class="sc">|&gt;</span></span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">actual_value =</span> <span class="fu">sum</span>(actual_value, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">.groups =</span> <span class="st">"drop"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(</span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>    budget <span class="sc">|&gt;</span></span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>      <span class="fu">group_by</span>(report_month, cost_center) <span class="sc">|&gt;</span></span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>      <span class="fu">summarise</span>(<span class="at">budget_value =</span> <span class="fu">sum</span>(budget_value, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">.groups =</span> <span class="st">"drop"</span>),</span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"report_month"</span>, <span class="st">"cost_center"</span>)</span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">budget_value =</span> <span class="fu">replace_na</span>(budget_value, <span class="dv">0</span>),</span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">variance =</span> actual_value <span class="sc">-</span> budget_value,</span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">variance_pct =</span> <span class="fu">if_else</span>(budget_value <span class="sc">==</span> <span class="dv">0</span>, <span class="cn">NA_real_</span>, variance <span class="sc">/</span> budget_value)</span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(variance))</span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(budget_vs_actual, <span class="st">"outputs/budget_vs_actual_summary.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="weekly-kpi-reporting-pattern" class="level3">
+<h3 class="anchored" data-anchor-id="weekly-kpi-reporting-pattern">Weekly KPI Reporting Pattern</h3>
+<p><strong>Situation</strong><br>
+A recurring weekly KPI file arrives from operations or reporting. The same columns need cleaning every time, and the same summary gets rebuilt every week.</p>
+<p><strong>What Usually Happens In Excel</strong><br>
+You delete empty rows, trim labels, fix dates, rebuild a pivot table, copy the result into another workbook or PowerPoint slide, and repeat next week.</p>
+<p><strong>Cleaner R Workflow</strong><br>
+Treat the KPI file as a standing pipeline. Import, clean names, trim text, handle missing values, summarize by site or region, export the table, save the plot.</p>
+<p><strong>Recommended Core Functions</strong><br>
+<code>read_csv()</code>, <code>clean_names()</code>, <code>str_trim()</code>, <code>replace_na()</code>, <code>group_by()</code>, <code>summarise()</code>, <code>write_csv()</code></p>
+<p>This is the kind of workflow that becomes more valuable the less dramatic it feels. If the same KPI file keeps arriving, the right outcome is not excitement. It is calm repetition.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>weekly_kpi <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"inputs/weekly_kpi_export.csv"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_names</span>() <span class="sc">|&gt;</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">region =</span> <span class="fu">str_to_title</span>(<span class="fu">str_trim</span>(region)),</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">site =</span> <span class="fu">str_trim</span>(site),</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">metric_name =</span> <span class="fu">str_trim</span>(metric_name),</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">metric_value =</span> <span class="fu">replace_na</span>(metric_value, <span class="dv">0</span>)</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(report_date, region, site, metric_name, <span class="at">.keep_all =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>weekly_kpi_summary <span class="ot">&lt;-</span> weekly_kpi <span class="sc">|&gt;</span></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(report_date, region) <span class="sc">|&gt;</span></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">total_metric_value =</span> <span class="fu">sum</span>(metric_value, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">records =</span> <span class="fu">n</span>(),</span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">"drop"</span></span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(report_date, region)</span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(weekly_kpi_summary, <span class="st">"outputs/weekly_kpi_summary.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="department-summary-pipeline" class="level3">
+<h3 class="anchored" data-anchor-id="department-summary-pipeline">Department Summary Pipeline</h3>
+<p><strong>Situation</strong><br>
+You need one clean departmental summary for headcount, spend, attrition, or workload, often by month or quarter.</p>
+<p><strong>What Usually Happens In Excel</strong><br>
+You filter a large table, build a pivot, manually rename the values area, adjust sorting, and copy the output into a slide where the formatting never quite holds.</p>
+<p><strong>Cleaner R Workflow</strong><br>
+Import the cleaned source file, standardize department values, group by department and time period, calculate the needed totals or counts, sort, and export.</p>
+<p><strong>Recommended Core Functions</strong><br>
+<code>read_csv()</code>, <code>mutate()</code>, <code>str_trim()</code>, <code>group_by()</code>, <code>summarise()</code>, <code>arrange()</code></p>
+<p>A department summary is often one of those tasks that looks too small to deserve a script until you realize you have built it eighteen times already.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>department_metrics <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"inputs/department_metrics.csv"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_names</span>() <span class="sc">|&gt;</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">department =</span> <span class="fu">str_to_title</span>(<span class="fu">str_trim</span>(department)),</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">report_month =</span> <span class="fu">floor_date</span>(<span class="fu">mdy</span>(report_date), <span class="at">unit =</span> <span class="st">"month"</span>),</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">metric_value =</span> <span class="fu">replace_na</span>(metric_value, <span class="dv">0</span>)</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>department_summary <span class="ot">&lt;-</span> department_metrics <span class="sc">|&gt;</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(report_month, department) <span class="sc">|&gt;</span></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">total_metric_value =</span> <span class="fu">sum</span>(metric_value, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">records =</span> <span class="fu">n</span>(),</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">"drop"</span></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(report_month, <span class="fu">desc</span>(total_metric_value))</span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(department_summary, <span class="st">"outputs/department_summary.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="payroll-cleanup-workflow" class="level3">
+<h3 class="anchored" data-anchor-id="payroll-cleanup-workflow">Payroll Cleanup Workflow</h3>
+<p><strong>Situation</strong><br>
+Payroll sends an export with duplicate employee IDs, ugly department values, missing manager names, and dates that arrive half as text and half as actual dates.</p>
+<p><strong>What Usually Happens In Excel</strong><br>
+You delete rows, use helper columns, patch categories, repair dates manually, then save a “clean” version that no one can fully explain next week.</p>
+<p><strong>Cleaner R Workflow</strong><br>
+Import the export. Clean names. Trim and standardize key fields. Replace missing values intentionally. Convert dates explicitly. Remove duplicates using employee and pay period as a rule. Save the clean file.</p>
+<p><strong>Recommended Core Functions</strong><br>
+<code>read_excel()</code>, <code>clean_names()</code>, <code>str_trim()</code>, <code>replace_na()</code>, <code>mdy()</code> or <code>dmy()</code>, <code>distinct()</code>, <code>write_csv()</code>, <code>write.xlsx()</code></p>
+<p>This is where many spreadsheet users first feel the emotional payoff of a script. The file is still ugly. You are simply no longer negotiating with it by hand.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(openxlsx)</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>payroll_raw <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"inputs/payroll_extract.xlsx"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_names</span>()</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>payroll_clean <span class="ot">&lt;-</span> payroll_raw <span class="sc">|&gt;</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">employee_id =</span> <span class="fu">str_trim</span>(employee_id),</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">department =</span> <span class="fu">str_to_title</span>(<span class="fu">str_trim</span>(department)),</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">location =</span> <span class="fu">str_trim</span>(location),</span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">manager_name =</span> <span class="fu">replace_na</span>(manager_name, <span class="st">"Unassigned"</span>),</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">pay_date =</span> <span class="fu">mdy</span>(pay_date),</span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">pay_period =</span> <span class="fu">floor_date</span>(pay_date, <span class="at">unit =</span> <span class="st">"month"</span>),</span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">bonus_amount =</span> <span class="fu">replace_na</span>(bonus_amount, <span class="dv">0</span>)</span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(employee_id, pay_period, <span class="at">.keep_all =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>payroll_validation <span class="ot">&lt;-</span> payroll_clean <span class="sc">|&gt;</span></span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">clean_rows =</span> <span class="fu">n</span>(),</span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">total_base_pay =</span> <span class="fu">sum</span>(base_pay, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">total_bonus =</span> <span class="fu">sum</span>(bonus_amount, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(payroll_clean, <span class="st">"outputs/payroll_clean.csv"</span>)</span>
+<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a><span class="fu">write.xlsx</span>(</span>
+<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list</span>(</span>
+<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">payroll_clean =</span> payroll_clean,</span>
+<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">validation =</span> payroll_validation</span>
+<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a>  <span class="at">file =</span> <span class="st">"outputs/payroll_clean.xlsx"</span></span>
+<span id="cb8-39"><a href="#cb8-39" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="executive-slide-preparation-pattern" class="level3">
+<h3 class="anchored" data-anchor-id="executive-slide-preparation-pattern">Executive Slide Preparation Pattern</h3>
+<p><strong>Situation</strong><br>
+The summary is complete, but it still needs to become something a senior audience can read quickly.</p>
+<p><strong>What Usually Happens In Excel</strong><br>
+You build a chart, fight the default formatting, resize it for PowerPoint, and then explain verbally what the chart should have shown more clearly.</p>
+<p><strong>Cleaner R Workflow</strong><br>
+Start from the trusted summary table. Order the categories. Build one clear chart. Use a title that states the message. Export at slide-ready resolution.</p>
+<p><strong>Recommended Core Functions</strong><br>
+<code>ggplot()</code>, <code>geom_col()</code>, <code>labs()</code>, <code>theme_minimal()</code>, <code>ggsave()</code></p>
+<p>This pattern is not about design vanity. It is about making the output carry more of the conversation so you do not have to rescue the slide with explanation.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(forcats)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scales)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(openxlsx)</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>regional_gap <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"inputs/regional_gap_summary.csv"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">region =</span> <span class="fu">fct_reorder</span>(region, total_variance))</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>gap_chart <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(regional_gap, <span class="fu">aes</span>(<span class="at">x =</span> region, <span class="at">y =</span> total_variance)) <span class="sc">+</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">fill =</span> <span class="st">"steelblue"</span>) <span class="sc">+</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Southeast And North Require Immediate Revenue Attention"</span>,</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Cumulative variance against target by region"</span>,</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="cn">NULL</span>,</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Variance"</span></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> <span class="fu">label_dollar</span>()) <span class="sc">+</span></span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">12</span>) <span class="sc">+</span></span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">"none"</span></span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(</span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>  <span class="at">filename =</span> <span class="st">"outputs/regional_gap_chart.png"</span>,</span>
+<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a>  <span class="at">plot =</span> gap_chart,</span>
+<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a>  <span class="at">width =</span> <span class="dv">8</span>,</span>
+<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a>  <span class="at">height =</span> <span class="dv">5</span>,</span>
+<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a>  <span class="at">dpi =</span> <span class="dv">300</span></span>
+<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a><span class="fu">write.xlsx</span>(regional_gap, <span class="st">"outputs/regional_gap_slide_support.xlsx"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+</section>
+<section id="a.3-fast-decision-table" class="level2">
+<h2 class="anchored" data-anchor-id="a.3-fast-decision-table">A.3 Fast Decision Table</h2>
+<p>Use this when the old workflow starts whispering that the spreadsheet route will be “quicker this one time.”</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 33%">
@@ -307,60 +1036,170 @@ ul.task-list li input[type="checkbox"] {
 </colgroup>
 <thead>
 <tr class="header">
-<th>Excel term</th>
-<th>R equivalent</th>
-<th>Plain-language use</th>
+<th>If you usually do this in Excel…</th>
+<th>Stop doing this</th>
+<th>Start doing this in R</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Worksheet table</td>
-<td>data frame</td>
-<td>Structured tabular data</td>
+<td>copy formulas down a whole column manually</td>
+<td>trusting the drag handle to carry the rule safely</td>
+<td>use <code>mutate()</code> so the rule is applied once, visibly, across the full column</td>
 </tr>
 <tr class="even">
-<td>Filter</td>
-<td><code>filter()</code></td>
-<td>Keep only rows you need</td>
+<td>rebuild the same pivot table every week</td>
+<td>treating a recurring summary like a fresh event</td>
+<td>write the grouped summary once with <code>group_by()</code> and <code>summarise()</code></td>
 </tr>
 <tr class="odd">
-<td>Sort</td>
-<td><code>arrange()</code></td>
-<td>Reorder rows</td>
+<td>fix dates by hand until they “look right”</td>
+<td>relying on cell formatting to hide date confusion</td>
+<td>parse the dates explicitly with <code>mdy()</code>, <code>dmy()</code>, or <code>ymd()</code></td>
 </tr>
 <tr class="even">
-<td>VLOOKUP/XLOOKUP</td>
-<td><code>left_join()</code></td>
-<td>Pull matching columns from another table</td>
+<td>remove duplicates by clicking through the Data tab</td>
+<td>dropping rows without a reusable definition of duplication</td>
+<td>use <code>distinct()</code> with the actual business key</td>
 </tr>
 <tr class="odd">
-<td>Pivot table</td>
-<td><code>group_by()</code> + <code>summarise()</code></td>
-<td>Build grouped summaries</td>
+<td>keep saving <code>final_v2_USE_THIS.xlsx</code></td>
+<td>confusing versioning with workflow memory</td>
+<td>save the script and export a fresh output from the same logic</td>
 </tr>
 <tr class="even">
-<td>IF</td>
-<td><code>if_else()</code> or <code>case_when()</code></td>
-<td>Apply conditional logic</td>
+<td>clean the same CSV every Monday</td>
+<td>spending judgment on repeated repair</td>
+<td>build one cleaning pipeline and rerun it on the new file</td>
 </tr>
 <tr class="odd">
-<td>Text cleanup</td>
-<td><code>stringr</code></td>
-<td>Clean messy text</td>
+<td>use <code>VLOOKUP()</code> because it is familiar</td>
+<td>tying the logic to column position and workbook layout</td>
+<td>use <code>left_join()</code> so the relationship stays key-based and readable</td>
 </tr>
 <tr class="even">
-<td>Save file</td>
-<td><code>write_csv()</code></td>
-<td>Export clean output</td>
+<td>rely on hidden helper columns</td>
+<td>letting important logic disappear into workbook archaeology</td>
+<td>keep the transformations in a script where you can read them</td>
+</tr>
+<tr class="odd">
+<td>sort the output manually after every refresh</td>
+<td>letting order live in the interface instead of the workflow</td>
+<td>use <code>arrange()</code> so the order survives every rerun</td>
+</tr>
+<tr class="even">
+<td>copy a chart into PowerPoint and fix it there</td>
+<td>repairing a weak visual downstream</td>
+<td>build the chart clearly in R and export it once with <code>ggsave()</code></td>
+</tr>
+<tr class="odd">
+<td>use Flash Fill because the pattern is obvious to you</td>
+<td>trusting Excel’s guess without preserving the rule</td>
+<td>write the rule with <code>str_*()</code> functions or <code>mutate()</code></td>
+</tr>
+<tr class="even">
+<td>keep Excel as the only place the process exists</td>
+<td>making your memory the real system</td>
+<td>let Excel remain a delivery format while R becomes the engine</td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="common-patterns" class="level2" data-number="A.2">
-<h2 data-number="A.2" class="anchored" data-anchor-id="common-patterns"><span class="header-section-number">A.2</span> Common Patterns</h2>
-<p>Placeholder for expanded cheat sheet tables and workflow snippets.</p>
+<section id="a.4-monday-morning-rescue-card" class="level2">
+<h2 class="anchored" data-anchor-id="a.4-monday-morning-rescue-card">A.4 Monday Morning Rescue Card</h2>
+<div class="callout callout-style-simple callout-important callout-titled" title="Before You Open Excel Again">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Important</span>Before You Open Excel Again
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Ask these six questions first.</p>
+<ul>
+<li>Is this task repeated weekly or monthly?</li>
+<li>Will someone ask for this same summary again?</li>
+<li>Are multiple files involved?</li>
+<li>Are formulas breaking, drifting, or being copied down manually?</li>
+<li>Is manual cleaning taking more than 20 minutes?</li>
+<li>Should this be an R workflow instead?</li>
+</ul>
+<p>If the answer to three or more is yes, you are probably not looking at a spreadsheet task anymore.</p>
+<p>You are looking at a workflow that wants a script.</p>
+</div>
+</div>
+<section id="fast-response-scaffold" class="level3">
+<h3 class="anchored" data-anchor-id="fast-response-scaffold">Fast Response Scaffold</h3>
+<p>Use this when the request is urgent and your brain needs a clean starting point.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(openxlsx)</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>ops_kpi_raw <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"inputs/weekly_ops_kpi.csv"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_names</span>()</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>region_lookup <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"inputs/finance_region_lookup.xlsx"</span>, <span class="at">sheet =</span> <span class="st">"Regions"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_names</span>()</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(ops_kpi_raw)</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(region_lookup)</span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>ops_kpi_clean <span class="ot">&lt;-</span> ops_kpi_raw <span class="sc">|&gt;</span></span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">report_date =</span> <span class="fu">as.Date</span>(report_date),</span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">region_code =</span> <span class="fu">str_trim</span>(region_code),</span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">branch_name =</span> <span class="fu">str_to_title</span>(<span class="fu">str_trim</span>(branch_name)),</span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">kpi_name =</span> <span class="fu">str_trim</span>(kpi_name),</span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">kpi_value =</span> <span class="fu">replace_na</span>(kpi_value, <span class="dv">0</span>)</span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a>regional_kpi_summary <span class="ot">&lt;-</span> ops_kpi_clean <span class="sc">|&gt;</span></span>
+<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(region_lookup, <span class="at">by =</span> <span class="st">"region_code"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">region =</span> <span class="fu">replace_na</span>(region, <span class="st">"Unmapped Region"</span>)</span>
+<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb10-32"><a href="#cb10-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(report_date, region) <span class="sc">|&gt;</span></span>
+<span id="cb10-33"><a href="#cb10-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb10-34"><a href="#cb10-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">total_kpi_value =</span> <span class="fu">sum</span>(kpi_value, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb10-35"><a href="#cb10-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">branches_reported =</span> <span class="fu">n_distinct</span>(branch_name),</span>
+<span id="cb10-36"><a href="#cb10-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">"drop"</span></span>
+<span id="cb10-37"><a href="#cb10-37" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb10-38"><a href="#cb10-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(report_date, region)</span>
+<span id="cb10-39"><a href="#cb10-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-40"><a href="#cb10-40" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(regional_kpi_summary, <span class="st">"outputs/regional_kpi_summary.csv"</span>)</span>
+<span id="cb10-41"><a href="#cb10-41" aria-hidden="true" tabindex="-1"></a><span class="fu">write.xlsx</span>(regional_kpi_summary, <span class="st">"outputs/regional_kpi_summary.xlsx"</span>)</span>
+<span id="cb10-42"><a href="#cb10-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-43"><a href="#cb10-43" aria-hidden="true" tabindex="-1"></a><span class="co"># Save this script before closing the session so the next urgent request</span></span>
+<span id="cb10-44"><a href="#cb10-44" aria-hidden="true" tabindex="-1"></a><span class="co"># starts from a workflow, not from memory.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="export-decision-shelf" class="level3">
+<h3 class="anchored" data-anchor-id="export-decision-shelf">Export Decision Shelf</h3>
+<p>Use the output format that matches the audience, not the habit.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># CSV for clean downstream use</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(final_summary, <span class="st">"outputs/final_summary.csv"</span>)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Excel when the audience still expects a workbook</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="fu">write.xlsx</span>(final_summary, <span class="st">"outputs/final_summary.xlsx"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="last-quiet-reminder" class="level3">
+<h3 class="anchored" data-anchor-id="last-quiet-reminder">Last Quiet Reminder</h3>
+<p>The old workflow feels fast because you already know how to survive it.</p>
+<p>That is not the same as it being the best route.</p>
+<p>This appendix exists for the moment when habit starts impersonating necessity.</p>
+<p>Use the map. Save the hour. Keep the logic.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -437,7 +1276,7 @@ ul.task-list li input[type="checkbox"] {
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/YOUR-USERNAME\.github\.io\/excel-refugee-migration\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -771,8 +1610,8 @@ ul.task-list li input[type="checkbox"] {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./appendix-b-prompts.html" class="pagination-link" aria-label="Appendix B: The ChatGPT Prompt Library for R">
-        <span class="nav-page-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Appendix B: The ChatGPT Prompt Library for R</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./appendix-b-prompts.html" class="pagination-link" aria-label="The In-Session AI Prompt Library for R">
+        <span class="nav-page-text">The In-Session AI Prompt Library for R</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -781,4 +1620,4 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-</body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/YOUR-USERNAME/excel-refugee-migration/blob/main/appendix-a-cheatsheet.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/YOUR-USERNAME/excel-refugee-migration/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>

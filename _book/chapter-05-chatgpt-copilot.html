@@ -8,7 +8,7 @@
 
 <meta name="description" content="A story-driven practical guide for corporate professionals moving from manual spreadsheet work into faster, repeatable workflows in R.">
 
-<title>5&nbsp; Your AI Co-Pilot: Using ChatGPT as Your Personal R Translator – The Excel Refugee Migration</title>
+<title>5&nbsp; Your AI Co-Pilot: Using Gemini Inside RStudio as Your Personal R Translator – The Excel Refugee Migration</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -68,6 +68,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <meta name="quarto:offset" content="./">
 <link href="./chapter-06-clean-data.html" rel="next">
 <link href="./chapter-04-excel-to-r.html" rel="prev">
+<link href="./images/favicon.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -120,7 +121,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter-01-spreadsheet-ceiling.html">Main</a></li><li class="breadcrumb-item"><a href="./chapter-05-chatgpt-copilot.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Your AI Co-Pilot: Using ChatGPT as Your Personal R Translator</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter-01-spreadsheet-ceiling.html">Main</a></li><li class="breadcrumb-item"><a href="./chapter-05-chatgpt-copilot.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Your AI Co-Pilot: Using Gemini Inside RStudio as Your Personal R Translator</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -138,7 +139,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="./">The Excel Refugee Migration</a> 
-        <div class="sidebar-tools-main">
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://github.com/YOUR-USERNAME/excel-refugee-migration" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+    <a href="https://github.com/YOUR-USERNAME/excel-refugee-migration" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
     <div class="dropdown">
       <a href="" title="Download" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Download"><i class="bi bi-download"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
@@ -195,31 +198,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-01-spreadsheet-ceiling.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">The Spreadsheet Ceiling: Why Your Excel Skills Became a Prison</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">When Being the Excel Hero Starts Costing You Your Future</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-02-why-r-not-python.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Why Not Python? The Honest Answer Nobody Gives You</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Python Was Never the Point: Why R Feels Like the Tool You Were Looking For All Along</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-03-first-60-minutes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">R Without the Fear: Your First 60 Minutes (And It Won’t Hurt)</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">R Without the Fear: The First Hour That Finally Feels Useful</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-04-excel-to-r.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Fluent in Both Languages: Translating Your Excel Brain to R</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">You Already Speak Half the Language: Translating Your Excel Brain into R</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-05-chatgpt-copilot.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Your AI Co-Pilot: Using ChatGPT as Your Personal R Translator</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Your AI Co-Pilot: Using Gemini Inside RStudio as Your Personal R Translator</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -231,13 +234,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-07-dplyr-pivots.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Pivot Tables Are Dead. Long Live dplyr.</span></span></a>
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Pivot Tables Are Dead. Long Live dplyr</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapter-08-ggplot.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Untitled</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Charts That Actually Impress: ggplot2 vs.&nbsp;Excel’s Chart Wizard</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -256,41 +259,58 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
  <span class="menu-text">Appendices</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix-a-cheatsheet.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Appendix A: The Master Excel-to-R Cheat Sheet</span></span></a>
+ <span class="menu-text">The Master Excel-to-R Cheat Sheet</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix-b-prompts.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Appendix B: The ChatGPT Prompt Library for R</span></span></a>
+ <span class="menu-text">The In-Session AI Prompt Library for R</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix-c-packages.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Appendix C: Recommended R Packages by Use Case</span></span></a>
+ <span class="menu-text">Recommended R Packages by Use Case</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix-d-glossary.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Appendix D: Glossary, Excel Terms and Their R Equivalents</span></span></a>
+ <span class="menu-text">Glossary: Excel Terms, R Terms, and Workflow Language</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
+ <span class="menu-text">Back Matter</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./author-note.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Author’s Note</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./author-note.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Author’s Note</span></span></a>
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
   </div>
 </li>
       </ul>
@@ -305,21 +325,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#why-translation-beats-memorization" id="toc-why-translation-beats-memorization" class="nav-link active" data-scroll-target="#why-translation-beats-memorization"><span class="header-section-number">5.1</span> Why Translation Beats Memorization</a></li>
-  <li><a href="#turning-excel-formulas-into-r-code" id="toc-turning-excel-formulas-into-r-code" class="nav-link" data-scroll-target="#turning-excel-formulas-into-r-code"><span class="header-section-number">5.2</span> Turning Excel Formulas Into R Code</a></li>
-  <li><a href="#turning-vlookup-thinking-into-joins" id="toc-turning-vlookup-thinking-into-joins" class="nav-link" data-scroll-target="#turning-vlookup-thinking-into-joins"><span class="header-section-number">5.3</span> Turning VLOOKUP Thinking Into Joins</a></li>
-  <li><a href="#turning-pivot-table-thinking-into-summaries" id="toc-turning-pivot-table-thinking-into-summaries" class="nav-link" data-scroll-target="#turning-pivot-table-thinking-into-summaries"><span class="header-section-number">5.4</span> Turning Pivot Table Thinking Into Summaries</a></li>
-  <li><a href="#prompting-chatgpt-without-getting-lost" id="toc-prompting-chatgpt-without-getting-lost" class="nav-link" data-scroll-target="#prompting-chatgpt-without-getting-lost"><span class="header-section-number">5.5</span> Prompting ChatGPT Without Getting Lost</a></li>
-  <li><a href="#how-to-verify-outputs-before-sending-anything-upstream" id="toc-how-to-verify-outputs-before-sending-anything-upstream" class="nav-link" data-scroll-target="#how-to-verify-outputs-before-sending-anything-upstream"><span class="header-section-number">5.6</span> How to Verify Outputs Before Sending Anything Upstream</a></li>
+  <li><a href="#why-browser-chat-feels-helpful-until-the-work-gets-real" id="toc-why-browser-chat-feels-helpful-until-the-work-gets-real" class="nav-link active" data-scroll-target="#why-browser-chat-feels-helpful-until-the-work-gets-real"><span class="header-section-number">5.1</span> Why Browser Chat Feels Helpful Until the Work Gets Real</a></li>
+  <li><a href="#gemini-inside-rstudio-changes-the-game" id="toc-gemini-inside-rstudio-changes-the-game" class="nav-link" data-scroll-target="#gemini-inside-rstudio-changes-the-game"><span class="header-section-number">5.2</span> Gemini Inside RStudio Changes the Game</a></li>
+  <li><a href="#the-setup-is-simpler-than-it-looks" id="toc-the-setup-is-simpler-than-it-looks" class="nav-link" data-scroll-target="#the-setup-is-simpler-than-it-looks"><span class="header-section-number">5.3</span> The Setup Is Simpler Than It Looks</a></li>
+  <li><a href="#the-shortcut-is-where-it-starts-feeling-like-leverage" id="toc-the-shortcut-is-where-it-starts-feeling-like-leverage" class="nav-link" data-scroll-target="#the-shortcut-is-where-it-starts-feeling-like-leverage"><span class="header-section-number">5.4</span> The Shortcut Is Where It Starts Feeling Like Leverage</a></li>
+  <li><a href="#a-good-prompt-starts-with-the-business-rule-not-the-syntax" id="toc-a-good-prompt-starts-with-the-business-rule-not-the-syntax" class="nav-link" data-scroll-target="#a-good-prompt-starts-with-the-business-rule-not-the-syntax"><span class="header-section-number">5.5</span> A Good Prompt Starts With the Business Rule, Not the Syntax</a></li>
+  <li><a href="#vlookup-pivot-tables-and-other-spreadsheet-habits-translate-beautifully" id="toc-vlookup-pivot-tables-and-other-spreadsheet-habits-translate-beautifully" class="nav-link" data-scroll-target="#vlookup-pivot-tables-and-other-spreadsheet-habits-translate-beautifully"><span class="header-section-number">5.6</span> VLOOKUP, Pivot Tables, and Other Spreadsheet Habits Translate Beautifully</a></li>
+  <li><a href="#comments-turn-the-editor-into-a-quiet-prompting-surface" id="toc-comments-turn-the-editor-into-a-quiet-prompting-surface" class="nav-link" data-scroll-target="#comments-turn-the-editor-into-a-quiet-prompting-surface"><span class="header-section-number">5.7</span> Comments Turn the Editor into a Quiet Prompting Surface</a></li>
+  <li><a href="#verification-is-what-keeps-the-workflow-professional" id="toc-verification-is-what-keeps-the-workflow-professional" class="nav-link" data-scroll-target="#verification-is-what-keeps-the-workflow-professional"><span class="header-section-number">5.8</span> Verification Is What Keeps the Workflow Professional</a></li>
+  <li><a href="#the-best-part-is-not-faster-code.-it-is-lower-friction" id="toc-the-best-part-is-not-faster-code.-it-is-lower-friction" class="nav-link" data-scroll-target="#the-best-part-is-not-faster-code.-it-is-lower-friction"><span class="header-section-number">5.9</span> The Best Part Is Not Faster Code. It Is Lower Friction</a></li>
+  <li><a href="#optional-workflow-snapshot" id="toc-optional-workflow-snapshot" class="nav-link" data-scroll-target="#optional-workflow-snapshot"><span class="header-section-number">5.10</span> Optional Workflow Snapshot</a></li>
+  <li><a href="#what-this-means-for-an-excel-refugee" id="toc-what-this-means-for-an-excel-refugee" class="nav-link" data-scroll-target="#what-this-means-for-an-excel-refugee"><span class="header-section-number">5.11</span> What This Means for an Excel Refugee</a></li>
   </ul>
-</nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/YOUR-USERNAME/excel-refugee-migration/blob/main/chapter-05-chatgpt-copilot.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/YOUR-USERNAME/excel-refugee-migration/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter-01-spreadsheet-ceiling.html">Main</a></li><li class="breadcrumb-item"><a href="./chapter-05-chatgpt-copilot.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Your AI Co-Pilot: Using ChatGPT as Your Personal R Translator</span></a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./chapter-01-spreadsheet-ceiling.html">Main</a></li><li class="breadcrumb-item"><a href="./chapter-05-chatgpt-copilot.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Your AI Co-Pilot: Using Gemini Inside RStudio as Your Personal R Translator</span></a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Your AI Co-Pilot: Using ChatGPT as Your Personal R Translator</span></h1>
+<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Your AI Co-Pilot: Using Gemini Inside RStudio as Your Personal R Translator</span></h1>
 </div>
 
 
@@ -346,32 +371,118 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Placeholder for a scene where the reader gets unstuck by asking for translation instead of memorizing syntax.</p>
+<p>You are looking at a workbook that has already outlived its dignity.</p>
+<p>The formula still works, which is not the same thing as trusting it. Somewhere inside the logic are nested conditions, a lookup, a fallback value, and a small emergency repair you added during quarter-end and never had the time to revisit. Leadership wants the report again tomorrow, but with one extra cut, one exclusion rule, and a cleaner chart.</p>
+<p>You know the old way.</p>
+<p>Open the workbook.<br>
+Trace the formula.<br>
+Try not to break the file.<br>
+Open a browser tab.<br>
+Paste code or logic into a chat window.<br>
+Strip away context because the browser cannot see your R session.<br>
+Explain the columns manually.<br>
+Reconstruct the problem from scratch.<br>
+Wait for an answer that may or may not match the shape of the work.</p>
+<p>That workflow feels modern until you notice how much friction it still contains.</p>
+<p>You are still copy-pasting.</p>
+<p>Still context-switching.</p>
+<p>Still carrying the burden of translating your own work into a form the assistant can understand.</p>
+<p>Then you try something better.</p>
+<p>You keep the problem inside RStudio.</p>
+<p>Your Gemini API key lives safely in <code>.Renviron</code>. Your connection runs through <code>ellmer</code>. <code>chattr</code> sits in the Viewer pane, ready to work with the structure of your session instead of making you rebuild it by hand. The data frames are already there. The package context is already there. The code is already there. The assistant is no longer outside the room shouting advice through a window.</p>
+<p>You highlight a block of code.</p>
+<p>You press the shortcut.</p>
+<p>The response arrives in the same workspace where the problem lives.</p>
+<p>That changes the feeling immediately.</p>
+<p>You are no longer trying to remember syntax while bouncing between a browser and an editor. You are directing an assistant from inside the workflow itself. The code, the prompt, the explanation, the fix, and the next attempt all happen where the work is already happening.</p>
+<p>That is a different level of help.</p>
+<p>Not a chatbot beside the job.</p>
+<p>A co-pilot inside it.</p>
 </div>
 </div>
-<section id="why-translation-beats-memorization" class="level2" data-number="5.1">
-<h2 data-number="5.1" class="anchored" data-anchor-id="why-translation-beats-memorization"><span class="header-section-number">5.1</span> Why Translation Beats Memorization</h2>
-<p>Placeholder starter prose.</p>
+<section id="why-browser-chat-feels-helpful-until-the-work-gets-real" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="why-browser-chat-feels-helpful-until-the-work-gets-real"><span class="header-section-number">5.1</span> Why Browser Chat Feels Helpful Until the Work Gets Real</h2>
+<p>A browser-based AI chat can be useful for quick questions. Ask for a tidyverse example. Request a definition. Get a rough explanation of <code>left_join()</code> or <code>case_when()</code>. For generic help, it can be enough.</p>
+<p>But the moment the task becomes specific, the cracks begin to show.</p>
+<p>Your browser does not know the shape of the object in your Environment.</p>
+<p>It does not know which packages are already loaded.</p>
+<p>It does not know whether your data frame has <code>employee_id</code> or <code>emp_id</code>, whether your <code>date</code> field arrived as text, or whether your <code>sales</code> table is already grouped.</p>
+<p>So you start rebuilding the situation manually. You paste code. Then the error. Then the relevant columns. Then the explanation of what the workbook was trying to do. Then the expected output. Then the part that feels wrong.</p>
+<p>By the time the model is ready to help, you have already spent more cognitive energy narrating the problem than you should have needed to spend.</p>
+<p>That is the hidden inefficiency of browser chat for technical work. The intelligence can be strong, but the context is weak.</p>
+<p>For spreadsheet refugees moving into R, weak context creates extra strain because your real bottleneck is not curiosity. It is friction.</p>
 </section>
-<section id="turning-excel-formulas-into-r-code" class="level2" data-number="5.2">
-<h2 data-number="5.2" class="anchored" data-anchor-id="turning-excel-formulas-into-r-code"><span class="header-section-number">5.2</span> Turning Excel Formulas Into R Code</h2>
-<p>Placeholder starter prose.</p>
+<section id="gemini-inside-rstudio-changes-the-game" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="gemini-inside-rstudio-changes-the-game"><span class="header-section-number">5.2</span> Gemini Inside RStudio Changes the Game</h2>
+<p>This is where the workflow becomes genuinely interesting.</p>
+<p>When you connect Gemini through <code>ellmer</code> and work with it through <code>chattr</code>, you are not merely choosing a different model. You are changing the location of the conversation.</p>
+<p>The help moves from the browser into the IDE.</p>
+<p>That matters because <code>chattr</code> enriches your request with information from the session, including the name and structure of data frames currently in your Environment and the paths of data files in your working directory. It is designed to support exploratory data analysis inside RStudio or Positron rather than generic web chat. citeturn244727view1turn226563view3</p>
+<p>The emotional difference is easy to underestimate until you feel it.</p>
+<p>You stop treating AI as an external consultant and start using it like an in-session translator.</p>
+<p>The code stays in the editor.</p>
+<p>The conversation stays near the work.</p>
+<p>The context does not need to be rebuilt from scratch every time.</p>
+<p>For a reader coming from Excel, this is a major turning point. You are no longer copying logic out of your workflow to ask for help. You are getting help at the point where the workflow is already alive.</p>
 </section>
-<section id="turning-vlookup-thinking-into-joins" class="level2" data-number="5.3">
-<h2 data-number="5.3" class="anchored" data-anchor-id="turning-vlookup-thinking-into-joins"><span class="header-section-number">5.3</span> Turning VLOOKUP Thinking Into Joins</h2>
-<p>Placeholder starter prose.</p>
+<section id="the-setup-is-simpler-than-it-looks" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="the-setup-is-simpler-than-it-looks"><span class="header-section-number">5.3</span> The Setup Is Simpler Than It Looks</h2>
+<p>The setup sounds more technical than it feels once you do it once.</p>
+<p>First, you generate a Gemini API key in Google AI Studio. Then you store it in <code>.Renviron</code>, not inside your script, because good workflow hygiene starts with keeping secrets out of code. <code>ellmer::chat_google_gemini()</code> uses <code>GOOGLE_API_KEY</code>, and for Gemini it also accepts <code>GEMINI_API_KEY</code>. The function is part of <code>ellmer</code>, which exposes Gemini through the Google provider interface. citeturn244727view0</p>
+<p>Here is the clean setup:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>usethis<span class="sc">::</span><span class="fu">edit_r_environ</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Inside the file, add:</p>
+<pre class="text"><code>GOOGLE_API_KEY="your_key_here"</code></pre>
+<p>Save the file and restart R.</p>
+<p>Then install and load the packages:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">"ellmer"</span>, <span class="st">"chattr"</span>))</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ellmer)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(chattr)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Now create the connection and hand it to <code>chattr</code>:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>my_chat <span class="ot">&lt;-</span> <span class="fu">chat_google_gemini</span>(<span class="at">model =</span> <span class="st">"gemini-2.5-flash-lite"</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">chattr_use</span>(my_chat)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><code>ellmer</code> documents <code>chat_google_gemini()</code> as the Gemini chat constructor, and <code>chattr</code> documents that you can pass an <code>ellmer</code> chat object directly into <code>chattr_use()</code>. citeturn244727view0turn244727view1</p>
+<p>Nothing mystical is happening here.</p>
+<p>You are simply wiring the assistant into the place where your code already lives.</p>
 </section>
-<section id="turning-pivot-table-thinking-into-summaries" class="level2" data-number="5.4">
-<h2 data-number="5.4" class="anchored" data-anchor-id="turning-pivot-table-thinking-into-summaries"><span class="header-section-number">5.4</span> Turning Pivot Table Thinking Into Summaries</h2>
-<p>Placeholder starter prose.</p>
+<section id="the-shortcut-is-where-it-starts-feeling-like-leverage" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="the-shortcut-is-where-it-starts-feeling-like-leverage"><span class="header-section-number">5.4</span> The Shortcut Is Where It Starts Feeling Like Leverage</h2>
+<p>A setup becomes a workflow only when it becomes fast enough to use under pressure.</p>
+<p>This is why the shortcut matters.</p>
+<p><code>chattr</code> ships with an RStudio add-in called <strong>Open Chat</strong>, and the package docs recommend assigning it a keyboard shortcut by going to <strong>Tools &gt; Modify Keyboard Shortcuts</strong>, searching for <strong>Open Chat</strong>, and binding a key combination such as <code>Ctrl + Shift + C</code>. citeturn226563view0turn226563view1</p>
+<p>For your working rhythm, the stronger pairing is:</p>
+<ul>
+<li><strong>Ctrl + Shift + C</strong> for <strong>Open Chat</strong></li>
+<li><strong>Ctrl + Shift + S</strong> for <strong>Send prompt</strong></li>
+</ul>
+<p>The first opens the app.</p>
+<p>The second is the magic key for highlighted-code workflow.</p>
+<p>Now the process changes shape.</p>
+<p>Highlight the code.<br>
+Press the shortcut.<br>
+Let Gemini respond inside the Viewer pane.<br>
+Stay in the editor.<br>
+Keep moving.</p>
+<p>That is the difference between asking for help and building momentum.</p>
 </section>
-<section id="prompting-chatgpt-without-getting-lost" class="level2" data-number="5.5">
-<h2 data-number="5.5" class="anchored" data-anchor-id="prompting-chatgpt-without-getting-lost"><span class="header-section-number">5.5</span> Prompting ChatGPT Without Getting Lost</h2>
-<p>Placeholder starter prose.</p>
-</section>
-<section id="how-to-verify-outputs-before-sending-anything-upstream" class="level2" data-number="5.6">
-<h2 data-number="5.6" class="anchored" data-anchor-id="how-to-verify-outputs-before-sending-anything-upstream"><span class="header-section-number">5.6</span> How to Verify Outputs Before Sending Anything Upstream</h2>
-<p>Placeholder starter prose.</p>
+<section id="a-good-prompt-starts-with-the-business-rule-not-the-syntax" class="level2" data-number="5.5">
+<h2 data-number="5.5" class="anchored" data-anchor-id="a-good-prompt-starts-with-the-business-rule-not-the-syntax"><span class="header-section-number">5.5</span> A Good Prompt Starts With the Business Rule, Not the Syntax</h2>
+<p>The easiest way to waste an AI assistant is to hand it syntax without context.</p>
+<p>The easiest way to get useful output is to describe the job the code is trying to do.</p>
+<p>This is why spreadsheet professionals often do surprisingly well with AI once they stop apologizing for not knowing every function name. They usually understand the business rule perfectly. What they need is help expressing it cleanly in R.</p>
+<p>Suppose your workbook has nested <code>IF</code> logic that classifies employees by status. The wrong way to prompt is to say:</p>
+<blockquote class="blockquote">
+<p>Convert this to R.</p>
+</blockquote>
+<p>The better way is to say:</p>
 <div class="callout callout-style-simple callout-tip callout-titled" title="Cheat Sheet Box">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -382,9 +493,101 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Prompt template placeholder.</p>
+<p><strong>Prompt Template for Translating a Spreadsheet Rule</strong></p>
+<p>I am moving a weekly Excel report into R.</p>
+<p>I have a table called <code>employees</code> with the column <code>employment_status</code>.</p>
+<p>I want a new column called <code>status_group</code>.</p>
+<p>If <code>employment_status</code> is “Full Time”, label it “Core Staff”.<br>
+If it is “Part Time”, label it “Flexible Staff”.<br>
+If it is “Contract”, label it “Contractors”.<br>
+Otherwise label it “Other”.</p>
+<p>Write tidyverse code using <code>mutate()</code> and <code>case_when()</code>. Explain each line in plain language and tell me how to verify the result.</p>
 </div>
 </div>
+<p>That produces code like this:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>employees <span class="ot">&lt;-</span> employees <span class="sc">|&gt;</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">status_group =</span> <span class="fu">case_when</span>(</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>      employment_status <span class="sc">==</span> <span class="st">"Full Time"</span> <span class="sc">~</span> <span class="st">"Core Staff"</span>,</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>      employment_status <span class="sc">==</span> <span class="st">"Part Time"</span> <span class="sc">~</span> <span class="st">"Flexible Staff"</span>,</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>      employment_status <span class="sc">==</span> <span class="st">"Contract"</span> <span class="sc">~</span> <span class="st">"Contractors"</span>,</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>      <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">"Other"</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>The real value is not that Gemini can write the syntax.</p>
+<p>The value is that the business rule becomes readable, discussable, and reusable. You stop treating formulas as mysterious artifacts and start seeing them as logic that belongs in a cleaner form.</p>
+</section>
+<section id="vlookup-pivot-tables-and-other-spreadsheet-habits-translate-beautifully" class="level2" data-number="5.6">
+<h2 data-number="5.6" class="anchored" data-anchor-id="vlookup-pivot-tables-and-other-spreadsheet-habits-translate-beautifully"><span class="header-section-number">5.6</span> VLOOKUP, Pivot Tables, and Other Spreadsheet Habits Translate Beautifully</h2>
+<p>A lot of the fear around moving into R comes from the false idea that spreadsheet logic and programming logic live in separate worlds.</p>
+<p>They do not.</p>
+<p>A <code>VLOOKUP</code> is a join.</p>
+<p>A Pivot Table is a grouped summary.</p>
+<p>A helper column is often a <code>mutate()</code> step hiding in plain sight.</p>
+<p>That is why Gemini works so well as a translator when you prompt from the business task rather than from the syntax panic.</p>
+<p>If you have two tables and want to bring payroll values into a headcount table, say that plainly.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>headcount_payroll <span class="ot">&lt;-</span> headcount <span class="sc">|&gt;</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(payroll, <span class="at">by =</span> <span class="st">"employee_id"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>If you want total revenue by region and month, say that plainly.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>sales_summary <span class="ot">&lt;-</span> sales <span class="sc">|&gt;</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(region, month) <span class="sc">|&gt;</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">revenue =</span> <span class="fu">sum</span>(revenue, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">"drop"</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(revenue))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>What Gemini accelerates here is not your intelligence. It accelerates the translation layer between a familiar spreadsheet habit and a reproducible R workflow.</p>
+<p>That is why the assistant feels so different inside RStudio. The surrounding context is already closer to the truth of the problem.</p>
+</section>
+<section id="comments-turn-the-editor-into-a-quiet-prompting-surface" class="level2" data-number="5.7">
+<h2 data-number="5.7" class="anchored" data-anchor-id="comments-turn-the-editor-into-a-quiet-prompting-surface"><span class="header-section-number">5.7</span> Comments Turn the Editor into a Quiet Prompting Surface</h2>
+<p>One of the most elegant parts of this workflow is that you do not always have to type into a chat box at all.</p>
+<p>You can use comments as lightweight instructions.</p>
+<p>That is powerful because it keeps the request attached to the code. The prompt becomes part of the workflow rather than a separate performance in another window.</p>
+<p>For example:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fix the logical error in this calculation and explain why it failed</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>, <span class="cn">NA</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>avg_x <span class="ot">&lt;-</span> <span class="fu">sum</span>(x) <span class="sc">/</span> <span class="fu">length</span>(x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Highlight both lines.</p>
+<p>Press <code>Ctrl + Shift + S</code>.</p>
+<p>Now the prompt and the code travel together.</p>
+<p>This kind of quiet prompting is especially useful for researchers, analysts, and corporate professionals who are already thinking in annotations, assumptions, and review comments. You are simply redirecting a habit you already have into a faster interaction with the model.</p>
+</section>
+<section id="verification-is-what-keeps-the-workflow-professional" class="level2" data-number="5.8">
+<h2 data-number="5.8" class="anchored" data-anchor-id="verification-is-what-keeps-the-workflow-professional"><span class="header-section-number">5.8</span> Verification Is What Keeps the Workflow Professional</h2>
+<p>This chapter would be irresponsible if it stopped at prompting.</p>
+<p>The assistant is helpful. It is not accountable.</p>
+<p>You still own the logic, the result, and the consequences of getting it wrong.</p>
+<p>That is not a weakness in the workflow. It is what makes the workflow professionally sound.</p>
+<p>Your job is not to worship the first answer. Your job is to verify the draft intelligently.</p>
+<p>That means checking row counts after joins, checking totals after grouped summaries, checking missing values, and spot-checking outputs against known results.</p>
+<p>Here is a simple row-count check:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(headcount)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(headcount_payroll)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>And a simple missing-value check after a join:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>headcount_payroll <span class="sc">|&gt;</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">is.na</span>(salary))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>This is where your value stays central.</p>
+<p>Gemini can help draft.</p>
+<p>You decide whether the draft is trustworthy.</p>
 <div class="callout callout-style-simple callout-note callout-titled" title="PhD Insight Made Simple">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -395,9 +598,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Placeholder for human-in-the-loop verification.</p>
+<p>Human-in-the-loop verification is not a technical courtesy. It is the difference between assisted work and careless work.</p>
+<p>A model can translate syntax quickly, but it does not carry your business context, your stakeholder consequences, or your standards of evidence. Verification keeps the workflow grounded in professional judgment. That is why row counts, totals, spot checks, and missing-value checks matter so much in AI-assisted coding.</p>
 </div>
 </div>
+</section>
+<section id="the-best-part-is-not-faster-code.-it-is-lower-friction" class="level2" data-number="5.9">
+<h2 data-number="5.9" class="anchored" data-anchor-id="the-best-part-is-not-faster-code.-it-is-lower-friction"><span class="header-section-number">5.9</span> The Best Part Is Not Faster Code. It Is Lower Friction</h2>
+<p>This is where the chapter’s promise becomes real.</p>
+<p>The real upgrade is not that Gemini writes code faster than you do.</p>
+<p>The real upgrade is that it reduces the amount of solitary friction between you and the next working draft.</p>
+<p>You are no longer stuck with a blank script waiting for confidence to appear.</p>
+<p>You are no longer rebuilding the whole context in a browser tab.</p>
+<p>You are no longer treating every syntax question as proof that you do not belong in technical work.</p>
+<p>The session becomes conversational, contextual, and closer to the shape of your actual job.</p>
+<p>That lowers fear.</p>
+<p>And lower fear changes behavior.</p>
+<p>You experiment more.<br>
+You verify more calmly.<br>
+You iterate faster.<br>
+You stop postponing the move out of spreadsheet dependence.</p>
 <div class="callout callout-style-simple callout-warning callout-titled" title="Visual Breakout">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -408,9 +628,46 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Placeholder visual: Excel problem -&gt; prompt -&gt; R draft -&gt; verification -&gt; output.</p>
+<p>Create a visual called <strong>From Browser Help to In-Session Co-Pilot</strong>.</p>
+<p>Use two columns.</p>
+<p><strong>Left Column: Browser Chat</strong> - copy code out of RStudio - explain the problem manually - paste sample data or column names - lose session context - bring the answer back into the editor</p>
+<p><strong>Right Column: Gemini Inside RStudio</strong> - keep code in the editor - use <code>ellmer</code> to connect Gemini - use <code>chattr</code> inside the Viewer pane - send highlighted code with a shortcut - get help with session-aware context</p>
+<p>The visual should make one point clear: the better workflow removes unnecessary translation work.</p>
 </div>
 </div>
+</section>
+<section id="optional-workflow-snapshot" class="level2" data-number="5.10">
+<h2 data-number="5.10" class="anchored" data-anchor-id="optional-workflow-snapshot"><span class="header-section-number">5.10</span> Optional Workflow Snapshot</h2>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tibble)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>gemini_rstudio_flow <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">tribble</span>(</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>stage, <span class="sc">~</span>question, <span class="sc">~</span>output,</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">"API Setup"</span>, <span class="st">"Can RStudio talk to Gemini securely?"</span>, <span class="st">"Key stored in .Renviron"</span>,</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Connection"</span>, <span class="st">"Which model will chattr use?"</span>, <span class="st">"ellmer chat object"</span>,</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Prompting"</span>, <span class="st">"What is this code trying to do?"</span>, <span class="st">"Business rule clarified"</span>,</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Draft Code"</span>, <span class="st">"What is the R version of that logic?"</span>, <span class="st">"Workable tidyverse draft"</span>,</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Verification"</span>, <span class="st">"Does the result match the expectation?"</span>, <span class="st">"Trusted output"</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>gemini_rstudio_flow</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="what-this-means-for-an-excel-refugee" class="level2" data-number="5.11">
+<h2 data-number="5.11" class="anchored" data-anchor-id="what-this-means-for-an-excel-refugee"><span class="header-section-number">5.11</span> What This Means for an Excel Refugee</h2>
+<p>This chapter is not really about AI fashion.</p>
+<p>It is about workflow dignity.</p>
+<p>In Excel, you often survive by remembering more than you should have to remember. In a browser-based chat workflow, you often survive by re-explaining more than you should have to re-explain. In a Gemini-plus-RStudio workflow, some of that wasted motion finally falls away.</p>
+<p>The assistant is closer to the work.</p>
+<p>The prompt is closer to the code.</p>
+<p>The code is closer to the business rule.</p>
+<p>That is why this chapter matters so much in the migration story.</p>
+<p>You are no longer limited by what you can memorize under pressure. You are learning how to direct an assistant from inside the same environment where your reporting life already happens.</p>
+<p>That is not a gimmick.</p>
+<p>That is leverage.</p>
+<p>And once you feel that leverage, the next question changes.</p>
+<p>You stop asking, “Can AI help me write R code?”</p>
+<p>You start asking, “What else in my messy, repetitive workflow can now be made lighter?”</p>
 <div class="callout callout-style-simple callout-important callout-titled" title="Monday Morning Application">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -421,15 +678,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Paste one live Excel formula into ChatGPT and ask for an R translation.</p>
+<p>Choose one Excel-driven task you did this week and run it through the full Gemini-in-RStudio workflow.</p>
+<ol type="1">
+<li>state the business rule in plain English</li>
+<li>store your Gemini key safely in <code>.Renviron</code> if you have not already</li>
+<li>connect Gemini with <code>chat_google_gemini()</code></li>
+<li>pass the connection to <code>chattr_use()</code></li>
+<li>highlight the relevant code or commented instruction and send it with your shortcut</li>
+<li>verify the result using row counts, totals, or spot checks</li>
+</ol>
+<p>Then answer one question in writing.</p>
+<p>Did keeping the assistant inside RStudio reduce friction enough to make the task feel more repeatable than before?</p>
 </div>
-</div>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example verification workflow placeholder</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>result_rows <span class="ot">&lt;-</span> <span class="dv">1250</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>expected_rows <span class="ot">&lt;-</span> <span class="dv">1250</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">identical</span>(result_rows, expected_rows)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
 
@@ -509,7 +769,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp('/' + window.location.host + '/');
+        var filterRegex = new RegExp("https:\/\/YOUR-USERNAME\.github\.io\/excel-refugee-migration\/");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -838,8 +1098,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./chapter-04-excel-to-r.html" class="pagination-link" aria-label="Fluent in Both Languages: Translating Your Excel Brain to R">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Fluent in Both Languages: Translating Your Excel Brain to R</span></span>
+      <a href="./chapter-04-excel-to-r.html" class="pagination-link" aria-label="You Already Speak Half the Language: Translating Your Excel Brain into R">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">You Already Speak Half the Language: Translating Your Excel Brain into R</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
@@ -853,4 +1113,4 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-</body></html>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/YOUR-USERNAME/excel-refugee-migration/blob/main/chapter-05-chatgpt-copilot.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/YOUR-USERNAME/excel-refugee-migration/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>

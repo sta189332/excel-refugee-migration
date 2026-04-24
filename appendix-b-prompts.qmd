@@ -1,7 +1,8 @@
 ---
-title: "The In-Session AI Prompt Library for R"
-appendix: true
+number-sections: false
 ---
+
+# The In-Session AI Prompt Library for R {.unnumbered}
 
 This appendix is built for one kind of moment.
 

@@ -1,7 +1,8 @@
 ---
-title: "The Master Excel-to-R Cheat Sheet"
-appendix: true
+number-sections: false
 ---
+
+# The Master Excel-to-R Cheat Sheet {.unnumbered}
 
 You do not need to memorize everything in R.
 
@@ -141,20 +142,62 @@ Import each file. Standardize names. Clean region labels. Parse the month field.
 **Recommended Core Functions**  
 `read_csv()`, `read_excel()`, `clean_names()`, `str_trim()`, `left_join()`, `group_by()`, `summarise()`, `write_csv()`
 
-**Reusable Snippet Placeholder**
+Use this when the question is simple but the file chain is not. The real value here is not the formula replacement. It is that actuals, targets, and lookup logic all get pulled into one readable sequence.
 
 ```{r}
 #| label: app-a-monthly-sales-pattern
 #| eval: false
 
-# Placeholder: Import actuals CSV
-# Placeholder: Import target Excel sheet
-# Placeholder: Clean names in both tables
-# Placeholder: Standardize region labels and parse month
-# Placeholder: Join actuals to targets
-# Placeholder: Group by month and region
-# Placeholder: Summarise actuals, targets, and variance
-# Placeholder: Export summary table for reporting
+library(readr)
+library(readxl)
+library(dplyr)
+library(stringr)
+library(lubridate)
+library(janitor)
+
+sales_actuals <- read_csv("inputs/sales_actuals.csv") |>
+  clean_names() |>
+  mutate(
+    region = str_trim(region),
+    region = str_to_title(region),
+    sale_month = floor_date(mdy(sale_date), unit = "month"),
+    sales_value = replace_na(sales_value, 0)
+  )
+
+sales_targets <- read_excel("inputs/sales_targets.xlsx", sheet = "Targets") |>
+  clean_names() |>
+  mutate(
+    region = str_trim(region),
+    region = str_to_title(region),
+    sale_month = floor_date(mdy(month), unit = "month"),
+    target_value = replace_na(target_value, 0)
+  )
+
+product_lookup <- read_csv("inputs/product_lookup.csv") |>
+  clean_names() |>
+  mutate(product_code = str_trim(product_code)) |>
+  distinct(product_code, .keep_all = TRUE)
+
+monthly_sales_summary <- sales_actuals |>
+  left_join(product_lookup, by = "product_code") |>
+  group_by(sale_month, region) |>
+  summarise(
+    actual_sales = sum(sales_value, na.rm = TRUE),
+    .groups = "drop"
+  ) |>
+  left_join(
+    sales_targets |>
+      group_by(sale_month, region) |>
+      summarise(target_sales = sum(target_value, na.rm = TRUE), .groups = "drop"),
+    by = c("sale_month", "region")
+  ) |>
+  mutate(
+    target_sales = replace_na(target_sales, 0),
+    variance = actual_sales - target_sales
+  ) |>
+  arrange(sale_month, region)
+
+write_csv(monthly_sales_summary, "outputs/monthly_sales_summary.csv")
 ```
 
 ### HR Headcount Reconciliation Pattern
@@ -171,20 +214,50 @@ Import both tables. Clean names. Trim IDs and department labels. Remove duplicat
 **Recommended Core Functions**  
 `read_csv()`, `clean_names()`, `str_trim()`, `distinct()`, `left_join()`, `group_by()`, `summarise()`
 
-**Reusable Snippet Placeholder**
+This workflow is less about clever code than about calming suspicion. You need one table that tells you what HR says, what payroll says, and where the counts drift apart.
 
 ```{r}
 #| label: app-a-hr-headcount-pattern
 #| eval: false
 
-# Placeholder: Import HR headcount extract
-# Placeholder: Import payroll or workforce reference file
-# Placeholder: Clean names and trim employee IDs
-# Placeholder: Remove duplicate employee records
-# Placeholder: Join staffing attributes
-# Placeholder: Group by department
-# Placeholder: Compare headcount totals and flag mismatches
-# Placeholder: Export reconciliation summary
+library(readr)
+library(dplyr)
+library(stringr)
+library(janitor)
+
+headcount_hr <- read_csv("inputs/hr_headcount.csv") |>
+  clean_names() |>
+  mutate(
+    employee_id = str_trim(employee_id),
+    department = str_to_title(str_trim(department))
+  ) |>
+  distinct(employee_id, .keep_all = TRUE)
+
+staffing_reference <- read_csv("inputs/payroll_staffing_reference.csv") |>
+  clean_names() |>
+  mutate(
+    employee_id = str_trim(employee_id),
+    payroll_department = str_to_title(str_trim(payroll_department))
+  ) |>
+  distinct(employee_id, .keep_all = TRUE)
+
+headcount_reconciliation <- headcount_hr |>
+  left_join(staffing_reference, by = "employee_id") |>
+  mutate(
+    department_match = if_else(department == payroll_department, "Match", "Mismatch")
+  )
+
+department_reconciliation_summary <- headcount_reconciliation |>
+  group_by(department) |>
+  summarise(
+    hr_count = n(),
+    payroll_count = sum(!is.na(payroll_department)),
+    mismatches = sum(department_match == "Mismatch", na.rm = TRUE),
+    .groups = "drop"
+  ) |>
+  arrange(desc(mismatches), department)
+
+write_csv(department_reconciliation_summary, "outputs/headcount_reconciliation_summary.csv")
 ```
 
 ### Budget vs Actual Workflow
@@ -201,20 +274,52 @@ Import both files. Clean names. Standardize cost-center labels and month fields.
 **Recommended Core Functions**  
 `read_excel()`, `read_csv()`, `clean_names()`, `mutate()`, `left_join()`, `group_by()`, `summarise()`, `arrange()`
 
-**Reusable Snippet Placeholder**
+This is one of the most common “looks simple, eats a morning” workflows in corporate finance. The gain comes from making cost center logic, month alignment, and variance math visible all at once.
 
 ```{r}
 #| label: app-a-budget-vs-actual-pattern
 #| eval: false
 
-# Placeholder: Import budget workbook
-# Placeholder: Import actuals export
-# Placeholder: Standardize cost-center names and month format
-# Placeholder: Join budget and actuals
-# Placeholder: Calculate variance and variance_pct
-# Placeholder: Group at the required reporting level
-# Placeholder: Rank cost centers by overrun
-# Placeholder: Export final summary for finance pack
+library(readxl)
+library(readr)
+library(dplyr)
+library(stringr)
+library(lubridate)
+library(janitor)
+
+budget <- read_excel("inputs/budget.xlsx", sheet = "Budget") |>
+  clean_names() |>
+  mutate(
+    cost_center = str_to_upper(str_trim(cost_center)),
+    report_month = floor_date(mdy(month), unit = "month"),
+    budget_value = replace_na(budget_value, 0)
+  )
+
+actuals <- read_csv("inputs/actuals.csv") |>
+  clean_names() |>
+  mutate(
+    cost_center = str_to_upper(str_trim(cost_center)),
+    report_month = floor_date(mdy(transaction_date), unit = "month"),
+    actual_value = replace_na(actual_value, 0)
+  )
+
+budget_vs_actual <- actuals |>
+  group_by(report_month, cost_center) |>
+  summarise(actual_value = sum(actual_value, na.rm = TRUE), .groups = "drop") |>
+  left_join(
+    budget |>
+      group_by(report_month, cost_center) |>
+      summarise(budget_value = sum(budget_value, na.rm = TRUE), .groups = "drop"),
+    by = c("report_month", "cost_center")
+  ) |>
+  mutate(
+    budget_value = replace_na(budget_value, 0),
+    variance = actual_value - budget_value,
+    variance_pct = if_else(budget_value == 0, NA_real_, variance / budget_value)
+  ) |>
+  arrange(desc(variance))
+
+write_csv(budget_vs_actual, "outputs/budget_vs_actual_summary.csv")
 ```
 
 ### Weekly KPI Reporting Pattern
@@ -231,20 +336,38 @@ Treat the KPI file as a standing pipeline. Import, clean names, trim text, handl
 **Recommended Core Functions**  
 `read_csv()`, `clean_names()`, `str_trim()`, `replace_na()`, `group_by()`, `summarise()`, `write_csv()`
 
-**Reusable Snippet Placeholder**
+This is the kind of workflow that becomes more valuable the less dramatic it feels. If the same KPI file keeps arriving, the right outcome is not excitement. It is calm repetition.
 
 ```{r}
 #| label: app-a-weekly-kpi-pattern
 #| eval: false
 
-# Placeholder: Import weekly KPI export
-# Placeholder: Clean names and trim region or site labels
-# Placeholder: Replace missing metric values
-# Placeholder: Remove duplicate records if needed
-# Placeholder: Group by reporting unit
-# Placeholder: Summarise total KPI values
-# Placeholder: Export reusable summary table
-# Placeholder: Save chart for weekly deck
+library(readr)
+library(dplyr)
+library(stringr)
+library(tidyr)
+library(janitor)
+
+weekly_kpi <- read_csv("inputs/weekly_kpi_export.csv") |>
+  clean_names() |>
+  mutate(
+    region = str_to_title(str_trim(region)),
+    site = str_trim(site),
+    metric_name = str_trim(metric_name),
+    metric_value = replace_na(metric_value, 0)
+  ) |>
+  distinct(report_date, region, site, metric_name, .keep_all = TRUE)
+
+weekly_kpi_summary <- weekly_kpi |>
+  group_by(report_date, region) |>
+  summarise(
+    total_metric_value = sum(metric_value, na.rm = TRUE),
+    records = n(),
+    .groups = "drop"
+  ) |>
+  arrange(report_date, region)
+
+write_csv(weekly_kpi_summary, "outputs/weekly_kpi_summary.csv")
 ```
 
 ### Department Summary Pipeline
@@ -261,19 +384,36 @@ Import the cleaned source file, standardize department values, group by departme
 **Recommended Core Functions**  
 `read_csv()`, `mutate()`, `str_trim()`, `group_by()`, `summarise()`, `arrange()`
 
-**Reusable Snippet Placeholder**
+A department summary is often one of those tasks that looks too small to deserve a script until you realize you have built it eighteen times already.
 
 ```{r}
 #| label: app-a-department-summary-pattern
 #| eval: false
 
-# Placeholder: Import clean source file
-# Placeholder: Standardize department names
-# Placeholder: Parse reporting month or quarter
-# Placeholder: Group by department and period
-# Placeholder: Summarise counts, totals, or rates
-# Placeholder: Arrange output in business order
-# Placeholder: Export for meeting pack
+library(readr)
+library(dplyr)
+library(stringr)
+library(lubridate)
+library(janitor)
+
+department_metrics <- read_csv("inputs/department_metrics.csv") |>
+  clean_names() |>
+  mutate(
+    department = str_to_title(str_trim(department)),
+    report_month = floor_date(mdy(report_date), unit = "month"),
+    metric_value = replace_na(metric_value, 0)
+  )
+
+department_summary <- department_metrics |>
+  group_by(report_month, department) |>
+  summarise(
+    total_metric_value = sum(metric_value, na.rm = TRUE),
+    records = n(),
+    .groups = "drop"
+  ) |>
+  arrange(report_month, desc(total_metric_value))
+
+write_csv(department_summary, "outputs/department_summary.csv")
 ```
 
 ### Payroll Cleanup Workflow
@@ -290,19 +430,51 @@ Import the export. Clean names. Trim and standardize key fields. Replace missing
 **Recommended Core Functions**  
 `read_excel()`, `clean_names()`, `str_trim()`, `replace_na()`, `mdy()` or `dmy()`, `distinct()`, `write_csv()`, `write.xlsx()`
 
-**Reusable Snippet Placeholder**
+This is where many spreadsheet users first feel the emotional payoff of a script. The file is still ugly. You are simply no longer negotiating with it by hand.
 
 ```{r}
 #| label: app-a-payroll-cleanup-pattern
 #| eval: false
 
-# Placeholder: Import payroll extract
-# Placeholder: Clean names and trim identifiers
-# Placeholder: Standardize department and location text
-# Placeholder: Replace missing manager or bonus fields
-# Placeholder: Parse pay date and pay period
-# Placeholder: Remove duplicate employee-pay-period rows
-# Placeholder: Export clean payroll file to CSV and Excel
+library(readxl)
+library(dplyr)
+library(stringr)
+library(lubridate)
+library(tidyr)
+library(janitor)
+library(readr)
+library(openxlsx)
+
+payroll_raw <- read_excel("inputs/payroll_extract.xlsx") |>
+  clean_names()
+
+payroll_clean <- payroll_raw |>
+  mutate(
+    employee_id = str_trim(employee_id),
+    department = str_to_title(str_trim(department)),
+    location = str_trim(location),
+    manager_name = replace_na(manager_name, "Unassigned"),
+    pay_date = mdy(pay_date),
+    pay_period = floor_date(pay_date, unit = "month"),
+    bonus_amount = replace_na(bonus_amount, 0)
+  ) |>
+  distinct(employee_id, pay_period, .keep_all = TRUE)
+
+payroll_validation <- payroll_clean |>
+  summarise(
+    clean_rows = n(),
+    total_base_pay = sum(base_pay, na.rm = TRUE),
+    total_bonus = sum(bonus_amount, na.rm = TRUE)
+  )
+
+write_csv(payroll_clean, "outputs/payroll_clean.csv")
+write.xlsx(
+  list(
+    payroll_clean = payroll_clean,
+    validation = payroll_validation
+  ),
+  file = "outputs/payroll_clean.xlsx"
+)
 ```
 
 ### Executive Slide Preparation Pattern
@@ -319,18 +491,46 @@ Start from the trusted summary table. Order the categories. Build one clear char
 **Recommended Core Functions**  
 `ggplot()`, `geom_col()`, `labs()`, `theme_minimal()`, `ggsave()`
 
-**Reusable Snippet Placeholder**
+This pattern is not about design vanity. It is about making the output carry more of the conversation so you do not have to rescue the slide with explanation.
 
 ```{r}
 #| label: app-a-executive-slide-pattern
 #| eval: false
 
-# Placeholder: Import or use final summary table
-# Placeholder: Reorder categories for ranking clarity
-# Placeholder: Build chart with ggplot2
-# Placeholder: Add informative title and axis labels
-# Placeholder: Remove clutter and unnecessary legend
-# Placeholder: Export slide-ready PNG
+library(readr)
+library(dplyr)
+library(forcats)
+library(ggplot2)
+library(scales)
+library(openxlsx)
+
+regional_gap <- read_csv("inputs/regional_gap_summary.csv") |>
+  mutate(region = fct_reorder(region, total_variance))
+
+gap_chart <- ggplot(regional_gap, aes(x = region, y = total_variance)) +
+  geom_col(fill = "steelblue") +
+  labs(
+    title = "Southeast And North Require Immediate Revenue Attention",
+    subtitle = "Cumulative variance against target by region",
+    x = NULL,
+    y = "Variance"
+  ) +
+  scale_y_continuous(labels = label_dollar()) +
+  theme_minimal(base_size = 12) +
+  theme(
+    panel.grid.minor = element_blank(),
+    legend.position = "none"
+  )
+
+ggsave(
+  filename = "outputs/regional_gap_chart.png",
+  plot = gap_chart,
+  width = 8,
+  height = 5,
+  dpi = 300
+)
+
+write.xlsx(regional_gap, "outputs/regional_gap_slide_support.xlsx")
 ```
 
 ## A.3 Fast Decision Table
@@ -377,15 +577,50 @@ Use this when the request is urgent and your brain needs a clean starting point.
 #| label: app-a-fast-response-scaffold
 #| eval: false
 
-# Placeholder: Import the raw file or files
-# Placeholder: Clean names immediately
-# Placeholder: Inspect with glimpse()
-# Placeholder: Trim ugly text fields
-# Placeholder: Handle missing values intentionally
-# Placeholder: Join the reference or lookup table
-# Placeholder: Summarise at the decision level
-# Placeholder: Export the clean output
-# Placeholder: Save the script before moving on
+library(readr)
+library(readxl)
+library(dplyr)
+library(stringr)
+library(tidyr)
+library(janitor)
+library(openxlsx)
+
+ops_kpi_raw <- read_csv("inputs/weekly_ops_kpi.csv") |>
+  clean_names()
+
+region_lookup <- read_excel("inputs/finance_region_lookup.xlsx", sheet = "Regions") |>
+  clean_names()
+
+glimpse(ops_kpi_raw)
+glimpse(region_lookup)
+
+ops_kpi_clean <- ops_kpi_raw |>
+  mutate(
+    report_date = as.Date(report_date),
+    region_code = str_trim(region_code),
+    branch_name = str_to_title(str_trim(branch_name)),
+    kpi_name = str_trim(kpi_name),
+    kpi_value = replace_na(kpi_value, 0)
+  )
+
+regional_kpi_summary <- ops_kpi_clean |>
+  left_join(region_lookup, by = "region_code") |>
+  mutate(
+    region = replace_na(region, "Unmapped Region")
+  ) |>
+  group_by(report_date, region) |>
+  summarise(
+    total_kpi_value = sum(kpi_value, na.rm = TRUE),
+    branches_reported = n_distinct(branch_name),
+    .groups = "drop"
+  ) |>
+  arrange(report_date, region)
+
+write_csv(regional_kpi_summary, "outputs/regional_kpi_summary.csv")
+write.xlsx(regional_kpi_summary, "outputs/regional_kpi_summary.xlsx")
+
+# Save this script before closing the session so the next urgent request
+# starts from a workflow, not from memory.
 ```
 
 ### Export Decision Shelf

@@ -50,7 +50,7 @@ And once the work feels legible, fear stops sounding like wisdom.
 It starts sounding like an old habit that stayed too long.
 :::
 
-## The hardest part of learning R is arriving with spreadsheet scars
+## The Hardest Part of Learning R Is Arriving with Spreadsheet Scars
 
 A lot of the anxiety professionals carry into their first serious encounter with R does not come from R.
 
@@ -78,7 +78,7 @@ Save something useful.
 
 That is enough to begin changing the story in your head.
 
-## Start with less than you think you need
+## Start with Less Than You Think You Need
 
 The people who make technical learning feel intimidating often begin by expanding the environment. More tools. More settings. More packages. More layers of setup. More things to get wrong before you even touch the work.
 
@@ -106,7 +106,7 @@ That matters more than people think.
 
 Because many career transitions do not begin when someone becomes highly skilled. They begin when the old fear loses credibility.
 
-## The first good sign is that R works with the grain of your thinking
+## The First Good Sign is That R Works with The Grain of Your Thinking
 
 This is where the spreadsheet-trained mind starts noticing something important.
 
@@ -130,7 +130,7 @@ That is a quieter shift than people expect.
 
 But once it clicks, even slightly, it is hard to unsee.
 
-## Your first dataset should look like work, not like a classroom
+## Your First Dataset Should Look Like Work, Not Like a Classroom
 
 If the first file feels too artificial, the lesson rarely sticks.
 
@@ -183,7 +183,7 @@ A data frame is not a mysterious technical object. It is a structured table desi
 In spreadsheets, people often work cell by cell because the interface encourages it. In R, the table itself becomes the working unit. You inspect it, filter it, transform it, summarize it, and export it as a structure. That shift matters because it reduces accidental complexity. You stop negotiating with isolated cells and start working at the level the reporting task really lives on.
 :::
 
-## Filtering without formula anxiety feels bigger than it should
+## Filtering Without Formula Anxiety Feels Bigger Than It Should
 
 One of the first emotional wins in R is strangely small.
 
@@ -219,7 +219,7 @@ You stop feeling like a visitor.
 
 You start feeling like the tool may be willing to meet you halfway.
 
-## The first hour should end with a result, not a lecture
+## The First Hour Should End with a Result, Not a Lecture
 
 This is where many learning experiences go wrong.
 
@@ -265,7 +265,7 @@ A grouped summary that used to require a pivot table, extra checking, and a mild
 
 Once a useful action becomes repeatable, it stops being luck.
 
-## You do not need to understand everything to trust the direction
+## You Do Not Need to Understand Everything to Trust the Direction
 
 This part is important for people who have learned to treat technical discomfort as a signal to retreat.
 
@@ -299,7 +299,7 @@ With a shift in willingness.
 - leave you wanting to try again
 :::
 
-## Save something small and real
+## Save Something Small and Real
 
 The moment becomes more convincing when the result leaves the script and becomes a file you could imagine using.
 
@@ -322,7 +322,7 @@ That is the skeleton of a better working life.
 
 It is still modest. It is supposed to be. But it has already done something the old spreadsheet ritual often failed to do. It gave you a visible process you can repeat without rebuilding it from scratch in a panic.
 
-## The psychological shift is the real milestone
+## The Psychological Shift is the Real Milestone
 
 By the end of the first solid hour, the deepest change is not technical.
 
@@ -366,7 +366,7 @@ first_hour_steps <- tibble::tribble(
 first_hour_steps
 ```
 
-## The next relief comes from realizing your Excel brain still matters
+## The Next Relief Comes from Realizing Your Excel Brain Still Matters
 
 That is where this chapter leaves you.
 

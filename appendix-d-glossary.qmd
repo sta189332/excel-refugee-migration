@@ -1,7 +1,8 @@
 ---
-title: "Appendix D — Glossary: Excel Terms, R Terms, and Workflow Language"
-appendix: true
+number-sections: false
 ---
+
+# Glossary: Excel Terms, R Terms, and Workflow Language {.unnumbered}
 
 This glossary is built for one kind of reader.
 
